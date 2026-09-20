@@ -2,9 +2,8 @@
 
 본 저장소는 **NIST CSF 2.0과 ISMS-P를 기반으로 구성한 GapZer0 Framework의 실무 이행 가이드라인**을 관리하기 위한 GitHub Repository입니다.
 
-이 Repository는 일반 문서 저장소가 아니라, **Jekyll + GitHub Pages + jekyll-gitbook 테마**를 이용하여 Markdown 문서를 웹사이트 형태로 배포하는 구조입니다.
+이 Repository는 일반 문서 저장소가 아니라 **Jekyll + GitHub Pages + jekyll-gitbook 테마**를 이용하여 Markdown 문서를 웹사이트 형태로 배포하는 구조입니다.
 
-팀원들은 Jekyll을 처음 사용하는 것을 전제로, 아래 내용을 먼저 읽고 파일을 수정해 주세요.
 
 ---
 
@@ -12,7 +11,7 @@
 
 Jekyll은 Markdown(`.md`) 파일을 HTML 웹페이지로 변환해 주는 **정적 사이트 생성기(Static Site Generator)** 입니다.
 
-쉽게 말하면 우리가 GitHub에 다음과 같은 Markdown 파일을 작성하면,
+예를 들어 팀원들이 GitHub에 다음과 같은 Markdown 파일을 작성하면,
 
 ```text
 _pages/01-introduction.md
@@ -37,7 +36,7 @@ GitHub Pages가 Jekyll Build 수행
 
 ## 왜 GitHub + Jekyll 구조를 사용하는가?
 
-GapZer0 Guideline을 설계하면서 중요하게 고려한 문제 중 하나는 **가이드라인을 한 번 만들고 끝내는 것이 아니라, 향후 Framework와 관련 기준이 변경될 때 지속적으로 수정·보완하기 쉬운 형태로 관리하는 것**입니다.
+GapZer0 Guideline을 설계하면서 중요하게 생각한 것은  **가이드라인을 한 번 만들고 끝내는 것이 아니라, 향후 Framework와 관련 기준이 변경될 때 지속적으로 수정·보완하기 쉬운 형태로 만들어야 한다**는 멘토님의 피드백이었습니다.
 
 PDF나 한글 문서처럼 하나의 완성본 파일을 중심으로 관리하면 수정할 때마다 파일 전체를 다시 편집하고 새 버전을 배포해야 하며, 여러 팀원이 동시에 작업하거나 변경 이력을 추적하기도 어렵습니다.
 
@@ -57,19 +56,9 @@ _pages/control-guide/01-governance/common.md
 
 ### 2. 모든 변경 이력을 Git으로 확인할 수 있음
 
-GitHub에서는 파일을 수정하고 Commit할 때마다 변경 이력이 남습니다.
+GitHub에서 작업하는 것이므로 문서의 변경 이력을 관리하고 추적할 수 있습니다.
 
-따라서 다음과 같은 내용을 확인할 수 있습니다.
-
-- 누가 수정했는지
-- 언제 수정했는지
-- 어떤 내용이 추가·삭제되었는지
-- 왜 변경했는지(Commit Message)
-- 이전 버전의 내용은 무엇이었는지
-
-필요한 경우 이전 Commit을 확인하여 과거 버전과 비교하거나 변경 전 상태로 되돌릴 수도 있습니다.
-
-즉, 별도의 Change Log만으로 모든 변경사항을 수동 관리하는 것보다 **실제 문서 변경 이력 자체를 Git으로 추적할 수 있다는 장점**이 있습니다.
+가이드라인 내용이 담긴 md 파일을 누가 수정했고/언제 수정했으며/ 어떤 내용이 추가·삭제되었는지 확인할 수 있습니다.
 
 ### 3. 여러 팀원이 나누어 작업하기 쉬움
 
@@ -84,8 +73,6 @@ Control Guide가 Domain과 Class별 파일로 분리되어 있기 때문에 팀�
 ```
 
 처럼 작업 범위를 나눌 수 있습니다.
-
-향후에는 필요에 따라 **Branch → Commit → Pull Request → Review → Merge** 방식도 사용할 수 있어, 한 사람이 수정한 내용을 다른 팀원이 검토한 뒤 공식 버전에 반영하는 협업 절차를 만들 수 있습니다.
 
 ### 4. 문서 수정과 웹사이트 업데이트가 연결됨
 
@@ -118,16 +105,12 @@ Assessment Question 데이터
 Self Assessment JavaScript
 CSV Export
 PDF Export
-검색 및 시각화 기능
 ```
 
 즉, 문서 자체와 기능을 한 Repository에서 함께 발전시킬 수 있습니다.
 
-### 6. Living Guideline 형태로 운영할 수 있음
 
-이러한 구조의 최종 목적은 GapZer0 Guideline을 특정 시점에 완성된 정적 문서로 두는 것이 아니라, Framework와 관련 기준의 변화에 따라 계속 갱신할 수 있는 **Living Guideline**으로 운영하는 것입니다.
-
-정리하면 현재 구조는 다음과 같은 유지보수 흐름을 목표로 합니다.
+현재 구조는 다음과 같은 유지보수 흐름을 목표로 합니다.
 
 ```text
 Framework 또는 기준 변경
@@ -144,8 +127,6 @@ GitHub Pages 자동 Build
         ↓
 최신 가이드라인 배포
 ```
-
-따라서 **GitHub + Jekyll 기반 문서화는 우리가 해결하고자 했던 '업데이트·유지보수하기 좋은 형식'이라는 요구사항을 구현하기 위한 핵심 방식**이라고 볼 수 있습니다.
 
 이 프로젝트에서 사용하는 테마는 다음과 같습니다.
 
@@ -199,28 +180,12 @@ GapZer0_Guideline/
         └── 15-threat-vulnerability-management/
 ```
 
-아래에서 각 파일과 폴더의 역할을 설명합니다.
-
----
 
 # 3. 최상위 파일
 
 ## 3.1 `README.md`
 
-현재 보고 있는 문서입니다.
-
-이 파일은 **가이드라인 웹사이트에 표시되는 실제 콘텐츠라기보다, Repository에서 작업하는 팀원들을 위한 개발·운영 설명서**입니다.
-
-팀원들이 다음 내용을 이해할 수 있도록 관리합니다.
-
-- Repository 구조
-- 각 파일과 폴더의 역할
-- Jekyll 기본 개념
-- 가이드라인 콘텐츠 작성 위치
-- Self Assessment 향후 개발 구조
-- GitHub에서 파일을 수정할 때 주의할 점
-
-Repository 구조가 변경되면 README도 함께 업데이트하는 것을 권장합니다.
+**Repository에서 작업하는 팀원들을 위한 개발·운영 설명서**입니다.
 
 ---
 
@@ -294,9 +259,8 @@ collections:
 
 이 설정이 있기 때문에 `_pages` 폴더 안의 Markdown 파일이 실제 웹페이지로 빌드될 수 있습니다.
 
-### 주의
 
-`_config.yml`은 사이트 전체에 영향을 주므로, 단순한 콘텐츠 작성 작업에서는 가급적 수정하지 않습니다.
+`_config.yml`은 사이트 전체에 영향을 주므로, 단순한 콘텐츠 작성 작업에서는 가급적 수정하지 않는 걸 권장합니다.
 
 ---
 
@@ -306,7 +270,7 @@ collections:
 
 웹사이트 왼쪽 Sidebar에 표시할 **메인 목차 데이터**입니다.
 
-현재 Sidebar에는 다음 5개 메뉴만 표시합니다.
+현재 Sidebar에는 다음 5개 메뉴만 표시하고 있습니다.
 
 ```text
 01. GapZer0 가이드라인 소개
@@ -325,9 +289,8 @@ collections:
 
 `title`은 Sidebar에 표시되는 이름이고, `url`은 클릭했을 때 이동할 페이지 주소입니다.
 
-### 주의
 
-Control Guide 하위의 15개 Security Domain은 Sidebar에 직접 표시하지 않습니다.
+Control Guide 하위의 15개 Security Domain은 Sidebar에 직접 표시하지 않았습니다.
 
 사용자는
 
@@ -349,7 +312,7 @@ Control Class 선택
 
 jekyll-gitbook의 **왼쪽 Sidebar(목차)를 실제 HTML로 만들어 주는 템플릿 파일**입니다.
 
-기본 jekyll-gitbook 테마는 Collection의 페이지를 자동으로 Sidebar에 출력하지만, GapZer0 Guideline에서는 Sidebar를 01~05만 표시하도록 직접 수정했습니다.
+기본 jekyll-gitbook 테마는 Collection의 페이지를 자동으로 Sidebar에 출력하지만, 저희 가이드라인에서는 Sidebar를 01~05만 표시하도록 직접 수정했습니다.
 
 현재 구조는 다음과 같습니다.
 
@@ -365,9 +328,7 @@ toc-date.html
 
 `toc-date.html`은 Sidebar 구조 자체를 변경할 때만 수정합니다.
 
-### 주의
-
-이 파일을 잘못 수정하면 사이트 전체 Sidebar가 깨질 수 있으므로 일반 콘텐츠 작성 시에는 수정하지 않는 것을 권장합니다.
+이 파일을 잘못 수정하면 사이트 전체 Sidebar가 깨질 수 있으므로 일반 콘텐츠 작성 시에는 수정하지 않는 걸 권장합니다.
 
 ---
 
@@ -464,8 +425,6 @@ Control 상세 내용
 
 실제 GapZer0 Framework의 **Security Domain별 Control Implementation Guide**를 관리하는 폴더입니다.
 
-현재 Domain 순서는 Framework의 순서와 동일하게 번호를 부여했습니다.
-
 ```text
 01-governance
 02-asset-management
@@ -484,7 +443,7 @@ Control 상세 내용
 15-threat-vulnerability-management
 ```
 
-폴더 앞의 번호는 **GitHub에서 Domain을 Framework 순서대로 정렬하기 위한 목적**입니다.
+폴더 앞의 번호는 Framework상에서 정렬된 순서로 폴더를 정렬하고 싶어서 붙였습니다.
 
 웹페이지 주소는 각 Markdown 파일 내부의 `permalink`를 사용하므로 폴더 번호가 웹 URL에 직접 노출되지 않습니다.
 
@@ -554,10 +513,6 @@ Governance
 
 해당 Security Domain의 **Common Control**을 작성하는 파일입니다.
 
-Common은 ISMS-P와 NIST CSF 2.0에서 공통적으로 요구되거나 직접 대응 가능한 Control을 의미합니다.
-
-Control별 기본 작성 항목은 다음과 같습니다.
-
 ```text
 Control ID
 Security Domain
@@ -579,9 +534,7 @@ Evidence
 
 해당 Security Domain의 **Enhancement Control**을 작성하는 파일입니다.
 
-Enhancement는 기존 ISMS-P 요구사항만으로 충분히 충족되지 않는 NIST CSF 2.0 Outcome을 보완하기 위한 Control입니다.
-
-Common 항목에 추가하여 다음 내용을 작성합니다.
+Common Control과 다르게 아래의 두 항목이 추가로 들어갑니다. 
 
 ```text
 ISMS-P Limitation
@@ -646,6 +599,8 @@ permalink: /controls/governance/common/
 | 적용 제외 | 조직 환경상 해당 요구사항이 적용되지 않음 |
 | 확인 필요 | 현재 확보된 자료만으로 판단하기 어려움 |
 
+이 평가 상태는 조직의 보안 담당자가 저희가 만든 Assessment Question을 읽고, Question에 대한 조직의 이행 수준을 총 다섯 가지 척도로 평가하라고 만들었습니다. 
+
 페이지 하단에는 다음 HTML 영역이 있습니다.
 
 ```html
@@ -663,7 +618,7 @@ Control 선택
         ↓
 Assessment Question 표시
         ↓
-평가 상태 선택
+평가 상태 선택(5가지)
         ↓
 평가 근거 작성
         ↓
@@ -671,20 +626,6 @@ Evidence 기록
         ↓
 결과 저장 및 요약
 ```
-
-평가 상태는 다음 다섯 단계로 유지합니다.
-
-```text
-충족
-부분 충족
-미충족
-적용 제외
-확인 필요
-```
-
-별도의 숫자 점수 방식은 사용하지 않는 것을 기본 방향으로 합니다.
-
----
 
 ## 10.2 향후 추가 계획
 
@@ -914,9 +855,9 @@ Jekyll Front Matter나 Liquid 문법에 오류가 있으면 Build가 실패할 �
 
 # 15. 프로젝트의 기본 관리 원칙
 
-이 Repository는 향후 Framework가 변경될 때 지속적으로 업데이트할 수 있는 **Living Guideline**을 목표로 합니다.
-
-따라서 다음 원칙을 권장합니다.
+"가이드라인 작성" 프로젝트는 혼자서 하는 것이 아니라 3명의 팀원이 힘을 합쳐서 만드는 것이기 때문에, 작업 전 기본적인 공통 수칙을 만들어 두는 것이 필요합니다.
+다음은 기본적인 관리 원칙 예시입니다.
+**이 부분은 팀 내 합의 후에 정하는 걸로 하겠습니다**
 
 - 하나의 Control 수정은 가능한 한 해당 Domain / Class 파일 안에서 수행
 - 사이트 전체 설정 파일은 불필요하게 수정하지 않기
