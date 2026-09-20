@@ -9,17 +9,6 @@
 
 - title: "04. Control Implementation Guide"
   url: /controls/
-  children:
-
-    - title: "Governance"
-      url: /controls/governance/
-      children:
-
-        - title: "Common"
-          url: /controls/governance/common/
-
-        - title: "Enhancement"
-          url: /controls/governance/enhancement/
 
 - title: "05. Self Assessment"
   url: /self-assessment/
