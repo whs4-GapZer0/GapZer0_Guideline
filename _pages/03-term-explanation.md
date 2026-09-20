@@ -4,7 +4,6 @@ title: "03. 주요 용어"
 permalink: /terms/
 ---
 
-# 주요 용어
 
 ## Security Domain
 
