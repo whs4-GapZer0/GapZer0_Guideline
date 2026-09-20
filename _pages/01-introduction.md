@@ -4,6 +4,7 @@ title: "01. GapZer0 가이드라인 소개"
 permalink: /introduction/
 ---
 
+
 ## 가이드라인의 정의
 
 GapZer0 가이드라인은 국내 조직의 정보보호 및 개인정보보호 담당자가
