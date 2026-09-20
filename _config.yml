@@ -7,7 +7,7 @@ description: >
   GapZer0 통합 정보보호 가이드라인
 
 url: "https://whs4-GapZer0.github.io"
-baseurl: "/gapzero-guideline"
+baseurl: "/Gapzero_Guideline"
 
 remote_theme: sighingnow/jekyll-gitbook
 
