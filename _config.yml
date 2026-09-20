@@ -21,9 +21,21 @@ markdown: kramdown
 kramdown:
   auto_ids: true
   input: GFM
+  math_engine: mathjax
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  toc_levels: 1..6
   syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    guess_lang: true
+
+syntax_highlighter_style: colorful
+
+markdown_ext: markdown,mkdown,mkdn,mkd,md
 
 permalink: /:categories/:year-:month-:day-:title:output_ext
+
+exclude:
+  - _drafts
 
 collections:
   pages:
@@ -31,10 +43,13 @@ collections:
     permalink: /:collection/:path/
 
 ordered_collections:
-  - posts
   - pages
 
 page_width: 800px
+
+destination: ./_site
+incremental: false
+regenerate: true
 
 plugins:
   - jekyll-feed
