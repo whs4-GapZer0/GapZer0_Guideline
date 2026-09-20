@@ -1,11 +1,13 @@
 <div class="book-summary">
 
     <script type="text/javascript">
+        // 페이지 이동 시 본문을 맨 위로 이동
         function pageScrollToTop(element) {
-            $('div.body-inner').animate({scrollTop: 0});
+            $('div.body-inner').animate({ scrollTop: 0 });
             return true;
         }
 
+        // 모바일 환경에서 본문 내 앵커 이동 처리
         function mobilePageScrollToAnchor(element) {
             $(element).closest('li.chapter').find('ul>li').removeClass('active');
             $(element).parent().addClass('active');
@@ -15,7 +17,7 @@
 
                 if (target.length) {
                     $('div.body-inner').animate({
-                        scrollTop: target.get(0).offsetTop,
+                        scrollTop: target.get(0).offsetTop
                     });
                 }
             }
@@ -26,29 +28,22 @@
 
     <nav role="navigation">
 
+        <!-- 검색창 -->
         <div id="book-search-input" role="search">
             <input type="text" placeholder="Type to search" />
         </div>
 
         <div id="book-search-input-link" role="search">
-            <a href="{{ site.baseurl }}/assets/search.html">
+            <a href="{{ '/assets/search.html' | relative_url }}">
                 Click to Search
             </a>
         </div>
 
         <ul class="summary">
 
-            <li class="chapter">
-                <a href="#">TEST CUSTOM SIDEBAR</a>
-            </li>
-
-            <!-- Home -->
-            {% if page.url == "/index.html" or page.url == "/" %}
-            <li class="chapter active">
-            {% else %}
-            <li class="chapter">
-            {% endif %}
-                <a href="{{ site.baseurl }}/"
+            <!-- 홈페이지 -->
+            <li class="chapter{% if page.url == '/' or page.url == '/index.html' %} active{% endif %}">
+                <a href="{{ '/' | relative_url }}"
                    onclick="pageScrollToTop(this)">
                     {{ site.title | escape }}
                 </a>
@@ -56,16 +51,23 @@
 
             <li class="divider"></li>
 
-            <!-- Main Navigation: 01 ~ 05 only -->
+            <!-- navigation.yml에 작성된 01~05만 출력 -->
             {% for item in site.data.navigation %}
 
+                {% assign is_active = false %}
+
+                <!-- 현재 페이지와 메뉴 URL이 같은 경우 -->
                 {% if page.url == item.url %}
-                <li class="chapter active"
-                    data-path="{{ item.url | relative_url }}">
-                {% else %}
-                <li class="chapter"
-                    data-path="{{ item.url | relative_url }}">
+                    {% assign is_active = true %}
                 {% endif %}
+
+                <!-- Control 하위 페이지에서는 04를 active로 표시 -->
+                {% if item.url == '/controls/' and page.url contains '/controls/' %}
+                    {% assign is_active = true %}
+                {% endif %}
+
+                <li class="chapter{% if is_active %} active{% endif %}"
+                    data-path="{{ item.url | relative_url }}">
 
                     <a href="{{ item.url | relative_url }}"
                        onclick="pageScrollToTop(this)">
