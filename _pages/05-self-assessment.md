@@ -4,7 +4,6 @@ title: "05. Self Assessment"
 permalink: /self-assessment/
 ---
 
-# Self Assessment
 
 GapZer0 Framework의 Assessment Question을 이용하여 조직의 현재 상태를 평가합니다.
 
