@@ -1,0 +1,22 @@
+title: GapZer0 Guideline
+longtitle: GapZer0 Security Framework Guideline
+author: GapZer0
+
+description: >
+  NIST CSF 2.0과 ISMS-P를 기반으로 한
+  GapZer0 통합 정보보호 가이드라인
+
+url: "https://whs4-GapZer0.github.io"
+baseurl: "/gapzero-guideline"
+
+remote_theme: sighingnow/jekyll-gitbook
+
+toc:
+  enabled: true
+  h_min: 1
+  h_max: 3
+
+markdown: kramdown
+
+kramdown:
+  input: GFM
