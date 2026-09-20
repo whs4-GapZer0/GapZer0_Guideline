@@ -6,8 +6,8 @@ description: >
   NIST CSF 2.0과 ISMS-P를 기반으로 한
   GapZer0 통합 정보보호 가이드라인
 
-url: "https://whs4-GapZer0.github.io"
-baseurl: "/Gapzero_Guideline"
+url: "https://whs4-gapzer0.github.io"
+baseurl: "/GapZer0_Guideline"
 
 remote_theme: sighingnow/jekyll-gitbook
 
@@ -19,4 +19,24 @@ toc:
 markdown: kramdown
 
 kramdown:
+  auto_ids: true
   input: GFM
+  syntax_highlighter: rouge
+
+permalink: /:categories/:year-:month-:day-:title:output_ext
+
+collections:
+  pages:
+    output: true
+    permalink: /:collection/:path/
+
+ordered_collections:
+  - posts
+  - pages
+
+page_width: 800px
+
+plugins:
+  - jekyll-feed
+  - jekyll-readme-index
+  - jemoji
