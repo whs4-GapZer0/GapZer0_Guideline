@@ -35,6 +35,118 @@ GitHub Pages가 Jekyll Build 수행
 웹사이트에 변경사항 반영
 ```
 
+## 왜 GitHub + Jekyll 구조를 사용하는가?
+
+GapZer0 Guideline을 설계하면서 중요하게 고려한 문제 중 하나는 **가이드라인을 한 번 만들고 끝내는 것이 아니라, 향후 Framework와 관련 기준이 변경될 때 지속적으로 수정·보완하기 쉬운 형태로 관리하는 것**입니다.
+
+PDF나 한글 문서처럼 하나의 완성본 파일을 중심으로 관리하면 수정할 때마다 파일 전체를 다시 편집하고 새 버전을 배포해야 하며, 여러 팀원이 동시에 작업하거나 변경 이력을 추적하기도 어렵습니다.
+
+반면 현재의 **GitHub + Markdown + Jekyll** 구조는 가이드라인을 여러 개의 작은 문서 파일로 나누어 관리하기 때문에 이러한 유지보수 문제를 줄일 수 있습니다.
+
+### 1. 필요한 부분만 수정할 수 있음
+
+가이드라인 전체가 하나의 문서로 묶여 있지 않고 Domain과 Control Class별 Markdown 파일로 분리되어 있습니다.
+
+예를 들어 Governance의 Common Control만 변경해야 한다면 다음 파일만 수정하면 됩니다.
+
+```text
+_pages/control-guide/01-governance/common.md
+```
+
+다른 Domain이나 페이지를 다시 편집할 필요가 없기 때문에 Framework 일부가 변경되었을 때 **변경 범위를 작게 유지할 수 있습니다.**
+
+### 2. 모든 변경 이력을 Git으로 확인할 수 있음
+
+GitHub에서는 파일을 수정하고 Commit할 때마다 변경 이력이 남습니다.
+
+따라서 다음과 같은 내용을 확인할 수 있습니다.
+
+- 누가 수정했는지
+- 언제 수정했는지
+- 어떤 내용이 추가·삭제되었는지
+- 왜 변경했는지(Commit Message)
+- 이전 버전의 내용은 무엇이었는지
+
+필요한 경우 이전 Commit을 확인하여 과거 버전과 비교하거나 변경 전 상태로 되돌릴 수도 있습니다.
+
+즉, 별도의 Change Log만으로 모든 변경사항을 수동 관리하는 것보다 **실제 문서 변경 이력 자체를 Git으로 추적할 수 있다는 장점**이 있습니다.
+
+### 3. 여러 팀원이 나누어 작업하기 쉬움
+
+Control Guide가 Domain과 Class별 파일로 분리되어 있기 때문에 팀원별로 서로 다른 파일을 맡아 작업할 수 있습니다.
+
+예를 들어,
+
+```text
+팀원 A → Governance
+팀원 B → Asset Management
+팀원 C → Continuity
+```
+
+처럼 작업 범위를 나눌 수 있습니다.
+
+향후에는 필요에 따라 **Branch → Commit → Pull Request → Review → Merge** 방식도 사용할 수 있어, 한 사람이 수정한 내용을 다른 팀원이 검토한 뒤 공식 버전에 반영하는 협업 절차를 만들 수 있습니다.
+
+### 4. 문서 수정과 웹사이트 업데이트가 연결됨
+
+Markdown 파일을 수정하고 GitHub에 반영하면 GitHub Pages가 Jekyll Build를 수행하여 웹사이트를 다시 생성합니다.
+
+즉,
+
+```text
+가이드라인 내용 수정
+        ↓
+GitHub Commit
+        ↓
+자동 Build
+        ↓
+웹 가이드라인 업데이트
+```
+
+의 흐름으로 관리할 수 있습니다.
+
+따라서 문서를 수정한 뒤 별도로 HTML 페이지를 다시 만들거나 새로운 PDF 파일을 매번 배포할 필요가 없습니다.
+
+### 5. 구조를 유지하면서 지속적으로 확장할 수 있음
+
+새로운 Control이 추가되거나 기존 Control이 수정되더라도 현재 폴더 구조 안에서 필요한 파일만 수정하면 됩니다.
+
+또한 향후 다음과 같은 기능도 별도의 파일로 추가할 수 있습니다.
+
+```text
+Assessment Question 데이터
+Self Assessment JavaScript
+CSV Export
+PDF Export
+검색 및 시각화 기능
+```
+
+즉, 문서 자체와 기능을 한 Repository에서 함께 발전시킬 수 있습니다.
+
+### 6. Living Guideline 형태로 운영할 수 있음
+
+이러한 구조의 최종 목적은 GapZer0 Guideline을 특정 시점에 완성된 정적 문서로 두는 것이 아니라, Framework와 관련 기준의 변화에 따라 계속 갱신할 수 있는 **Living Guideline**으로 운영하는 것입니다.
+
+정리하면 현재 구조는 다음과 같은 유지보수 흐름을 목표로 합니다.
+
+```text
+Framework 또는 기준 변경
+        ↓
+영향받는 Domain / Control 식별
+        ↓
+해당 Markdown 파일만 수정
+        ↓
+Commit으로 변경 이력 기록
+        ↓
+필요 시 팀원 Review
+        ↓
+GitHub Pages 자동 Build
+        ↓
+최신 가이드라인 배포
+```
+
+따라서 **GitHub + Jekyll 기반 문서화는 우리가 해결하고자 했던 '업데이트·유지보수하기 좋은 형식'이라는 요구사항을 구현하기 위한 핵심 방식**이라고 볼 수 있습니다.
+
 이 프로젝트에서 사용하는 테마는 다음과 같습니다.
 
 ```yaml
