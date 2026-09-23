@@ -8,11 +8,11 @@ System and Network Security Security Domain의 Common Control을 제공합니다
 
 ---
 
-## 네트워크·환경의 비인가 논리적 접근과 사용 방지
+## GZ-SNS-001
 
-### Control ID
+### Control Name
 
-GZ-SNS-001
+네트워크·환경의 비인가 논리적 접근과 사용 방지
 
 ### Security Domain
 
