@@ -16,7 +16,7 @@ Governance의 Enhancement Control은 ISMS-P 요구사항만으로 충분히 충�
 
 ### Security Domain
 
-governance
+Governance
 
 ### Control Objective
 조직의 미션과 핵심 사업목표를 사이버보안 위험관리 전략 및 우선순위와 연결하여, 보안 활동이 조직의 목적과 중요 업무 보호에 직접 기여하도록 합니다.
@@ -73,7 +73,7 @@ ISMS-P는 관리체계 범위 설정, 경영진 참여 및 위험평가를 요�
 
 ### Security Domain
 
-governance
+Governance
 
 ### Control Objective
 조직의 내·외부 이해관계자를 식별하고 사이버보안과 관련된 요구사항 및 기대를 체계적으로 파악하여 정책, 위험관리 전략 및 관리체계 운영에 반영합니다.
@@ -130,7 +130,7 @@ ISMS-P는 정책 수립과 관리체계 검토를 요구하지만 내·외부 �
 
 ### Security Domain
 
-governance
+Governance
 
 ### Control Objective
 외부 이해관계자가 조직에 의존하는 핵심 목표·역량·서비스와 사이버보안 관련 기대를 파악하고 정기적으로 소통하여 외부 의존성과 기대가 위험관리 의사결정에 반영되도록 합니다.
@@ -187,7 +187,7 @@ ISMS-P에는 서비스·업무 범위와 외부 관계 관리 요구가 존재�
 
 ### Security Domain
 
-governance
+Governance
 
 ### Control Objective
 조직의 요구사항과 위험환경 변화에 따라 사이버보안 위험관리 전략의 적정성과 효과성을 정기적으로 검토하고 필요한 조정을 수행하여 전략이 현재의 조직 목표와 위험을 지속적으로 반영하도록 합니다.
@@ -244,7 +244,7 @@ GV.OV-02
 
 ### Security Domain
 
-governance
+Governance
 
 ### Control Objective
 사이버보안 위험관리의 활동과 결과를 전사 위험관리(ERM) 프로세스에 통합하여 사이버보안 위험이 다른 조직 위험과 함께 비교·보고·의사결정되도록 합니다.
@@ -301,7 +301,7 @@ ISMS-P 1.2.3은 정보보호 위험평가와 위험수용을 요구하지만 사
 
 ### Security Domain
 
-governance
+Governance
 
 ### Control Objective
 사이버보안 위험관리 과정에서 손실 가능성뿐 아니라 전략적 기회와 긍정적 위험을 함께 식별·평가·논의하여 보안 투자가 사업가치와 조직의 회복탄력성 향상에 기여하도록 합니다.
