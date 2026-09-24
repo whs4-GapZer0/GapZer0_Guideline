@@ -12,7 +12,7 @@ Governance의 Common Control은 조직의 사이버보안 위험관리와 정보
 
 ### Control Name
 
-## 전략 결과 검토·방향 조정
+전략 결과 검토·방향 조정
 
 ### Security Domain
 
@@ -62,7 +62,7 @@ GV.OV-01
 
 ### Control Name
 
-## 조직 맥락 기반 사이버보안 정책 수립·시행
+조직 맥락 기반 사이버보안 정책 수립·시행
 
 ### Security Domain
 
@@ -108,7 +108,7 @@ GV.PO-01
 
 ### Control Name
 
-## 변화 반영 정책 검토·갱신·시행
+변화 반영 정책 검토·갱신·시행
 
 ### Security Domain
 
@@ -154,7 +154,7 @@ GV.PO-02
 
 ### Control Name
 
-## 위험관리 목표 수립·합의
+위험관리 목표 수립·합의
 
 ### Security Domain
 
@@ -200,7 +200,7 @@ GV.RM-01
 
 ### Control Name
 
-## 위험선호도·위험허용치 관리
+위험선호도·위험허용치 관리
 
 ### Security Domain
 
@@ -246,7 +246,7 @@ GV.RM-02
 
 ### Control Name
 
-## 위험 대응 방향 수립·전달
+위험 대응 방향 수립·전달
 
 ### Security Domain
 
@@ -292,7 +292,7 @@ GV.RM-04
 
 ### Control Name
 
-## 내·외부 위험정보 보고·공유체계 수립
+내·외부 위험정보 보고·공유체계 수립
 
 ### Security Domain
 
@@ -338,7 +338,7 @@ GV.RM-05
 
 ### Control Name
 
-## 위험 산정·기록·분류·우선순위 표준화
+위험 산정·기록·분류·우선순위 표준화
 
 ### Security Domain
 
@@ -384,7 +384,7 @@ GV.RM-06
 
 ### Control Name
 
-## 경영진 책임성과 위험 인식 문화 조성
+경영진 책임성과 위험 인식 문화 조성
 
 ### Security Domain
 
@@ -430,7 +430,7 @@ GV.RR-01
 
 ### Control Name
 
-## 위험관리 역할·책임·권한 관리
+위험관리 역할·책임·권한 관리
 
 ### Security Domain
 
@@ -476,7 +476,7 @@ GV.RR-02
 
 ### Control Name
 
-## 위험 전략에 상응하는 자원 할당
+위험 전략에 상응하는 자원 할당
 
 ### Security Domain
 
