@@ -4,8 +4,6 @@ title: "Asset Management - Common Controls"
 permalink: /controls/asset-management/common/
 ---
 
-# Asset Management - Common Controls
-
 Asset Management Security Domain의 Common Control은 하드웨어·소프트웨어·서비스·데이터 등 조직 자산의 식별, 우선순위화 및 수명주기 관리를 위한 공통 요구사항을 제공합니다.
 
 ---
