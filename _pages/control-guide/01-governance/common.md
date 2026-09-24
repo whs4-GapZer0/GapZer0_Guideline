@@ -16,7 +16,7 @@ Governance의 Common Control은 조직의 사이버보안 위험관리와 정보
 
 ### Security Domain
 
-governance
+Governance
 
 ### Control Objective
 정보보호·개인정보보호 관리체계의 준수성과 운영 효과성을 확보하고, 사이버보안 위험관리 전략이 조직의 목표 달성과 경영진의 의사결정을 지원하도록 합니다. 이를 통해 위험관리 전략과 추진 방향이 조직의 실제 위험 및 업무환경에 적합하게 유지되도록 합니다.
@@ -66,7 +66,7 @@ GV.OV-01
 
 ### Security Domain
 
-governance
+Governance
 
 ### Control Objective
 조직의 사업목적, 업무특성, 정보자산, 개인정보 처리환경 및 사이버보안 위험을 반영한 정보보호·개인정보보호 정책을 수립·시행하여 조직 전체가 일관된 보안 원칙과 기준에 따라 업무를 수행하도록 합니다.
@@ -112,7 +112,7 @@ GV.PO-01
 
 ### Security Domain
 
-governance
+Governance
 
 ### Control Objective
 정보보호·개인정보보호 정책을 주기적으로 검토하고 조직의 대내외 환경 변화를 적시에 반영하여 정책의 적절성과 유효성을 지속적으로 유지합니다.
@@ -158,7 +158,7 @@ GV.PO-02
 
 ### Security Domain
 
-governance
+Governance
 
 ### Control Objective
 조직의 사업 및 보안환경을 고려한 사이버보안 위험관리 목표를 수립하고 경영진과 주요 이해관계자가 이를 합의하여 조직 차원의 공통된 위험관리 방향을 확보합니다.
@@ -204,7 +204,7 @@ GV.RM-01
 
 ### Security Domain
 
-governance
+Governance
 
 ### Control Objective
 조직이 감수할 의사가 있는 위험 수준과 실제 운영에서 허용할 수 있는 위험 한계를 명확하게 정의·승인하고 정기적으로 재검토하여 일관된 위험 의사결정 기준을 유지합니다.
@@ -250,7 +250,7 @@ GV.RM-02
 
 ### Security Domain
 
-governance
+Governance
 
 ### Control Objective
 식별·평가된 위험에 대해 수용·회피·전가·감소 등 적절한 대응방향을 선정하고 책임자·승인기준·이행계획을 명확하게 하여 관련 이해관계자가 일관되게 실행하도록 합니다.
@@ -296,7 +296,7 @@ GV.RM-04
 
 ### Security Domain
 
-governance
+Governance
 
 ### Control Objective
 조직 내부와 공급자·제3자 등 외부에서 발생하는 사이버보안 위험정보를 수집·평가하고 필요한 이해관계자에게 적시에 보고·공유하여 신속한 위험 의사결정과 대응을 지원합니다.
@@ -342,7 +342,7 @@ GV.RM-05
 
 ### Security Domain
 
-governance
+Governance
 
 ### Control Objective
 조직 전체에서 위험을 일관된 기준으로 산정·기록·분류하고 우선순위를 결정할 수 있도록 표준화된 위험평가 방법을 수립·운영합니다.
@@ -388,7 +388,7 @@ GV.RM-06
 
 ### Security Domain
 
-governance
+Governance
 
 ### Control Objective
 경영진이 사이버보안 위험에 대한 책임과 의사결정 역할을 수행하고, 조직 구성원이 자신의 업무에서 보안 위험을 인식하고 적절하게 행동할 수 있는 조직문화를 조성합니다.
@@ -434,7 +434,7 @@ GV.RR-01
 
 ### Security Domain
 
-governance
+Governance
 
 ### Control Objective
 사이버보안 위험관리의 역할·책임·권한을 통제 책임주체와 협업부서별로 명확하게 정의·전달하고 지속적으로 관리하여 책임의 누락·중복과 의사결정 지연을 방지합니다.
@@ -480,7 +480,7 @@ GV.RR-02
 
 ### Security Domain
 
-governance
+Governance
 
 ### Control Objective
 조직의 사이버보안 위험전략과 현재 위험수준에 상응하는 예산·인력·기술 자원을 확보하고 적절하게 배분하여 위험관리 전략이 실제로 실행될 수 있도록 합니다.
