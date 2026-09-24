@@ -8,7 +8,11 @@ Application Security의 Enhancement Control은 ISMS-P의 개발보안 요구사�
 
 ---
 
-## GZ-APP-001 SDLC 전 과정 보안 통합·성과관리
+## GZ-APP-001
+
+### Control Name
+
+SDLC 전 과정 보안 통합·성과관리
 
 ### Security Domain
 Application Security
