@@ -4,8 +4,6 @@ title: "Secure Configuration - Common Controls"
 permalink: /controls/secure-configuration/common/
 ---
 
-# Secure Configuration - Common Controls
-
 Secure Configuration Domain의 Common Control은 승인된 보안 구성의 수립·유지와 비인가 소프트웨어·코드의 설치·실행 방지를 위한 공통 요구사항을 제공합니다.
 
 ---
