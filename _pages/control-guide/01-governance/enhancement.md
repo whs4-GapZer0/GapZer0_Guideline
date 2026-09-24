@@ -4,8 +4,6 @@ title: "Governance - Enhancement Controls"
 permalink: /controls/governance/enhancement/
 ---
 
-# Governance - Enhancement Controls
-
 Governance의 Enhancement Control은 ISMS-P 요구사항만으로 충분히 충족되지 않는 NIST CSF 2.0의 Governance Outcome을 보완하기 위한 통제입니다.
 
 ---
