@@ -4,8 +4,6 @@ title: "Governance - Common Controls"
 permalink: /controls/governance/common/
 ---
 
-# Governance - Common Controls
-
 Governance의 Common Control은 조직의 사이버보안 위험관리와 정보보호·개인정보보호 관리체계를 경영 및 조직 운영에 통합하기 위한 공통적인 관리 요구사항을 제공합니다.
 
 ---
