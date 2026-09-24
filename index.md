@@ -4,8 +4,6 @@ title: GapZer0 Guideline
 permalink: /
 ---
 
-# GapZer0 Guideline
-
 GapZer0 Guideline은 **NIST Cybersecurity Framework 2.0(NIST CSF 2.0)**과 국내 정보보호 관리체계인 **ISMS-P**를 기반으로 구성한 통합 정보보호 가이드라인입니다.
 
 조직의 정보보호·개인정보보호 담당자가 GapZer0 Framework를 실제 업무에 활용할 수 있도록, 적용할 Control을 확인하고 구체적인 이행 방법과 Evidence를 검토한 뒤 Self Assessment를 통해 현재 상태와 개선이 필요한 부분을 확인할 수 있도록 구성합니다.
