@@ -4,8 +4,6 @@ title: "Human Resource Security - Common Controls"
 permalink: /controls/human-resource-security/common/
 ---
 
-# Human Resource Security - Common Controls
-
 Human Resource Security Domain의 Common Control은 인사 전 주기의 보안 통제, 전사 보안 인식 및 전문 역할별 직무 역량 관리를 위한 공통 요구사항을 제공합니다.
 
 ---
