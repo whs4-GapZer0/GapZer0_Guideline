@@ -8,11 +8,11 @@ Asset Management Security Domain의 Enhancement Control은 승인된 네트워�
 
 ---
 
-## 승인된 네트워크 통신·데이터 흐름 표현 유지
+## GZ-AST-008
 
-### Control ID
+### Control Name
 
-GZ-AST-008 
+승인된 네트워크 통신·데이터 흐름 표현 유지
 
 ### Security Domain
 
@@ -74,11 +74,11 @@ ISMS-P 1.2.2는 정보서비스 및 개인정보 처리의 업무 절차와 흐�
 
 ---
 
-## 통합 자산·데이터 수명주기
+## GZ-AST-009
 
-### Control ID
+### Control Name
 
-GZ-AST-009 
+통합 자산·데이터 수명주기
 
 ### Security Domain
 
