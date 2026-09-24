@@ -8,11 +8,11 @@ Supplier Relationships Security Security Domain의 Enhancement Control을 제공
 
 ---
 
-## [Control Name]
+## [Control ID]
 
-### Control ID
+### Control Name
 
-내용 작성 예정
+[Control Name]
 
 ### Security Domain
 
