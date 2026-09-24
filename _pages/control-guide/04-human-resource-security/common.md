@@ -8,11 +8,11 @@ Human Resource Security Domain의 Common Control은 인사 전 주기의 보안 
 
 ---
 
-## 인사 전 주기에 사이버보안 통합
+## GZ-HRS-001
 
-### Control ID
+### Control Name
 
-GZ-HRS-001 
+인사 전 주기에 사이버보안 통합
 
 ### Security Domain
 
@@ -67,11 +67,11 @@ GV.RR-04
 
 ---
 
-## 전사 인력의 기본 사이버보안 인식과 안전한 업무 수행 역량 확보
+## GZ-HRS-002
 
-### Control ID
+### Control Name
 
-GZ-HRS-002 
+전사 인력의 기본 사이버보안 인식과 안전한 업무 수행 역량 확보
 
 ### Security Domain
 
@@ -125,11 +125,11 @@ PR.AT-01
 
 ---
 
-## 전문 역할별 사이버보안 지식과 직무 수행 역량 확보
+## GZ-HRS-003
 
-### Control ID
+### Control Name
 
-GZ-HRS-003 
+전문 역할별 사이버보안 지식과 직무 수행 역량 확보
 
 ### Security Domain
 
