@@ -12,7 +12,7 @@ Governance의 Enhancement Control은 ISMS-P 요구사항만으로 충분히 충�
 
 ### Control Name
 
-## 조직 미션-위험관리 방향 연계
+조직 미션-위험관리 방향 연계
 
 ### Security Domain
 
@@ -69,7 +69,7 @@ ISMS-P는 관리체계 범위 설정, 경영진 참여 및 위험평가를 요�
 
 ### Control Name
 
-## 이해관계자 요구/식별 반영
+이해관계자 요구/식별 반영
 
 ### Security Domain
 
@@ -126,7 +126,7 @@ ISMS-P는 정책 수립과 관리체계 검토를 요구하지만 내·외부 �
 
 ### Control Name
 
-## 외부 이해관계자 기대 파악·소통
+외부 이해관계자 기대 파악·소통
 
 ### Security Domain
 
@@ -183,7 +183,7 @@ ISMS-P에는 서비스·업무 범위와 외부 관계 관리 요구가 존재�
 
 ### Control Name
 
-## 위험 전략 검토 및 조정
+위험 전략 검토 및 조정
 
 ### Security Domain
 
@@ -240,7 +240,7 @@ GV.OV-02
 
 ### Control Name
 
-## 사이버보안위험관리 활동,결과의 ERM 통합
+사이버보안위험관리 활동,결과의 ERM 통합
 
 ### Security Domain
 
@@ -297,7 +297,7 @@ ISMS-P 1.2.3은 정보보호 위험평가와 위험수용을 요구하지만 사
 
 ### Control Name
 
-## 전략적 기회·긍정적 위험
+전략적 기회·긍정적 위험
 
 ### Security Domain
 
