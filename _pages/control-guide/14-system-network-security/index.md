@@ -4,7 +4,7 @@ title: "System and Network Security"
 permalink: /controls/system-network-security/
 ---
 
-System and Network Security Security Domain의 Control을 Control Class별로 제공합니다.
+System and Network Security Domain의 Control을 Control Class별로 제공합니다.
 
 ## Control Class
 
