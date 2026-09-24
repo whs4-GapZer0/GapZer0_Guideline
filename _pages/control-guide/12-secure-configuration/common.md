@@ -10,11 +10,11 @@ Secure Configuration Domain의 Common Control은 승인된 보안 구성의 수�
 
 ---
 
-## GZ-SCF-001 승인된 보안 구성의 수립·유지와 비인가 구성 변경 방지
+## 승인된 보안 구성의 수립·유지와 비인가 구성 변경 방지
 
 ### Control ID
 
-내용 작성 예정
+GZ-SCF-001 
 
 ### Security Domain
 
@@ -69,11 +69,11 @@ PR.PS-01
 
 ---
 
-## GZ-SCF-002 비인가 소프트웨어와 코드의 설치·실행 방지
+## 비인가 소프트웨어와 코드의 설치·실행 방지
 
 ### Control ID
 
-내용 작성 예정
+GZ-SCF-002 
 
 ### Security Domain
 
