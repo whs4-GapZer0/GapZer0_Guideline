@@ -8,11 +8,11 @@ Asset Management Security Domain의 Common Control은 하드웨어·소프트웨
 
 ---
 
-## 하드웨어 자산 인벤토리 유지
+## GZ-AST-001
 
-### Control ID
+### Control Name
 
-GZ-AST-001 
+하드웨어 자산 인벤토리 유지
 
 ### Security Domain
 
@@ -66,11 +66,11 @@ ID.AM-01
 
 ---
 
-## 소프트웨어·서비스·시스템 인벤토리 유지
+## GZ-AST-002
 
-### Control ID
+### Control Name
 
-GZ-AST-002 
+소프트웨어·서비스·시스템 인벤토리 유지
 
 ### Security Domain
 
@@ -124,11 +124,11 @@ ID.AM-02
 
 ---
 
-## 공급자 제공 서비스 인벤토리 유지
+## GZ-AST-003
 
-### Control ID
+### Control Name
 
-GZ-AST-003 
+공급자 제공 서비스 인벤토리 유지
 
 ### Security Domain
 
@@ -182,11 +182,11 @@ ID.AM-04
 
 ---
 
-## 자산 우선순위화
+## GZ-AST-004
 
-### Control ID
+### Control Name
 
-GZ-AST-004 
+자산 우선순위화
 
 ### Security Domain
 
@@ -240,11 +240,11 @@ ID.AM-05
 
 ---
 
-## 데이터·메타데이터 인벤토리 유지
+## GZ-AST-005
 
-### Control ID
+### Control Name
 
-GZ-AST-005 
+데이터·메타데이터 인벤토리 유지
 
 ### Security Domain
 
@@ -298,11 +298,11 @@ ID.AM-07
 
 ---
 
-## 소프트웨어 수명주기 관리
+## GZ-AST-006
 
-### Control ID
+### Control Name
 
-GZ-AST-006 
+소프트웨어 수명주기 관리
 
 ### Security Domain
 
@@ -356,11 +356,11 @@ PR.PS-02
 
 --- 
 
-## 하드웨어 수명주기 관리
+## GZ-AST-007
 
-### Control ID
+### Control Name
 
-GZ-AST-007 
+하드웨어 수명주기 관리
 
 ### Security Domain
 
