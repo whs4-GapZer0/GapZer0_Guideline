@@ -4,8 +4,6 @@ title: "Application Security - Enhancement Controls"
 permalink: /controls/application-security/enhancement/
 ---
 
-# Application Security - Enhancement Controls
-
 Application Security의 Enhancement Control은 ISMS-P의 개발보안 요구사항을 기반으로, NIST CSF 2.0에서 요구하는 SDLC 전 과정의 보안 통합과 성과관리 범위를 보완합니다.
 
 ---
