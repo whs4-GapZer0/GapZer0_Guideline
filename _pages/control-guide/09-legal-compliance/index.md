@@ -4,7 +4,7 @@ title: "Legal and Compliance"
 permalink: /controls/legal-compliance/
 ---
 
-Legal and Compliance Security Domain의 Control을 Control Class별로 제공합니다.
+Legal and Compliance Domain의 Control을 Control Class별로 제공합니다.
 
 ## Control Class
 
