@@ -10,11 +10,11 @@ Asset Management Security Domain의 Enhancement Control은 승인된 네트워�
 
 ---
 
-## GZ-AST-008 승인된 네트워크 통신·데이터 흐름 표현 유지
+## 승인된 네트워크 통신·데이터 흐름 표현 유지
 
 ### Control ID
 
-내용 작성 예정
+GZ-AST-008 
 
 ### Security Domain
 
@@ -76,11 +76,11 @@ ID.AM-03
 
 ---
 
-## GZ-AST-009 통합 자산·데이터 수명주기
+## 통합 자산·데이터 수명주기
 
 ### Control ID
 
-내용 작성 예정
+GZ-AST-009 
 
 ### Security Domain
 
