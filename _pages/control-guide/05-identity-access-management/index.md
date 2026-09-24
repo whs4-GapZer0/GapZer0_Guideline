@@ -4,7 +4,7 @@ title: "Identity and Access Management"
 permalink: /controls/identity-access-management/
 ---
 
-Identity and Access Management Security Domain의 Control을 Control Class별로 제공합니다.
+Identity and Access Management Domain의 Control을 Control Class별로 제공합니다.
 
 ## Control Class
 
