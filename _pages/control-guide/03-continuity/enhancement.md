@@ -4,7 +4,7 @@ title: "Continuity - Enhancement Controls"
 permalink: /controls/continuity/enhancement/
 ---
 
-Continuity Domain의 Enhancement Controls는 복구 진행상황 공유, 복원 결과 검증과 복구 종료 기준을 명확히 하여 Common Controls를 보완합니다.
+Continuity Domain의 Enhancement Controls는 복구 진행상황 공유, 복원 결과 검증과 복구 종료 기준을 명확히 하여 Common Controls를 보완합니다
 
 ---
 
