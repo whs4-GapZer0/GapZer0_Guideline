@@ -609,9 +609,3 @@ Common
 - 남은 위험·제한사항 평가와 승인기록
 - 임시 계정·연결·보완조치 관리대장
 - 정상 운영 전환 점검·승인 기록
-
----
-
-## 관련 Framework
-
-본 페이지의 Common Controls는 GapZer0 Framework의 Continuity Domain과 ISMS-P 및 NIST CSF 2.0 매핑을 기준으로 작성되었습니다.
