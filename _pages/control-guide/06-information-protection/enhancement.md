@@ -176,9 +176,3 @@ ISMS-P 2.6.3·2.6.4는 응용프로그램과 데이터베이스 접근통제를,
 ### CSF Coverage
 
 이 Control은 접근·화면 노출 제한, 메모리·임시파일·프로세스 보호, 처리결과 무결성 검증, 이상행위 탐지와 중단 복구를 함께 요구하여 사용 중 데이터의 기밀성·무결성·가용성을 다루는 PR.DS-10 Outcome을 보완합니다.
-
----
-
-## 관련 Framework
-
-본 페이지의 Enhancement Controls는 GapZer0 Framework의 Information Protection Domain과 ISMS-P 및 NIST CSF 2.0 매핑을 기준으로 작성되었습니다.
