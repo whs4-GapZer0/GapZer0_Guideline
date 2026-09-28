@@ -84,9 +84,3 @@ Common
 - 접근권한·암호화·암호키 관리 설정
 - 무결성 점검·변경·감사기록
 - 백업·복구·저장매체 보호 및 점검기록
-
----
-
-## 관련 Framework
-
-본 페이지의 Common Controls는 GapZer0 Framework의 Information Protection Domain과 ISMS-P 및 NIST CSF 2.0 매핑을 기준으로 작성되었습니다.
