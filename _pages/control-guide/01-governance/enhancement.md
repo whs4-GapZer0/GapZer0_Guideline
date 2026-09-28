@@ -4,7 +4,7 @@ title: "Governance - Enhancement Controls"
 permalink: /controls/governance/enhancement/
 ---
 
-Governance의 Enhancement Control은 ISMS-P 요구사항만으로 충분히 충족되지 않는 NIST CSF 2.0의 거버넌스 목표 결과을 보완하기 위한 통제입니다.
+Governance의 Enhancement Control을 제공합니다.
 
 ---
 
@@ -623,10 +623,3 @@ ISMS-P의 위험관리 요구사항은 주로 정보보호 위험의 식별·평
 ### CSF Coverage
 
 위험관리 과정에 긍정적 위험·기회 식별, 가치·효과 평가, 의사결정 및 추적 절차를 추가하여 GV.RM-07의 결과를 보완합니다.
-
----
-
-
-## 관련 Framework
-
-본 페이지의 Enhancement Controls는 GapZer0 Framework의 Governance Domain Gap 분석과 ISMS-P 및 NIST CSF 2.0 매핑을 기준으로 작성되었습니다.
