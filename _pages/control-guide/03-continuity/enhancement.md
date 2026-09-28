@@ -4,7 +4,7 @@ title: "Continuity - Enhancement Controls"
 permalink: /controls/continuity/enhancement/
 ---
 
-Continuity Domain의 Enhancement Controls는 복구 진행상황 공유, 복원 결과 검증과 복구 종료 기준을 명확히 하여 Common Controls를 보완합니다.
+Continuity Domain의 Enhancement Controls를 제공합니다.
 
 ---
 
@@ -258,10 +258,4 @@ ISMS-P 2.11.5는 사고 대응·복구와 사고분석·재발방지를 요구�
 ### CSF Coverage
 
 이 Control은 종료 기준과 승인권자, 종료 전 점검, 남은 위험·후속업무 인계, 공식 종료 선언과 문서 완결을 요구하여 RC.RP-06 Outcome을 보완합니다.
-
----
-
-## 관련 Framework
-
-본 페이지의 Enhancement Controls는 GapZer0 Framework의 Continuity Domain과 ISMS-P 및 NIST CSF 2.0 매핑을 기준으로 작성되었습니다.
 
