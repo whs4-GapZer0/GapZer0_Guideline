@@ -8,7 +8,11 @@ Supplier Relationships Security의 Common Control은 외부 서비스·공급망
 
 ---
 
-## 외부 서비스와 공급자 활동에서 발생하는 보안 이상 및 침해 징후 탐지
+## GZ-SUP-001
+
+### Control Name
+
+외부 서비스와 공급자 활동에서 발생하는 보안 이상 및 침해 징후 탐지
 
 ### Security Domain
 Supplier Relationships Security
@@ -71,7 +75,11 @@ CISO, CPO, 법무, 업무부서, IT 운영, 재무, 감사, 공급자 담당자
 
 ---
 
-## 외부 의존성 파악·전달
+## GZ-SUP-002
+
+### Control Name
+
+외부 의존성 파악·전달
 
 ### Security Domain
 Supplier Relationships Security
@@ -130,7 +138,11 @@ CISO, CPO, 법무, 업무부서, IT 운영, 재무, 감사, 공급자 담당자
 
 ---
 
-## 공급망 위험관리 체계 수립·합의
+## GZ-SUP-003
+
+### Control Name
+
+공급망 위험관리 체계 수립·합의
 
 ### Security Domain
 Supplier Relationships Security
@@ -188,7 +200,11 @@ CISO, CPO, 법무, 업무부서, IT 운영, 재무, 감사, 공급자 담당자
 
 ---
 
-## 공급망 참여자 역할·책임 수립·조정
+## GZ-SUP-004
+
+### Control Name
+
+공급망 참여자 역할·책임 수립·조정
 
 ### Security Domain
 Supplier Relationships Security
@@ -245,7 +261,11 @@ CISO, CPO, 법무, 업무부서, IT 운영, 재무, 감사, 공급자 담당자
 
 ---
 
-## 공급망 위험 대응 요구사항의 계약 통합
+## GZ-SUP-005
+
+### Control Name
+
+공급망 위험 대응 요구사항의 계약 통합
 
 ### Security Domain
 Supplier Relationships Security
@@ -302,7 +322,11 @@ CISO, CPO, 법무, 업무부서, IT 운영, 재무, 감사, 공급자 담당자
 
 ---
 
-## 공급자·제3자 관계 체결 전 계획·실사 수행
+## GZ-SUP-006
+
+### Control Name
+
+공급자·제3자 관계 체결 전 계획·실사 수행
 
 ### Security Domain
 Supplier Relationships Security
@@ -359,7 +383,11 @@ CISO, CPO, 법무, 업무부서, IT 운영, 재무, 감사, 공급자 담당자
 
 ---
 
-## 공급자·제3자를 사고 계획·대응·복구에 포함
+## GZ-SUP-007
+
+### Control Name
+
+공급자·제3자를 사고 계획·대응·복구에 포함
 
 ### Security Domain
 Supplier Relationships Security
@@ -417,7 +445,11 @@ CISO, CPO, 법무, 업무부서, IT 운영, 재무, 감사, 공급자 담당자
 
 ---
 
-## 계약 종료 후 잔여 위험 처리 활동을 계획
+## GZ-SUP-008
+
+### Control Name
+
+계약 종료 후 잔여 위험 처리 활동을 계획
 
 ### Security Domain
 Supplier Relationships Security
@@ -472,9 +504,3 @@ CISO, CPO, 법무, 업무부서, IT 운영, 재무, 감사, 공급자 담당자
 2. **권한회수·연결해제 기록:** 접근 제거를 확인합니다.
 3. **반환·파기 확인서:** 정보·자산의 잔존 여부를 확인합니다.
 4. **잔여위험 기록:** 미해결 위험의 추적을 확인합니다.
-
----
-
-## 관련 Framework
-
-본 페이지의 Common Control은 GapZer0 Framework의 Supplier Relationships Security Domain 분석과 ISMS-P 및 NIST CSF 2.0 매핑을 기준으로 작성되었습니다.
