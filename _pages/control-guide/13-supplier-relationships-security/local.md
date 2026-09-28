@@ -35,6 +35,10 @@ Local
 개인정보 제3자 제공 업무와 제공받는 자에 적용합니다.
 
 
+#### 관련 법령
+
+- [「개인정보 보호법」 제17조](https://www.law.go.kr/LSW/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1029334945) — 개인정보 제3자 제공의 적법한 근거와 동의·고지 요건을 규정합니다.
+
 ### Control Owner
 개인정보보호책임자(CPO) / 개인정보보호 담당부서
 
@@ -96,6 +100,10 @@ Local
 이전 대상 개인정보와 이전하는 자·이전받는 자에 적용합니다.
 
 
+#### 관련 법령
+
+- [「개인정보 보호법」 제27조](https://www.law.go.kr/LSW/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1029335679) — 영업양도·합병 등에 따른 개인정보 이전 시 사전 통지와 이용목적 제한 등을 규정합니다.
+
 ### Control Owner
 개인정보보호책임자(CPO) / 개인정보보호 담당부서
 
@@ -156,6 +164,10 @@ Local
 #### 적용 대상
 국외로 이전되는 개인정보, 국외 수령자·수탁자·클라우드 서비스에 적용합니다.
 
+
+#### 관련 법령
+
+- [「개인정보 보호법」 제28조의8](https://law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1029331899) — 개인정보 국외 이전이 허용되는 근거와 보호 요건을 규정합니다.
 
 ### Control Owner
 개인정보보호책임자(CPO) / 개인정보보호 담당부서
