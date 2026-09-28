@@ -390,9 +390,3 @@ Common
 - 승인된 계획과 계획 간 개시·전환 기준
 - 교육·훈련·연락망·자원 준비 기록
 - 정기 검토·개정·승인·배포·버전 이력
-
----
-
-## 관련 Framework
-
-본 페이지의 Common Controls는 GapZer0 Framework의 Information Security Assurance Domain과 ISMS-P 및 NIST CSF 2.0 매핑을 기준으로 작성되었습니다.
