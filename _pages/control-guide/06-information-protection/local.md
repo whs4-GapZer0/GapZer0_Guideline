@@ -224,9 +224,3 @@ N/A — NIST CSF 2.0에 직접 대응하는 항목이 없는 국내 법·제도 
 - 법정 보존 근거·항목·기간 검토서
 - 분리 저장·접근권한·이용기록
 - 파기 승인·결과·백업 반영 기록
-
----
-
-## 관련 Framework
-
-본 페이지의 Local Controls는 GapZer0 Framework의 Information Protection Domain과 ISMS-P 및 NIST CSF 2.0 매핑을 기준으로 작성되었습니다.
