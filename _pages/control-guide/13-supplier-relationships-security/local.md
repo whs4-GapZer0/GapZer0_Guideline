@@ -8,7 +8,11 @@ Supplier Relationships Security의 Local Control은 CSF에 직접 매핑되지 �
 
 ---
 
-## 개인정보 제3자 제공
+## GZ-LCM-009
+
+### Control Name
+
+개인정보 제3자 제공
 
 ### Security Domain
 Supplier Relationships Security
@@ -65,7 +69,11 @@ Local
 
 ---
 
-## 영업의 양도 등에 따른 개인정보 이전
+## GZ-SUP-014
+
+### Control Name
+
+영업의 양도 등에 따른 개인정보 이전
 
 ### Security Domain
 Supplier Relationships Security
@@ -122,7 +130,11 @@ Local
 
 ---
 
-## 개인정보 국외이전
+## GZ-LCM-010
+
+### Control Name
+
+개인정보 국외이전
 
 ### Security Domain
 Supplier Relationships Security
@@ -176,9 +188,3 @@ Local
 2. **법적 근거·동의·고지 기록:** 이전 적법성을 확인합니다.
 3. **계약·보호조치 설정:** 실제 보호수준을 확인합니다.
 4. **점검·변경 기록:** 지속적 관리와 재검토를 확인합니다.
-
----
-
-## 관련 Framework
-
-본 페이지의 Local Control은 GapZer0 Framework의 Supplier Relationships Security Domain 분석과 ISMS-P 및 NIST CSF 2.0 매핑을 기준으로 작성되었습니다.
