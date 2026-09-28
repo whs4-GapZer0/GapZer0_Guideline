@@ -8,7 +8,11 @@ Supplier Relationships Security의 Enhancement Control은 기존 ISMS-P 요구�
 
 ---
 
-## 공급망 위험평가·개선 프로세스의 ERM 통합
+## GZ-SUP-009
+
+### Control Name
+
+공급망 위험평가·개선 프로세스의 ERM 통합
 
 ### Security Domain
 Supplier Relationships Security
@@ -72,7 +76,11 @@ GV.SC-03의 공급망 사이버보안 위험관리 통합 결과를 보완합니
 
 ---
 
-## 공급자 위험도 우선순위화
+## GZ-SUP-010
+
+### Control Name
+
+공급자 위험도 우선순위화
 
 ### Security Domain
 Supplier Relationships Security
@@ -136,7 +144,11 @@ GV.SC-04의 공급자 중요도·위험 기반 우선순위화 결과를 보완�
 
 ---
 
-## 공급자 관계 전 기간 위험관리
+## GZ-SUP-011
+
+### Control Name
+
+공급자 관계 전 기간 위험관리
 
 ### Security Domain
 Supplier Relationships Security
@@ -199,7 +211,11 @@ GV.SC-07의 공급자·제3자 관계 전 수명주기 위험관리 결과를 �
 
 ---
 
-## 공급망 보안 ERM 통합·성과관리
+## GZ-SUP-012
+
+### Control Name
+
+공급망 보안 ERM 통합·성과관리
 
 ### Security Domain
 Supplier Relationships Security
@@ -264,7 +280,11 @@ GV.SC-09의 공급망 보안 관행 모니터링 및 ERM 통합 결과를 보완
 
 ---
 
-## Critical Suppliers 정의
+## GZ-SUP-013
+
+### Control Name
+
+Critical Suppliers 정의
 
 ### Security Domain
 Supplier Relationships Security
@@ -328,9 +348,3 @@ ISMS-P는 외부자 현황과 계약보안을 요구하지만 Critical Supplier�
 
 ### CSF Coverage
 ID.RA-10의 중요 공급자 식별 및 관계 수립 전 평가 결과를 보완합니다.
-
----
-
-## 관련 Framework
-
-본 페이지의 Enhancement Control은 GapZer0 Framework의 Supplier Relationships Security Domain 분석과 ISMS-P 및 NIST CSF 2.0 매핑을 기준으로 작성되었습니다.
