@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {blank,validate,parseState,actionType,csvCell,toCsv} from '../assets/assessment/app.mjs';
+import {blank,validate,parseState,actionType,csvCell,toCsv,hasDraft} from '../assets/assessment/app.mjs';
 const bank=JSON.parse(fs.readFileSync(new URL('../assets/assessment/questions.json',import.meta.url),'utf8'));
 const meta={scope:'시험 시스템',start:'2026-01-01',end:'2026-09-29',assessor:'담당자',date:'2026-09-29'};
 const base=()=>({...blank(),response:'충족',reason:'전체 기준 확인',evidence:'정책 v1 p.3'});
@@ -29,12 +29,23 @@ test('CSV preserves commas, quotes, Korean and newlines while neutralizing formu
  assert.equal(csvCell('GOV-C-01'),'"GOV-C-01"');assert.equal(csvCell('https://example.com'),'"https://example.com"');
 });
 
-test('CSV exports every question, current drafts and evidence guidance; empty template excludes all answers',()=>{
+test('CSV exports only written questions; empty template includes all questions without answers',()=>{
  const id=bank.questions[0].id,state={schema:2,bank:bank.version,meta,records:{[id]:{...base(),reason:'CSV 테스트, "인용"\n다음 줄',...plan}}};
  const before=JSON.stringify(state),csv=toCsv(bank,state),empty=toCsv(bank,state,true);
  assert.equal(csv.charCodeAt(0),0xfeff);assert.ok(csv.endsWith('\r\n'));
- for(const q of bank.questions)assert.ok(csv.includes(csvCell(q.id)));
+ assert.ok(csv.includes(csvCell(id)));
+ for(const q of bank.questions){assert.ok(empty.includes(csvCell(q.id)));if(q.id!==id)assert.ok(!csv.includes(csvCell(q.id)));}
  assert.ok(csv.includes(csvCell(state.records[id].reason)));assert.ok(csv.includes(csvCell(bank.controls[0].evidence)));
  assert.ok(csv.includes(csvCell(meta.scope)));assert.ok(!empty.includes('CSV 테스트'));assert.ok(!empty.includes(csvCell(meta.scope)));
  assert.equal(JSON.stringify(state),before);
+});
+
+test('draft selection includes incomplete inputs and ignores viewed, erased or whitespace-only records',()=>{
+ assert.equal(hasDraft(undefined),false);assert.equal(hasDraft(blank()),false);assert.equal(hasDraft({...blank(),reason:' \n\t'}),false);
+ for(const key of ['response','reason','evidence','absenceReason','action','owner','due','status','outcome','completed'])assert.equal(hasDraft({...blank(),[key]:'작성'}),true);
+ assert.equal(hasDraft({...blank(),noEvidence:true}),true);
+ const ids=bank.questions.slice(0,4).map(q=>q.id);
+ const state={meta,records:{[ids[0]]:blank(),[ids[1]]:{...blank(),reason:'작성 중'},[ids[2]]:{...blank(),action:'개선 초안'},[ids[3]]:{...blank(),reason:' '}}};
+ const csv=toCsv(bank,state);assert.ok(csv.includes(csvCell(ids[1])));assert.ok(csv.includes(csvCell(ids[2])));assert.ok(!csv.includes(csvCell(ids[0])));assert.ok(!csv.includes(csvCell(ids[3])));
+ assert.equal(toCsv(bank,{meta,records:{}}).split('\r\n').length,2);
 });

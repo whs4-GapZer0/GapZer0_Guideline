@@ -61,10 +61,11 @@ export function csvCell(value){
  if(/^[\s\u0000-\u001f]*[=+\-@＝＋－＠]/u.test(text)||/^[\t\r\n]/.test(text))text='[텍스트] '+text;
  return '"'+text.replaceAll('"','""')+'"';
 }
+export const hasDraft=r=>!!r&&fields.some(k=>k==='noEvidence'?r[k]===true:has(r[k]));
 export function toCsv(bank,state,empty=false){
  const headers=['Control ID','Control Name','Security Domain','Question ID','평가 관점','Assessment Question','평가 증적','담당자 응답','판단 근거','확인한 증적','확인한 증적 없음','증적이 없는 사유','조치 유형','개선계획 또는 추가 확인 계획','조치 담당자','완료 예정일','진행 상태','완료일','완료 결과·증적','평가 범위','평가기간 시작일','평가기간 종료일','평가 담당자','평가일'];
  const controls=new Map(bank.controls.map(c=>[c.id,c]));
- const rows=bank.questions.map(q=>{
+ const rows=bank.questions.filter(q=>empty||hasDraft(state.records[q.id])).map(q=>{
   const c=controls.get(q.control),r=empty?blank():(state.records[q.id]||blank()),m=empty?{}:state.meta;
   return [c.id,c.name,c.domain,q.id,q.phase,q.text,c.evidence,r.response,r.reason,r.evidence,r.noEvidence?'예':'',r.absenceReason,actionType(r),r.action,r.owner,r.due,r.status,r.completed,r.outcome,m.scope,m.start,m.end,m.assessor,m.date];
  });
@@ -83,7 +84,7 @@ export async function mount(root){
  try{const old=localStorage.getItem(key)??localStorage.getItem(legacyKey);if(old)state=parseState(JSON.parse(old),bank);}
  catch{storageEnabled=false;notice='브라우저 저장 기록을 읽지 못했습니다. 기존 기록은 덮어쓰지 않습니다. 현재 작성 내용은 CSV로 내려받아 보관하세요.';}
  root.replaceChildren();
- root.append(el('p','질문별 현재 상태와 개선계획을 작성하세요. 입력은 이 브라우저에 자동 저장됩니다. CSV에는 필터와 관계없이 전체 질문과 작성 중인 내용이 포함됩니다. 브라우저 데이터를 삭제하면 기록이 사라질 수 있으므로 CSV를 보관하세요.'));
+ root.append(el('p','질문별 현재 상태와 개선계획을 작성하세요. 입력은 이 브라우저에 자동 저장됩니다. 작성 내용 CSV에는 필터와 관계없이 입력한 질문만 포함됩니다. 빈 템플릿 CSV에는 전체 489개 질문이 포함됩니다. 브라우저 데이터를 삭제하면 기록이 사라질 수 있으므로 CSV를 보관하세요.'));
  const message=el('p',notice||'질문을 선택하여 평가를 시작하세요.',{role:'status','aria-live':'polite'});root.append(message);
  function persist(){
   if(!storageEnabled){message.textContent=notice;return false;}
@@ -101,6 +102,7 @@ export async function mount(root){
  root.append(metaPanel);
  const toolbar=el('div',undefined,{class:'sa-toolbar'});
  function download(empty){
+  if(!empty&&!bank.questions.some(q=>hasDraft(state.records[q.id]))){message.textContent='내려받을 작성 내용이 없습니다. 질문에 내용을 입력하거나 빈 템플릿 CSV를 내려받으세요.';return;}
   const url=URL.createObjectURL(new Blob([toCsv(bank,state,empty)],{type:'text/csv;charset=utf-8'}));
   const a=el('a',undefined,{href:url,download:'GapZer0-'+(empty?'assessment-template':'assessment')+'-'+new Date().toISOString().slice(0,10)+'.csv'});
   document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
