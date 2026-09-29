@@ -28,7 +28,7 @@ try{
  await page.locator('.book-summary a[href="/GapZer0_Guideline/introduction/"]').click();await page.waitForURL('**/introduction/');
  await page.goBack();await page.locator('.sa-question').first().waitFor();
  assert.equal(await page.locator('.sa-question').first().getByLabel('판단 근거 (필수)').inputValue(),'테마 이동 후 유지 시험');
- const downloadPromise=page.waitForEvent('download');await page.getByRole('button',{name:'JSON 백업 내려받기'}).click();await downloadPromise;
+ const downloadPromise=page.waitForEvent('download');await page.getByRole('button',{name:'작성 내용 CSV 내려받기'}).click();const download=await downloadPromise;const csv=await fs.readFile(await download.path(),'utf8');assert.equal(csv.charCodeAt(0),0xfeff);assert.ok(csv.includes('테마 이동 후 유지 시험'));assert.ok(csv.includes('GOV-C-01-AQ-D-01'));assert.ok(csv.includes('확인한 증적'));
  await page.locator('#assessment-app').scrollIntoViewIfNeeded();
  await page.screenshot({path:'work/theme-return.png'});
  await page.setViewportSize({width:390,height:844});
@@ -53,4 +53,3 @@ try{
  await mobile.locator('.sa-question').first().waitFor();assert.equal(await mobile.locator('.sa-question').count(),6);assert.deepEqual(errors,[]);
  console.log('PASS: fresh mobile direct entry and menu round trip.');
 }finally{await browser.close();await new Promise(r=>server.close(r));}
-
