@@ -8,7 +8,7 @@ Information Protection Domain의 Enhancement Controls는 전송 중 데이터와
 
 ---
 
-## GZ-INF-002
+## INF-E-01
 
 ### Control Name
 
@@ -94,7 +94,7 @@ ISMS-P 2.10.5는 정보전송 절차와 채널 보호를, 2.7.1·2.7.2는 암호
 
 ---
 
-## GZ-INF-003
+## INF-E-02
 
 ### Control Name
 

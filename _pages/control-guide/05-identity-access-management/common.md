@@ -8,7 +8,7 @@ Identity and Access Management의 Common Control을 제공합니다.
 
 ---
 
-## GZ-IAM-001
+## IAM-C-01
 
 ### Control Name
 
@@ -118,7 +118,7 @@ Common
 
 ---
 
-## GZ-IAM-002
+## IAM-C-02
 
 ### Control Name
 
@@ -223,7 +223,7 @@ Common
 
 ---
 
-## GZ-IAM-003
+## IAM-C-03
 
 ### Control Name
 

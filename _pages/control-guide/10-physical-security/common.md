@@ -8,7 +8,7 @@ Physical Security의 Common Control을 제공합니다.
 
 ---
 
-## GZ-PHY-001
+## PHY-C-01
 
 ### Control Name
 
@@ -105,7 +105,7 @@ Common
 
 ---
 
-## GZ-PHY-002
+## PHY-C-02
 
 ### Control Name
 
@@ -205,7 +205,7 @@ Common
 
 ---
 
-## GZ-PHY-003
+## PHY-C-03
 
 ### Control Name
 

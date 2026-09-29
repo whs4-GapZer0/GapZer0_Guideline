@@ -8,7 +8,7 @@ Physical Security의 Local Control을 제공합니다.
 
 ---
 
-## GZ-PHY-004
+## PHY-L-01
 
 ### Control Name
 

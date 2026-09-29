@@ -8,7 +8,7 @@ Information Protection Domain의 Common Controls는 저장된 데이터의 기�
 
 ---
 
-## GZ-INF-001
+## INF-C-01
 
 ### Control Name
 

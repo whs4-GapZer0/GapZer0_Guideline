@@ -8,7 +8,7 @@ Governance의 Enhancement Control을 제공합니다.
 
 ---
 
-## GZ-GOV-012
+## GOV-E-01
 
 ### Control Name
 
@@ -112,7 +112,7 @@ ISMS-P는 관리체계 범위 설정, 경영진 참여 및 위험평가를 요�
 
 ---
 
-## GZ-GOV-013
+## GOV-E-02
 
 ### Control Name
 
@@ -215,7 +215,7 @@ ISMS-P는 정책 수립과 관리체계 검토를 요구하지만 내·외부 �
 
 ---
 
-## GZ-GOV-014
+## GOV-E-03
 
 ### Control Name
 
@@ -319,7 +319,7 @@ ISMS-P에는 서비스·업무 범위와 외부 관계 관리 요구가 존재�
 
 ---
 
-## GZ-GOV-015
+## GOV-E-04
 
 ### Control Name
 
@@ -422,7 +422,7 @@ CISO는 관계부서와 안건의 위험·업무 영향을 검토하여 보고�
 
 ---
 
-## GZ-GOV-016
+## GOV-E-05
 
 ### Control Name
 
@@ -525,7 +525,7 @@ ISMS-P 1.2.3은 정보보호 위험평가와 위험수용을 요구하지만 사
 
 ---
 
-## GZ-GOV-017
+## GOV-E-06
 
 ### Control Name
 

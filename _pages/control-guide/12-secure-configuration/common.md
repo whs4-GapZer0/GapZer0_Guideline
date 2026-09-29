@@ -8,7 +8,7 @@ Secure Configuration Domain의 Common Control은 승인된 보안 구성의 수�
 
 ---
 
-## GZ-SCF-001
+## SCF-C-01
 
 ### Control Name
 
@@ -92,7 +92,7 @@ IT 구성관리 책임자
 
 ---
 
-## GZ-SCF-002
+## SCF-C-02
 
 ### Control Name
 

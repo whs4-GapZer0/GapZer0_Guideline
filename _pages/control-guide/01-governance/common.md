@@ -8,7 +8,7 @@ Governance의 Common Control은 조직의 사이버보안 위험관리와 정보
 
 ---
 
-## GZ-GOV-001
+## GOV-C-01
 
 ### Control Name
 
@@ -104,7 +104,7 @@ CISO는 관계부서와 안건의 위험·업무 영향을 검토하여 보고�
 
 ---
 
-## GZ-GOV-002
+## GOV-C-02
 
 ### Control Name
 
@@ -199,7 +199,7 @@ CISO는 관계부서와 안건의 위험·업무 영향을 검토하여 보고�
 
 ---
 
-## GZ-GOV-003
+## GOV-C-03
 
 ### Control Name
 
@@ -293,7 +293,7 @@ CISO는 관계부서와 안건의 위험·업무 영향을 검토하여 보고�
 
 ---
 
-## GZ-GOV-004
+## GOV-C-04
 
 ### Control Name
 
@@ -389,7 +389,7 @@ CISO는 관계부서와 안건의 위험·업무 영향을 검토하여 보고�
 
 ---
 
-## GZ-GOV-005
+## GOV-C-05
 
 ### Control Name
 
@@ -483,7 +483,7 @@ CISO는 관계부서와 안건의 위험·업무 영향을 검토하여 보고�
 
 ---
 
-## GZ-GOV-006
+## GOV-C-06
 
 ### Control Name
 
@@ -578,7 +578,7 @@ CISO는 관계부서와 안건의 위험·업무 영향을 검토하여 보고�
 
 ---
 
-## GZ-GOV-007
+## GOV-C-07
 
 ### Control Name
 
@@ -674,7 +674,7 @@ CISO는 관계부서와 안건의 위험·업무 영향을 검토하여 보고�
 
 ---
 
-## GZ-GOV-008
+## GOV-C-08
 
 ### Control Name
 
@@ -769,7 +769,7 @@ CISO는 관계부서와 안건의 위험·업무 영향을 검토하여 보고�
 
 ---
 
-## GZ-GOV-009
+## GOV-C-09
 
 ### Control Name
 
@@ -867,7 +867,7 @@ Common
 
 ---
 
-## GZ-GOV-010
+## GOV-C-10
 
 ### Control Name
 
@@ -964,7 +964,7 @@ Common
 
 ---
 
-## GZ-GOV-011
+## GOV-C-11
 
 ### Control Name
 

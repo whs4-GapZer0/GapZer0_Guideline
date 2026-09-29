@@ -8,7 +8,7 @@ Human Resource Security Domain의 Common Control은 인사 전 주기의 보안 
 
 ---
 
-## GZ-HRS-001
+## HRS-C-01
 
 ### Control Name
 
@@ -92,7 +92,7 @@ Common
 
 ---
 
-## GZ-HRS-002
+## HRS-C-02
 
 ### Control Name
 
@@ -172,7 +172,7 @@ Common
 
 ---
 
-## GZ-HRS-003
+## HRS-C-03
 
 ### Control Name
 

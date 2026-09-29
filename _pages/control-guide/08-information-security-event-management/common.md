@@ -8,7 +8,7 @@ Information Security Event Management의 Common Control을 제공합니다.
 
 ---
 
-## GZ-IEM-001
+## IEM-C-01
 
 ### Control Name
 
@@ -106,7 +106,7 @@ Common
 
 ---
 
-## GZ-IEM-002
+## IEM-C-02
 
 ### Control Name
 
@@ -202,7 +202,7 @@ Common
 
 ---
 
-## GZ-IEM-003
+## IEM-C-03
 
 ### Control Name
 
@@ -299,7 +299,7 @@ Common
 
 ---
 
-## GZ-IEM-004
+## IEM-C-04
 
 ### Control Name
 
@@ -398,7 +398,7 @@ Common
 
 ---
 
-## GZ-IEM-005
+## IEM-C-05
 
 ### Control Name
 
@@ -498,7 +498,7 @@ Common
 
 ---
 
-## GZ-IEM-006
+## IEM-C-06
 
 ### Control Name
 
@@ -597,7 +597,7 @@ IT 운영·개발부서, 클라우드 운영 담당자, 개인정보보호 담�
 
 ---
 
-## GZ-IEM-007
+## IEM-C-07
 
 ### Control Name
 
@@ -695,7 +695,7 @@ IT 운영 책임자
 
 ---
 
-## GZ-IEM-008
+## IEM-C-08
 
 ### Control Name
 
@@ -794,7 +794,7 @@ Common
 
 ---
 
-## GZ-IEM-009
+## IEM-C-09
 
 ### Control Name
 
@@ -891,7 +891,7 @@ Common
 
 ---
 
-## GZ-IEM-010
+## IEM-C-10
 
 ### Control Name
 
@@ -988,7 +988,7 @@ Common
 
 ---
 
-## GZ-IEM-011
+## IEM-C-11
 
 ### Control Name
 
@@ -1084,7 +1084,7 @@ Common
 
 ---
 
-## GZ-IEM-012
+## IEM-C-12
 
 ### Control Name
 
@@ -1181,7 +1181,7 @@ Common
 
 ---
 
-## GZ-IEM-013
+## IEM-C-13
 
 ### Control Name
 
@@ -1277,7 +1277,7 @@ Common
 
 ---
 
-## GZ-IEM-014
+## IEM-C-14
 
 ### Control Name
 
@@ -1373,7 +1373,7 @@ Common
 
 ---
 
-## GZ-IEM-015
+## IEM-C-15
 
 ### Control Name
 
@@ -1469,7 +1469,7 @@ Common
 
 ---
 
-## GZ-IEM-016
+## IEM-C-16
 
 ### Control Name
 
@@ -1565,7 +1565,7 @@ Common
 
 ---
 
-## GZ-IEM-017
+## IEM-C-17
 
 ### Control Name
 
@@ -1660,7 +1660,7 @@ IT 운영·복구 책임자, 업무·서비스 책임자, 보안관제·조사 �
 
 ---
 
-## GZ-IEM-018
+## IEM-C-18
 
 ### Control Name
 

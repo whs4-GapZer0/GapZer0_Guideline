@@ -651,7 +651,7 @@ domains:
   - id: governance
     name: Governance
     controls:
-      - id: GZ-GV-01
+      - id: GOV-C-01
         name: Control Name
         questions:
           - id: AQ-01
@@ -794,7 +794,7 @@ _pages/control-guide/[Domain]/local.md
 
 ### Control ID
 
-GZ-GV-01
+GOV-C-01
 
 ### Security Domain
 

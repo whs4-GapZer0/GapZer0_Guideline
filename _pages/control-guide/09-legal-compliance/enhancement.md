@@ -8,7 +8,7 @@ Legal and Compliance의 Enhancement Control을 제공합니다.
 
 ---
 
-## GZ-LCM-001
+## LCM-E-01
 
 ### Control Name
 

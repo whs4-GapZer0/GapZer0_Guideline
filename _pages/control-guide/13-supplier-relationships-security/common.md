@@ -8,7 +8,7 @@ Supplier Relationships Security의 Common Control은 외부 서비스·공급망
 
 ---
 
-## GZ-SUP-001
+## SUP-C-01
 
 ### Control Name
 
@@ -79,7 +79,7 @@ CISO, CPO, 법무, 업무부서, IT 운영, 재무, 감사, 공급자 담당자
 
 ---
 
-## GZ-SUP-002
+## SUP-C-02
 
 ### Control Name
 
@@ -146,7 +146,7 @@ CISO, CPO, 법무, 업무부서, IT 운영, 재무, 감사, 공급자 담당자
 
 ---
 
-## GZ-SUP-003
+## SUP-C-03
 
 ### Control Name
 
@@ -212,7 +212,7 @@ CISO, CPO, 법무, 업무부서, IT 운영, 재무, 감사, 공급자 담당자
 
 ---
 
-## GZ-SUP-004
+## SUP-C-04
 
 ### Control Name
 
@@ -277,7 +277,7 @@ CISO, CPO, 법무, 업무부서, IT 운영, 재무, 감사, 공급자 담당자
 
 ---
 
-## GZ-SUP-005
+## SUP-C-05
 
 ### Control Name
 
@@ -342,7 +342,7 @@ CISO, CPO, 법무, 업무부서, IT 운영, 재무, 감사, 공급자 담당자
 
 ---
 
-## GZ-SUP-006
+## SUP-C-06
 
 ### Control Name
 
@@ -407,7 +407,7 @@ CISO, CPO, 법무, 업무부서, IT 운영, 재무, 감사, 공급자 담당자
 
 ---
 
-## GZ-SUP-007
+## SUP-C-07
 
 ### Control Name
 
@@ -473,7 +473,7 @@ CISO, CPO, 법무, 업무부서, IT 운영, 재무, 감사, 공급자 담당자
 
 ---
 
-## GZ-SUP-008
+## SUP-C-08
 
 ### Control Name
 

@@ -8,7 +8,7 @@ Continuity Domain의 Common Controls는 백업, 복원력, 용량, 사고복구 
 
 ---
 
-## GZ-CON-001
+## CON-C-01
 
 ### Control Name
 
@@ -83,7 +83,7 @@ IT 운영·백업복구 책임자
 
 ---
 
-## GZ-CON-002
+## CON-C-02
 
 ### Control Name
 
@@ -161,7 +161,7 @@ Common
 
 ---
 
-## GZ-CON-003
+## CON-C-03
 
 ### Control Name
 
@@ -235,7 +235,7 @@ IT 성능·용량관리 책임자
 
 ---
 
-## GZ-CON-004
+## CON-C-04
 
 ### Control Name
 
@@ -309,7 +309,7 @@ Common
 
 ---
 
-## GZ-CON-005
+## CON-C-05
 
 ### Control Name
 
@@ -385,7 +385,7 @@ Common
 
 ---
 
-## GZ-CON-006
+## CON-C-06
 
 ### Control Name
 
@@ -461,7 +461,7 @@ Common
 
 ---
 
-## GZ-CON-007
+## CON-C-07
 
 ### Control Name
 
@@ -537,7 +537,7 @@ Common
 
 ---
 
-## GZ-CON-008
+## CON-C-08
 
 ### Control Name
 

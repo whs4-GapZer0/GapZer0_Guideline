@@ -8,7 +8,7 @@ Asset Management Security Domain의 Enhancement Control은 승인된 네트워�
 
 ---
 
-## GZ-AST-008
+## AST-E-01
 
 ### Control Name
 
@@ -97,7 +97,7 @@ ISMS-P 1.2.2는 정보서비스 및 개인정보 처리의 업무 절차와 흐�
 
 ---
 
-## GZ-AST-009
+## AST-E-02
 
 ### Control Name
 

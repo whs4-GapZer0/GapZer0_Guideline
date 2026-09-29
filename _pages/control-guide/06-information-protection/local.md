@@ -8,7 +8,7 @@ Information Protection Domain의 Local Controls는 개인정보 최소수집, �
 
 ---
 
-## GZ-INF-004
+## INF-L-01
 
 ### Control Name
 
@@ -81,7 +81,7 @@ N/A — NIST CSF 2.0에 직접 대응하는 항목이 없는 국내 법·제도 
 
 ---
 
-## GZ-INF-005
+## INF-L-02
 
 ### Control Name
 
@@ -155,7 +155,7 @@ N/A — NIST CSF 2.0에 직접 대응하는 항목이 없는 국내 법·제도 
 
 ---
 
-## GZ-INF-006
+## INF-L-03
 
 ### Control Name
 

@@ -8,7 +8,7 @@ Application Security의 Enhancement Control은 ISMS-P의 개발보안 요구사�
 
 ---
 
-## GZ-APP-001
+## APP-E-01
 
 ### Control Name
 

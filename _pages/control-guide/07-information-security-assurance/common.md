@@ -8,7 +8,7 @@ Information Security Assurance Domain의 Common Controls는 성과평가, 시험
 
 ---
 
-## GZ-ISA-001
+## ISA-C-01
 
 ### Control Name
 
@@ -84,7 +84,7 @@ Common
 
 ---
 
-## GZ-ISA-002
+## ISA-C-02
 
 ### Control Name
 
@@ -160,7 +160,7 @@ Common
 
 ---
 
-## GZ-ISA-003
+## ISA-C-03
 
 ### Control Name
 
@@ -238,7 +238,7 @@ Common
 
 ---
 
-## GZ-ISA-004
+## ISA-C-04
 
 ### Control Name
 
@@ -314,7 +314,7 @@ Common
 
 ---
 
-## GZ-ISA-005
+## ISA-C-05
 
 ### Control Name
 

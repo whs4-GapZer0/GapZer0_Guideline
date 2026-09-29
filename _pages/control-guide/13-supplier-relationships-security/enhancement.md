@@ -8,7 +8,7 @@ Supplier Relationships Security의 Enhancement Control은 기존 ISMS-P 요구�
 
 ---
 
-## GZ-SUP-009
+## SUP-E-01
 
 ### Control Name
 
@@ -80,7 +80,7 @@ GV.SC-03의 공급망 사이버보안 위험관리 통합 결과를 보완합니
 
 ---
 
-## GZ-SUP-010
+## SUP-E-02
 
 ### Control Name
 
@@ -152,7 +152,7 @@ GV.SC-04의 공급자 중요도·위험 기반 우선순위화 결과를 보완�
 
 ---
 
-## GZ-SUP-011
+## SUP-E-03
 
 ### Control Name
 
@@ -223,7 +223,7 @@ GV.SC-07의 공급자·제3자 관계 전 수명주기 위험관리 결과를 �
 
 ---
 
-## GZ-SUP-012
+## SUP-E-04
 
 ### Control Name
 
@@ -296,7 +296,7 @@ GV.SC-09의 공급망 보안 관행 모니터링 및 ERM 통합 결과를 보완
 
 ---
 
-## GZ-SUP-013
+## SUP-E-05
 
 ### Control Name
 

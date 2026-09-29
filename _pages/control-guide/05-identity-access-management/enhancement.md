@@ -8,7 +8,7 @@ Identity and Access Management의 Enhancement Control을 제공합니다.
 
 ---
 
-## GZ-IAM-004
+## IAM-E-01
 
 ### Control Name
 
@@ -113,7 +113,7 @@ ISMS-P 2.5.2는 사용자별 고유 식별자 부여와 책임추적성을, 2.5.
 
 ---
 
-## GZ-IAM-005
+## IAM-E-02
 
 ### Control Name
 

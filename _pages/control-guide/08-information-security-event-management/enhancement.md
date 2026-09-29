@@ -8,7 +8,7 @@ Information Security Event Management의 Enhancement Control을 제공합니다.
 
 ---
 
-## GZ-IEM-019
+## IEM-E-01
 
 ### Control Name
 
@@ -114,7 +114,7 @@ DE.AE-02를 기준으로 잠재적 이벤트의 관련 활동을 이해하는 �
 
 ---
 
-## GZ-IEM-020
+## IEM-E-02
 
 ### Control Name
 
@@ -218,7 +218,7 @@ DE.AE-08에 따라 사고 기준과 판단 권한을 정하고, 기준을 충족
 
 ---
 
-## GZ-IEM-021
+## IEM-E-03
 
 ### Control Name
 
@@ -322,7 +322,7 @@ RS.MA-02에 따라 접수 보고를 초기 분류하고 대응 필요성을 검�
 
 ---
 
-## GZ-IEM-022
+## IEM-E-04
 
 ### Control Name
 

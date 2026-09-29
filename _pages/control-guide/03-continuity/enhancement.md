@@ -8,7 +8,7 @@ Continuity Domain의 Enhancement Controls를 제공합니다.
 
 ---
 
-## GZ-CON-009
+## CON-E-01
 
 ### Control Name
 
@@ -93,7 +93,7 @@ ISMS-P 2.11.1은 사고 보고·비상연락 체계를, 2.11.5는 사고 대응�
 
 ---
 
-## GZ-CON-010
+## CON-E-02
 
 ### Control Name
 
@@ -178,7 +178,7 @@ ISMS-P 2.9.3과 2.12.2는 백업 완전성과 복구시험을, 2.9.2는 장애 �
 
 ---
 
-## GZ-CON-011
+## CON-E-03
 
 ### Control Name
 

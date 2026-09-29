@@ -8,7 +8,7 @@ System and Network Security의 Common Control을 제공합니다.
 
 ---
 
-## GZ-SNS-001
+## SNS-C-01
 
 ### Control Name
 

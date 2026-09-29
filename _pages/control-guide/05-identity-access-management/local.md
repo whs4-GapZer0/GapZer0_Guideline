@@ -8,7 +8,7 @@ Identity and Access Management의 Local Control을 제공합니다.
 
 ---
 
-## GZ-IAM-006
+## IAM-L-01
 
 ### Control Name
 
