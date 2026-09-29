@@ -383,6 +383,7 @@ Common
 CISO, CPO, 법무, 업무부서, IT 운영, 재무, 감사, 공급자 담당자
 
 ### 매핑된 ISMS-P 항목
+- 2.3.1 외부자 현황 관리
 - 2.3.2 외부자 계약 시 보안
 
 ### 매핑된 CSF 항목
@@ -480,7 +481,7 @@ CISO, CPO, 법무, 업무부서, IT 운영, 재무, 감사, 공급자 담당자
 
 ### Control Name
 
-계약 종료 후 잔여 위험 처리 활동을 계획
+공급자 관계 종료 후 보안조치 계획 및 이행
 
 ### Security Domain
 Supplier Relationships Security
