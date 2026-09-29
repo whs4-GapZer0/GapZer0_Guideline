@@ -4,7 +4,7 @@ title: "Asset Management - Enhancement Controls"
 permalink: /controls/asset-management/enhancement/
 ---
 
-Asset Management Security Domain의 Enhancement Control은 승인된 네트워크 통신·데이터 흐름의 표현과 통합 자산·데이터 수명주기 관리를 통해 Common Control을 보완합니다.
+Asset Management Security Domain의 Enhancement Controls를 제공합니다.
 
 ---
 
