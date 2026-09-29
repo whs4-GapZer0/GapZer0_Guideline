@@ -123,6 +123,10 @@ GapZer0 Framework의 Assessment Question을 이용하여 조직의 현재 상태
 
 ## Self Assessment
 
-현재 기능 개발 예정입니다. 기능 제공 전에는 위 기준에 따라 별도 평가 기록에 Question ID별 자가 진단 결과를 작성할 수 있습니다.
+입력 내용은 현재 브라우저에 임시 저장됩니다. JSON 백업으로 보관하거나 다른 브라우저에서 이어서 작성할 수 있습니다. 자료 파일 자체는 저장하지 않고, 확인한 증적의 이름·링크·위치를 기록합니다.
 
-<div id="assessment-app"></div>
+<link rel="stylesheet" href="{{ '/assets/assessment/app.css' | relative_url }}">
+<div id="assessment-app" data-questions="{{ '/assets/assessment/questions.json' | relative_url }}">자가 진단 질문을 불러오는 중입니다.</div>
+<noscript>자가 진단 입력 화면을 사용하려면 JavaScript를 허용해야 합니다. 위 작성 기준은 JavaScript 없이도 확인할 수 있습니다.</noscript>
+<script type="module" src="{{ '/assets/assessment/app.mjs' | relative_url }}"></script>
+
