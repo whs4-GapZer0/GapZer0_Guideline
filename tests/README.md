@@ -36,3 +36,12 @@ GitBook의 `page.change`에서 앱을 초기화하도록 `assets/gitbook/custom-
 121개 Control·489개 질문은 담당자가 편집한 `GapZer0_Assessment_Questions.xlsx`의 질문 목록에서 가져왔습니다. Control 명칭·Domain·가이드라인 링크는 질문은행 원본과 Control ID로 연결했습니다. 기준 가이드라인 커밋은 `questions.json`의 `sourceCommit`에 기록합니다.
 
 이 구현은 브라우저별 단일 평가 작업을 지원합니다. 계정·서버 저장·공동 편집·증적 파일 업로드·점수 집계는 포함하지 않습니다. JSON 백업에는 평가 내용과 자료 참조가 포함됩니다.
+
+
+## 전체 Jekyll 빌드 검증
+
+`.github/workflows/validate-jekyll.yml`은 검토 브랜치 push 및 main 대상 PR에서 GitHub Pages 공식 빌드 환경으로 전체 사이트를 생성합니다. 배포 단계는 없습니다. 생성된 자가 진단 HTML의 경로, 앱 파일 및 질문은행 121/489개를 검사하고, Chromium에서 메뉴 왕복·뒤로/앞으로 가기·새로고침·입력 유지·모바일·테마 전환을 검사합니다. 결과물은 실행 페이지의 `jekyll-site` 아티팩트로 7일간 보관됩니다.
+
+첫 전체 빌드 및 생성 파일 검사 통과: https://github.com/whs4-GapZer0/GapZer0_Guideline/actions/runs/36582883780
+
+위 로컬 미리보기의 Jekyll 미검증 제한은 이 CI 빌드 결과로 보완합니다. 테스트 소스는 사이트 출력에서 제외합니다.

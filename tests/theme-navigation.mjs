@@ -1,0 +1,56 @@
+import {chromium} from 'playwright';
+import http from 'node:http';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import assert from 'node:assert/strict';
+const root=path.resolve(process.env.THEME_TEST_ROOT||'work/theme-preview');
+const server=http.createServer(async(req,res)=>{try{let p=new URL(req.url,'http://localhost').pathname;if(p.endsWith('/'))p+='index.html';const f=path.resolve(root,'.'+p);if(!f.startsWith(root+path.sep))throw Error();res.setHeader('Content-Type',f.endsWith('.mjs')||f.endsWith('.js')?'text/javascript':f.endsWith('.json')?'application/json':f.endsWith('.css')?'text/css':f.endsWith('.html')?'text/html':'application/octet-stream');res.end(await fs.readFile(f));}catch{res.statusCode=404;res.end();}});
+await new Promise(r=>server.listen(0,'127.0.0.1',r));
+const browser=await chromium.launch({channel:process.env.CI?undefined:'msedge',headless:true});
+try{
+ const page=await browser.newPage({viewport:{width:1440,height:1000}});const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ const base=`http://127.0.0.1:${server.address().port}/GapZer0_Guideline`;
+ await page.goto(base+'/introduction/');
+ await page.locator('.book-summary a[href="/GapZer0_Guideline/self-assessment/"]').click();await page.locator('.sa-question').first().waitFor();
+ await page.getByLabel('평가 범위 (조직·업무·시스템)').fill('테마 통합 시험');
+ await page.locator('#assessment-app').scrollIntoViewIfNeeded();await page.screenshot({path:'work/theme-direct.png'});
+ const direct=await page.locator('.sa-question').count();
+ await page.locator('.book-summary a[href="/GapZer0_Guideline/introduction/"]').click();await page.waitForURL('**/introduction/');
+ await page.locator('.book-summary a[href="/GapZer0_Guideline/self-assessment/"]').click();await page.waitForURL('**/self-assessment/');
+ try{await page.locator('.sa-question').first().waitFor({timeout:4000});}catch{}
+ const returning=await page.locator('.sa-question').count();
+ assert.equal(direct,6);assert.equal(returning,6);
+ assert.equal(await page.getByLabel('평가 범위 (조직·업무·시스템)').inputValue(),'테마 통합 시험');
+ await page.goBack();await page.waitForURL('**/introduction/');await page.goForward();await page.locator('.sa-question').first().waitFor();
+ await page.reload();await page.locator('.sa-question').first().waitFor();
+ assert.equal(await page.getByLabel('평가 범위 (조직·업무·시스템)').inputValue(),'테마 통합 시험');
+ const card=page.locator('.sa-question').first();await card.getByLabel('담당자 응답 (필수)').selectOption('부분 충족');await card.getByLabel('판단 근거 (필수)').fill('테마 이동 후 유지 시험');
+ await page.locator('.book-summary a[href="/GapZer0_Guideline/introduction/"]').click();await page.waitForURL('**/introduction/');
+ await page.goBack();await page.locator('.sa-question').first().waitFor();
+ assert.equal(await page.locator('.sa-question').first().getByLabel('판단 근거 (필수)').inputValue(),'테마 이동 후 유지 시험');
+ const downloadPromise=page.waitForEvent('download');await page.getByRole('button',{name:'JSON 백업 내려받기'}).click();await downloadPromise;
+ await page.locator('#assessment-app').scrollIntoViewIfNeeded();
+ await page.screenshot({path:'work/theme-return.png'});
+ await page.setViewportSize({width:390,height:844});
+ await page.locator('.book-header a.js-toolbar-action').first().click();
+ await page.waitForFunction(()=>!document.querySelector('.book').classList.contains('with-summary'));
+ await page.waitForTimeout(500);
+ await page.locator('#assessment-app').scrollIntoViewIfNeeded();await page.screenshot({path:'work/theme-mobile.png'});
+ const overflow=await page.locator('.body-inner').evaluate(el=>({client:el.clientWidth,scroll:el.scrollWidth}));assert.ok(overflow.scroll<=overflow.client+1,JSON.stringify(overflow));
+ assert.ok(await page.locator('#assessment-app').evaluate(el=>{const r=el.getBoundingClientRect();return r.left>=0&&r.right<=innerWidth;}));
+ await page.getByRole('link',{name:'Font Settings',exact:true}).click();await page.getByText('Night',{exact:true}).click();
+ await page.getByRole('link',{name:'Font Settings',exact:true}).click();
+ await page.locator('.sa-question').first().scrollIntoViewIfNeeded();await page.screenshot({path:'work/theme-night.png'});
+ await page.getByRole('link',{name:'Font Settings',exact:true}).click();await page.getByText('Sepia',{exact:true}).click();await page.getByRole('link',{name:'Font Settings',exact:true}).click();
+ await page.locator('.sa-question').first().scrollIntoViewIfNeeded();await page.screenshot({path:'work/theme-sepia.png'});
+ console.log(JSON.stringify({direct,returning,overflow,toolbar:await page.locator('.book-header a').evaluateAll(els=>els.map(e=>({label:e.getAttribute('aria-label'),title:e.title,class:e.className}))),errors}));assert.deepEqual(errors,[]);
+ const mobile=await browser.newPage({viewport:{width:390,height:844}});mobile.on('pageerror',e=>errors.push(e.message));
+ await mobile.goto(base+'/self-assessment/');await mobile.locator('.sa-question').first().waitFor();
+ for(const route of ['introduction','self-assessment']){
+ if(!await mobile.locator('.book').evaluate(el=>el.classList.contains('with-summary')))await mobile.locator('.book-header a.js-toolbar-action').first().click();
+ await mobile.locator(`.book-summary a[href="/GapZer0_Guideline/${route}/"]`).click();await mobile.waitForURL(`**/${route}/`);
+ }
+ await mobile.locator('.sa-question').first().waitFor();assert.equal(await mobile.locator('.sa-question').count(),6);assert.deepEqual(errors,[]);
+ console.log('PASS: fresh mobile direct entry and menu round trip.');
+}finally{await browser.close();await new Promise(r=>server.close(r));}
+
