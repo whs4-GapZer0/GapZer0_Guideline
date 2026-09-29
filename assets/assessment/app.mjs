@@ -67,6 +67,7 @@ export async function mount(root){
  let bank;
  try{const response=await fetch(root.dataset.questions);if(!response.ok)throw Error(response.status);bank=await response.json();}
  catch{root.replaceChildren(el('p','질문을 불러오지 못했습니다. 연결을 확인하고 페이지를 새로고침하세요.',{role:'alert'}));return;}
+ if(!root.isConnected)return;
  const key='gapzer0.assessment.'+bank.version;
  let state={schema:1,bank:bank.version,meta:Object.fromEntries(metaFields.map(k=>[k,''])),records:{},history:{}};
  let storageEnabled=true,notice='';
@@ -158,7 +159,10 @@ export async function mount(root){
  }
  refreshControls();summary();
 }
+export function boot(){
+ const root=document.getElementById('assessment-app');
+ if(root&&!root.dataset.mounted){root.dataset.mounted='true';mount(root).catch(()=>{if(root.isConnected)root.textContent='화면을 초기화하지 못했습니다. 새로고침 후 다시 시도하세요.';});}
+}
 if(typeof document!=='undefined'){
- const boot=()=>{const root=document.getElementById('assessment-app');if(root&&!root.dataset.mounted){root.dataset.mounted='true';mount(root).catch(()=>{root.textContent='화면을 초기화하지 못했습니다. 새로고침 후 다시 시도하세요.';});}};
  boot();document.addEventListener('DOMContentLoaded',boot);document.addEventListener('pjax:complete',boot);
 }

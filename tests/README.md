@@ -19,7 +19,19 @@ node --test tests/assessment.test.mjs
 - 브라우저 저장 차단·용량 부족 시 실패 안내와 JSON 백업이 제공되는지 확인합니다.
 - 최종 PR 전에는 실제 Jekyll 테마에서 직접 진입 및 메뉴 이동, 모바일, 상대 경로를 확인합니다.
 
-## 질문은행 출처
+## 테마 통합 점검 (2026-09-29)
+
+공개 GapZer0 사이트의 HTML 셸·CSS·JavaScript를 로컬에 복제하고 이 브랜치의 본문과 앱을 넣어 Edge에서 검사했습니다. 본문 Markdown은 marked로 변환했습니다. Ruby/Jekyll이 없는 환경이므로 전체 Jekyll 빌드 및 GitHub Pages 배포 검증을 대신하지 않습니다. PR 전 Jekyll 빌드 결과에서도 아래 항목을 확인해야 합니다.
+
+- 소개 페이지에서 처음 자가 진단 진입, 다른 메뉴 왕복, 뒤로/앞으로 가기, 새로고침 시 질문 표시 및 입력 유지.
+- 실제 테마 안에서 JSON 백업 다운로드.
+- 1440px 데스크톱 및 390px 모바일 화면, 메뉴 열기/닫기, 모바일 첫 진입과 메뉴 왕복.
+- 데스크톱에서 모바일로 크기를 변경한 뒤 본문 좌우 잘림 여부.
+- White/Sepia/Night에서 입력값 및 평가 관점 색상 확인.
+
+GitBook의 `page.change`에서 앱을 초기화하도록 `assets/gitbook/custom-local.js`를 추가했습니다. 삽입된 모듈 스크립트가 메뉴 이동 시 다시 실행되지 않는 문제를 처리하고 중복 초기화를 방지합니다. 모바일 너비에서는 테마 splitter가 남긴 데스크톱 위치값을 자가 진단 페이지에 한정해 보정합니다.
+
+## 질문은행 출처 및 범위
 
 121개 Control·489개 질문은 담당자가 편집한 `GapZer0_Assessment_Questions.xlsx`의 질문 목록에서 가져왔습니다. Control 명칭·Domain·가이드라인 링크는 질문은행 원본과 Control ID로 연결했습니다. 기준 가이드라인 커밋은 `questions.json`의 `sourceCommit`에 기록합니다.
 

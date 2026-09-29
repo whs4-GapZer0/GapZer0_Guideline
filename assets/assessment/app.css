@@ -20,4 +20,12 @@
 #assessment-app [role=alert] { color: #b91c1c; }
 #assessment-app [role=status] { padding: .7rem; background: #f1f5f9; color: #172033; }
 #assessment-app [hidden] { display: none !important; }
+.book.color-theme-2 #assessment-app input:not([type=checkbox]), .book.color-theme-2 #assessment-app select, .book.color-theme-2 #assessment-app textarea { background: #252b3b; color: #f1f5f9; color-scheme: dark; }
+.book.color-theme-2 #assessment-app .sa-design { color: #93b4ff; }
+.book.color-theme-2 #assessment-app .sa-implementation { color: #6ee7b7; }
+.book.color-theme-2 #assessment-app .sa-operating { color: #ffb86b; }
+.book.color-theme-2 #assessment-app [role=alert] { color: #fca5a5; }
+.book.color-theme-2 #assessment-app [role=status] { background: #252b3b; color: #f1f5f9; }
 @media(max-width: 600px) { #assessment-app .sa-toolbar { align-items: stretch; flex-direction: column; } }
+/* The theme splitter can retain a desktop inline offset after resizing. */
+@media(max-width: 600px) { .book:has(#assessment-app) .book-body { left: 0 !important; } }
