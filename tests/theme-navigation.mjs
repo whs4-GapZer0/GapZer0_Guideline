@@ -19,7 +19,7 @@ try{
  await page.getByRole('link',{name:'자가진단 시작하기',exact:true}).click();
  await page.locator('.sa-question').first().waitFor();
  await page.getByLabel('평가 범위 (조직·업무·시스템)').fill('테마 통합 시험');
- await page.getByRole('link',{name:'작성 방법 및 평가 기준 보기',exact:true}).click();
+ await page.getByRole('link',{name:'자가 진단 활용 안내',exact:true}).click();
  await page.waitForURL('**/self-assessment/');
  assert.equal(await page.locator('#assessment-app').count(),0);
  await page.getByRole('link',{name:'자가진단 시작하기',exact:true}).first().click();

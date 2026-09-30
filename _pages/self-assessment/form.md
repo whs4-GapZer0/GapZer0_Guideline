@@ -4,7 +4,7 @@ title: "자가진단 작성"
 permalink: /self-assessment/form/
 ---
 
-[작성 방법 및 평가 기준 보기]({{ '/self-assessment/' | relative_url }})
+[자가 진단 활용 안내]({{ '/self-assessment/' | relative_url }})
 
 평가 기본정보를 입력하고 Control별 질문에 따라 충족 여부, 근거, 확인한 증적과 개선조치를 작성하세요. 작성 내용은 이 브라우저에 자동 저장됩니다. 필요한 내용은 CSV로 내려받아 보관하세요.
 

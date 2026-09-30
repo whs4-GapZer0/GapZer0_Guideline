@@ -29,7 +29,7 @@ jobs:
           assert 'id="assessment-app"' not in guide
           assert '/GapZer0_Guideline/self-assessment/form/' in guide
           html = (site / 'self-assessment/form/index.html').read_text()
-          assert '작성 방법 및 평가 기준 보기' in html
+          assert '자가 진단 활용 안내' in html
           for value in ['id="assessment-app"', '/GapZer0_Guideline/assets/assessment/app.mjs', '/GapZer0_Guideline/assets/assessment/questions.json', '/GapZer0_Guideline/assets/gitbook/custom-local.js']:
               assert value in html, value
           for name in ['app.mjs', 'app.css', 'questions.json']:
