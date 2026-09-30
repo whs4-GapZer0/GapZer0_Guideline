@@ -1,0 +1,52 @@
+name: Validate Jekyll build
+on:
+  push:
+    branches: [review/self-assessment]
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Build with GitHub Pages Jekyll
+        uses: actions/jekyll-build-pages@44a6e6beabd48582f863aeeb6cb2151cc1716697
+        with:
+          source: ./
+          destination: ./_site
+      - name: Verify generated assessment files
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          site = Path('_site')
+          html = (site / 'self-assessment/index.html').read_text()
+          for value in ['id="assessment-app"', '/GapZer0_Guideline/assets/assessment/app.mjs', '/GapZer0_Guideline/assets/assessment/questions.json', '/GapZer0_Guideline/assets/gitbook/custom-local.js']:
+              assert value in html, value
+          for name in ['app.mjs', 'app.css', 'questions.json']:
+              assert (site / 'assets/assessment' / name).is_file(), name
+          bank = json.loads((site / 'assets/assessment/questions.json').read_text())
+          assert len(bank['questions']) == 489
+          assert len(bank['controls']) == 121
+          print('PASS: generated self-assessment, assets, 121 controls and 489 questions')
+          PY
+      - name: Test generated site navigation
+        run: |
+          npm install --prefix "$RUNNER_TEMP/browser-test" playwright@1.58.2
+          ln -s "$RUNNER_TEMP/browser-test/node_modules" node_modules
+          "$RUNNER_TEMP/browser-test/node_modules/.bin/playwright" install --with-deps chromium
+          mkdir -p work/theme-preview
+          ln -s "$PWD/_site" work/theme-preview/GapZer0_Guideline
+          node --test tests/assessment.test.mjs
+          node tests/theme-navigation.mjs
+      - name: Save build for inspection
+        uses: actions/upload-artifact@v4
+        with:
+          name: jekyll-site
+          path: _site/
+          retention-days: 7

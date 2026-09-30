@@ -1,0 +1,33 @@
+#assessment-app { margin: 2rem 0; }
+#assessment-app * { box-sizing: border-box; }
+#assessment-app label { display: block; margin: .8rem 0; font-weight: 600; }
+#assessment-app input:not([type=checkbox]), #assessment-app select, #assessment-app textarea { display: block; width: 100%; padding: .65rem; margin-top: .35rem; border: 1px solid #94a3b8; border-radius: 4px; background: #fff; color: #172033; font: inherit; }
+#assessment-app textarea { resize: vertical; min-height: 90px; }
+#assessment-app input[type=checkbox] { margin-right: .5rem; }
+#assessment-app fieldset { border: 1px solid #cbd5e1; padding: 1rem; margin: 1rem 0; min-width: 0; }
+#assessment-app legend { font-weight: 700; padding: 0 .4rem; }
+#assessment-app button { background: #156b71; color: white; border: 0; border-radius: 4px; padding: .7rem 1rem; cursor: pointer; font: inherit; }
+#assessment-app :focus-visible { outline: 3px solid #ea9800; outline-offset: 3px; }
+#assessment-app .sa-toolbar, #assessment-app .sa-filters { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+#assessment-app .sa-filters label { flex: 1 1 230px; min-width: 0; }
+#assessment-app .sa-question { border: 1px solid #cbd5e1; border-top: 4px solid #156b71; border-radius: 5px; padding: 1rem; margin: 1.5rem 0; }
+#assessment-app .sa-preserve, #assessment-app pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+#assessment-app details { margin: 1rem 0; }
+#assessment-app summary { cursor: pointer; font-weight: 600; }
+#assessment-app .sa-design { color: #1d4ed8; }
+#assessment-app .sa-implementation { color: #047857; }
+#assessment-app .sa-operating { color: #b45309; }
+#assessment-app [role=alert] { color: #b91c1c; }
+#assessment-app .sa-validation-ok { color: #047857; }
+#assessment-app [role=status] { padding: .7rem; background: #f1f5f9; color: #172033; }
+#assessment-app [hidden] { display: none !important; }
+.book.color-theme-2 #assessment-app input:not([type=checkbox]), .book.color-theme-2 #assessment-app select, .book.color-theme-2 #assessment-app textarea { background: #252b3b; color: #f1f5f9; color-scheme: dark; }
+.book.color-theme-2 #assessment-app .sa-design { color: #93b4ff; }
+.book.color-theme-2 #assessment-app .sa-implementation { color: #6ee7b7; }
+.book.color-theme-2 #assessment-app .sa-operating { color: #ffb86b; }
+.book.color-theme-2 #assessment-app [role=alert] { color: #fca5a5; }
+.book.color-theme-2 #assessment-app .sa-validation-ok { color: #6ee7b7; }
+.book.color-theme-2 #assessment-app [role=status] { background: #252b3b; color: #f1f5f9; }
+@media(max-width: 600px) { #assessment-app .sa-toolbar { align-items: stretch; flex-direction: column; } }
+/* The theme splitter can retain a desktop inline offset after resizing. */
+@media(max-width: 600px) { .book:has(#assessment-app) .book-body { left: 0 !important; } }
