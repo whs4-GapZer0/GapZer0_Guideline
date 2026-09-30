@@ -51,5 +51,27 @@ try{
  await mobile.locator(`.book-summary a[href="/GapZer0_Guideline/${route}/"]`).click();await mobile.waitForURL(`**/${route}/`);
  }
  await mobile.locator('.sa-question').first().waitFor();assert.equal(await mobile.locator('.sa-question').count(),6);assert.deepEqual(errors,[]);
- console.log('PASS: fresh mobile direct entry and menu round trip.');
+
+ const reset=page.getByRole('button',{name:'작성 내용 초기화',exact:true});
+ assert.equal(await reset.evaluate(e=>getComputedStyle(e).backgroundColor),'rgb(185, 28, 28)');
+ await page.evaluate(()=>{localStorage.setItem('unrelated-setting','keep');localStorage.setItem('gapzer0.assessment.gapzer0-v02-aq1','legacy');});
+ page.once('dialog',d=>d.dismiss());await reset.click();
+ assert.equal(await page.getByLabel('평가 범위 (조직·업무·시스템)').inputValue(),'테마 통합 시험');
+ await page.evaluate(()=>{window.originalRemove=Storage.prototype.removeItem;Storage.prototype.removeItem=function(){throw Error('denied');};});
+ page.once('dialog',d=>d.accept());await reset.click();
+ assert.ok((await page.locator('#assessment-app [role=status]').innerText()).includes('완료하지 않았습니다'));
+ assert.equal(await page.getByLabel('평가 범위 (조직·업무·시스템)').inputValue(),'테마 통합 시험');
+ await page.evaluate(()=>{Storage.prototype.removeItem=window.originalRemove;});
+ page.once('dialog',d=>d.accept());await reset.click();
+ assert.equal(await page.getByLabel('평가 범위 (조직·업무·시스템)').inputValue(),'');
+ assert.equal(await page.locator('.sa-question').first().getByLabel('판단 근거 (필수)').inputValue(),'');
+ assert.equal(await page.evaluate(()=>localStorage.getItem('gapzer0.assessment.gapzer0-v02-aq1')),null);
+ assert.equal(await page.evaluate(()=>localStorage.getItem('gapzer0.assessment.gapzer0-v02-aq1.template-v2')),null);
+ assert.equal(await page.evaluate(()=>localStorage.getItem('unrelated-setting')),'keep');
+ await page.reload();await page.locator('.sa-question').first().waitFor();
+ assert.equal(await page.getByLabel('평가 범위 (조직·업무·시스템)').inputValue(),'');
+ await page.getByRole('button',{name:'작성 내용 CSV 내려받기',exact:true}).click();
+ assert.ok((await page.locator('#assessment-app [role=status]').innerText()).includes('작성 내용이 없습니다'));
+ console.log('PASS: mobile navigation; red reset button, cancel, storage failure, current/legacy clearing and reload.');
+
 }finally{await browser.close();await new Promise(r=>server.close(r));}

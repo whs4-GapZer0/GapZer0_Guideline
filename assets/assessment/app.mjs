@@ -111,6 +111,27 @@ export async function mount(root){
  const exp=el('button','작성 내용 CSV 내려받기',{type:'button'});exp.onclick=()=>download(false);
  const template=el('button','빈 템플릿 CSV 내려받기',{type:'button'});template.onclick=()=>download(true);
  toolbar.append(saveBrowser,exp,template);root.append(toolbar);
+ const resetArea=el('div',undefined,{class:'sa-reset-area'});
+ const reset=el('button','작성 내용 초기화',{type:'button',class:'sa-reset'});
+ reset.onclick=()=>{
+  if(!confirm('평가 기본정보와 모든 질문의 작성 내용 및 브라우저 저장 기록을 초기화합니다. 복구할 수 없으므로 필요한 내용은 먼저 CSV로 내려받아 주세요. 초기화할까요?'))return;
+  try{
+   // Remove only this assessment's current and legacy records, not other site data.
+   localStorage.removeItem(legacyKey);
+   localStorage.removeItem(key);
+  }catch{
+   message.textContent='브라우저 저장 기록을 지우지 못해 초기화를 완료하지 않았습니다. 현재 입력은 유지됩니다. 필요한 내용은 CSV로 내려받으세요.';
+   return;
+  }
+  state={schema:2,bank:bank.version,meta:Object.fromEntries(metaFields.map(k=>[k,''])),records:{}};
+  storageEnabled=true;notice='';
+  for(const field of metaPanel.querySelectorAll('input'))field.value='';
+  domain='';phase='';status='';
+  for(const field of filters.querySelectorAll('select'))field.value='';
+  refreshControls();summary();
+  message.textContent='평가 기본정보와 모든 질문의 작성 내용 및 브라우저 저장 기록을 초기화했습니다.';
+ };
+ resetArea.append(reset);root.append(resetArea);
  const progress=el('p');root.append(progress);
  function summary(){
   const answered=bank.questions.filter(q=>state.records[q.id]?.response).length;
