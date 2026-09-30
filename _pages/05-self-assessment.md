@@ -4,7 +4,7 @@ title: "05. Self Assessment"
 permalink: /self-assessment/
 ---
 
-GapZer0 Framework의 Assessment Question을 이용하여 조직의 현재 상태를 평가합니다. 담당자는 각 질문에 응답하고, 판단 근거와 실제로 확인한 증적을 기록하며, 필요한 개선조치 또는 추가 확인을 수행합니다.
+GapZer0 Self-assessment는 조직의 보안 담당자가 프레임워크의 121개 Control에 대한 이행 여부를 구체적으로 평가하고 검증할 수 있도록 마련한 자가 진단 도구입니다. 각 Control의 Implementation Guide를 기반으로 Assessment Question을 구성하였습니다. 평가 질문에 응답하며 조직의 현재 상태를 점검하고, 보완이 필요한 사항을 파악할 수 있. 담당자는 질문별로 응답과 판단 근거, 실제로 확인한 증적을 기록하고, 평가 결과에 따라 개선계획 또는 추가 확인 계획을 수립합니다.
 
 ## 자가 진단 작성 순서
 
