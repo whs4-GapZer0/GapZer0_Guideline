@@ -13,6 +13,7 @@ try{
  await page.goto(base+'/introduction/');
  await page.locator('.book-summary a[href="/GapZer0_Guideline/self-assessment/"]').click();
  await page.waitForURL('**/self-assessment/');
+ assert.equal(await page.locator('.book-summary a[href="/GapZer0_Guideline/self-assessment/form/"]').count(),0);
  assert.equal(await page.locator('#assessment-app').count(),0);
  assert.equal(await page.getByRole('link',{name:'자가진단 시작하기',exact:true}).count(),1);
  assert.equal(await page.locator('.sa-start-button').evaluate(e=>getComputedStyle(e).backgroundColor),'rgb(21, 107, 113)');
@@ -28,12 +29,13 @@ try{
  await page.locator('#assessment-app').scrollIntoViewIfNeeded();await page.screenshot({path:'work/theme-direct.png'});
  const direct=await page.locator('.sa-question').count();
  await page.locator('.book-summary a[href="/GapZer0_Guideline/introduction/"]').click();await page.waitForURL('**/introduction/');
- await page.locator('.book-summary a[href="/GapZer0_Guideline/self-assessment/form/"]').click();await page.waitForURL('**/self-assessment/form/');
+ await page.locator('.book-summary a[href="/GapZer0_Guideline/self-assessment/"]').click();await page.waitForURL('**/self-assessment/');
+ await page.getByRole('link',{name:'자가진단 시작하기',exact:true}).click();await page.waitForURL('**/self-assessment/form/');
  try{await page.locator('.sa-question').first().waitFor({timeout:4000});}catch{}
  const returning=await page.locator('.sa-question').count();
  assert.equal(direct,6);assert.equal(returning,6);
  assert.equal(await page.getByLabel('평가 범위 (조직·업무·시스템)').inputValue(),'테마 통합 시험');
- await page.goBack();await page.waitForURL('**/introduction/');await page.goForward();await page.locator('.sa-question').first().waitFor();
+ await page.goBack();await page.waitForURL('**/self-assessment/');await page.goForward();await page.locator('.sa-question').first().waitFor();
  await page.reload();await page.locator('.sa-question').first().waitFor();
  assert.equal(await page.getByLabel('평가 범위 (조직·업무·시스템)').inputValue(),'테마 통합 시험');
  const card=page.locator('.sa-question').first();await card.getByLabel('담당자 응답 (필수)').selectOption('부분 충족');await card.getByLabel('판단 근거 (필수)').fill('테마 이동 후 유지 시험');
@@ -58,10 +60,11 @@ try{
  console.log(JSON.stringify({direct,returning,overflow,toolbar:await page.locator('.book-header a').evaluateAll(els=>els.map(e=>({label:e.getAttribute('aria-label'),title:e.title,class:e.className}))),errors}));assert.deepEqual(errors,[]);
  const mobile=await browser.newPage({viewport:{width:390,height:844}});mobile.on('pageerror',e=>errors.push(e.message));
  await mobile.goto(base+'/self-assessment/form/');await mobile.locator('.sa-question').first().waitFor();
- for(const route of ['introduction','self-assessment/form']){
+ for(const route of ['introduction','self-assessment']){
  if(!await mobile.locator('.book').evaluate(el=>el.classList.contains('with-summary')))await mobile.locator('.book-header a.js-toolbar-action').first().click();
  await mobile.locator(`.book-summary a[href="/GapZer0_Guideline/${route}/"]`).click();await mobile.waitForURL(`**/${route}/`);
  }
+ await mobile.getByRole('link',{name:'자가진단 시작하기',exact:true}).click();
  await mobile.locator('.sa-question').first().waitFor();assert.equal(await mobile.locator('.sa-question').count(),6);assert.deepEqual(errors,[]);
 
  const reset=page.getByRole('button',{name:'작성 내용 초기화',exact:true});
