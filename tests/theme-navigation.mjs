@@ -38,10 +38,10 @@ try{
  await page.goBack();await page.waitForURL('**/self-assessment/');await page.goForward();await page.locator('.sa-question').first().waitFor();
  await page.reload();await page.locator('.sa-question').first().waitFor();
  assert.equal(await page.getByLabel('평가 범위 (조직·업무·시스템)').inputValue(),'테마 통합 시험');
- const card=page.locator('.sa-question').first();await card.getByLabel('담당자 응답 (필수)').selectOption('부분 충족');await card.getByLabel('판단 근거 (필수)').fill('테마 이동 후 유지 시험');
+ const card=page.locator('.sa-question').first();await card.getByLabel('담당자 응답 (필수)').selectOption('부분 충족');await card.getByLabel('평가 근거 (필수)').fill('테마 이동 후 유지 시험');
  await page.locator('.book-summary a[href="/GapZer0_Guideline/introduction/"]').click();await page.waitForURL('**/introduction/');
  await page.goBack();await page.locator('.sa-question').first().waitFor();
- assert.equal(await page.locator('.sa-question').first().getByLabel('판단 근거 (필수)').inputValue(),'테마 이동 후 유지 시험');
+ assert.equal(await page.locator('.sa-question').first().getByLabel('평가 근거 (필수)').inputValue(),'테마 이동 후 유지 시험');
  const downloadPromise=page.waitForEvent('download');await page.getByRole('button',{name:'작성 내용 CSV 다운로드하기'}).click();const download=await downloadPromise;const csv=await fs.readFile(await download.path(),'utf8');assert.equal(csv.charCodeAt(0),0xfeff);assert.ok(csv.includes('테마 이동 후 유지 시험'));assert.ok(csv.includes('GOV-C-01-AQ-D-01'));assert.ok(csv.includes('확인한 증적'));
  await page.locator('#assessment-app').scrollIntoViewIfNeeded();
  await page.screenshot({path:'work/theme-return.png'});
@@ -79,7 +79,7 @@ try{
  await page.evaluate(()=>{Storage.prototype.removeItem=window.originalRemove;});
  page.once('dialog',d=>d.accept());await reset.click();
  assert.equal(await page.getByLabel('평가 범위 (조직·업무·시스템)').inputValue(),'');
- assert.equal(await page.locator('.sa-question').first().getByLabel('판단 근거 (필수)').inputValue(),'');
+ assert.equal(await page.locator('.sa-question').first().getByLabel('평가 근거 (필수)').inputValue(),'');
  assert.equal(await page.evaluate(()=>localStorage.getItem('gapzer0.assessment.gapzer0-v02-aq1')),null);
  assert.equal(await page.evaluate(()=>localStorage.getItem('gapzer0.assessment.gapzer0-v02-aq1.template-v2')),null);
  assert.equal(await page.evaluate(()=>localStorage.getItem('unrelated-setting')),'keep');

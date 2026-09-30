@@ -11,7 +11,7 @@ export function validate(r,meta){
  for(const [k,label] of [['start','평가 시작일'],['end','평가 종료일'],['date','평가일']])if(!dateOK(meta[k]))errors.push(label+'을 입력하세요.');
  if(meta.start>meta.end)errors.push('평가기간의 시작일은 종료일 이후일 수 없습니다.');
  if(!responses.includes(r.response))errors.push('담당자 응답을 선택하세요.');
- if(!has(r.reason))errors.push('판단 근거를 입력하세요.');
+ if(!has(r.reason))errors.push('평가 근거를 입력하세요.');
  const optional=['미충족','확인 필요'].includes(r.response);
  if(r.noEvidence){
   if(!optional)errors.push('이 응답에는 실제로 확인한 증적이 필요합니다.');
@@ -63,7 +63,7 @@ export function csvCell(value){
 }
 export const hasDraft=r=>!!r&&fields.some(k=>k==='noEvidence'?r[k]===true:has(r[k]));
 export function toCsv(bank,state,empty=false){
- const headers=['Control ID','Control Name','Security Domain','Question ID','평가 관점','Assessment Question','Evidence','담당자 응답','판단 근거','확인한 증적','확인한 증적 없음','증적이 없는 사유','조치 유형','개선계획 또는 추가 확인 계획','조치 담당자','완료 예정일','진행 상태','완료일','완료 결과·증적','평가 범위','평가기간 시작일','평가기간 종료일','평가 담당자','평가일'];
+ const headers=['Control ID','Control Name','Security Domain','Question ID','평가 관점','Assessment Question','Evidence','담당자 응답','평가 근거','확인한 증적','확인한 증적 없음','증적이 없는 사유','조치 유형','개선계획 또는 추가 확인 계획','조치 담당자','완료 예정일','진행 상태','완료일','완료 결과·증적','평가 범위','평가기간 시작일','평가기간 종료일','평가 담당자','평가일'];
  const controls=new Map(bank.controls.map(c=>[c.id,c]));
  const rows=bank.questions.filter(q=>empty||hasDraft(state.records[q.id])).map(q=>{
   const c=controls.get(q.control),r=empty?blank():(state.records[q.id]||blank()),m=empty?{}:state.meta;
@@ -142,7 +142,7 @@ export async function mount(root){
  const [dl]=select('Security Domain',[['','전체'],...[...new Set(bank.controls.map(c=>c.domain))].map(d=>[d,d])],v=>{domain=v;refreshControls();});
  const [cl,cs]=select('Control',[],()=>render());
  const [pl]=select('평가 관점',[['','전체'],...['Design','Implementation','Operating Effectiveness'].map(p=>[p,p])],v=>{phase=v;render();});
- const [sl]=select('응답 필터',[['','전체'],['미응답','미응답'],...responses.map(s=>[s,s])],v=>{status=v;render();});
+ const [sl]=select('평가 결과 필터링',[['','전체'],['미응답','미응답'],...responses.map(s=>[s,s])],v=>{status=v;render();});
  filters.append(dl,cl,pl,sl);root.append(filters);
  const body=el('div');root.append(body);
  function refreshControls(){const old=cs.value;cs.replaceChildren();for(const c of bank.controls.filter(c=>!domain||c.domain===domain))cs.append(el('option',c.id+' · '+c.name,{value:c.id}));if([...cs.options].some(o=>o.value===old))cs.value=old;render();}
@@ -159,8 +159,8 @@ export async function mount(root){
    const errors=el('div',undefined,{role:'alert',tabindex:'-1'});
    const changed=()=>{errors.replaceChildren();persist();summary();};
    const [rl,rs]=select('담당자 응답 (필수)',[['','선택하세요'],...responses.map(v=>[v,v])],v=>{r.response=v;changed();conditional();});rs.value=r.response;card.append(rl);
-   card.append(input('판단 근거 (필수)','textarea',r.reason,v=>{r.reason=v;changed();}));
-   card.append(input('확인한 증적 — 자료명·파일/링크·버전·기간·해당 위치','textarea',r.evidence,v=>{r.evidence=v;changed();}));
+   card.append(input('평가 근거 (필수)','textarea',r.reason,v=>{r.reason=v;changed();}));
+   card.append(input('확인한 증적 — 자료명·파일 보관 위치/링크·버전·기간·해당 위치','textarea',r.evidence,v=>{r.evidence=v;changed();}));
    const checkLabel=el('label','확인한 증적 없음 (미충족·확인 필요에 한함)'),check=el('input',undefined,{type:'checkbox'});check.checked=r.noEvidence;check.onchange=()=>{r.noEvidence=check.checked;changed();conditional();};checkLabel.prepend(check);card.append(checkLabel);
    const absent=input('증적이 없는 사유 (미충족에서 증적 없음 선택 시 필수)','textarea',r.absenceReason,v=>{r.absenceReason=v;changed();});card.append(absent);
    const action=el('fieldset'),legend=el('legend');action.append(legend);
@@ -183,7 +183,7 @@ export async function mount(root){
 }
 export function boot(){
  const root=document.getElementById('assessment-app');
- if(root&&!root.dataset.mounted){root.dataset.mounted='true';mount(root).catch(()=>{if(root.isConnected)root.textContent='화면을 초기화하지 못했습니다. 새로고침 후 다시 시도하세요.';});}
+ if(root&&!root.dataset.mounted){root.dataset.mounted='true';mount(root).catch(()=>{if(root.isConnected)root.textContent='자가진단 화면을 불러오지 못했습니다. 새로고침 후 다시 시도하세요.';});}
 }
 if(typeof document!=='undefined'){
  boot();document.addEventListener('DOMContentLoaded',boot);document.addEventListener('pjax:complete',boot);
