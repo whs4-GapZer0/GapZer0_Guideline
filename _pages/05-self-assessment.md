@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "05. Self Assessment 안내"
+title: "05. Self Assessment"
 permalink: /self-assessment/
 ---
 
