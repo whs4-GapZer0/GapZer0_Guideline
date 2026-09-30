@@ -51,7 +51,7 @@
 
             <li class="divider"></li>
 
-            <!-- navigation.yml에 작성된 01~05만 출력 -->
+            <!-- navigation.yml의 메뉴와 하위 메뉴 출력 -->
             {% for item in site.data.navigation %}
 
                 {% assign is_active = false %}
@@ -66,6 +66,10 @@
                     {% assign is_active = true %}
                 {% endif %}
 
+                {% if item.url == '/self-assessment/' and page.url contains '/self-assessment/' %}
+                    {% assign is_active = true %}
+                {% endif %}
+
                 <li class="chapter{% if is_active %} active{% endif %}"
                     data-path="{{ item.url | relative_url }}">
 
@@ -74,6 +78,15 @@
                         {{ item.title | escape }}
                     </a>
 
+                    {% if item.children %}
+                    <ul>
+                        {% for child in item.children %}
+                        <li class="chapter{% if page.url == child.url %} active{% endif %}" data-path="{{ child.url | relative_url }}">
+                            <a href="{{ child.url | relative_url }}" onclick="pageScrollToTop(this)">{{ child.title | escape }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
                 </li>
 
             {% endfor %}

@@ -1,10 +1,12 @@
 ---
 layout: post
-title: "05. Self Assessment"
+title: "05. Self Assessment 안내"
 permalink: /self-assessment/
 ---
 
 GapZer0 Self-assessment는 조직의 보안 담당자가 프레임워크의 121개 Control에 대한 이행 여부를 구체적으로 평가하고 검증할 수 있도록 마련한 자가 진단 도구입니다. 각 Control의 Implementation Guide를 기반으로 Assessment Question을 구성하였습니다. 평가 질문에 응답하며 조직의 현재 상태를 점검하고, 보완이 필요한 사항을 파악할 수 있. 담당자는 질문별로 충족 여부와 평가 근거, 실제로 확인한 증적을 기록하고, 평가 결과에 따라 개선계획 또는 추가 확인 계획을 수립합니다.
+
+[자가진단 시작하기]({{ '/self-assessment/form/' | relative_url }})
 
 ## 자가 진단 작성 순서
 
@@ -119,7 +121,7 @@ Control-Guide의 Evidence 항목을 참고하여 작성합니다. 담당자가 �
 4. 추가 확인 후 미흡사항이 확인되면 부분 충족 또는 미충족으로 응답하고 개선계획을 작성합니다. 여전히 판단이 어렵다면 확인 필요를 유지하고 부족한 정보와 후속 확인 계획을 갱신합니다.
 5. 재평가 전에 현재 작성 내용을 CSV 파일로 내려받아 보관합니다. 재평가 시 평가일과 판단 근거에 변경 내용을 기록하고, 변경 후 CSV 파일도 별도로 보관합니다. 브라우저에는 최신 작성 내용만 저장됩니다.
 
-## Self Assessment
+## 자가진단 도구 사용 안내
 
 Control별 질문을 선택하여 현재 상태를 평가하고 개선계획을 작성합니다. 작성 항목과 필수 조건은 위 안내를 따릅니다.
 
@@ -133,7 +135,4 @@ CSV에는 Control 정보, 평가 질문과 증적 안내, 담당자 평가·평�
 
 CSV 파일은 Excel 등에서 열어 보관하거나 작성할 수 있습니다. 한글과 셀 안 줄바꿈을 유지하며, 수식으로 오인될 수 있는 값 앞에는 CSV에서만 `[텍스트]`를 붙입니다. CSV를 페이지로 다시 불러오는 기능은 제공하지 않습니다.
 
-<link rel="stylesheet" href="{{ '/assets/assessment/app.css' | relative_url }}">
-<div id="assessment-app" data-questions="{{ '/assets/assessment/questions.json' | relative_url }}">자가 진단 질문을 불러오는 중입니다.</div>
-<noscript>자가 진단 입력 화면을 사용하려면 JavaScript를 허용해야 합니다. 위 작성 기준은 JavaScript 없이도 확인할 수 있습니다.</noscript>
-<script type="module" src="{{ '/assets/assessment/app.mjs' | relative_url }}"></script>
+[자가진단 시작하기]({{ '/self-assessment/form/' | relative_url }})
