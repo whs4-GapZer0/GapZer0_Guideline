@@ -66,6 +66,11 @@
                     {% assign is_active = true %}
                 {% endif %}
 
+                <!-- 자가진단 작성 화면도 05 메뉴에 포함 -->
+                {% if item.url == '/self-assessment/' and page.url == '/self-assessment/form/' %}
+                    {% assign is_active = true %}
+                {% endif %}
+
                 <li class="chapter{% if is_active %} active{% endif %}"
                     data-path="{{ item.url | relative_url }}">
 
@@ -77,6 +82,13 @@
                 </li>
 
             {% endfor %}
+
+            {% if page.url == '/self-assessment/form/' %}
+            <!-- GitBook 스크롤 처리가 현재 페이지의 링크를 요구하므로 숨김 참조만 제공 -->
+            <li class="chapter" hidden aria-hidden="true">
+                <a href="{{ '/self-assessment/form/' | relative_url }}" tabindex="-1"></a>
+            </li>
+            {% endif %}
 
         </ul>
 

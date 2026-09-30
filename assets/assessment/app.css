@@ -31,3 +31,7 @@
 @media(max-width: 600px) { #assessment-app .sa-toolbar { align-items: stretch; flex-direction: column; } }
 /* The theme splitter can retain a desktop inline offset after resizing. */
 @media(max-width: 600px) { .book:has(#assessment-app) .book-body { left: 0 !important; } }
+
+#assessment-app .sa-reset-area { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #cbd5e1; }
+#assessment-app button.sa-reset { background: #b91c1c; color: #fff; }
+#assessment-app button.sa-reset:hover { background: #991b1b; }

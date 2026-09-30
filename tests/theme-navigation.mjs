@@ -11,17 +11,31 @@ try{
  const page=await browser.newPage({viewport:{width:1440,height:1000}});const errors=[];page.on('pageerror',e=>errors.push(e.message));
  const base=`http://127.0.0.1:${server.address().port}/GapZer0_Guideline`;
  await page.goto(base+'/introduction/');
- await page.locator('.book-summary a[href="/GapZer0_Guideline/self-assessment/"]').click();await page.locator('.sa-question').first().waitFor();
+ await page.locator('.book-summary a[href="/GapZer0_Guideline/self-assessment/"]').click();
+ await page.waitForURL('**/self-assessment/');
+ assert.equal(await page.locator('.book-summary a[href="/GapZer0_Guideline/self-assessment/form/"]:visible').count(),0);
+ assert.equal(await page.locator('#assessment-app').count(),0);
+ assert.equal(await page.getByRole('link',{name:'자가진단 시작하기',exact:true}).count(),1);
+ assert.equal(await page.locator('.sa-start-button').evaluate(e=>getComputedStyle(e).backgroundColor),'rgb(21, 107, 113)');
+ await page.getByRole('link',{name:'자가진단 시작하기',exact:true}).click();
+ await page.locator('.sa-question').first().waitFor();
  await page.getByLabel('평가 범위 (조직·업무·시스템)').fill('테마 통합 시험');
+ await page.getByRole('link',{name:'자가 진단 활용 안내',exact:true}).click();
+ await page.waitForURL('**/self-assessment/');
+ assert.equal(await page.locator('#assessment-app').count(),0);
+ await page.getByRole('link',{name:'자가진단 시작하기',exact:true}).first().click();
+ await page.locator('.sa-question').first().waitFor();
+ assert.equal(await page.getByLabel('평가 범위 (조직·업무·시스템)').inputValue(),'테마 통합 시험');
  await page.locator('#assessment-app').scrollIntoViewIfNeeded();await page.screenshot({path:'work/theme-direct.png'});
  const direct=await page.locator('.sa-question').count();
  await page.locator('.book-summary a[href="/GapZer0_Guideline/introduction/"]').click();await page.waitForURL('**/introduction/');
  await page.locator('.book-summary a[href="/GapZer0_Guideline/self-assessment/"]').click();await page.waitForURL('**/self-assessment/');
+ await page.getByRole('link',{name:'자가진단 시작하기',exact:true}).click();await page.waitForURL('**/self-assessment/form/');
  try{await page.locator('.sa-question').first().waitFor({timeout:4000});}catch{}
  const returning=await page.locator('.sa-question').count();
  assert.equal(direct,6);assert.equal(returning,6);
  assert.equal(await page.getByLabel('평가 범위 (조직·업무·시스템)').inputValue(),'테마 통합 시험');
- await page.goBack();await page.waitForURL('**/introduction/');await page.goForward();await page.locator('.sa-question').first().waitFor();
+ await page.goBack();await page.waitForURL('**/self-assessment/');await page.goForward();await page.locator('.sa-question').first().waitFor();
  await page.reload();await page.locator('.sa-question').first().waitFor();
  assert.equal(await page.getByLabel('평가 범위 (조직·업무·시스템)').inputValue(),'테마 통합 시험');
  const card=page.locator('.sa-question').first();await card.getByLabel('담당자 응답 (필수)').selectOption('부분 충족');await card.getByLabel('판단 근거 (필수)').fill('테마 이동 후 유지 시험');
@@ -45,11 +59,34 @@ try{
  await page.locator('.sa-question').first().scrollIntoViewIfNeeded();await page.screenshot({path:'work/theme-sepia.png'});
  console.log(JSON.stringify({direct,returning,overflow,toolbar:await page.locator('.book-header a').evaluateAll(els=>els.map(e=>({label:e.getAttribute('aria-label'),title:e.title,class:e.className}))),errors}));assert.deepEqual(errors,[]);
  const mobile=await browser.newPage({viewport:{width:390,height:844}});mobile.on('pageerror',e=>errors.push(e.message));
- await mobile.goto(base+'/self-assessment/');await mobile.locator('.sa-question').first().waitFor();
+ await mobile.goto(base+'/self-assessment/form/');await mobile.locator('.sa-question').first().waitFor();
  for(const route of ['introduction','self-assessment']){
  if(!await mobile.locator('.book').evaluate(el=>el.classList.contains('with-summary')))await mobile.locator('.book-header a.js-toolbar-action').first().click();
  await mobile.locator(`.book-summary a[href="/GapZer0_Guideline/${route}/"]`).click();await mobile.waitForURL(`**/${route}/`);
  }
+ await mobile.getByRole('link',{name:'자가진단 시작하기',exact:true}).click();
  await mobile.locator('.sa-question').first().waitFor();assert.equal(await mobile.locator('.sa-question').count(),6);assert.deepEqual(errors,[]);
- console.log('PASS: fresh mobile direct entry and menu round trip.');
+
+ const reset=page.getByRole('button',{name:'작성 내용 초기화',exact:true});
+ assert.equal(await reset.evaluate(e=>getComputedStyle(e).backgroundColor),'rgb(185, 28, 28)');
+ await page.evaluate(()=>{localStorage.setItem('unrelated-setting','keep');localStorage.setItem('gapzer0.assessment.gapzer0-v02-aq1','legacy');});
+ page.once('dialog',d=>d.dismiss());await reset.click();
+ assert.equal(await page.getByLabel('평가 범위 (조직·업무·시스템)').inputValue(),'테마 통합 시험');
+ await page.evaluate(()=>{window.originalRemove=Storage.prototype.removeItem;Storage.prototype.removeItem=function(){throw Error('denied');};});
+ page.once('dialog',d=>d.accept());await reset.click();
+ assert.ok((await page.locator('#assessment-app [role=status]').innerText()).includes('완료하지 않았습니다'));
+ assert.equal(await page.getByLabel('평가 범위 (조직·업무·시스템)').inputValue(),'테마 통합 시험');
+ await page.evaluate(()=>{Storage.prototype.removeItem=window.originalRemove;});
+ page.once('dialog',d=>d.accept());await reset.click();
+ assert.equal(await page.getByLabel('평가 범위 (조직·업무·시스템)').inputValue(),'');
+ assert.equal(await page.locator('.sa-question').first().getByLabel('판단 근거 (필수)').inputValue(),'');
+ assert.equal(await page.evaluate(()=>localStorage.getItem('gapzer0.assessment.gapzer0-v02-aq1')),null);
+ assert.equal(await page.evaluate(()=>localStorage.getItem('gapzer0.assessment.gapzer0-v02-aq1.template-v2')),null);
+ assert.equal(await page.evaluate(()=>localStorage.getItem('unrelated-setting')),'keep');
+ await page.reload();await page.locator('.sa-question').first().waitFor();
+ assert.equal(await page.getByLabel('평가 범위 (조직·업무·시스템)').inputValue(),'');
+ await page.getByRole('button',{name:'작성 내용 CSV 내려받기',exact:true}).click();
+ assert.ok((await page.locator('#assessment-app [role=status]').innerText()).includes('작성 내용이 없습니다'));
+ console.log('PASS: mobile navigation; red reset button, cancel, storage failure, current/legacy clearing and reload.');
+
 }finally{await browser.close();await new Promise(r=>server.close(r));}
