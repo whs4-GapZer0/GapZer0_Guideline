@@ -4,10 +4,10 @@ title: "05. Self Assessment 안내"
 permalink: /self-assessment/
 ---
 
+GapZer0 Self-assessment는 조직의 보안 담당자가 프레임워크의 121개 Control에 대한 이행 여부를 구체적으로 평가하고 검증할 수 있도록 마련한 자가 진단 도구입니다. 각 Control의 Implementation Guide를 기반으로 Assessment Question을 구성하였습니다. 평가 질문에 응답하며 조직의 현재 상태를 점검하고, 보완이 필요한 사항을 파악할 수 있. 담당자는 질문별로 충족 여부와 평가 근거, 실제로 확인한 증적을 기록하고, 평가 결과에 따라 개선계획 또는 추가 확인 계획을 수립합니다.
+
 <link rel="stylesheet" href="{{ '/assets/assessment/guide.css' | relative_url }}">
 <p class="sa-start-area"><a class="sa-start-button" href="{{ '/self-assessment/form/' | relative_url }}">자가진단 시작하기</a></p>
-
-GapZer0 Self-assessment는 조직의 보안 담당자가 프레임워크의 121개 Control에 대한 이행 여부를 구체적으로 평가하고 검증할 수 있도록 마련한 자가 진단 도구입니다. 각 Control의 Implementation Guide를 기반으로 Assessment Question을 구성하였습니다. 평가 질문에 응답하며 조직의 현재 상태를 점검하고, 보완이 필요한 사항을 파악할 수 있. 담당자는 질문별로 충족 여부와 평가 근거, 실제로 확인한 증적을 기록하고, 평가 결과에 따라 개선계획 또는 추가 확인 계획을 수립합니다.
 
 ## 자가 진단 작성 순서
 
