@@ -6,7 +6,7 @@ permalink: /self-assessment/form/
 
 [자가 진단 활용 안내]({{ '/self-assessment/' | relative_url }})
 
-평가 기본정보를 입력하고 Control별 질문에 따라 충족 여부, 근거, 확인한 증적과 개선조치를 작성하세요. 작성 내용은 이 브라우저에 자동 저장됩니다. 필요한 내용은 CSV로 내려받아 보관하세요.
+평가 기본정보를 입력하고 Control별 질문에 따라 충족 여부, 근거, 확인한 증적과 개선조치를 작성하세요. 작성 내용은 이 브라우저에 자동 저장됩니다. 필요한 내용은 CSV로 다운로드하여 보관하세요.
 
 <link rel="stylesheet" href="{{ '/assets/assessment/app.css' | relative_url }}">
 <div id="assessment-app" data-questions="{{ '/assets/assessment/questions.json' | relative_url }}">자가 진단 질문을 불러오는 중입니다.</div>

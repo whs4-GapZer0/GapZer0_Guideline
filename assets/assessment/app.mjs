@@ -46,7 +46,7 @@ function cleanMeta(raw){
  return Object.fromEntries(metaFields.map(k=>{const v=raw[k]??'';if(typeof v!=='string'||v.length>20000)throw Error('기본정보 형식 오류');return [k,v];}));
 }
 export function parseState(raw,bank){
- if(!raw||![1,2].includes(raw.schema)||raw.bank!==bank.version)throw Error('저장 형식 또는 질문은행 버전이 다릅니다.');
+ if(!raw||![1,2].includes(raw.schema)||raw.bank!==bank.version)throw Error('저장 형식 또는 평가 질문 버전이 다릅니다.');
  const ids=new Set(bank.questions.map(q=>q.id));
  const records={};
  if(!raw.records||typeof raw.records!=='object'||Array.isArray(raw.records))throw Error('평가 기록 형식 오류');
@@ -82,14 +82,14 @@ export async function mount(root){
  let storageEnabled=true,notice='';
  // Read previous current answers once; keep the old key and its history untouched.
  try{const old=localStorage.getItem(key)??localStorage.getItem(legacyKey);if(old)state=parseState(JSON.parse(old),bank);}
- catch{storageEnabled=false;notice='브라우저 저장 기록을 읽지 못했습니다. 기존 기록은 덮어쓰지 않습니다. 현재 작성 내용은 CSV로 내려받아 보관하세요.';}
+ catch{storageEnabled=false;notice='브라우저 저장 기록을 읽지 못했습니다. 기존 기록은 덮어쓰지 않습니다. 현재 작성 내용은 CSV로 다운로드하여 보관하세요.';}
  root.replaceChildren();
- root.append(el('p','질문별 현재 상태와 개선계획을 작성하세요. 입력한 내용은 이 브라우저에 자동 저장됩니다. 작성 내용 CSV에는 현재 화면에 표시된 질문뿐 아니라, 지금까지 입력한 모든 질문의 작성 내용이 포함됩니다. 빈 템플릿 CSV에는 전체 489개 질문이 포함됩니다. 브라우저 데이터를 삭제하면 기록이 사라질 수 있으므로 작성이 완료된 내용은 CSV로 내려받아 보관하는 것을 권장합니다.'));
+ root.append(el('p','질문별 현재 상태와 개선계획을 작성하세요. 입력한 내용은 이 브라우저에 자동 저장됩니다. 작성 내용 CSV에는 현재 화면에 표시된 질문뿐 아니라, 지금까지 입력한 모든 질문의 작성 내용이 포함됩니다. 빈 템플릿 CSV에는 전체 489개 질문이 포함됩니다. 브라우저 데이터를 삭제하면 기록이 사라질 수 있으므로 작성이 완료된 내용은 CSV로 다운로드하여 보관하는 것을 권장합니다.'));
  const message=el('p',notice||'질문을 선택하여 평가를 시작하세요.',{role:'status','aria-live':'polite'});root.append(message);
  function persist(){
   if(!storageEnabled){message.textContent=notice;return false;}
   try{localStorage.setItem(key,JSON.stringify(state));message.textContent='브라우저에 저장했습니다.';return true;}
-  catch{message.textContent='브라우저 저장에 실패했습니다. 페이지를 닫기 전에 작성 내용 CSV를 내려받으세요.';return false;}
+  catch{message.textContent='브라우저 저장에 실패했습니다. 페이지를 닫기 전에 작성 내용 CSV를 다운로드하세요.';return false;}
  }
  function input(label,type,value,change){
   const wrap=el('label',label),field=el(type==='textarea'?'textarea':'input');
@@ -102,25 +102,25 @@ export async function mount(root){
  root.append(metaPanel);
  const toolbar=el('div',undefined,{class:'sa-toolbar'});
  function download(empty){
-  if(!empty&&!bank.questions.some(q=>hasDraft(state.records[q.id]))){message.textContent='내려받을 작성 내용이 없습니다. 질문에 내용을 입력하거나 빈 템플릿 CSV를 내려받으세요.';return;}
+  if(!empty&&!bank.questions.some(q=>hasDraft(state.records[q.id]))){message.textContent='다운로드할 작성 내용이 없습니다. 질문에 내용을 입력하거나 빈 템플릿 CSV를 다운로드하세요.';return;}
   const url=URL.createObjectURL(new Blob([toCsv(bank,state,empty)],{type:'text/csv;charset=utf-8'}));
   const a=el('a',undefined,{href:url,download:'GapZer0-'+(empty?'assessment-template':'assessment')+'-'+new Date().toISOString().slice(0,10)+'.csv'});
   document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
  }
  const saveBrowser=el('button','브라우저에 저장',{type:'button'});saveBrowser.onclick=persist;
- const exp=el('button','작성 내용 CSV 내려받기',{type:'button'});exp.onclick=()=>download(false);
- const template=el('button','빈 템플릿 CSV 내려받기',{type:'button'});template.onclick=()=>download(true);
+ const exp=el('button','작성 내용 CSV 다운로드하기',{type:'button'});exp.onclick=()=>download(false);
+ const template=el('button','빈 템플릿 CSV 다운로드하기',{type:'button'});template.onclick=()=>download(true);
  toolbar.append(saveBrowser,exp,template);root.append(toolbar);
  const resetArea=el('div',undefined,{class:'sa-reset-area'});
  const reset=el('button','작성 내용 초기화',{type:'button',class:'sa-reset'});
  reset.onclick=()=>{
-  if(!confirm('평가 기본정보와 모든 질문의 작성 내용 및 브라우저 저장 기록을 초기화합니다. 복구할 수 없으므로 필요한 내용은 먼저 CSV로 내려받아 주세요. 초기화할까요?'))return;
+  if(!confirm('평가 기본정보와 모든 질문의 작성 내용 및 브라우저 저장 기록을 초기화합니다. 복구할 수 없으므로 필요한 내용은 먼저 CSV로 다운로드해 주세요. 초기화할까요?'))return;
   try{
    // Remove only this assessment's current and legacy records, not other site data.
    localStorage.removeItem(legacyKey);
    localStorage.removeItem(key);
   }catch{
-   message.textContent='브라우저 저장 기록을 지우지 못해 초기화를 완료하지 않았습니다. 현재 입력은 유지됩니다. 필요한 내용은 CSV로 내려받으세요.';
+   message.textContent='브라우저 저장 기록을 지우지 못해 초기화를 완료하지 않았습니다. 현재 입력은 유지됩니다. 필요한 내용은 CSV로 다운로드하세요.';
    return;
   }
   state={schema:2,bank:bank.version,meta:Object.fromEntries(metaFields.map(k=>[k,''])),records:{}};
