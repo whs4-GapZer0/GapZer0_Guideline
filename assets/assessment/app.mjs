@@ -84,7 +84,7 @@ export async function mount(root){
  try{const old=localStorage.getItem(key)??localStorage.getItem(legacyKey);if(old)state=parseState(JSON.parse(old),bank);}
  catch{storageEnabled=false;notice='브라우저 저장 기록을 읽지 못했습니다. 기존 기록은 덮어쓰지 않습니다. 현재 작성 내용은 CSV로 내려받아 보관하세요.';}
  root.replaceChildren();
- root.append(el('p','질문별 현재 상태와 개선계획을 작성하세요. 입력은 이 브라우저에 자동 저장됩니다. 작성 내용 CSV에는 필터와 관계없이 입력한 질문만 포함됩니다. 빈 템플릿 CSV에는 전체 489개 질문이 포함됩니다. 브라우저 데이터를 삭제하면 기록이 사라질 수 있으므로 CSV를 보관하세요.'));
+ root.append(el('p','질문별 현재 상태와 개선계획을 작성하세요. 입력한 내용은 이 브라우저에 자동 저장됩니다. 작성 내용 CSV에는 현재 화면에 표시된 질문뿐 아니라, 지금까지 입력한 모든 질문의 작성 내용이 포함됩니다. 빈 템플릿 CSV에는 전체 489개 질문이 포함됩니다. 브라우저 데이터를 삭제하면 기록이 사라질 수 있으므로 작성이 완료된 내용은 CSV로 내려받아 보관하는 것을 권장합니다.'));
  const message=el('p',notice||'질문을 선택하여 평가를 시작하세요.',{role:'status','aria-live':'polite'});root.append(message);
  function persist(){
   if(!storageEnabled){message.textContent=notice;return false;}
