@@ -63,7 +63,7 @@ export function csvCell(value){
 }
 export const hasDraft=r=>!!r&&fields.some(k=>k==='noEvidence'?r[k]===true:has(r[k]));
 export function toCsv(bank,state,empty=false){
- const headers=['Control ID','Control Name','Security Domain','Question ID','평가 관점','Assessment Question','평가 증적','담당자 응답','판단 근거','확인한 증적','확인한 증적 없음','증적이 없는 사유','조치 유형','개선계획 또는 추가 확인 계획','조치 담당자','완료 예정일','진행 상태','완료일','완료 결과·증적','평가 범위','평가기간 시작일','평가기간 종료일','평가 담당자','평가일'];
+ const headers=['Control ID','Control Name','Security Domain','Question ID','평가 관점','Assessment Question','Evidence','담당자 응답','판단 근거','확인한 증적','확인한 증적 없음','증적이 없는 사유','조치 유형','개선계획 또는 추가 확인 계획','조치 담당자','완료 예정일','진행 상태','완료일','완료 결과·증적','평가 범위','평가기간 시작일','평가기간 종료일','평가 담당자','평가일'];
  const controls=new Map(bank.controls.map(c=>[c.id,c]));
  const rows=bank.questions.filter(q=>empty||hasDraft(state.records[q.id])).map(q=>{
   const c=controls.get(q.control),r=empty?blank():(state.records[q.id]||blank()),m=empty?{}:state.meta;
@@ -149,7 +149,7 @@ export async function mount(root){
  function render(){
   body.replaceChildren();const control=bank.controls.find(c=>c.id===cs.value);if(!control)return;
   body.append(el('h3',control.id+' · '+control.name));
-  const details=el('details'),evidence=el('p',control.evidence,{class:'sa-preserve'});details.append(el('summary','평가 증적 안내 보기'),evidence);body.append(details);
+  const details=el('details'),evidence=el('p',control.evidence,{class:'sa-preserve'});details.append(el('summary','Evidence 안내 보기'),evidence);body.append(details);
   const guide=el('a','Implementation Guide 원문',{href:control.guide,target:'_blank',rel:'noopener noreferrer'});body.append(guide);
   const list=bank.questions.filter(q=>q.control===control.id&&(!phase||q.phase===phase)&&(!status||(state.records[q.id]?.response||'미응답')===status));
   if(!list.length)body.append(el('p','선택한 조건에 해당하는 질문이 없습니다.'));
