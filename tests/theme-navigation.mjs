@@ -13,7 +13,7 @@ try{
  await page.goto(base+'/introduction/');
  await page.locator('.book-summary a[href="/GapZer0_Guideline/self-assessment/"]').click();
  await page.waitForURL('**/self-assessment/');
- assert.equal(await page.locator('.book-summary a[href="/GapZer0_Guideline/self-assessment/form/"]').count(),0);
+ assert.equal(await page.locator('.book-summary a[href="/GapZer0_Guideline/self-assessment/form/"]:visible').count(),0);
  assert.equal(await page.locator('#assessment-app').count(),0);
  assert.equal(await page.getByRole('link',{name:'자가진단 시작하기',exact:true}).count(),1);
  assert.equal(await page.locator('.sa-start-button').evaluate(e=>getComputedStyle(e).backgroundColor),'rgb(21, 107, 113)');

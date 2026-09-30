@@ -83,6 +83,13 @@
 
             {% endfor %}
 
+            {% if page.url == '/self-assessment/form/' %}
+            <!-- GitBook 스크롤 처리가 현재 페이지의 링크를 요구하므로 숨김 참조만 제공 -->
+            <li class="chapter" hidden aria-hidden="true">
+                <a href="{{ '/self-assessment/form/' | relative_url }}" tabindex="-1"></a>
+            </li>
+            {% endif %}
+
         </ul>
 
     </nav>
