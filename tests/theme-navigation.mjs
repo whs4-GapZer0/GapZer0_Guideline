@@ -14,7 +14,9 @@ try{
  await page.locator('.book-summary a[href="/GapZer0_Guideline/self-assessment/"]').click();
  await page.waitForURL('**/self-assessment/');
  assert.equal(await page.locator('#assessment-app').count(),0);
- await page.getByRole('link',{name:'자가진단 시작하기',exact:true}).first().click();
+ assert.equal(await page.getByRole('link',{name:'자가진단 시작하기',exact:true}).count(),1);
+ assert.equal(await page.locator('.sa-start-button').evaluate(e=>getComputedStyle(e).backgroundColor),'rgb(21, 107, 113)');
+ await page.getByRole('link',{name:'자가진단 시작하기',exact:true}).click();
  await page.locator('.sa-question').first().waitFor();
  await page.getByLabel('평가 범위 (조직·업무·시스템)').fill('테마 통합 시험');
  await page.getByRole('link',{name:'작성 방법 및 평가 기준 보기',exact:true}).click();

@@ -12,6 +12,6 @@
 
 - title: "05. Self Assessment 안내"
   url: /self-assessment/
-  children:
-    - title: "자가진단 작성"
-      url: /self-assessment/form/
+
+- title: "자가진단 작성"
+  url: /self-assessment/form/
