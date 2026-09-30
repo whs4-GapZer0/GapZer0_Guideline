@@ -66,6 +66,11 @@
                     {% assign is_active = true %}
                 {% endif %}
 
+                <!-- 자가진단 작성 화면도 05 메뉴에 포함 -->
+                {% if item.url == '/self-assessment/' and page.url == '/self-assessment/form/' %}
+                    {% assign is_active = true %}
+                {% endif %}
+
                 <li class="chapter{% if is_active %} active{% endif %}"
                     data-path="{{ item.url | relative_url }}">
 
