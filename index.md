@@ -52,12 +52,36 @@ permalink: /
     letter-spacing: -0.055em;
   }
 
+  .gz-cover-subtitle {
+    max-width: 780px;
+    margin: 1.35rem 0 0;
+    color: var(--gz-accent-dark);
+    font-size: clamp(1.15rem, 2.5vw, 1.55rem);
+    font-weight: 500;
+    line-height: 1.45;
+  }
+
   .gz-lead {
     max-width: 730px;
-    margin: 1.7rem 0 0;
+    margin: 1.8rem 0 0;
     color: #4f5852;
-    font-size: clamp(1rem, 2vw, 1.2rem);
-    line-height: 1.8;
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  .gz-lead + .gz-lead {
+    margin-top: 0.9rem;
+  }
+
+  .gz-guide-role {
+    max-width: 760px;
+    margin: 1.5rem 0 0;
+    padding-left: 1rem;
+    border-left: 3px solid var(--gz-accent);
+    color: var(--gz-ink);
+    font-size: 0.98rem;
+    font-weight: 500;
+    line-height: 1.7;
   }
 
   .gz-facts {
@@ -245,9 +269,17 @@ permalink: /
   <section class="gz-cover" aria-labelledby="gz-title">
     <p class="gz-eyebrow">NIST CSF 2.0 × ISMS-P</p>
     <h1 id="gz-title">GapZer0 Guideline</h1>
+    <p class="gz-cover-subtitle">NIST CSF 2.0 기반 국내 정보보호 컴플라이언스 프레임워크 만들기</p>
     <p class="gz-lead">
-      국내 조직이 정보보호·개인정보보호 통제를 이해하고 실제 업무에 적용할 수 있도록,
-      통제 선택부터 이행과 평가, 개선까지의 기준을 안내합니다.
+      정보보호 인증기준을 충족하는 것만으로 조직의 실제 사이버보안 상태와 지속적인 위험관리 수준을 충분히 설명할 수 있을까요?
+    </p>
+    <p class="gz-lead">
+      GapZer0는 이러한 문제의식에서 출발했습니다. NIST CSF 2.0과 ISMS-P를 매핑하고 개인정보 보호법을 함께 검토하여,
+      국내 요구사항과 국제적으로 활용되는 보안 목표 사이의 Gap을 식별했습니다. 이를 바탕으로 조직의 현재 보안 수준과
+      목표 상태를 비교하고 개선 우선순위를 지속적으로 관리할 수 있는 국내 정보보호 컴플라이언스 프레임워크를 설계했습니다.
+    </p>
+    <p class="gz-guide-role">
+      본 가이드라인은 GapZer0 Framework의 통제항목을 실무자가 구체적으로 이행할 수 있도록 이행 방법, 증적 예시 및 평가 기준을 제공하는 실무 안내서입니다.
     </p>
     <p class="gz-facts">15 Security Domains <span>·</span> 121 Controls <span>·</span> Common · Enhancement · Local</p>
     <div class="gz-links">
@@ -302,3 +334,4 @@ permalink: /
 
   <p class="gz-note">각 Control은 조직의 업무, 정보자산, 개인정보 처리환경과 위험 수준을 고려하여 적용합니다.</p>
 </div>
+
