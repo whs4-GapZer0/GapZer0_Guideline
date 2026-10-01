@@ -11,7 +11,7 @@ export function validate(r,meta){
  for(const [k,label] of [['start','평가 시작일'],['end','평가 종료일'],['date','평가일']])if(!dateOK(meta[k]))errors.push(label+'을 입력하세요.');
  if(meta.start>meta.end)errors.push('평가기간의 시작일은 종료일 이후일 수 없습니다.');
  if(!responses.includes(r.response))errors.push('담당자 응답을 선택하세요.');
- if(!has(r.reason))errors.push('판단 근거를 입력하세요.');
+ if(!has(r.reason))errors.push('평가 근거를 입력하세요.');
  const optional=['미충족','확인 필요'].includes(r.response);
  if(r.noEvidence){
   if(!optional)errors.push('이 응답에는 실제로 확인한 증적이 필요합니다.');
@@ -46,7 +46,7 @@ function cleanMeta(raw){
  return Object.fromEntries(metaFields.map(k=>{const v=raw[k]??'';if(typeof v!=='string'||v.length>20000)throw Error('기본정보 형식 오류');return [k,v];}));
 }
 export function parseState(raw,bank){
- if(!raw||![1,2].includes(raw.schema)||raw.bank!==bank.version)throw Error('저장 형식 또는 질문은행 버전이 다릅니다.');
+ if(!raw||![1,2].includes(raw.schema)||raw.bank!==bank.version)throw Error('저장 형식 또는 평가 질문 버전이 다릅니다.');
  const ids=new Set(bank.questions.map(q=>q.id));
  const records={};
  if(!raw.records||typeof raw.records!=='object'||Array.isArray(raw.records))throw Error('평가 기록 형식 오류');
@@ -63,7 +63,7 @@ export function csvCell(value){
 }
 export const hasDraft=r=>!!r&&fields.some(k=>k==='noEvidence'?r[k]===true:has(r[k]));
 export function toCsv(bank,state,empty=false){
- const headers=['Control ID','Control Name','Security Domain','Question ID','평가 관점','Assessment Question','평가 증적','담당자 응답','판단 근거','확인한 증적','확인한 증적 없음','증적이 없는 사유','조치 유형','개선계획 또는 추가 확인 계획','조치 담당자','완료 예정일','진행 상태','완료일','완료 결과·증적','평가 범위','평가기간 시작일','평가기간 종료일','평가 담당자','평가일'];
+ const headers=['Control ID','Control Name','Security Domain','Question ID','평가 관점','Assessment Question','Evidence','담당자 응답','평가 근거','확인한 증적','확인한 증적 없음','증적이 없는 사유','조치 유형','개선계획 또는 추가 확인 계획','조치 담당자','완료 예정일','진행 상태','완료일','완료 결과·증적','평가 범위','평가기간 시작일','평가기간 종료일','평가 담당자','평가일'];
  const controls=new Map(bank.controls.map(c=>[c.id,c]));
  const rows=bank.questions.filter(q=>empty||hasDraft(state.records[q.id])).map(q=>{
   const c=controls.get(q.control),r=empty?blank():(state.records[q.id]||blank()),m=empty?{}:state.meta;
@@ -82,14 +82,14 @@ export async function mount(root){
  let storageEnabled=true,notice='';
  // Read previous current answers once; keep the old key and its history untouched.
  try{const old=localStorage.getItem(key)??localStorage.getItem(legacyKey);if(old)state=parseState(JSON.parse(old),bank);}
- catch{storageEnabled=false;notice='브라우저 저장 기록을 읽지 못했습니다. 기존 기록은 덮어쓰지 않습니다. 현재 작성 내용은 CSV로 내려받아 보관하세요.';}
+ catch{storageEnabled=false;notice='브라우저 저장 기록을 읽지 못했습니다. 기존 기록은 덮어쓰지 않습니다. 현재 작성 내용은 CSV로 다운로드하여 보관하세요.';}
  root.replaceChildren();
- root.append(el('p','질문별 현재 상태와 개선계획을 작성하세요. 입력은 이 브라우저에 자동 저장됩니다. 작성 내용 CSV에는 필터와 관계없이 입력한 질문만 포함됩니다. 빈 템플릿 CSV에는 전체 489개 질문이 포함됩니다. 브라우저 데이터를 삭제하면 기록이 사라질 수 있으므로 CSV를 보관하세요.'));
+ root.append(el('p','질문별 현재 상태와 개선계획을 작성하세요. 입력한 내용은 이 브라우저에 자동 저장됩니다. 작성 내용 CSV에는 현재 화면에 표시된 질문뿐 아니라, 지금까지 입력한 모든 질문의 작성 내용이 포함됩니다. 빈 템플릿 CSV에는 전체 489개 질문이 포함됩니다. 브라우저 데이터를 삭제하면 기록이 사라질 수 있으므로 작성이 완료된 내용은 CSV로 다운로드하여 보관하는 것을 권장합니다.'));
  const message=el('p',notice||'질문을 선택하여 평가를 시작하세요.',{role:'status','aria-live':'polite'});root.append(message);
  function persist(){
   if(!storageEnabled){message.textContent=notice;return false;}
   try{localStorage.setItem(key,JSON.stringify(state));message.textContent='브라우저에 저장했습니다.';return true;}
-  catch{message.textContent='브라우저 저장에 실패했습니다. 페이지를 닫기 전에 작성 내용 CSV를 내려받으세요.';return false;}
+  catch{message.textContent='브라우저 저장에 실패했습니다. 페이지를 닫기 전에 작성 내용 CSV를 다운로드하세요.';return false;}
  }
  function input(label,type,value,change){
   const wrap=el('label',label),field=el(type==='textarea'?'textarea':'input');
@@ -102,25 +102,25 @@ export async function mount(root){
  root.append(metaPanel);
  const toolbar=el('div',undefined,{class:'sa-toolbar'});
  function download(empty){
-  if(!empty&&!bank.questions.some(q=>hasDraft(state.records[q.id]))){message.textContent='내려받을 작성 내용이 없습니다. 질문에 내용을 입력하거나 빈 템플릿 CSV를 내려받으세요.';return;}
+  if(!empty&&!bank.questions.some(q=>hasDraft(state.records[q.id]))){message.textContent='다운로드할 작성 내용이 없습니다. 질문에 내용을 입력하거나 빈 템플릿 CSV를 다운로드하세요.';return;}
   const url=URL.createObjectURL(new Blob([toCsv(bank,state,empty)],{type:'text/csv;charset=utf-8'}));
   const a=el('a',undefined,{href:url,download:'GapZer0-'+(empty?'assessment-template':'assessment')+'-'+new Date().toISOString().slice(0,10)+'.csv'});
   document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
  }
  const saveBrowser=el('button','브라우저에 저장',{type:'button'});saveBrowser.onclick=persist;
- const exp=el('button','작성 내용 CSV 내려받기',{type:'button'});exp.onclick=()=>download(false);
- const template=el('button','빈 템플릿 CSV 내려받기',{type:'button'});template.onclick=()=>download(true);
+ const exp=el('button','작성 내용 CSV 다운로드하기',{type:'button'});exp.onclick=()=>download(false);
+ const template=el('button','빈 템플릿 CSV 다운로드하기',{type:'button'});template.onclick=()=>download(true);
  toolbar.append(saveBrowser,exp,template);root.append(toolbar);
  const resetArea=el('div',undefined,{class:'sa-reset-area'});
  const reset=el('button','작성 내용 초기화',{type:'button',class:'sa-reset'});
  reset.onclick=()=>{
-  if(!confirm('평가 기본정보와 모든 질문의 작성 내용 및 브라우저 저장 기록을 초기화합니다. 복구할 수 없으므로 필요한 내용은 먼저 CSV로 내려받아 주세요. 초기화할까요?'))return;
+  if(!confirm('평가 기본정보와 모든 질문의 작성 내용 및 브라우저 저장 기록을 초기화합니다. 복구할 수 없으므로 필요한 내용은 먼저 CSV로 다운로드해 주세요. 초기화할까요?'))return;
   try{
    // Remove only this assessment's current and legacy records, not other site data.
    localStorage.removeItem(legacyKey);
    localStorage.removeItem(key);
   }catch{
-   message.textContent='브라우저 저장 기록을 지우지 못해 초기화를 완료하지 않았습니다. 현재 입력은 유지됩니다. 필요한 내용은 CSV로 내려받으세요.';
+   message.textContent='브라우저 저장 기록을 지우지 못해 초기화를 완료하지 않았습니다. 현재 입력은 유지됩니다. 필요한 내용은 CSV로 다운로드하세요.';
    return;
   }
   state={schema:2,bank:bank.version,meta:Object.fromEntries(metaFields.map(k=>[k,''])),records:{}};
@@ -142,14 +142,14 @@ export async function mount(root){
  const [dl]=select('Security Domain',[['','전체'],...[...new Set(bank.controls.map(c=>c.domain))].map(d=>[d,d])],v=>{domain=v;refreshControls();});
  const [cl,cs]=select('Control',[],()=>render());
  const [pl]=select('평가 관점',[['','전체'],...['Design','Implementation','Operating Effectiveness'].map(p=>[p,p])],v=>{phase=v;render();});
- const [sl]=select('응답 필터',[['','전체'],['미응답','미응답'],...responses.map(s=>[s,s])],v=>{status=v;render();});
+ const [sl]=select('평가 결과 필터링',[['','전체'],['미응답','미응답'],...responses.map(s=>[s,s])],v=>{status=v;render();});
  filters.append(dl,cl,pl,sl);root.append(filters);
  const body=el('div');root.append(body);
  function refreshControls(){const old=cs.value;cs.replaceChildren();for(const c of bank.controls.filter(c=>!domain||c.domain===domain))cs.append(el('option',c.id+' · '+c.name,{value:c.id}));if([...cs.options].some(o=>o.value===old))cs.value=old;render();}
  function render(){
   body.replaceChildren();const control=bank.controls.find(c=>c.id===cs.value);if(!control)return;
   body.append(el('h3',control.id+' · '+control.name));
-  const details=el('details'),evidence=el('p',control.evidence,{class:'sa-preserve'});details.append(el('summary','평가 증적 안내 보기'),evidence);body.append(details);
+  const details=el('details'),evidence=el('p',control.evidence,{class:'sa-preserve'});details.append(el('summary','Evidence 안내 보기'),evidence);body.append(details);
   const guide=el('a','Implementation Guide 원문',{href:control.guide,target:'_blank',rel:'noopener noreferrer'});body.append(guide);
   const list=bank.questions.filter(q=>q.control===control.id&&(!phase||q.phase===phase)&&(!status||(state.records[q.id]?.response||'미응답')===status));
   if(!list.length)body.append(el('p','선택한 조건에 해당하는 질문이 없습니다.'));
@@ -159,8 +159,8 @@ export async function mount(root){
    const errors=el('div',undefined,{role:'alert',tabindex:'-1'});
    const changed=()=>{errors.replaceChildren();persist();summary();};
    const [rl,rs]=select('담당자 응답 (필수)',[['','선택하세요'],...responses.map(v=>[v,v])],v=>{r.response=v;changed();conditional();});rs.value=r.response;card.append(rl);
-   card.append(input('판단 근거 (필수)','textarea',r.reason,v=>{r.reason=v;changed();}));
-   card.append(input('확인한 증적 — 자료명·파일/링크·버전·기간·해당 위치','textarea',r.evidence,v=>{r.evidence=v;changed();}));
+   card.append(input('평가 근거 (필수)','textarea',r.reason,v=>{r.reason=v;changed();}));
+   card.append(input('확인한 증적 — 자료명·파일 보관 위치/링크·버전·기간·해당 위치','textarea',r.evidence,v=>{r.evidence=v;changed();}));
    const checkLabel=el('label','확인한 증적 없음 (미충족·확인 필요에 한함)'),check=el('input',undefined,{type:'checkbox'});check.checked=r.noEvidence;check.onchange=()=>{r.noEvidence=check.checked;changed();conditional();};checkLabel.prepend(check);card.append(checkLabel);
    const absent=input('증적이 없는 사유 (미충족에서 증적 없음 선택 시 필수)','textarea',r.absenceReason,v=>{r.absenceReason=v;changed();});card.append(absent);
    const action=el('fieldset'),legend=el('legend');action.append(legend);
@@ -183,7 +183,7 @@ export async function mount(root){
 }
 export function boot(){
  const root=document.getElementById('assessment-app');
- if(root&&!root.dataset.mounted){root.dataset.mounted='true';mount(root).catch(()=>{if(root.isConnected)root.textContent='화면을 초기화하지 못했습니다. 새로고침 후 다시 시도하세요.';});}
+ if(root&&!root.dataset.mounted){root.dataset.mounted='true';mount(root).catch(()=>{if(root.isConnected)root.textContent='자가진단 화면을 불러오지 못했습니다. 새로고침 후 다시 시도하세요.';});}
 }
 if(typeof document!=='undefined'){
  boot();document.addEventListener('DOMContentLoaded',boot);document.addEventListener('pjax:complete',boot);
