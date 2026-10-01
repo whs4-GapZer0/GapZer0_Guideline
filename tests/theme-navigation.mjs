@@ -9,11 +9,11 @@ await new Promise(r=>server.listen(0,'127.0.0.1',r));
 const browser=await chromium.launch({channel:process.env.CI?undefined:'msedge',headless:true});
 try{
  const page=await browser.newPage({viewport:{width:1440,height:1000}});const errors=[];page.on('pageerror',e=>errors.push(e.message));
- const base=`http://127.0.0.1:${server.address().port}/GapZer0_Guideline`;
+ const base=`http://127.0.0.1:${server.address().port}`;
  await page.goto(base+'/introduction/');
- await page.locator('.book-summary a[href="/GapZer0_Guideline/self-assessment/"]').click();
+ await page.locator('.book-summary a[href="/self-assessment/"]').click();
  await page.waitForURL('**/self-assessment/');
- assert.equal(await page.locator('.book-summary a[href="/GapZer0_Guideline/self-assessment/form/"]:visible').count(),0);
+ assert.equal(await page.locator('.book-summary a[href="/self-assessment/form/"]:visible').count(),0);
  assert.equal(await page.locator('#assessment-app').count(),0);
  assert.equal(await page.getByRole('link',{name:'자가진단 시작하기',exact:true}).count(),1);
  assert.equal(await page.locator('.sa-start-button').evaluate(e=>getComputedStyle(e).backgroundColor),'rgb(21, 107, 113)');
@@ -28,8 +28,8 @@ try{
  assert.equal(await page.getByLabel('평가 범위 (조직·업무·시스템)').inputValue(),'테마 통합 시험');
  await page.locator('#assessment-app').scrollIntoViewIfNeeded();await page.screenshot({path:'work/theme-direct.png'});
  const direct=await page.locator('.sa-question').count();
- await page.locator('.book-summary a[href="/GapZer0_Guideline/introduction/"]').click();await page.waitForURL('**/introduction/');
- await page.locator('.book-summary a[href="/GapZer0_Guideline/self-assessment/"]').click();await page.waitForURL('**/self-assessment/');
+ await page.locator('.book-summary a[href="/introduction/"]').click();await page.waitForURL('**/introduction/');
+ await page.locator('.book-summary a[href="/self-assessment/"]').click();await page.waitForURL('**/self-assessment/');
  await page.getByRole('link',{name:'자가진단 시작하기',exact:true}).click();await page.waitForURL('**/self-assessment/form/');
  try{await page.locator('.sa-question').first().waitFor({timeout:4000});}catch{}
  const returning=await page.locator('.sa-question').count();
@@ -39,7 +39,7 @@ try{
  await page.reload();await page.locator('.sa-question').first().waitFor();
  assert.equal(await page.getByLabel('평가 범위 (조직·업무·시스템)').inputValue(),'테마 통합 시험');
  const card=page.locator('.sa-question').first();await card.getByLabel('담당자 응답 (필수)').selectOption('부분 충족');await card.getByLabel('평가 근거 (필수)').fill('테마 이동 후 유지 시험');
- await page.locator('.book-summary a[href="/GapZer0_Guideline/introduction/"]').click();await page.waitForURL('**/introduction/');
+ await page.locator('.book-summary a[href="/introduction/"]').click();await page.waitForURL('**/introduction/');
  await page.goBack();await page.locator('.sa-question').first().waitFor();
  assert.equal(await page.locator('.sa-question').first().getByLabel('평가 근거 (필수)').inputValue(),'테마 이동 후 유지 시험');
  const downloadPromise=page.waitForEvent('download');await page.getByRole('button',{name:'작성 내용 CSV 다운로드하기'}).click();const download=await downloadPromise;const csv=await fs.readFile(await download.path(),'utf8');assert.equal(csv.charCodeAt(0),0xfeff);assert.ok(csv.includes('테마 이동 후 유지 시험'));assert.ok(csv.includes('GOV-C-01-AQ-D-01'));assert.ok(csv.includes('확인한 증적'));
@@ -62,7 +62,7 @@ try{
  await mobile.goto(base+'/self-assessment/form/');await mobile.locator('.sa-question').first().waitFor();
  for(const route of ['introduction','self-assessment']){
  if(!await mobile.locator('.book').evaluate(el=>el.classList.contains('with-summary')))await mobile.locator('.book-header a.js-toolbar-action').first().click();
- await mobile.locator(`.book-summary a[href="/GapZer0_Guideline/${route}/"]`).click();await mobile.waitForURL(`**/${route}/`);
+ await mobile.locator(`.book-summary a[href="/${route}/"]`).click();await mobile.waitForURL(`**/${route}/`);
  }
  await mobile.getByRole('link',{name:'자가진단 시작하기',exact:true}).click();
  await mobile.locator('.sa-question').first().waitFor();assert.equal(await mobile.locator('.sa-question').count(),6);assert.deepEqual(errors,[]);

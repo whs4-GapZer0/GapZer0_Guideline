@@ -212,7 +212,7 @@ permalink: /
 즉,
 
 ```text
-https://whs4-gapzer0.github.io/GapZer0_Guideline/
+https://docs.whs4-gapzer0.kro.kr/
 ```
 
 로 접속하면 이 파일의 내용이 표시됩니다.
@@ -235,11 +235,11 @@ longtitle: GapZer0 Security Framework Guideline
 author: GapZer0
 ```
 
-### GitHub Pages 주소
+### 커스텀 도메인 주소
 
 ```yaml
-url: "https://whs4-gapzer0.github.io"
-baseurl: "/GapZer0_Guideline"
+url: "https://docs.whs4-gapzer0.kro.kr"
+baseurl: ""
 ```
 
 ### jekyll-gitbook 테마
@@ -755,7 +755,7 @@ CSV / PDF Export
 
 # 11. 페이지 링크 작성 시 `relative_url` 사용
 
-현재 GitHub Pages 사이트는 Repository 이름이 URL에 포함되는 Project Page 구조입니다.
+현재 GitHub Pages 사이트는 커스텀 도메인의 루트에서 제공됩니다.
 
 따라서 Markdown에서 내부 링크를 작성할 때는 다음 형식을 권장합니다.
 
