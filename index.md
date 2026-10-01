@@ -4,39 +4,334 @@ title: GapZer0 Guideline
 permalink: /
 ---
 
-GapZer0 Guideline은 **NIST Cybersecurity Framework 2.0(NIST CSF 2.0)**과 국내 정보보호 관리체계인 **ISMS-P**를 기반으로 구성한 통합 정보보호 가이드라인입니다.
+<style>
+  /* home 레이아웃이 자동으로 출력하는 제목은 아래 표지 제목으로 대체합니다. */
+  .book .book-body .page-wrapper .page-inner section.normal > h1:first-of-type {
+    display: none;
+  }
 
-조직의 정보보호·개인정보보호 담당자가 GapZer0 Framework를 실제 업무에 활용할 수 있도록, 적용할 Control을 확인하고 구체적인 이행 방법과 Evidence를 검토한 뒤 Self Assessment를 통해 현재 상태와 개선이 필요한 부분을 확인할 수 있도록 구성합니다.
+  .gz-home {
+    --gz-paper: #f7f6f2;
+    --gz-ink: #242925;
+    --gz-muted: #68716b;
+    --gz-line: #d8ddd9;
+    --gz-accent: #527565;
+    --gz-accent-dark: #365547;
+    max-width: 1080px;
+    margin: 0 auto;
+    color: var(--gz-ink);
+  }
 
-가이드라인의 기본 활용 흐름은 다음과 같습니다.
+  .gz-home * {
+    box-sizing: border-box;
+  }
 
-> **적용할 Control 선택 → 이행 방법 확인 → Evidence 확인 → 현재 상태 평가 → 미흡사항 개선**
+  .gz-cover {
+    padding: clamp(3rem, 8vw, 6.5rem) clamp(1.5rem, 6vw, 4.75rem);
+    border-top: 5px solid var(--gz-accent);
+    border-bottom: 1px solid var(--gz-line);
+    background: var(--gz-paper);
+  }
 
----
+  .gz-eyebrow {
+    margin: 0 0 1.6rem;
+    color: var(--gz-accent-dark);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+  }
 
-## 목차
+  .gz-cover h1 {
+    max-width: 760px;
+    margin: 0;
+    color: var(--gz-ink) !important;
+    font-size: clamp(2.7rem, 7vw, 5.3rem);
+    font-weight: 500;
+    line-height: 1.02;
+    letter-spacing: -0.055em;
+  }
 
-### [01. GapZer0 가이드라인 소개]({{ '/introduction/' | relative_url }})
+  .gz-cover-subtitle {
+    max-width: 780px;
+    margin: 1.35rem 0 0;
+    color: var(--gz-accent-dark);
+    font-size: clamp(1.15rem, 2.5vw, 1.55rem);
+    font-weight: 500;
+    line-height: 1.45;
+  }
 
-GapZer0 Guideline의 **정의, 개발 목적, 사용 대상**을 설명합니다.  
-또한 GapZer0 Framework와 가이드라인의 관계 및 본 가이드라인이 제공하고자 하는 실무적 활용 방향을 소개합니다.
+  .gz-lead {
+    max-width: 730px;
+    margin: 1.8rem 0 0;
+    color: #4f5852;
+    font-size: 1rem;
+    line-height: 1.75;
+  }
 
-### [02. 가이드라인 활용 방법]({{ '/how-to-use/' | relative_url }})
+  .gz-lead + .gz-lead {
+    margin-top: 0.9rem;
+  }
 
-실무자가 GapZer0 Guideline을 실제 조직에 적용하는 절차를 설명합니다.  
-**적용할 Control 선택 → Implementation Guide 확인 → Evidence 확인 → Self Assessment → 미흡사항 개선**의 순서로 가이드라인을 활용하는 방법을 안내합니다.
+  .gz-guide-role {
+    max-width: 760px;
+    margin: 1.5rem 0 0;
+    padding-left: 1rem;
+    border-left: 3px solid var(--gz-accent);
+    color: var(--gz-ink);
+    font-size: 0.98rem;
+    font-weight: 500;
+    line-height: 1.7;
+  }
 
-### [03. 주요 용어]({{ '/terms/' | relative_url }})
+  .gz-facts {
+    margin: 2rem 0 0;
+    color: var(--gz-muted);
+    font-size: 0.9rem;
+  }
 
-GapZer0 Framework와 가이드라인에서 사용하는 주요 개념과 용어를 설명합니다.  
-Security Domain, Control Class(Common / Enhancement / Local), Control Objective, Control Statement, Implementation Guide, Assessment Question, Evidence, ISMS-P Limitation, CSF Coverage 등의 의미를 확인할 수 있습니다.
+  .gz-facts span {
+    margin: 0 0.55rem;
+    color: #a8afa9;
+  }
 
-### [04. Control Implementation Guide]({{ '/controls/' | relative_url }})
+  .gz-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem 1.7rem;
+    margin-top: 2.2rem;
+  }
 
-GapZer0 Framework의 Control을 **15개 Security Domain**과 **Control Class**에 따라 분류하여 제공합니다.  
-각 Control별로 Control Objective, Control Statement, 적용 조건, Control Owner, Stakeholders, ISMS-P·NIST CSF Mapping, Implementation Guide, Evidence 등을 확인할 수 있습니다.
+  .gz-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding-bottom: 0.28rem;
+    border-bottom: 1px solid currentColor;
+    color: var(--gz-accent-dark) !important;
+    font-weight: 500;
+    text-decoration: none !important;
+  }
 
-### [05. Self Assessment]({{ '/self-assessment/' | relative_url }})
+  .gz-links a:hover {
+    color: var(--gz-accent) !important;
+  }
 
-각 Control에 마련된 Assessment Question을 활용하여 조직의 현재 이행 상태를 스스로 점검할 수 있도록 지원합니다.  
-평가 결과는 **충족 / 부분 충족 / 미충족 / 적용 제외 / 확인 필요**의 5단계로 기록하고, 평가 근거와 Evidence를 함께 관리하는 것을 목표로 합니다.
+  .gz-section {
+    padding: clamp(2.6rem, 6vw, 4.5rem) clamp(0.2rem, 3vw, 2rem) 0;
+  }
+
+  .gz-section-head {
+    margin-bottom: 1.7rem;
+  }
+
+  .gz-section-label {
+    margin: 0 0 0.7rem;
+    color: var(--gz-accent-dark);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+  }
+
+  .gz-section-title {
+    margin: 0;
+    color: var(--gz-ink) !important;
+    font-size: clamp(1.45rem, 3vw, 2rem);
+    font-weight: 500;
+    line-height: 1.35;
+  }
+
+  .gz-flow {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr) auto) minmax(0, 1fr);
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .gz-flow span {
+    display: flex;
+    min-height: 72px;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 0.65rem;
+    border: 1px solid var(--gz-line);
+    border-radius: 4px;
+    background: #fafaf7;
+    color: var(--gz-ink);
+    font-size: 0.92rem;
+    font-weight: 500;
+    text-align: center;
+  }
+
+  .gz-flow i {
+    color: #9da59f;
+    font-style: normal;
+  }
+
+  .gz-menu {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-top: 1px solid var(--gz-line);
+  }
+
+  .gz-menu-item {
+    display: flex;
+    min-height: 132px;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.45rem 1rem 1.45rem 0;
+    border-bottom: 1px solid var(--gz-line);
+    color: var(--gz-ink) !important;
+    text-decoration: none !important;
+  }
+
+  .gz-menu-item:nth-child(odd) {
+    padding-right: 2rem;
+    border-right: 1px solid var(--gz-line);
+  }
+
+  .gz-menu-item:nth-child(even) {
+    padding-left: 2rem;
+  }
+
+  .gz-menu-item h3 {
+    margin: 0 0 0.55rem;
+    color: var(--gz-ink) !important;
+    font-size: 1.05rem;
+    font-weight: 500;
+  }
+
+  .gz-menu-item p {
+    margin: 0;
+    color: var(--gz-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .gz-menu-arrow {
+    flex: 0 0 auto;
+    color: var(--gz-accent);
+    font-size: 1.05rem;
+    transition: transform 0.15s ease;
+  }
+
+  .gz-menu-item:hover .gz-menu-arrow {
+    transform: translateX(3px);
+  }
+
+  .gz-menu-item:focus-visible,
+  .gz-links a:focus-visible {
+    outline: 2px solid var(--gz-accent);
+    outline-offset: 4px;
+  }
+
+  .gz-note {
+    margin: 2.4rem 0 0;
+    padding: 1rem 0;
+    border-top: 1px solid var(--gz-line);
+    color: var(--gz-muted);
+    font-size: 0.88rem;
+    line-height: 1.65;
+  }
+
+  @media (max-width: 720px) {
+    .gz-flow {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .gz-flow span {
+      width: 100%;
+      min-height: 58px;
+    }
+
+    .gz-flow i {
+      display: none;
+    }
+
+    .gz-menu {
+      grid-template-columns: 1fr;
+    }
+
+    .gz-menu-item:nth-child(odd),
+    .gz-menu-item:nth-child(even) {
+      min-height: 0;
+      padding: 1.25rem 0;
+      border-right: 0;
+    }
+  }
+</style>
+
+<div class="gz-home">
+  <section class="gz-cover" aria-labelledby="gz-title">
+    <p class="gz-eyebrow">NIST CSF 2.0 × ISMS-P</p>
+    <h1 id="gz-title">GapZer0 Guideline</h1>
+    <p class="gz-cover-subtitle">NIST CSF 2.0 기반 국내 정보보호 컴플라이언스 프레임워크 만들기</p>
+    <p class="gz-lead">
+      정보보호 인증기준을 충족하는 것만으로 조직의 실제 사이버보안 상태와 지속적인 위험관리 수준을 충분히 설명할 수 있을까요?
+    </p>
+    <p class="gz-lead">
+      GapZer0는 이러한 문제의식에서 출발했습니다. NIST CSF 2.0과 ISMS-P를 매핑하고 개인정보 보호법을 함께 검토하여,
+      국내 요구사항과 국제적으로 활용되는 보안 목표 사이의 Gap을 식별했습니다. 이를 바탕으로 조직의 현재 보안 수준과
+      목표 상태를 비교하고 개선 우선순위를 지속적으로 관리할 수 있는 국내 정보보호 컴플라이언스 프레임워크를 설계했습니다.
+    </p>
+    <p class="gz-guide-role">
+      본 가이드라인은 GapZer0 Framework의 통제항목을 실무자가 구체적으로 이행할 수 있도록 이행 방법, 증적 예시 및 평가 기준을 제공하는 실무 안내서입니다.
+    </p>
+    <p class="gz-facts">15 Security Domains <span>·</span> 121 Controls <span>·</span> Common · Enhancement · Local</p>
+    <div class="gz-links">
+      <a href="{{ '/introduction/' | relative_url }}">가이드라인 소개 보기 <span aria-hidden="true">→</span></a>
+      <a href="{{ '/controls/' | relative_url }}">Control Guide 바로가기 <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <section class="gz-section" aria-labelledby="gz-flow-title">
+    <div class="gz-section-head">
+      <p class="gz-section-label">How to use</p>
+      <h2 class="gz-section-title" id="gz-flow-title">통제 선택부터 개선까지 한 흐름으로 확인합니다.</h2>
+    </div>
+    <div class="gz-flow" aria-label="가이드라인 활용 흐름">
+      <span>Control 선택</span><i aria-hidden="true">→</i>
+      <span>이행 방법 확인</span><i aria-hidden="true">→</i>
+      <span>Evidence 확인</span><i aria-hidden="true">→</i>
+      <span>현재 상태 평가</span><i aria-hidden="true">→</i>
+      <span>미흡사항 개선</span>
+    </div>
+  </section>
+
+  <section class="gz-section" aria-labelledby="gz-menu-title">
+    <div class="gz-section-head">
+      <p class="gz-section-label">Quick menu</p>
+      <h2 class="gz-section-title" id="gz-menu-title">원하는 내용부터 바로 확인하세요.</h2>
+    </div>
+
+    <nav class="gz-menu" aria-label="GapZer0 Guideline 주요 메뉴">
+      <a class="gz-menu-item" href="{{ '/introduction/' | relative_url }}">
+        <span><h3>가이드라인 소개</h3><p>GapZer0 Framework의 정의, 목적, 사용 대상과 전체 구성을 확인합니다.</p></span>
+        <span class="gz-menu-arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="gz-menu-item" href="{{ '/how-to-use/' | relative_url }}">
+        <span><h3>가이드라인 활용 방법</h3><p>Control 선택부터 이행, 평가, 개선과 재평가까지의 절차를 확인합니다.</p></span>
+        <span class="gz-menu-arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="gz-menu-item" href="{{ '/terms/' | relative_url }}">
+        <span><h3>주요 용어</h3><p>Security Domain, Control Class, Evidence 등 주요 개념을 확인합니다.</p></span>
+        <span class="gz-menu-arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="gz-menu-item" href="{{ '/controls/' | relative_url }}">
+        <span><h3>Control Implementation Guide</h3><p>15개 Security Domain의 Control과 구체적인 이행 방법을 확인합니다.</p></span>
+        <span class="gz-menu-arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="gz-menu-item" href="{{ '/self-assessment/' | relative_url }}">
+        <span><h3>Self Assessment</h3><p>Assessment Questions와 Evidence를 바탕으로 현재 이행 상태를 평가합니다.</p></span>
+        <span class="gz-menu-arrow" aria-hidden="true">→</span>
+      </a>
+    </nav>
+  </section>
+
+  <p class="gz-note">각 Control은 조직의 업무, 정보자산, 개인정보 처리환경과 위험 수준을 고려하여 적용합니다.</p>
+</div>
+
