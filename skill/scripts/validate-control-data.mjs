@@ -11,6 +11,8 @@ const targetRoot = path.join(referencesRoot, 'controls');
 const indexFile = path.join(referencesRoot, 'control-index.md');
 const errors = [];
 
+const normalizeLineEndings = (value) => value.replace(/\r\n?/g, '\n');
+
 const controlIdPattern = /^##\s+([A-Z]{3}-(?:C|E|L)-\d{2})(?:\s+—.*)?\s*$/gm;
 const sourceFiles = [];
 for (const domain of fs.readdirSync(sourceRoot, { withFileTypes: true }).filter((entry) => entry.isDirectory())) {
@@ -30,8 +32,8 @@ for (const file of sourceFiles) {
     errors.push(`Missing mirrored control file: ${target}`);
     continue;
   }
-  const cleanedSource = raw.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n+/, '').trim();
-  const mirrored = fs.readFileSync(target, 'utf8').trim();
+  const cleanedSource = normalizeLineEndings(raw.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n+/, '')).trim();
+  const mirrored = normalizeLineEndings(fs.readFileSync(target, 'utf8')).trim();
   if (cleanedSource !== mirrored) errors.push(`Mirrored content differs from source: ${target}`);
 }
 
