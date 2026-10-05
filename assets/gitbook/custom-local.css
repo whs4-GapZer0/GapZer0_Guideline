@@ -1,0 +1,374 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@400;500;600;700&display=swap');
+
+/* Editorial Typography. Presentation only: content and navigation stay in Markdown. */
+.book {
+  --ed-paper: #f7f1e7;
+  --ed-surface: #fffaf2;
+  --ed-ink: #28231e;
+  --ed-muted: #71675b;
+  --ed-line: #d9cbb8;
+  --ed-accent: #895019;
+  --ed-tint: #eee1cd;
+  --ed-display: 'Noto Serif KR', Georgia, 'Batang', serif;
+  --ed-body: 'Noto Sans KR', 'Malgun Gothic', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--ed-paper);
+  color: var(--ed-ink);
+  font-family: var(--ed-body);
+}
+.book.color-theme-1 {
+  --ed-paper: #f3e9d7;
+  --ed-surface: #faf2e4;
+  --ed-line: #d4c2a6;
+}
+.book.color-theme-2 {
+  --ed-paper: #211e1b;
+  --ed-surface: #2a2622;
+  --ed-ink: #f0e7da;
+  --ed-muted: #bfb2a0;
+  --ed-line: #544a3e;
+  --ed-accent: #e2ac68;
+  --ed-tint: #3c3023;
+  color-scheme: dark;
+}
+.book[class] .book-body, .book[class] .body-inner, .book[class] .book-summary {
+  background: var(--ed-paper);
+  color: var(--ed-ink);
+}
+.book .book-summary { border-right: 1px solid var(--ed-line); }
+.book .book-summary ul.summary { padding: 18px 12px 32px; }
+.book .book-summary ul.summary li a {
+  color: var(--ed-muted);
+  padding: 12px 18px;
+  font-family: var(--ed-body);
+  font-size: 13px;
+  line-height: 1.65;
+  white-space: normal;
+}
+.book .book-summary ul.summary > li:first-child > a {
+  font-family: var(--ed-display);
+  font-size: 24px;
+  letter-spacing: -.6px;
+  color: var(--ed-ink);
+  padding-top: 16px;
+  padding-bottom: 24px;
+}
+.book .book-summary ul.summary li.active > a {
+  color: var(--ed-accent);
+  background: var(--ed-tint);
+  box-shadow: inset 2px 0 var(--ed-accent);
+  font-weight: 700;
+}
+.book .book-summary ul.summary li a:hover { color: var(--ed-ink); background: var(--ed-tint); }
+.book .book-summary ul.summary li.divider { background: var(--ed-line); margin: 14px 18px; }
+.book #book-search-input { background: transparent; border-bottom: 1px solid var(--ed-line); padding: 14px 22px; }
+.book #book-search-input input { color: var(--ed-ink); font-family: var(--ed-body); }
+.book #book-search-input input::placeholder { color: var(--ed-muted); }
+.book[class] .book-body .book-header { background: var(--ed-paper); border-bottom: 1px solid var(--ed-line); }
+.book .book-header h1 { font-family: var(--ed-display); }
+.book[class] .book-header h1 a, .book[class] .book-header .btn { color: var(--ed-muted); }
+.book .book-header .btn:hover { color: var(--ed-accent); }
+.book .book-body .page-wrapper .page-inner {
+  max-width: 1060px;
+  padding: 44px 56px 80px;
+}
+.book[class] .markdown-section {
+  background: transparent;
+  color: var(--ed-ink);
+  font-family: var(--ed-body);
+  line-height: 1.9;
+  overflow-wrap: anywhere;
+}
+.book .markdown-section h1, .book .markdown-section h2,
+.book .markdown-section h3, .book .markdown-section h4,
+.book .markdown-section strong { color: var(--ed-ink); }
+.book .markdown-section h1 {
+  font-family: var(--ed-display);
+  font-size: 2.65em;
+  line-height: 1.25;
+  letter-spacing: -.045em;
+  font-weight: 500;
+  margin: 0 0 1em;
+  padding: .45em 0 .7em;
+  border-top: 3px solid var(--ed-ink);
+  border-bottom: 1px solid var(--ed-line);
+  word-break: keep-all;
+}
+.book .markdown-section h2 {
+  margin: 2.3em 0 .9em;
+  font-family: var(--ed-display);
+  font-size: 1.7em;
+  line-height: 1.45;
+  font-weight: 600;
+  letter-spacing: -.025em;
+}
+.book .markdown-section h3 { font-size: 1.12em; margin: 2em 0 .7em; line-height: 1.55; }
+.book .markdown-section h3, .book .markdown-section h4,
+.book .markdown-section h5, .book .markdown-section h6,
+.book .markdown-section table, .book .dropdown-menu .button,
+.book #assessment-app, .book #assessment-app .sa-preserve {
+  font-family: var(--ed-body);
+}
+.book button, .book input, .book select, .book textarea { font-family: var(--ed-body); }
+.book .gz-menu-item h3 { font-family: var(--ed-display); }
+.book .markdown-section p { margin-bottom: 1.2em; }
+.book .markdown-section a { color: var(--ed-accent); text-underline-offset: .2em; }
+.book .markdown-section hr { height: 1px; background: var(--ed-line); margin: 2.6em 0; border: 0; }
+.book .markdown-section blockquote {
+  background: var(--ed-tint);
+  border-left: 3px solid var(--ed-accent);
+  color: var(--ed-ink);
+  padding: 18px 24px;
+  margin: 1.6em 0;
+}
+.book .markdown-section table { font-size: .9em; line-height: 1.75; }
+.book .markdown-section table th, .book .markdown-section table td { border-color: var(--ed-line); padding: 12px 16px; }
+.book .markdown-section table tr { background: var(--ed-paper); border-color: var(--ed-line); }
+.book .markdown-section table tr:nth-child(2n), .book .markdown-section table th { background: var(--ed-tint); }
+.book .markdown-section pre, .book .markdown-section code { background: var(--ed-tint); color: var(--ed-ink); }
+.book a:focus-visible, .book button:focus-visible, .book input:focus-visible {
+  outline: 2px solid var(--ed-accent);
+  outline-offset: 4px;
+}
+/* Higher specificity than the original home page's inline styles. */
+.book .gz-home {
+  --gz-paper: var(--ed-paper);
+  --gz-ink: var(--ed-ink);
+  --gz-muted: var(--ed-muted);
+  --gz-line: var(--ed-line);
+  --gz-accent: var(--ed-accent);
+  --gz-accent-dark: var(--ed-accent);
+  max-width: none;
+}
+.book .gz-cover {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  column-gap: 48px;
+  padding: 28px 0 40px;
+  border-top: 3px solid var(--ed-ink);
+  border-bottom: 1px solid var(--ed-line);
+  background: transparent;
+}
+.book .gz-eyebrow {
+  grid-column: 1 / -1;
+  font-size: 11px;
+  letter-spacing: .18em;
+  font-weight: 700;
+  margin: 0 0 24px;
+}
+.book .gz-cover h1 {
+  grid-column: 1 / -1;
+  max-width: none;
+  font-family: var(--ed-display);
+  font-size: clamp(44px, 6.2vw, 88px);
+  line-height: 1.08;
+  font-weight: 400;
+  letter-spacing: -.055em;
+  border: 0;
+  padding: 0 0 28px;
+  margin: 0;
+}
+.book .gz-cover-subtitle {
+  grid-column: 1 / -1;
+  max-width: 720px;
+  color: var(--ed-ink);
+  font-family: var(--ed-display);
+  font-size: 23px;
+  line-height: 1.65;
+  word-break: keep-all;
+  margin: 0 0 32px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--ed-line);
+}
+.book .gz-lead {
+  font-size: 16px;
+  line-height: 1.95;
+  color: var(--ed-muted);
+  margin: 0;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+.book .gz-cover-subtitle + .gz-lead {
+  font-family: var(--ed-display);
+  font-size: 27px;
+  line-height: 1.7;
+  color: var(--ed-ink);
+}
+.book .gz-lead + .gz-lead { margin: 0; }
+.book .gz-background p { margin: 0 0 18px; }
+.book .gz-background p:last-child { margin-bottom: 0; }
+.book .gz-background strong { font-weight: 600; }
+.book .gz-guide-role {
+  grid-column: 1 / -1;
+  max-width: none;
+  margin: 30px 0 0;
+  padding: 16px 22px;
+  background: var(--ed-tint);
+  border-left: 3px solid var(--ed-accent);
+  font-size: 15px;
+  line-height: 1.85;
+}
+.book .gz-facts { grid-column: 1 / -1; font-size: 12px; margin: 26px 0 0; line-height: 1.8; }
+.book .gz-facts span { color: var(--ed-muted); margin: 0 8px; }
+.book .gz-links { grid-column: 1 / -1; margin-top: 24px; gap: 16px 28px; align-items: center; }
+.book .gz-links a { font-size: 14px; padding: 9px 0; font-weight: 600; }
+.book .gz-section { padding: 44px 0 0; }
+.book .gz-section-head { margin-bottom: 24px; }
+.book .gz-section-label { font-size: 11px; letter-spacing: .18em; font-weight: 700; margin: 0 0 10px; }
+.book .gz-section-title { font-family: var(--ed-display); font-size: 25px; line-height: 1.55; margin: 0; font-weight: 500; }
+.book .gz-flow { gap: 8px; }
+.book .gz-flow span { font-size: 13px; line-height: 1.7; background: transparent; border: 0; border-top: 2px solid var(--ed-line); border-radius: 0; min-height: 76px; }
+.book .gz-flow i { color: var(--ed-accent); }
+.book .gz-menu-item { padding: 26px 0; min-height: 132px; }
+.book .gz-menu-item h3 { font-size: 18px; font-weight: 600; margin: 0 0 10px; line-height: 1.5; }
+.book .gz-menu-item p { font-size: 14px; margin: 0; line-height: 1.8; }
+.book .gz-menu-item:hover { background: var(--ed-tint); }
+.book .gz-menu-item:nth-child(odd) { padding-right: 28px; }
+.book .gz-menu-item:nth-child(even) { padding-left: 28px; }
+.book .gz-menu-arrow { font-size: 20px; }
+.book .gz-note { font-size: 12px; line-height: 1.8; margin: 32px 0 0; padding: 20px 0; }
+/* Match the assessment entry link to the homepage's editorial CTA. */
+.book .markdown-section .sa-start-area { margin: 24px 0 36px; }
+.book[class] .markdown-section a.sa-start-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  max-width: 100%;
+  padding: 12px 24px;
+  border: 1px solid var(--ed-accent);
+  border-radius: 0;
+  background: var(--ed-accent);
+  color: var(--ed-paper);
+  font-family: var(--ed-body);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.7;
+  text-align: center;
+  text-decoration: none;
+}
+.book[class] .markdown-section a.sa-start-button:hover {
+  background: var(--ed-accent);
+  color: var(--ed-paper);
+  filter: brightness(.9);
+  text-decoration: none;
+}
+.book[class] .markdown-section a.sa-start-button:focus-visible {
+  outline: 2px solid var(--ed-accent);
+  outline-offset: 4px;
+}
+/* Keep assessment feedback/status colors; harmonize its reading surfaces. */
+.book #assessment-app .sa-question, .book #assessment-app fieldset { border-color: var(--ed-line); border-radius: 0; }
+.book #assessment-app .sa-question { border-top-color: var(--ed-accent); background: var(--ed-surface); padding: 24px; }
+.book #assessment-app input:not([type=checkbox]), .book #assessment-app select, .book #assessment-app textarea {
+  border-color: var(--ed-line); background: var(--ed-paper); color: var(--ed-ink); border-radius: 2px;
+}
+@media (max-width: 1000px) {
+  .book .book-body .page-wrapper .page-inner { padding: 32px 28px 64px; }
+  .book .gz-cover { column-gap: 28px; }
+  .book .gz-cover-subtitle + .gz-lead { font-size: 24px; }
+}
+@media (max-width: 720px) {
+  .book .book-body .page-wrapper .page-inner { padding: 24px 20px 48px; }
+  .book .markdown-section h1 { font-size: 2em; }
+  .book .gz-cover { display: block; padding-top: 20px; }
+  .book .gz-cover h1 { font-size: clamp(38px, 9vw, 60px); padding-bottom: 20px; }
+  .book .gz-cover-subtitle { font-size: 20px; margin-bottom: 24px; padding-bottom: 22px; }
+  .book .gz-lead + .gz-lead { margin-top: 20px; }
+  .book .gz-guide-role { padding: 14px 16px; }
+  .book .gz-flow { display: flex; gap: 0; flex-direction: column; }
+  .book .gz-flow span { justify-content: flex-start; min-height: 52px; width: 100%; border-top-width: 1px; padding: 12px 4px; }
+  .book .gz-flow i { display: none; }
+  .book .gz-menu { grid-template-columns: 1fr; }
+  .book .gz-menu-item:nth-child(n) { padding: 22px 0; border-right: 0; min-height: 0; }
+  .book .gz-section-title { font-size: 23px; }
+  .book #assessment-app .sa-question { padding: 16px; }
+}
+/* Quiet, one-time entrance and pointer/keyboard feedback on the homepage. */
+/* Domain and Control Class navigation; leave body references unchanged. */
+.book .markdown-section h3 > a[href*="/controls/"] {
+  display: inline-block;
+  max-width: 100%;
+  background-image: linear-gradient(var(--ed-accent), var(--ed-accent));
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: 0 2px;
+  text-decoration: none;
+  transition: background-size 240ms ease, color 240ms ease, transform 240ms ease;
+}
+.book .markdown-section h3 > a[href*="/controls/"]:focus-visible {
+  background-size: 100% 2px;
+  color: var(--ed-ink);
+  transform: translateX(3px);
+}
+@media (hover: hover) and (pointer: fine) {
+  .book .markdown-section h3 > a[href*="/controls/"]:hover {
+    background-size: 100% 2px;
+    color: var(--ed-ink);
+    transform: translateX(3px);
+    text-decoration: none;
+  }
+}
+@keyframes ed-intro-reveal {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.book .gz-cover-subtitle + .gz-lead {
+  animation: ed-intro-reveal 700ms cubic-bezier(.2, .65, .3, 1) 80ms both;
+}
+.book .gz-background {
+  animation: ed-intro-reveal 700ms cubic-bezier(.2, .65, .3, 1) 220ms both;
+}
+.book .gz-links a { position: relative; }
+.book .gz-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 240ms ease;
+}
+.book .gz-links a span {
+  display: inline-block;
+  transition: transform 240ms ease;
+}
+.book .gz-menu-item {
+  transition: background-color 240ms ease, box-shadow 240ms ease;
+}
+.book .gz-menu-arrow { transition: transform 240ms ease; }
+.book .gz-links a:focus-visible::after { transform: scaleX(1); }
+.book .gz-links a:focus-visible span,
+.book .gz-menu-item:focus-visible .gz-menu-arrow { transform: translateX(5px); }
+.book .gz-menu-item:focus-visible {
+  background: var(--ed-tint);
+  box-shadow: inset 0 -2px var(--ed-accent);
+}
+@media (hover: hover) and (pointer: fine) {
+  .book .gz-links a:hover::after { transform: scaleX(1); }
+  .book .gz-links a:hover span,
+  .book .gz-menu-item:hover .gz-menu-arrow { transform: translateX(5px); }
+  .book .gz-menu-item:hover { box-shadow: inset 0 -2px var(--ed-accent); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .book .markdown-section h3 > a[href*="/controls/"] { transition: none; }
+  .book .markdown-section h3 > a[href*="/controls/"]:hover,
+  .book .markdown-section h3 > a[href*="/controls/"]:focus-visible { transform: none; }
+  .book .gz-cover-subtitle + .gz-lead, .book .gz-background { animation: none; }
+  .book .gz-links a::after, .book .gz-links a span,
+  .book .gz-menu-item, .book .gz-menu-arrow { transition: none; }
+  .book .gz-links a:hover span, .book .gz-links a:focus-visible span,
+  .book .gz-menu-item:hover .gz-menu-arrow,
+  .book .gz-menu-item:focus-visible .gz-menu-arrow { transform: none; }
+}
+/* Reset desktop splitter offsets when the viewport becomes a phone. */
+@media (max-width: 600px) {
+  .book .book-body { left: 0 !important; width: 100%; }
+  .book .book-body .book-header { width: 100%; }
+  .book .book-summary { width: calc(100% - 60px) !important; left: -100% !important; z-index: 3; }
+  .book.with-summary .book-summary { left: 0 !important; }
+  .book.with-summary .book-body { transform: translateX(calc(100% - 60px)); }
+  .book .divider-content-summary { display: none; }
+}
