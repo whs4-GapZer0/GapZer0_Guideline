@@ -30,6 +30,8 @@ https://github.com/whs4-GapZer0/virtual_chibbo
 
 ## V01. ALB HTTPS SSL 취약점 대응
 
+**우선 검증 Control:** `TVM-C-01`, `TVM-C-03`, `TVM-C-04`, `TVM-C-05`, 필요 시 `INF-E-01`
+
 ### 사용자 요청
 
 > 치뽀 채용지원 플랫폼의 공개 HTTPS ALB에서 insecure SSL cipher 문제가 발견되었습니다. 어떤 GapZer0 Control을 확인해야 하고, 어떻게 대응계획을 세워야 하나요?
@@ -66,6 +68,8 @@ https://github.com/whs4-GapZer0/virtual_chibbo
 
 ## V02. AWS·외부 공급자 보안관리
 
+**우선 검증 Control:** `AST-C-03`, `SUP-C-01`, `SUP-C-02`, `SUP-E-02`
+
 ### 사용자 요청
 
 > 치뽀는 AWS, Docker Official Image Node, npm을 사용하고 있습니다. 외부 공급자와 서비스를 관리할 때 어떤 GapZer0 Control을 적용해야 하나요?
@@ -101,6 +105,8 @@ https://github.com/whs4-GapZer0/virtual_chibbo
 
 ## V03. 직원 퇴사에 따른 계정·권한 회수
 
+**우선 검증 Control:** `IAM-C-01`, `IAM-C-03`
+
 ### 사용자 요청
 
 > 치뽀의 직원이 퇴사했습니다. 해당 직원의 AWS와 GitHub 접근권한을 어떻게 처리해야 하나요?
@@ -128,6 +134,8 @@ https://github.com/whs4-GapZer0/virtual_chibbo
 ---
 
 ## V04. S3 이력서 버킷 보호
+
+**우선 검증 Control:** `INF-C-01`, `IAM-C-03`
 
 ### 사용자 요청
 
@@ -162,6 +170,8 @@ https://github.com/whs4-GapZer0/virtual_chibbo
 
 ## V05. 콘솔을 통한 긴급 변경
 
+**우선 검증 Control:** `TVM-C-06`
+
 ### 사용자 요청
 
 > 치뽀에서 긴급한 AWS 콘솔 변경이 필요합니다. 변경 전에 어떤 위험관리와 승인 절차를 확인해야 하나요?
@@ -188,6 +198,8 @@ https://github.com/whs4-GapZer0/virtual_chibbo
 ---
 
 ## V06. 공급자 관계 종료
+
+**우선 검증 Control:** `SUP-C-08`, `SUP-E-03`, 필요 시 `IAM-C-01`
 
 ### 사용자 요청
 
@@ -243,3 +255,8 @@ https://github.com/whs4-GapZer0/virtual_chibbo
 ## 테스트 원칙
 
 이 문서는 **테스트 입력과 기대 검증 기준**을 정의한다. 실제 PASS/FAIL 결과는 Skill과 Control 원문이 통합된 뒤 실행하여 기록한다.
+
+
+## Control 검증 주의사항
+
+위 Control은 **테스트 실행 전에 설정한 기대 후보**이다. 실제 AI Skill 실행 결과가 이 목록과 다르다고 즉시 FAIL로 판정하지 않는다. 사용자 요청과 가이드라인 원문을 함께 확인하여 실제로 더 적절한 Control이 있는지 검토한 뒤 판정한다. 특히 V01처럼 하나의 상황에 자산·취약점·위험평가·위험대응이 함께 포함되는 경우 복수 Control이 자연스러울 수 있다.
