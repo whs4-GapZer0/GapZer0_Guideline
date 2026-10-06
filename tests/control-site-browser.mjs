@@ -30,7 +30,7 @@ try {
  const pending=page.waitForEvent('download');
  await page.getByRole('button',{name:'작성 내용 Excel로 다운로드',exact:true}).click();
  const download=await pending;
- await page.locator('input[type=file]').setInputFiles(await download.path());
+ await page.locator('input[type=file]').setInputFiles({name:download.suggestedFilename(),mimeType:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',buffer:await fs.readFile(await download.path())});
  await page.getByRole('button',{name:'Excel 내용으로 교체하기',exact:true}).waitFor({state:'visible'});
  page.once('dialog',d=>d.accept());
  await page.getByRole('button',{name:'Excel 내용으로 교체하기',exact:true}).click();
