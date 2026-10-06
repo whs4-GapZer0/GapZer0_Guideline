@@ -158,3 +158,40 @@ Skill은 Evidence 예시를 실제 확보된 증적으로 표현하는 것을 �
 - T01~T10: **10/10 PASS**
 - 구조·데이터 검증과 별도로 Skill의 핵심 행동 규칙이 테스트 시나리오의 기대 동작을 충족함을 확인했다.
 - 실제 Agent Skill 런타임 설치 후 동일 프롬프트로 회귀 테스트를 한 번 더 수행하는 것을 최종 배포 전 검수 단계로 남긴다.
+
+
+---
+
+## 실무 검색 시나리오 추가 검증 (10/6 통합 QA)
+
+`tests/control-search-cases.md`의 실무 검색 T01~T10을 별도 검토했다. 기존 `tests/test-scenarios.md`의 행동 안전성 T01~T10과 번호가 겹치므로 두 세트를 구분하여 관리한다.
+
+| Test ID | 결과 | 핵심 Control/동작 | 검증 요약 |
+|---|---|---|---|
+| S01 | PASS | HRS-C-01, IAM-C-01, IAM-C-03 | 퇴사 이벤트와 계정·접근권한 회수를 연결하고 임의 회수기한을 생성하지 않도록 확인 |
+| S02 | PASS | CON-C-01 | Implementation Guide와 Evidence 기반 이행계획 작성 가능, RTO·RPO 값은 조직 결정사항으로 유지 |
+| S03 | PASS | SUP-C-03, SUP-C-05, SUP-C-06, SUP-C-08 | 공급자 도입·계약·운영·종료 수명주기 관점의 절차 구성 가능 |
+| S04 | PASS | 후보 미확정 | 접근통제 계획 작성에 필요한 조직 정보만 확인하도록 규칙 확인 |
+| S05 | PASS | 없음 | 존재하지 않는 GZ-FAKE-999를 생성·연결하지 않도록 규칙 확인 |
+| S06 | PASS | 없음 | GapZer0만으로 ISMS-P 인증 가능 여부를 확정하지 않도록 확인 |
+| S07 | PASS | LCM-L-09 + 필요 시 Supplier | 개인정보 국외이전 원문과 공급자 통제를 구분해 적용 가능 |
+| S08 | PASS | TVM-C-01, TVM-C-03, TVM-C-04, TVM-C-05 | 자산 중요도·영향·발생가능성 등 위험기반 우선순위화 확인 |
+| S09 | PASS | IEM-C-14, IEM-C-17, CON-C-05 등 | 사고 대응·격리·복구 개시·복원 절차를 Event Management와 Continuity에 걸쳐 연결 |
+| S10 | PASS | SCF-C-02 | 허용·금지 기준, 권한 제한, 탐지·조치를 원문 범위에서 안내 가능 |
+
+### 3개 지원 기능 검증
+
+- **통제 안내:** S01을 기준으로 복수 관련 Control 검색 → 원문 확인 → 관련 이유·적용조건·이행사항·확인사항·원문 위치 출력 구조를 확인했다.
+- **이행계획:** S02 `CON-C-01`을 기준으로 Objective, Owner, Stakeholders, Implementation Guide, Evidence를 `output-formats.md` 형식으로 재구성할 수 있음을 확인했다.
+- **실무 문서 초안:** S03을 기준으로 공급자 보안관리 절차를 목적 → 적용범위 → 역할과 책임 → 업무절차 → 기록/Evidence → 검토·개선 → 관련 Control 구조로 작성할 수 있음을 확인했다.
+
+### 런타임 E2E 상태
+
+Virtual Chibbo 배포 URL은 확인 시점에 DNS 이름 해석 오류(`ERR_NAME_NOT_RESOLVED`)로 접속할 수 없어 실제 UI 기반 E2E 테스트는 수행하지 못했다. 따라서 정적·원문 기반 검증과 런타임 E2E 검증을 구분하며, 배포 URL 복구 후 동일 프롬프트로 최종 회귀 테스트가 필요하다.
+
+### 통합 QA 판정
+
+- 기존 행동 안전성 시나리오: **10/10 PASS**
+- 실무 검색 시나리오: **10/10 PASS (정적·원문 기반)**
+- 3개 지원 기능 구조 검증: **PASS**
+- Virtual Chibbo 실제 UI E2E: **BLOCKED — DNS 복구 후 확인 필요**
