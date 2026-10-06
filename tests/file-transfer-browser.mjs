@@ -27,7 +27,7 @@ try{
  await choose(csv);const apply=page.getByRole('button',{name:'CSV 내용으로 교체하기',exact:true});await apply.waitFor({state:'visible'});
  await page.getByRole('button',{name:'불러오기 취소',exact:true}).click();assert.equal(await scope.inputValue(),'교체 전 원본');
  await choose(csv);await apply.waitFor({state:'visible'});page.once('dialog',d=>d.dismiss());await apply.click();assert.equal(await reason().inputValue(),'기존 기록');
- await page.evaluate(()=>{window.originalSet=Storage.prototype.setItem;Storage.prototype.setItem=function(){throw Error('quota');};});
+ await page.evaluate(()=>{window.originalSet=Storage.prototype.setItem;Storage.prototype.setItem=function(key,value){if(key==='gapzer0.assessment.gapzer0-v02-aq1.template-v2')throw Error('quota');return window.originalSet.call(this,key,value);};});
  page.once('dialog',d=>d.accept());await apply.click();assert.ok((await page.locator('.sa-import').innerText()).includes('적용하지 않았습니다'));assert.equal(await reason().inputValue(),'기존 기록');
  assert.equal(await page.evaluate(k=>localStorage.getItem(k),storageKey),snapshot);
  await page.evaluate(()=>{Storage.prototype.setItem=window.originalSet;localStorage.setItem('unrelated-import-setting','keep');});
@@ -49,3 +49,4 @@ try{
  assert.deepEqual(errors,[]);assert.deepEqual(writes,[]);
  console.log('PASS: CSV preview/cancel/invalid file/quota failure/restore/reload, local-only processing and Excel downloads.');
 }finally{await browser.close();await new Promise(r=>server.close(r));}
+
