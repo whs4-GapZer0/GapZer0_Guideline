@@ -32,7 +32,7 @@ jobs:
           assert '자가 진단 활용 안내' in html
           for value in ['id="assessment-app"', '/assets/assessment/app.mjs', '/assets/assessment/questions.json', '/assets/gitbook/custom-local.js']:
               assert value in html, value
-          for name in ['app.mjs', 'app.css', 'questions.json', 'transfer.mjs', 'excel.mjs']:
+          for name in ['app.mjs', 'app.css', 'questions.json', 'transfer.mjs', 'excel.mjs', 'excel-import.mjs']:
               assert (site / 'assets/assessment' / name).is_file(), name
           bank = json.loads((site / 'assets/assessment/questions.json').read_text())
           assert len(bank['questions']) == 489

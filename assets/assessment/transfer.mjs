@@ -1,45 +1,29 @@
-// CSV is read locally. Import is all-or-nothing; callers confirm before saving.
+// Workbook data is read locally. Import is all-or-nothing; callers confirm before saving.
 export const MAX_IMPORT_BYTES=25*1024*1024;
 export const RESPONSES=['충족','부분 충족','미충족','확인 필요','적용 제외'];
 export const RECORD_FIELDS=['response','reason','evidence','noEvidence','absenceReason','action','owner','due','status','outcome','completed'];
 export const META_FIELDS=['scope','start','end','assessor','date'];
-export const CSV_HEADERS=['Control ID','Control Name','Security Domain','Question ID','평가 관점','Assessment Question','Evidence','담당자 응답','평가 근거','확인한 증적','확인한 증적 없음','증적이 없는 사유','조치 유형','개선계획 또는 추가 확인 계획','조치 담당자','완료 예정일','진행 상태','완료일','완료 결과·증적','평가 범위','평가기간 시작일','평가기간 종료일','평가 담당자','평가일'];
+export const HEADERS=['Control ID','Control Name','Security Domain','Question ID','평가 관점','Assessment Question','Evidence','담당자 응답','평가 근거','확인한 증적','확인한 증적 없음','증적이 없는 사유','조치 유형','개선계획 또는 추가 확인 계획','조치 담당자','완료 예정일','진행 상태','완료일','완료 결과·증적','평가 범위','평가기간 시작일','평가기간 종료일','평가 담당자','평가일'];
 const aliases={'평가 증적':'Evidence','판단 근거':'평가 근거'};
 const recordColumns={response:'담당자 응답',reason:'평가 근거',evidence:'확인한 증적',absenceReason:'증적이 없는 사유',action:'개선계획 또는 추가 확인 계획',owner:'조치 담당자',due:'완료 예정일',status:'진행 상태',outcome:'완료 결과·증적',completed:'완료일'};
 const metaColumns={scope:'평가 범위',start:'평가기간 시작일',end:'평가기간 종료일',assessor:'평가 담당자',date:'평가일'};
 const dateOK=value=>/^\d{4}-\d{2}-\d{2}$/.test(value)&&!Number.isNaN(Date.parse(value))&&new Date(value).toISOString().slice(0,10)===value;
 
-export function parseCsv(text){
- if(typeof text!=='string'||new TextEncoder().encode(text).length>MAX_IMPORT_BYTES)throw Error('CSV 파일은 25MB 이하만 불러올 수 있습니다.');
- text=text.replace(/^\uFEFF/,'');
- if(/[\u0000-\u0008\u000b\u000c\u000e-\u001f]/.test(text))throw Error('CSV에 지원하지 않는 제어 문자가 있습니다. UTF-8 CSV로 저장해 주세요.');
- const rows=[];let row=[],value='',quoted=false,closed=false;
- const cell=()=>{if(value.length>32767)throw Error('한 셀의 내용이 너무 깁니다.');row.push(value);if(row.length>CSV_HEADERS.length)throw Error('CSV 열 개수가 맞지 않습니다.');value='';closed=false;};
- const line=()=>{cell();if(row.some(v=>v!==''))rows.push(row);row=[];if(rows.length>1000)throw Error('CSV 행이 너무 많습니다.');};
- for(let i=0;i<text.length;i++){
-  const c=text[i];
-  if(quoted){if(c==='"'){if(text[i+1]==='"'){value+='"';i++;}else{quoted=false;closed=true;}}else value+=c;}
-  else if(c===',')cell();
-  else if(c==='\r'||c==='\n'){line();if(c==='\r'&&text[i+1]==='\n')i++;}
-  else if(c==='"'){if(value||closed)throw Error('CSV 따옴표 형식이 올바르지 않습니다.');quoted=true;}
-  else{if(closed)throw Error('CSV 따옴표 뒤에 잘못된 문자가 있습니다.');value+=c;}
- }
- if(quoted)throw Error('CSV의 닫는 따옴표가 없습니다.');
- if(value||closed||row.length)line();
- return rows;
-}
-
-export function importCsv(text,bank){
- const rows=parseCsv(text);
- if(rows.length<2)throw Error('CSV에 평가 질문이 없습니다.');
+export function importRows(input,bank){
+ if(!Array.isArray(input)||input.length>1000)throw Error('평가 기록 행이 너무 많거나 형식이 올바르지 않습니다.');
+ const rows=input.map(row=>{
+  if(!Array.isArray(row)||row.length!==HEADERS.length)throw Error('평가 기록 열 개수가 맞지 않습니다.');
+  return row.map(v=>{if(typeof v!=='string'||v.length>32767||/[\u0000-\u0008\u000b\u000c\u000e-\u001f]/.test(v))throw Error('지원하지 않는 셀 내용입니다.');return v;});
+ });
+ if(rows.length<2)throw Error('XLSX에 평가 질문이 없습니다.');
  const headers=rows.shift().map(h=>aliases[h.trim()]||h.trim());
- if(headers.length!==CSV_HEADERS.length||new Set(headers).size!==headers.length||CSV_HEADERS.some(h=>!headers.includes(h)))throw Error('CSV 열 이름이 맞지 않습니다. 이 사이트에서 다운로드한 CSV 또는 Excel의 평가 기록 시트를 UTF-8 CSV로 저장해 사용하세요.');
- if(rows.length>bank.questions.length)throw Error('현재 평가 질문 수보다 CSV 행이 많습니다.');
+ if(headers.length!==HEADERS.length||new Set(headers).size!==headers.length||HEADERS.some(h=>!headers.includes(h)))throw Error('XLSX 열 이름이 맞지 않습니다. 이 사이트에서 다운로드한 XLSX의 평가 기록 시트를 사용하세요.');
+ if(rows.length>bank.questions.length)throw Error('현재 평가 질문 수보다 XLSX 행이 많습니다.');
  const index=Object.fromEntries(headers.map((h,i)=>[h,i]));
  const questions=new Map(bank.questions.map(q=>[q.id,q]));
  const records={},meta=Object.fromEntries(META_FIELDS.map(k=>[k,''])),seen=new Set();let changedQuestions=0;
  for(let i=0;i<rows.length;i++){
-  const row=rows[i],at=`CSV ${i+2}행: `;
+  const row=rows[i],at=`XLSX ${i+2}행: `;
   if(row.length!==headers.length)throw Error(at+'열 개수가 맞지 않습니다.');
   const get=h=>row[index[h]];
   const id=get('Question ID').trim(),q=questions.get(id);
@@ -68,6 +52,6 @@ export function importCsv(text,bank){
  }
  if(meta.start&&meta.end&&meta.start>meta.end)throw Error('평가기간의 시작일은 종료일 이후일 수 없습니다.');
  const count=Object.keys(records).length;
- if(!count)throw Error('불러올 작성 내용이 없습니다. 빈 템플릿 대신 작성한 CSV를 선택하세요.');
+ if(!count)throw Error('불러올 작성 내용이 없습니다. 빈 템플릿 대신 작성한 XLSX를 선택하세요.');
  return {state:{schema:2,bank:bank.version,meta,records},count,changedQuestions};
 }
