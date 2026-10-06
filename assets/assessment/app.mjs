@@ -1,6 +1,7 @@
-export const responses=['충족','부분 충족','미충족','확인 필요','적용 제외'];
-const fields=['response','reason','evidence','noEvidence','absenceReason','action','owner','due','status','outcome','completed'];
-const metaFields=['scope','start','end','assessor','date'];
+import {CSV_HEADERS,RESPONSES,RECORD_FIELDS,META_FIELDS,MAX_IMPORT_BYTES,importCsv} from './transfer.mjs';
+export const responses=RESPONSES;
+const fields=RECORD_FIELDS;
+const metaFields=META_FIELDS;
 export const blank=()=>Object.fromEntries(fields.map(k=>[k,k==='noEvidence'?false:'']));
 const has=x=>typeof x==='string'&&x.trim().length>0;
 export const actionType=r=>r.response==='확인 필요'?'추가 확인':['부분 충족','미충족'].includes(r.response)||['action','owner','due','status','outcome','completed'].some(k=>has(r[k]))?'개선':'';
@@ -62,14 +63,15 @@ export function csvCell(value){
  return '"'+text.replaceAll('"','""')+'"';
 }
 export const hasDraft=r=>!!r&&fields.some(k=>k==='noEvidence'?r[k]===true:has(r[k]));
-export function toCsv(bank,state,empty=false){
- const headers=['Control ID','Control Name','Security Domain','Question ID','평가 관점','Assessment Question','Evidence','담당자 응답','평가 근거','확인한 증적','확인한 증적 없음','증적이 없는 사유','조치 유형','개선계획 또는 추가 확인 계획','조치 담당자','완료 예정일','진행 상태','완료일','완료 결과·증적','평가 범위','평가기간 시작일','평가기간 종료일','평가 담당자','평가일'];
+export function exportRows(bank,state,empty=false){
  const controls=new Map(bank.controls.map(c=>[c.id,c]));
- const rows=bank.questions.filter(q=>empty||hasDraft(state.records[q.id])).map(q=>{
+ return bank.questions.filter(q=>empty||hasDraft(state.records[q.id])).map(q=>{
   const c=controls.get(q.control),r=empty?blank():(state.records[q.id]||blank()),m=empty?{}:state.meta;
   return [c.id,c.name,c.domain,q.id,q.phase,q.text,c.evidence,r.response,r.reason,r.evidence,r.noEvidence?'예':'',r.absenceReason,actionType(r),r.action,r.owner,r.due,r.status,r.completed,r.outcome,m.scope,m.start,m.end,m.assessor,m.date];
  });
- return '\uFEFF'+[headers,...rows].map(row=>row.map(csvCell).join(',')).join('\r\n')+'\r\n';
+}
+export function toCsv(bank,state,empty=false){
+ return '\uFEFF'+[CSV_HEADERS,...exportRows(bank,state,empty)].map(row=>row.map(csvCell).join(',')).join('\r\n')+'\r\n';
 }
 export async function mount(root){
  const el=(tag,text,attrs={})=>{const e=document.createElement(tag);if(text!==undefined)e.textContent=text;for(const [k,v]of Object.entries(attrs))e.setAttribute(k,v);return e;};
@@ -101,16 +103,67 @@ export async function mount(root){
  for(const [k,label,type]of [['scope','평가 범위 (조직·업무·시스템)','text'],['start','평가기간 시작일','date'],['end','평가기간 종료일','date'],['assessor','평가 담당자','text'],['date','평가일','date']])metaPanel.append(input(label,type,state.meta[k],v=>{state.meta[k]=v;persist();summary();}));
  root.append(metaPanel);
  const toolbar=el('div',undefined,{class:'sa-toolbar'});
- function download(empty){
-  if(!empty&&!bank.questions.some(q=>hasDraft(state.records[q.id]))){message.textContent='다운로드할 작성 내용이 없습니다. 질문에 내용을 입력하거나 빈 템플릿 CSV를 다운로드하세요.';return;}
-  const url=URL.createObjectURL(new Blob([toCsv(bank,state,empty)],{type:'text/csv;charset=utf-8'}));
-  const a=el('a',undefined,{href:url,download:'GapZer0-'+(empty?'assessment-template':'assessment')+'-'+new Date().toISOString().slice(0,10)+'.csv'});
+ function saveFile(blob,extension,empty){
+  const url=URL.createObjectURL(blob);
+  const a=el('a',undefined,{href:url,download:'GapZer0-'+(empty?'assessment-template':'assessment')+'-'+new Date().toISOString().slice(0,10)+'.'+extension});
   document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+ }
+ async function download(empty,format='csv'){
+  if(!empty&&!bank.questions.some(q=>hasDraft(state.records[q.id]))){message.textContent='다운로드할 작성 내용이 없습니다. 질문에 내용을 입력하거나 빈 템플릿 CSV를 다운로드하세요.';return;}
+  try{
+   if(format==='xlsx'){
+    const rows=exportRows(bank,state,empty); // Capture the clicked state before loading the exporter.
+    const {toXlsx}=await import('./excel.mjs');
+    if(root.isConnected)saveFile(toXlsx(CSV_HEADERS,rows),'xlsx',empty);
+   }else saveFile(new Blob([toCsv(bank,state,empty)],{type:'text/csv;charset=utf-8'}),'csv',empty);
+  }catch{message.textContent='파일을 만들지 못했습니다. 작성 내용은 유지됩니다. 다시 시도하거나 CSV로 다운로드하세요.';}
  }
  const saveBrowser=el('button','브라우저에 저장',{type:'button'});saveBrowser.onclick=persist;
  const exp=el('button','작성 내용 CSV 다운로드하기',{type:'button'});exp.onclick=()=>download(false);
  const template=el('button','빈 템플릿 CSV 다운로드하기',{type:'button'});template.onclick=()=>download(true);
  toolbar.append(saveBrowser,exp,template);root.append(toolbar);
+ const excelToolbar=el('div',undefined,{class:'sa-toolbar'});
+ for(const [empty,label]of [[false,'작성 내용 Excel 다운로드하기'],[true,'빈 템플릿 Excel 다운로드하기']]){
+  const button=el('button',label,{type:'button'});button.onclick=()=>download(empty,'xlsx');excelToolbar.append(button);
+ }
+ root.append(excelToolbar,el('p','Excel(.xlsx)은 색상·필터·고정 행과 작성 안내가 포함된 템플릿입니다. Excel에서 수정한 내용은 평가 기록 시트를 CSV UTF-8로 저장한 뒤 불러올 수 있습니다.'));
+ const importArea=el('fieldset',undefined,{class:'sa-import'});importArea.append(el('legend','작성 내용 CSV 불러오기'));
+ importArea.append(el('p','파일은 브라우저에서만 읽으며 서버로 전송하지 않습니다. 불러오기를 확정하면 현재 평가 전체가 CSV 내용으로 교체됩니다. 먼저 기존 작성 내용 CSV를 보관하세요.'));
+ const fileLabel=el('label','CSV 파일 선택 (UTF-8, 최대 25MB)'),fileInput=el('input',undefined,{type:'file',accept:'.csv,text/csv'});fileLabel.append(fileInput);
+ const preview=el('div',undefined,{role:'status','aria-live':'polite'});
+ const apply=el('button','CSV 내용으로 교체하기',{type:'button'}),cancel=el('button','불러오기 취소',{type:'button'});
+ apply.hidden=true;cancel.hidden=true;let pendingImport=null,importSequence=0;
+ const clearImport=()=>{importSequence++;pendingImport=null;fileInput.value='';preview.replaceChildren();apply.hidden=true;cancel.hidden=true;};
+ cancel.onclick=clearImport;
+ fileInput.onchange=async()=>{
+  const sequence=++importSequence;pendingImport=null;apply.hidden=true;cancel.hidden=true;preview.replaceChildren();
+  const file=fileInput.files[0];if(!file)return;
+  try{
+   if(!/\.csv$/i.test(file.name))throw Error('CSV 파일을 선택하세요. Excel 파일은 평가 기록 시트를 CSV UTF-8로 저장한 뒤 불러오세요.');
+   if(file.size>MAX_IMPORT_BYTES)throw Error('CSV 파일은 25MB 이하만 불러올 수 있습니다.');
+   const buffer=await file.arrayBuffer();if(sequence!==importSequence||!root.isConnected)return;
+   let text;try{text=new TextDecoder('utf-8',{fatal:true}).decode(buffer);}catch{throw Error('파일을 UTF-8 CSV 형식으로 저장한 뒤 다시 선택하세요.');}
+   const parsed=importCsv(text,bank);pendingImport=parsed;
+   preview.append(el('p',`${file.name}: 작성한 질문 ${parsed.count}개를 불러올 수 있습니다.`));
+   preview.append(el('p',`평가 범위: ${parsed.state.meta.scope||'미입력'} / 평가 담당자: ${parsed.state.meta.assessor||'미입력'} / 평가일: ${parsed.state.meta.date||'미입력'}`));
+   if(parsed.changedQuestions)preview.append(el('p',`현재 사이트와 질문 문구가 다른 항목이 ${parsed.changedQuestions}개 있습니다. 질문과 Evidence는 사이트의 최신 내용을 사용하므로 불러온 응답과 평가 근거를 다시 확인하세요.`));
+   preview.append(el('p','파일에 없는 질문의 기존 기록도 지워집니다. 취소하면 현재 기록을 유지합니다.'));
+   apply.hidden=false;cancel.hidden=false;
+  }catch(error){if(sequence===importSequence&&root.isConnected)preview.append(el('p',error.message));}
+ };
+ apply.onclick=()=>{
+  if(!pendingImport)return;
+  const currentCount=Object.values(state.records).filter(hasDraft).length;
+  if(!confirm(`현재 작성한 질문 ${currentCount}개와 평가 기본정보를 CSV의 ${pendingImport.count}개 질문 및 기본정보로 교체합니다. 파일에 없는 기존 기록도 삭제됩니다. 계속할까요?`))return;
+  const next=pendingImport.state,count=pendingImport.count;
+  // Commit to localStorage first. A quota/security error leaves memory and UI unchanged.
+  try{localStorage.setItem(key,JSON.stringify(next));}catch{preview.append(el('p','브라우저에 저장하지 못해 불러오기를 적용하지 않았습니다. 현재 작성 내용은 유지됩니다.'));return;}
+  state=next;storageEnabled=true;notice='';clearImport();
+  [...metaPanel.querySelectorAll('input')].forEach((field,i)=>{field.value=state.meta[metaFields[i]];});
+  domain='';phase='';status='';for(const field of filters.querySelectorAll('select'))field.value='';
+  refreshControls();summary();message.textContent=`CSV의 작성 내용 ${count}개를 불러와 이 브라우저에 저장했습니다. 평가 질문별 작성 내용 점검으로 누락된 항목을 확인하세요.`;
+ };
+ importArea.append(fileLabel,preview,apply,cancel);root.append(importArea);
  const resetArea=el('div',undefined,{class:'sa-reset-area'});
  const reset=el('button','작성 내용 초기화',{type:'button',class:'sa-reset'});
  reset.onclick=()=>{
@@ -124,6 +177,7 @@ export async function mount(root){
    return;
   }
   state={schema:2,bank:bank.version,meta:Object.fromEntries(metaFields.map(k=>[k,''])),records:{}};
+  clearImport();
   storageEnabled=true;notice='';
   for(const field of metaPanel.querySelectorAll('input'))field.value='';
   domain='';phase='';status='';
