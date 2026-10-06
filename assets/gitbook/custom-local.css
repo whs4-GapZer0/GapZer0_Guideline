@@ -1,4 +1,4 @@
-@font-face { font-family: GapZer0Serif; src: url("../fonts/NotoSerifKR.ttf") format("truetype"); font-weight: 100 900; font-style: normal; font-display: swap; }
+@font-face { font-family: GapZer0Sans; src: url("../fonts/NotoSansKR.ttf") format("truetype"); font-weight: 100 900; font-style: normal; font-display: swap; }
 
 /* Editorial Typography. Presentation only: content and navigation stay in Markdown. */
 .book {
@@ -10,7 +10,7 @@
   --ed-accent: #895019;
   --ed-tint: #eee1cd;
   --ed-display: var(--ed-body);
-  --ed-body: GapZer0Serif, 'Batang', 'Times New Roman', serif;
+  --ed-body: GapZer0Sans, 'Malgun Gothic', sans-serif;
   background: var(--ed-paper);
   color: var(--ed-ink);
   font-family: var(--ed-body);
@@ -401,3 +401,77 @@
 .book .book-summary .domain-toggle .exc-trigger { display: none !important; }
 .book .book-summary .domain-toggle::after,
 .book .book-summary .domain-toggle[aria-expanded=true]::after { content: none; display: none; }
+/* Design B: reference handbook, with a single serif family. */
+.book { --ed-paper:#ffffff; --ed-surface:#f5f5f7; --ed-ink:#272530; --ed-muted:#595663; --ed-line:#d8d6dd; --ed-accent:#ad450e; --ed-tint:#fff0e6; }
+.book.color-theme-1 { --ed-paper:#fff; --ed-surface:#f5f5f7; --ed-line:#d8d6dd; }
+.book.color-theme-2 { --ed-paper:#19191e; --ed-surface:#25252d; --ed-ink:#efedf4; --ed-muted:#c7c3d0; --ed-line:#494552; --ed-accent:#ffb480; --ed-tint:#3d2b21; }
+.book .book-summary { background:var(--ed-surface) !important; }
+.book .book-summary ul.summary { padding:14px 12px 28px; }
+.book .book-summary ul.summary > li:first-child > a { font-size:21px; padding:14px 18px 24px; letter-spacing:0; }
+.book .book-summary ul.summary li a { font-size:14px; line-height:1.65; padding:10px 14px; }
+.book .book-summary ul.domain-menu li a { font-size:13px; padding:8px 12px; }
+.book .book-summary ul.summary li.active > a { background:var(--ed-tint) !important; color:var(--ed-accent) !important; box-shadow:inset 3px 0 var(--ed-accent); }
+.book .book-body .page-wrapper .page-inner { max-width:1000px; padding:38px 42px 80px; }
+.book .markdown-section { font-size:16px; line-height:1.85; }
+.book .markdown-section h1 { font-size:30px; border-top:0; border-bottom:2px solid var(--ed-accent); padding:0 0 22px; margin:0 0 26px; text-wrap:balance; }
+.book .markdown-section h2 { font-size:23px; margin:36px 0 18px; }
+.book .markdown-section h3 { font-size:18px; margin:26px 0 12px; }
+.book .markdown-section p { margin:0 0 16px; }
+.book .markdown-section a { color:var(--ed-accent) !important; text-decoration:underline; text-underline-offset:3px; }
+.book .markdown-section h3 > a { border:0; padding:0; box-shadow:none; transform:none !important; }
+.book .doc-control { border:1px solid var(--ed-line); margin:30px 0 48px; }
+.book .doc-control > h2 { background:#ad450e; color:#fff !important; margin:0; padding:14px 22px; font-size:22px; }
+.book .doc-field { display:grid; grid-template-columns:155px minmax(0,1fr); border-top:1px solid var(--ed-line); }
+.book .doc-field > h3 { background:var(--ed-surface); padding:18px 16px; margin:0; font-size:15px; line-height:1.7; }
+.book .doc-value { padding:18px 22px; min-width:0; }
+.book .doc-value > :last-child { margin-bottom:0; }
+.book .doc-detail { display:block; }
+.book .doc-detail > h3 { color:var(--ed-accent) !important; background:transparent; border-bottom:1px solid var(--ed-line); font-size:19px; padding:18px 22px 12px; }
+.book .doc-evidence { background:#fff3e9; border-top:3px solid #f36b21; }
+.book.color-theme-2 .doc-evidence { background:#30241c; }
+.book .doc-value li { margin-bottom:10px; }
+.book .doc-value li::marker { color:var(--ed-accent); }
+.book .doc-value h4 { font-size:16px; margin:22px 0 12px; }
+.book #assessment-app .sa-question { border:1px solid var(--ed-line); border-top:4px solid #ad450e; background:var(--ed-paper); padding:24px; border-radius:0; }
+.book #assessment-app fieldset { background:var(--ed-surface); border-color:var(--ed-line); padding:20px; }
+.book #assessment-app input:not([type=checkbox]), .book #assessment-app select, .book #assessment-app textarea { background:var(--ed-paper) !important; color:var(--ed-ink) !important; border:1px solid #85818e; border-radius:2px; min-height:44px; }
+.book #assessment-app button, .book .sa-start { background:#ad450e; color:#fff; border-radius:2px; min-height:44px; }
+.book #assessment-app button:hover, .book .sa-start:hover { background:#873408; }
+.book #assessment-app button.sa-reset { background:#a92828; }
+.book #assessment-app .sa-toolbar { gap:10px; }
+.book #assessment-app details { padding:16px; border-left:3px solid #f36b21; background:var(--ed-surface); }
+.book #assessment-app summary { min-height:32px; }
+.book #assessment-app label { font-size:15px; }
+.book #assessment-app [role=status] { background:var(--ed-tint); color:var(--ed-ink); }
+.book a:focus-visible, .book button:focus-visible, .book input:focus-visible, .book select:focus-visible, .book textarea:focus-visible, .book summary:focus-visible { outline:3px solid #ad450e; outline-offset:3px; }
+.book :is(h1,h2,h3,h4) { scroll-margin-top:70px; }
+.book .gz-cover { padding:0; border:0; }
+.book .gz-cover-title { font-size:36px; }
+.book .gz-cover-kicker, .book .gz-kicker { display:none; }
+.book .gz-menu-item { border-radius:0; box-shadow:none !important; }
+.book .gz-lead, .book .gz-background { animation:none; }
+.doc-skip { position:fixed; top:8px; left:8px; transform:translateY(-150%); z-index:100; padding:12px 18px; background:#ad450e; color:#fff; }
+.doc-skip:focus { transform:translateY(0); }
+a,button,input,select,textarea,summary { touch-action:manipulation; }
+@media(max-width:700px) {
+ .book .book-body .page-wrapper .page-inner { padding:26px 20px 60px; }
+ .book .markdown-section h1 { font-size:26px; }
+ .book .doc-field { grid-template-columns:1fr; }
+ .book .doc-field > h3 { padding:12px 16px; }
+ .book .doc-value { padding:16px; }
+ .book #assessment-app .sa-question { padding:18px; }
+}
+@media(prefers-reduced-motion:reduce) { .book *, .book *::before, .book *::after { animation:none !important; transition:none !important; } }
+.book .book-summary .domain-toggle { display:block; width:100%; text-align:left; border:0; background:transparent; color:var(--ed-muted); padding:10px 14px; font-size:14px; line-height:1.65; cursor:pointer; white-space:normal; }
+.book .book-summary li.active > .domain-toggle { background:var(--ed-tint); color:var(--ed-accent); box-shadow:inset 3px 0 var(--ed-accent); font-weight:700; }
+.book .book-summary .domain-toggle:hover { background:var(--ed-tint); }
+.book .book-summary a[hidden] { display:none !important; }
+
+/* Orange palette from the research security field manual. */
+.book .doc-control > h2 { background:#ff6b20; color:#30180a !important; }
+.book .doc-field > h3 { background:#fff3e9; }
+.book .doc-detail > h3 { background:transparent; }
+.book.color-theme-2 .doc-field > h3 { background:#30241c; }
+.book.color-theme-2 .doc-detail > h3 { background:transparent; }
+
+.book .doc-control > h2 { color:#fff !important; }

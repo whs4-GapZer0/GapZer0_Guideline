@@ -20,9 +20,17 @@
     function initializeDomains() {
         var link = document.querySelector('.book-summary .summary a[href="/controls/"]');
         if (!link || link.parentElement.querySelector('.domain-menu')) return;
-        var cleanLink = link.cloneNode(true);
+        var cleanLink = document.createElement('button');
+        cleanLink.type = 'button';
+        cleanLink.textContent = link.textContent.trim();
         cleanLink.removeAttribute('onclick');
+        var reference = link.cloneNode(false);
+        reference.hidden = true;
+        reference.tabIndex = -1;
+        reference.setAttribute('aria-hidden', 'true');
+        reference.removeAttribute('onclick');
         link.replaceWith(cleanLink);
+        cleanLink.before(reference);
         link = cleanLink;
         var list = document.createElement('ul');
         list.className = 'domain-menu';
@@ -54,4 +62,45 @@
     }
     window.gitbook.events.on('page.change', initializeDomains);
     initializeDomains();
+}());
+// Present Control Markdown as handbook rows without modifying its content.
+(function () {
+    function initializeDocument() {
+        var main = document.querySelector('.markdown-section');
+        if (!main) return;
+        main.id = 'doc-main';
+        main.tabIndex = -1;
+        if (!document.querySelector('.doc-skip')) {
+            var skip = document.createElement('a');
+            skip.className = 'doc-skip'; skip.href = '#doc-main';
+            skip.textContent = '본문 바로가기'; document.body.prepend(skip);
+        }
+        document.querySelectorAll('#book-search-input input').forEach(function (input) {
+            input.setAttribute('aria-label', '가이드라인 검색');
+        });
+        Array.from(main.children).filter(function (node) {
+            return node.tagName === 'H2' && /^[A-Z]{3}-[CEL]-\d{2}$/.test(node.textContent.trim());
+        }).forEach(function (heading) {
+            if (heading.parentElement.classList.contains('doc-control')) return;
+            var control = document.createElement('div'); control.className = 'doc-control';
+            heading.before(control);
+            var cursor = heading.nextSibling; control.appendChild(heading);
+            while (cursor && !(cursor.nodeType === 1 && cursor.tagName === 'H2')) {
+                var next = cursor.nextSibling; control.appendChild(cursor); cursor = next;
+            }
+            Array.from(control.children).filter(function (node) { return node.tagName === 'H3'; }).forEach(function (label) {
+                var name = label.textContent.trim();
+                var field = document.createElement('div'); field.className = 'doc-field';
+                if (name === 'Implementation Guide' || name === 'Evidence') field.classList.add('doc-detail');
+                if (name === 'Evidence') field.classList.add('doc-evidence');
+                var value = document.createElement('div'); value.className = 'doc-value';
+                label.before(field); var cursor = label.nextSibling; field.appendChild(label); field.appendChild(value);
+                while (cursor && !(cursor.nodeType === 1 && cursor.tagName === 'H3')) {
+                    var next = cursor.nextSibling; value.appendChild(cursor); cursor = next;
+                }
+            });
+        });
+    }
+    window.gitbook.events.on('page.change', initializeDocument);
+    initializeDocument();
 }());
