@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@400;500;600;700&display=swap');
+@font-face { font-family: GapZer0Serif; src: url("../fonts/NotoSerifKR.ttf") format("truetype"); font-weight: 100 900; font-style: normal; font-display: swap; }
 
 /* Editorial Typography. Presentation only: content and navigation stay in Markdown. */
 .book {
@@ -9,8 +9,8 @@
   --ed-line: #d9cbb8;
   --ed-accent: #895019;
   --ed-tint: #eee1cd;
-  --ed-display: 'Noto Serif KR', Georgia, 'Batang', serif;
-  --ed-body: 'Noto Sans KR', 'Malgun Gothic', -apple-system, BlinkMacSystemFont, sans-serif;
+  --ed-display: var(--ed-body);
+  --ed-body: GapZer0Serif, 'Batang', 'Times New Roman', serif;
   background: var(--ed-paper);
   color: var(--ed-ink);
   font-family: var(--ed-body);
@@ -372,3 +372,32 @@
   .book.with-summary .book-body { transform: translateX(calc(100% - 60px)); }
   .book .divider-content-summary { display: none; }
 }
+
+/* Local review: one text family across navigation, content and form controls. */
+.book { --font-family: var(--ed-body); }
+.book.font-family-0, .book.font-family-1,
+.book *:not(.fa):not([class^="fa-"]):not([class*=" fa-"]) {
+  font-family: var(--ed-body) !important;
+}
+
+.book .markdown-section h1, .book .markdown-section h2, .book .markdown-section h3, .book .markdown-section h4, .book .book-header h1 { letter-spacing: 0 !important; font-weight: 700; }
+/* Keep the night palette consistent with the local document theme. */
+.book.color-theme-2 .book-body .page-wrapper .page-inner section {
+  background: transparent; color: var(--ed-ink);
+}
+.book.color-theme-2 .book-body .page-wrapper .page-inner section h1,
+.book.color-theme-2 .book-body .page-wrapper .page-inner section h2,
+.book.color-theme-2 .book-body .page-wrapper .page-inner section h3,
+.book.color-theme-2 .book-body .page-wrapper .page-inner section h4,
+.book.color-theme-2 .book-body .page-wrapper .page-inner section strong { color: var(--ed-ink); }
+.book.color-theme-2 .book-body .page-wrapper .page-inner section a { color: var(--ed-accent); }
+/* Page navigation uses the sidebar; remove the floating previous/next arrows. */
+.book .navigation.navigation-prev, .book .navigation.navigation-next { display: none !important; }
+.book .book-summary ul.domain-menu { padding: 0 0 8px 12px; }
+.book .book-summary ul.domain-menu[hidden] { display: none !important; }
+.book .book-summary ul.domain-menu li a { padding: 8px 16px; font-size: 12px; }
+.book .book-summary .domain-toggle::after { content: '＋'; float: right; margin-left: 8px; }
+.book .book-summary .domain-toggle[aria-expanded=true]::after { content: '−'; }
+.book .book-summary .domain-toggle .exc-trigger { display: none !important; }
+.book .book-summary .domain-toggle::after,
+.book .book-summary .domain-toggle[aria-expanded=true]::after { content: none; display: none; }
