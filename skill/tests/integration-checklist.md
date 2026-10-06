@@ -7,38 +7,22 @@
 - [x] Source Path가 실제 Control 파일을 가리킨다.
 - [x] 대표 검색 시나리오에서 검색 키워드가 Control 의미를 벗어나지 않는지 검증했다.
 
-## 요청 처리
-- [x] 사용자 요청 유형을 통제 안내 / 이행계획 / 문서 초안으로 구분한다.
-- [x] 필요한 조직 정보만 추가로 확인한다.
-- [x] 인덱스 검색 후 반드시 Control 원문을 확인한다.
-- [x] 관련 Control이 여러 개인 경우 근거 없이 하나로 확정하지 않는다.
-
-## 결과 정확성
-- [x] 적용 조건이 원문과 모순되지 않는다.
-- [x] Owner / Stakeholders가 원문과 일치한다.
-- [x] ISMS-P / NIST CSF Mapping을 임의 변경하지 않는다.
-- [x] Implementation Guide의 의미를 보존한다.
-- [x] Evidence를 실제 보유 증적으로 오인하게 표현하지 않는다.
+## 요청 처리 및 정확성
+- [x] 요청 유형을 통제 안내 / 이행계획 / 문서 초안으로 구분한다.
+- [x] 필요한 조직 정보만 추가 확인한다.
+- [x] 인덱스 검색 후 실제 Control 원문을 확인한다.
 - [x] 원문에 없는 주기·수치·승인 기준을 의무처럼 작성하지 않는다.
-
-## 불확실성
-- [x] 부족한 자료는 '확인 필요'로 표시한다.
-- [x] 조직별 결정사항은 '조직 결정 필요'로 표시한다.
-- [x] AI의 실무 제안은 가이드라인 원문과 구분한다.
+- [x] Evidence를 실제 보유 증적으로 오인하지 않는다.
+- [x] 부족한 자료는 확인 필요로 표시한다.
+- [x] 조직별 결정사항은 조직 결정 필요로 표시한다.
+- [x] AI 제안을 가이드라인 원문과 구분한다.
 - [x] 인증 가능 여부나 최종 컴플라이언스 충족 여부를 임의 판정하지 않는다.
-
-## 추적성
-- [x] 답변에 관련 Control ID를 표시한다.
-- [x] Control 원문 위치를 표시한다.
-- [x] 인덱스와 원문 충돌 시 원문을 우선하고 충돌을 기록한다.
 
 ## 런타임 최종 확인
 - [x] 행동 안전성 T01~T10 정적·원문 기반 검증
 - [x] 실무 검색 S01~S10 정적·원문 기반 검증
-- [x] 통제 안내 / 이행계획 / 문서 초안 3개 기능 구조 검증
-- [x] Codex에서 repo-scoped `gapzero-guide` Skill 파일 존재 및 작업 브랜치 확인
-- [x] Virtual Chibbo 시나리오 V01 통제 안내 Runtime PASS
-- [x] Virtual Chibbo 시나리오 V02 이행계획 Runtime PASS
-- [x] Virtual Chibbo 시나리오 V03 실무 문서 초안 Runtime PASS
-- [ ] T01~T10 전체 Codex Runtime 회귀 테스트 — 후속 품질 검증
+- [x] Virtual Chibbo V01 통제 안내 Runtime PASS
+- [x] Virtual Chibbo V02 이행계획 Runtime PASS
+- [x] Virtual Chibbo V03 실무 문서 초안 Runtime PASS
+- [x] T01~T10 전체 Codex Runtime 회귀 테스트 10/10 PASS
 - [ ] 검색 top 3~5 정확도 및 stopword 정제 — 후속 검색 품질 개선
