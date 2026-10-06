@@ -25,4 +25,4 @@
 - [x] Virtual Chibbo V02 이행계획 Runtime PASS
 - [x] Virtual Chibbo V03 실무 문서 초안 Runtime PASS
 - [x] T01~T10 전체 Codex Runtime 회귀 테스트 10/10 PASS
-- [ ] 검색 top 3~5 정확도 및 stopword 정제 — 후속 검색 품질 개선
+- [x] 검색 Top-5 정확도 및 stopword 정제 — Codex 실행 8/8 PASS, 종료 코드 0

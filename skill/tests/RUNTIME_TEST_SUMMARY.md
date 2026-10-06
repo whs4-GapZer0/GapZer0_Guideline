@@ -10,6 +10,7 @@
 - Virtual Chibbo 핵심 기능 V01~V03: **3/3 PASS**
 - T01~T10 사용자 시나리오: **10/10 PASS**
 - 실제 Codex Runtime 총 결과: **13/13 PASS**
+- 검색 Top-5 + stopword 품질 테스트: **8/8 PASS (종료 코드 0)**
 
 ## T01~T10 Runtime 결과
 
@@ -44,10 +45,15 @@
 - Virtual Chibbo V01~V03: **3/3 PASS — 실제 Codex Runtime**
 - T01~T10: **10/10 PASS — 실제 Codex Runtime**
 
+## 검색 품질 검증
+
+- Top-5 기준으로 기대 Control 포함 여부 검증
+- 저가치 stopword 제거
+- 제목 / 검색 키워드 / 적용조건 차등 가중치 적용
+- Codex 실행 결과: **8/8 PASS, 종료 코드 0**
+
 ## 최종 결론
 
 GapZer0 AI Skill은 실제 Codex 환경에서 관련 Control 탐색, 실제 원문 확인, 통제 안내, 이행계획 및 실무 문서 초안 생성 흐름을 정상 수행했다.
 
-**실제 Codex Runtime 최종 결과: 13/13 PASS**
-
-후속 검색 품질 개선 항목은 top 3~5 정확도 검증과 저가치 stopword 정제이다.
+**실제 Codex Runtime 13/13 PASS + 검색 품질 8/8 PASS. A 파트 계획된 QA 항목 완료.**
