@@ -1,7 +1,7 @@
 name: Validate Jekyll build
 on:
   push:
-    branches: [review/self-assessment]
+    branches: [review/self-assessment, design/document-orange]
   pull_request:
     branches: [main]
 permissions:
@@ -29,15 +29,14 @@ jobs:
           assert 'id="assessment-app"' not in guide
           assert '/self-assessment/form/' in guide
           html = (site / 'self-assessment/form/index.html').read_text()
-          assert '자가 진단 활용 안내' in html
-          for value in ['id="assessment-app"', '/assets/assessment/app.mjs', '/assets/assessment/questions.json', '/assets/gitbook/custom-local.js']:
+          assert '자가진단 활용 안내' in html
+          for value in ['id="assessment-app"', '/assets/assessment/app.mjs', '/assets/assessment/controls.json', '/assets/gitbook/custom-local.js']:
               assert value in html, value
-          for name in ['app.mjs', 'app.css', 'questions.json', 'transfer.mjs', 'excel.mjs', 'excel-import.mjs']:
+          for name in ['app.mjs', 'app.css', 'controls.json', 'transfer.mjs', 'excel.mjs', 'excel-import.mjs']:
               assert (site / 'assets/assessment' / name).is_file(), name
-          bank = json.loads((site / 'assets/assessment/questions.json').read_text())
-          assert len(bank['questions']) == 489
+          bank = json.loads((site / 'assets/assessment/controls.json').read_text())
           assert len(bank['controls']) == 121
-          print('PASS: generated self-assessment, assets, 121 controls and 489 questions')
+          print('PASS: generated self-assessment, assets, 121 controls')
           PY
       - name: Test generated site navigation
         run: |
@@ -45,9 +44,8 @@ jobs:
           ln -s "$RUNNER_TEMP/browser-test/node_modules" node_modules
           "$RUNNER_TEMP/browser-test/node_modules/.bin/playwright" install --with-deps chromium
           mkdir -p work
-          node --test tests/assessment.test.mjs tests/transfer.test.mjs
-          THEME_TEST_ROOT="$PWD/_site" node tests/theme-navigation.mjs
-          THEME_TEST_ROOT="$PWD/_site" node tests/file-transfer-browser.mjs
+          node --test tests/*.test.mjs
+          THEME_TEST_ROOT="$PWD/_site" node tests/control-site-browser.mjs
       - name: Save build for inspection
         uses: actions/upload-artifact@v4
         with:

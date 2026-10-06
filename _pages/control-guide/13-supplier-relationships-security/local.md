@@ -4,9 +4,6 @@ title: "Supplier Relationships Security - Local Controls"
 permalink: /controls/supplier-relationships-security/local/
 ---
 
-Supplier Relationships Security의 Local Control은 CSF에 직접 매핑되지 않은 국내 개인정보보호 요구사항을 반영합니다.
-
----
 
 ## SUP-L-01
 

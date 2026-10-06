@@ -4,9 +4,6 @@ title: "Information Protection - Local Controls"
 permalink: /controls/information-protection/local/
 ---
 
-Information Protection의 Local Control은 개인정보 최소수집, 민감정보·고유식별정보 처리 제한과 목적 달성 후 보유 조치 등 국내 법·제도 요구사항을 제공합니다.
-
----
 
 ## INF-L-01
 
@@ -108,7 +105,7 @@ Local
 
 ### Control Statement
 
-건강정보·생체정보·주민등록번호 등은 유출되거나 오용될 경우 정보주체에게 큰 피해를 줄 수 있습니다. 조직은 처리 전 정보 유형과 적법한 근거를 확인하고 별도 동의, 암호화, 접근제한과 처리기록 등 강화된 통제를 운영해야 합니다.
+건강정보·생체정보·주민등록번호 등은 유출되거나 오용될 경우 정보주체에게 큰 피해를 줄 수 있습니다. 조직은 처리 전 정보 유형과 적법한 근거를 확인하고 별도 동의, 암호화, 접근제한과 처리기록 등 강화된 Control을 운영해야 합니다.
 
 ### 적용 조건
 

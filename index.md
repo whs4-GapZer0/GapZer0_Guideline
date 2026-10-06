@@ -1,6 +1,6 @@
 ---
 layout: home
-title: GapZer0 Guideline
+title: "GapZer0 가이드라인"
 permalink: /
 ---
 
@@ -265,75 +265,13 @@ permalink: /
   }
 </style>
 
-<div class="gz-home">
-  <section class="gz-cover" aria-labelledby="gz-title">
-    <p class="gz-eyebrow">NIST CSF 2.0 × ISMS-P</p>
-    <h1 id="gz-title">GapZer0 Guideline</h1>
-    <p class="gz-cover-subtitle">NIST CSF 2.0 기반 국내 정보보호 컴플라이언스 프레임워크 만들기</p>
-    <p class="gz-lead">
-      정보보호 인증기준을 충족하는 것만으로<br>
-      조직의 실질적인 보안 수준을 유지하고<br>
-      위험을 지속적으로 관리할 수 있을까요?
-    </p>
-    <div class="gz-lead gz-background">
-      <p>GapZer0는 <strong>NIST CSF 2.0과 ISMS-P를 매핑</strong>하고 개인정보 보호법을 검토해,
-      국내 요구사항과 국제 보안 목표 사이의 Gap을 식별했습니다.</p>
-      <p>이를 바탕으로 조직의 <strong>현재 보안 수준과 목표 상태를 비교</strong>하고,
-      개선 우선순위를 지속적으로 관리할 수 있는 국내 정보보호 컴플라이언스 프레임워크를 설계했습니다.</p>
-    </div>
-    <p class="gz-guide-role">
-      본 가이드라인은 GapZer0 Framework의 통제항목을 실무자가 구체적으로 이행할 수 있도록 이행 방법, 증적 예시 및 평가 기준을 제공하는 실무 안내서입니다.
-    </p>
-    <p class="gz-facts">15 Security Domains <span>·</span> 121 Controls <span>·</span> Common · Enhancement · Local</p>
-    <div class="gz-links">
-      <a href="{{ '/introduction/' | relative_url }}">가이드라인 소개 보기 <span aria-hidden="true">→</span></a>
-      <a href="{{ '/controls/' | relative_url }}">Control Guide 바로가기 <span aria-hidden="true">→</span></a>
-    </div>
-  </section>
-
-  <section class="gz-section" aria-labelledby="gz-flow-title">
-    <div class="gz-section-head">
-      <p class="gz-section-label">How to use</p>
-      <h2 class="gz-section-title" id="gz-flow-title">통제 선택부터 개선까지 한 흐름으로 확인합니다.</h2>
-    </div>
-    <div class="gz-flow" aria-label="가이드라인 활용 흐름">
-      <span>Control 선택</span><i aria-hidden="true">→</i>
-      <span>이행 방법 확인</span><i aria-hidden="true">→</i>
-      <span>Evidence 확인</span><i aria-hidden="true">→</i>
-      <span>현재 상태 평가</span><i aria-hidden="true">→</i>
-      <span>미흡사항 개선</span>
-    </div>
-  </section>
-
-  <section class="gz-section" aria-labelledby="gz-menu-title">
-    <div class="gz-section-head">
-      <p class="gz-section-label">Quick menu</p>
-      <h2 class="gz-section-title" id="gz-menu-title">원하는 내용부터 바로 확인하세요.</h2>
-    </div>
-
-    <nav class="gz-menu" aria-label="GapZer0 Guideline 주요 메뉴">
-      <a class="gz-menu-item" href="{{ '/introduction/' | relative_url }}">
-        <span><h3>가이드라인 소개</h3><p>GapZer0 Framework의 정의, 목적, 사용 대상과 전체 구성을 확인합니다.</p></span>
-        <span class="gz-menu-arrow" aria-hidden="true">→</span>
-      </a>
-      <a class="gz-menu-item" href="{{ '/how-to-use/' | relative_url }}">
-        <span><h3>가이드라인 활용 방법</h3><p>Control 선택부터 이행, 평가, 개선과 재평가까지의 절차를 확인합니다.</p></span>
-        <span class="gz-menu-arrow" aria-hidden="true">→</span>
-      </a>
-      <a class="gz-menu-item" href="{{ '/terms/' | relative_url }}">
-        <span><h3>주요 용어</h3><p>Security Domain, Control Class, Evidence 등 주요 개념을 확인합니다.</p></span>
-        <span class="gz-menu-arrow" aria-hidden="true">→</span>
-      </a>
-      <a class="gz-menu-item" href="{{ '/controls/' | relative_url }}">
-        <span><h3>Control Implementation Guide</h3><p>15개 Security Domain의 Control과 구체적인 이행 방법을 확인합니다.</p></span>
-        <span class="gz-menu-arrow" aria-hidden="true">→</span>
-      </a>
-      <a class="gz-menu-item" href="{{ '/self-assessment/' | relative_url }}">
-        <span><h3>Self Assessment</h3><p>Assessment Questions와 Evidence를 바탕으로 현재 이행 상태를 평가합니다.</p></span>
-        <span class="gz-menu-arrow" aria-hidden="true">→</span>
-      </a>
-    </nav>
-  </section>
-
+<div class="gz-home gz-home-v2">
+<header class="gz-home-header"><a href="/" class="gz-home-brand" aria-label="GapZer0 가이드라인 홈"><img src="/assets/images/gapzer0-wordmark.png" alt="GapZer0" width="2138" height="736" /><span>가이드라인</span></a><nav aria-label="프로젝트 저장소"><a href="https://github.com/whs4-GapZer0/GapZer0_Guideline" target="_blank" rel="noopener noreferrer" aria-label="GitHub 레포지토리 (새 탭)" title="GitHub 레포지토리"><i class="fa fa-github" aria-hidden="true"></i><span>GitHub</span></a></nav></header>
+<section class="gz-home-hero gz-static-hero" aria-labelledby="gz-title"><p class="gz-home-team">Team GapZer0</p><h1 id="gz-title">GAP을 찾고, GAP을 메운다</h1><p class="gz-project-title"><strong>NIST CSF 2.0을 기반으로 국내 정보보호 컴플라이언스 프레임워크 만들기</strong></p><p class="gz-project-credit">화이트햇스쿨 4기 · 2차 팀 프로젝트</p></section>
+<section class="gz-home-why" aria-labelledby="why-title"><h2 id="why-title">Why GapZer0?</h2><div class="gz-why-columns"><article><h3>인증 이후에도 점검은 필요합니다</h3><p>인증을 보유한 조직에서도 보안사고와 운영 결함이 발생합니다. Control이 실제로 이행되고 보안 목적을 달성하는지 지속적으로 확인해야 합니다.</p></article><article><h3>국내 기준과 국제 목표를 연결합니다</h3><p>NIST CSF 2.0과 ISMS-P를 매핑하고 개인정보 보호법을 검토했습니다. 공통 요구사항과 보완할 사항을 하나의 Control 체계로 정리했습니다.</p></article><article><h3>이행 방법과 확인 자료를 제시합니다</h3><p>Control별 Implementation Guide와 Evidence를 통해 수행할 활동과 확인할 자료를 안내합니다. 현재 상태를 점검하고 개선계획을 세울 수 있습니다.</p></article></div></section>
+<section class="gz-home-solutions" aria-labelledby="solutions-title"><h2 id="solutions-title">가이드라인으로 이행부터 개선까지</h2>
+<article class="gz-solution"><img src="/assets/images/home-mapping.svg" alt="NIST CSF와 ISMS-P의 요구사항을 연결하고 Gap을 구분한 그림" width="640" height="400" loading="lazy"/><div><h3>프레임워크의 구성과 적용 목적을 이해합니다</h3><p>두 체계의 요구사항을 통합한 GapZer0 Framework의 목적, Control 구성과 활용 대상을 확인합니다.</p><a href="/introduction/">가이드라인 소개 보기</a></div></article>
+<article class="gz-solution"><img src="/assets/images/home-guide.svg" alt="Control 정보와 이행 방법, Evidence가 정리된 문서 그림" width="640" height="400" loading="lazy"/><div><h3>Control별 이행 방법과 Evidence를 확인합니다</h3><p>조직에 필요한 Control을 선택하고, Control 목표와 적용 조건, 책임자, Implementation Guide와 Evidence를 함께 살펴봅니다.</p><a href="/controls/">Control 이행 안내 보기</a></div></article>
+<article class="gz-solution"><img src="/assets/images/home-assessment.svg" alt="Control의 이행 상태와 확인한 증적, 개선계획을 기록하는 자가진단 그림" width="640" height="400" loading="lazy"/><div><h3>현재 상태를 평가하고 개선계획을 세웁니다</h3><p>Control의 이행 상태를 점검하고 평가 근거, 확인한 증적과 개선조치를 기록합니다. 작성 내용은 브라우저에 저장하고 Excel 파일로 보관할 수 있습니다.</p><a href="/self-assessment/">자가진단 활용 안내 보기</a></div></article></section>
+<section class="gz-home-related" aria-labelledby="related-title"><h2 id="related-title">Related Link</h2><p>프레임워크·인증기준의 공식 자료와 GRC Tool을 확인할 수 있습니다.</p><div><a href="https://www.nist.gov/cyberframework">NIST Cybersecurity Framework <span>CSF 2.0 공식 자료</span></a><a href="https://isms.kisa.or.kr/main/">KISA ISMS-P <span>인증제도와 인증기준 안내</span></a><a href="https://whs4-gapzer0.kro.kr/">GapZer0 GRC Tool <span>Control 이행과 평가·개선 관리</span></a></div></section>
 </div>
-

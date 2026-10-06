@@ -1,12 +1,12 @@
 // Local-only, bounded OOXML reader for the assessment template. Never evaluates formulas.
-import {MAX_IMPORT_BYTES,HEADERS,importRows} from './transfer.mjs';
-import {crc} from './excel.mjs';
+import {MAX_IMPORT_BYTES,HEADERS,META_FIELDS,META_LABELS,importRows} from './transfer.mjs?v=control2';
+import {crc} from './excel.mjs?v=control6';
 const LIMIT=50*1024*1024,decoder=new TextDecoder('utf-8',{fatal:true});
-const fail=()=>{throw Error('XLSX 파일이 손상되었거나 지원하지 않는 형식입니다. 암호 없이 .xlsx로 저장하세요.');};
+const fail=()=>{throw Error('Excel 파일이 손상되었거나 지원하지 않는 형식입니다. 암호 없이 .xlsx로 저장하세요.');};
 
 export async function readZip(buffer){
  const bytes=new Uint8Array(buffer),view=new DataView(bytes.buffer,bytes.byteOffset,bytes.byteLength);
- if(bytes.length>MAX_IMPORT_BYTES)throw Error('XLSX 파일은 25MB 이하만 불러올 수 있습니다.');
+ if(bytes.length>MAX_IMPORT_BYTES)throw Error('Excel 파일은 25MB 이하만 불러올 수 있습니다.');
  if(bytes.length<22||view.getUint32(0,true)!==0x04034b50)fail();
  let end=-1;
  for(let i=bytes.length-22;i>=Math.max(0,bytes.length-65557);i--)if(view.getUint32(i,true)===0x06054b50&&i+22+view.getUint16(i+20,true)===bytes.length){end=i;break;}
@@ -24,11 +24,11 @@ export async function readZip(buffer){
   if(view.getUint32(offset,true)!==0x04034b50||view.getUint16(offset+6,true)!==flags||view.getUint16(offset+8,true)!==method)fail();
   const localName=view.getUint16(offset+26,true),localExtra=view.getUint16(offset+28,true),dataStart=offset+30+localName+localExtra;
   if(dataStart+packed>start||decoder.decode(bytes.subarray(offset+30,offset+30+localName))!==name)fail();
-  total+=length;if(total>LIMIT)throw Error('압축 해제한 XLSX 내용이 너무 큽니다. 불필요한 시트와 서식을 제거하세요.');
+  total+=length;if(total>LIMIT)throw Error('압축 해제한 Excel 내용이 너무 큽니다. 불필요한 시트와 서식을 제거하세요.');
   const data=bytes.subarray(dataStart,dataStart+packed);let output;
   if(method===0){if(packed!==length)fail();output=data;}
   else{
-   let stream;try{stream=new Blob([data]).stream().pipeThrough(new DecompressionStream('deflate-raw'));}catch{throw Error('이 브라우저에서는 XLSX를 읽을 수 없습니다. 최신 Chrome 또는 Edge를 사용하세요.');}
+   let stream;try{stream=new Blob([data]).stream().pipeThrough(new DecompressionStream('deflate-raw'));}catch{throw Error('이 브라우저에서는 Excel를 읽을 수 없습니다. 최신 Chrome 또는 Edge를 사용하세요.');}
    const reader=stream.getReader(),chunks=[];let actual=0;
    try{while(true){const {done,value}=await reader.read();if(done)break;actual+=value.length;if(actual>length||actual>LIMIT){await reader.cancel();fail();}chunks.push(value);}}finally{reader.releaseLock();}
    if(actual!==length)fail();output=new Uint8Array(actual);let at=0;for(const chunk of chunks){output.set(chunk,at);at+=chunk.length;}
@@ -72,13 +72,13 @@ export async function xlsxRows(buffer){
  const bookPath=related('',relationships(entries,'').find(r=>r.type==='officeDocument'));
  const book=documentXml(entries,bookPath),rels=relationships(entries,bookPath);
  const sheets=nodes(book,'sheet').filter(n=>n.getAttribute('name')==='평가 기록');
- if(sheets.length!==1)throw Error('평가 기록 시트를 찾을 수 없습니다. 이 사이트의 XLSX 템플릿을 사용하세요.');
+ if(sheets.length!==1)throw Error('평가 기록 시트를 찾을 수 없습니다. 이 사이트의 Excel 템플릿을 사용하세요.');
  const sheetId=Array.from(sheets[0].attributes).find(a=>a.localName==='id')?.value;
  const sheetRel=rels.find(r=>r.id===sheetId&&r.type==='worksheet');
  const sheet=documentXml(entries,related(bookPath,sheetRel)),sharedRel=rels.find(r=>r.type==='sharedStrings');
  const strings=sharedRel?nodes(documentXml(entries,related(bookPath,sharedRel)),'si').map(richText):[];
  const date1904=['1','true'].includes(nodes(book,'workbookPr')[0]?.getAttribute('date1904'));
- const rows=[],seenRows=new Set();let cells=0;
+ const rows=[],meta={},seenRows=new Set();let cells=0;
  for(const row of nodes(sheet,'row')){
   const r=Number(row.getAttribute('r'));if(!Number.isInteger(r)||r<1||r>1000||seenRows.has(r))fail();seenRows.add(r);
   const values=Array(HEADERS.length).fill(''),seen=new Set();
@@ -95,16 +95,19 @@ export async function xlsxRows(buffer){
    else if(['str','d','b'].includes(type))value=unescape(raw);
    else if(!type||type==='n'){if(raw&&!Number.isFinite(Number(raw)))fail();value=raw;}
    else fail();
-   if(col>=HEADERS.length){if(value)throw Error('평가 기록에 템플릿 외의 열이 있습니다.');continue;}
-   if(r>1&&value&&dateHeaders.has(rows[0]?.[col])){
+   if(col>=HEADERS.length){if(value)throw Error('이전 질문별 템플릿 또는 지원하지 않는 열 구조입니다. 새 Control 자가진단 템플릿을 사용하세요.');continue;}
+   if(value&&((r>8&&dateHeaders.has(rows[0]?.[col]))||(col===1&&[3,4,6].includes(r)))){
     if(!type||type==='n')value=serialDate(value,date1904);
     else if(type==='d'&&/^\d{4}-\d{2}-\d{2}T00:00:00(?:\.0+)?Z?$/.test(value))value=value.slice(0,10);
    }
    values[col]=value;
   }
-  if(r===1){if(rows.length)fail();rows.push(values);}
-  else if(values.some(Boolean)){if(!rows.length)fail();rows.push(values);}
+  if(r===1&&values[0]!=='GapZer0 Control 자가진단')throw Error('새 Control 자가진단 템플릿을 사용하세요. 기존 질문별 파일은 자동 변환하지 않습니다.');
+  if(r>=2&&r<=6){if(values[0]!==META_LABELS[r-2])throw Error('상단 평가 기본정보의 항목과 위치를 유지하세요.');meta[META_FIELDS[r-2]]=values[1];}
+  if(r===8){if(rows.length)fail();rows.push(values);}
+  else if(r>8&&values.some(Boolean)){if(!rows.length)fail();rows.push(values);}
  }
- return rows;
+ if(META_FIELDS.some(k=>!(k in meta)))throw Error('상단 평가 기본정보 행을 유지하세요.');
+ return {rows,meta};
 }
-export async function importXlsx(buffer,bank){return importRows(await xlsxRows(buffer),bank);}
+export async function importXlsx(buffer,bank){const {rows,meta}=await xlsxRows(buffer);return importRows(rows,bank,meta);}

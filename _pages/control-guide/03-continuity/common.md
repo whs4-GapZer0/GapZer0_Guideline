@@ -4,9 +4,6 @@ title: "Continuity - Common Controls"
 permalink: /controls/continuity/common/
 ---
 
-Continuity의 Common Control은 백업, 복원력, 용량, 사고복구 실행과 대외 소통을 통해 핵심 업무와 서비스의 지속성을 확보하기 위한 공통 요구사항을 제공합니다.
-
----
 
 ## CON-C-01
 

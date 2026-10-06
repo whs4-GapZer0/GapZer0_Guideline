@@ -1,12 +1,12 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {blank,exportRows} from '../assets/assessment/app.mjs';
-import {HEADERS,importRows} from '../assets/assessment/transfer.mjs';
-import {toXlsx} from '../assets/assessment/excel.mjs';
+import {blank,exportRows} from '../assets/assessment/legacy/app.mjs';
+import {HEADERS,importRows} from '../assets/assessment/legacy/transfer.mjs';
+import {toXlsx} from '../assets/assessment/legacy/excel.mjs';
 import {readZip} from '../assets/assessment/excel-import.mjs';
 import {editXlsx,compressedZip} from './xlsx-fixtures.mjs';
-const bank=JSON.parse(fs.readFileSync(new URL('../assets/assessment/questions.json',import.meta.url),'utf8'));
+const bank=JSON.parse(fs.readFileSync(new URL('../assets/assessment/legacy/questions.json',import.meta.url),'utf8'));
 const [a,b]=bank.questions;
 const meta={scope:'서버, 업무',start:'2026-01-01',end:'2026-09-30',assessor:'보안 담당자',date:'2026-10-06'};
 const record={...blank(),response:'부분 충족',reason:'첫째 줄, "인용"\n둘째 줄',evidence:'자료 v1\n보관 위치',action:'개선',owner:'담당자',due:'2026-11-01',status:'진행 중'};

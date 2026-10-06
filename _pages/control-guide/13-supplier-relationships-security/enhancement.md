@@ -4,9 +4,6 @@ title: "Supplier Relationships Security - Enhancement Controls"
 permalink: /controls/supplier-relationships-security/enhancement/
 ---
 
-Supplier Relationships Security의 Enhancement Control은 기존 ISMS-P 요구만으로 충분히 명시되지 않는 CSF 2.0 공급망 위험관리 결과를 보완합니다.
-
----
 
 ## SUP-E-01
 
@@ -256,7 +253,7 @@ CISO, CPO, 법무, 업무부서, IT 운영, 재무, 감사, 공급자 담당자
 
 ### Evidence
 
-- **공급자 수명주기 절차:** 단계별 통제를 확인합니다.
+- **공급자 수명주기 절차:** 단계별 Control을 확인합니다.
 - **평가·승인 기록:** 각 단계의 위험 의사결정을 확인합니다.
 - **변경·재평가 기록:** 운영 중 위험관리를 확인합니다.
 - **종료·교훈 기록:** 잔여위험과 개선을 확인합니다.
@@ -434,7 +431,7 @@ CISO, CPO, 법무, 업무부서, IT 운영, 재무, 감사, 공급자 담당자
 
 보안역량·취약성·사고이력·하위공급망·복구역량을 평가합니다.
 
-#### 4. 강화 통제 적용
+#### 4. 강화 Control 적용
 
 추가 계약요건, 승인, 모니터링, 사고·연속성 요구를 적용합니다.
 

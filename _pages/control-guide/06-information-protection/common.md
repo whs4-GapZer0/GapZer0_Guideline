@@ -4,9 +4,6 @@ title: "Information Protection - Common Controls"
 permalink: /controls/information-protection/common/
 ---
 
-Information Protection의 Common Control은 저장된 데이터의 기밀성·무결성·가용성을 보호하기 위한 공통 요구사항을 제공합니다.
-
----
 
 ## INF-C-01
 

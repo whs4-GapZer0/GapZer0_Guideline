@@ -1,141 +1,37 @@
 ---
 layout: post
-title: "05. Self Assessment"
+title: "05. 자가 진단"
 permalink: /self-assessment/
 ---
 
-GapZer0 Self-assessment는 조직의 보안 담당자가 프레임워크의 121개 Control에 대한 이행 여부를 구체적으로 평가하고 검증할 수 있도록 마련한 자가 진단 도구입니다. 각 Control의 Implementation Guide를 기반으로 Assessment Question을 구성하였습니다. 평가 질문에 응답하며 조직의 현재 상태를 점검하고, 보완이 필요한 사항을 파악할 수 있습니다. 담당자는 질문별로 충족 여부와 평가 근거, 실제로 확인한 증적을 기록하고, 평가 결과에 따라 개선계획 또는 추가 확인 계획을 수립합니다.
+<link rel="stylesheet" href="/assets/assessment/guide.css?v=guide3">
+<div class="sa-guide gz-intro-page">
 
+<div class="sa-guide-opening">
+<p class="gz-intro-lead">Control의 이행 상태를 확인하고<br>개선계획을 기록합니다.</p>
+<p>121개 Control의 Implementation Guide를 기준으로 조직의 현재 상태를 점검합니다. 이행 가이드를 확인한 뒤, Control마다 평가 결과와 근거를 작성하세요.</p>
+<div class="sa-guide-start"><a class="sa-start-button" href="/self-assessment/form/">자가진단 시작하기</a><p>작성 내용은 이 브라우저에 저장됩니다.<br>Excel로 다운로드하고 다시 불러올 수 있습니다.</p></div>
+</div>
+<nav class="sa-guide-jump" aria-label="이 페이지 안내"><a href="#sa-process">작성 흐름</a><a href="#sa-criteria">평가 기준</a><a href="#sa-records">기록 방법</a><a href="#sa-excel">Excel 템플릿</a></nav>
+<section class="gz-intro-section" aria-labelledby="sa-process"><h2 id="sa-process">자가진단 작성 흐름</h2>
+<ol class="sa-guide-steps"><li><strong>평가 범위 정하기</strong><p>조직·업무·시스템의 범위와 평가기간, 담당자, 평가일을 기록합니다.</p></li><li><strong>이행 상태 확인하기</strong><p>04. Control 이행 안내에서 Control의 목적·적용 조건·Implementation Guide·Evidence를 확인합니다.</p></li><li><strong>결과와 근거 작성하기</strong><p>네 가지 평가 결과 중 하나를 선택하고, 평가 근거와 실제로 확인한 증적을 기록합니다.</p></li><li><strong>개선계획 세우고 보관하기</strong><p>미흡한 사항의 개선조치·담당자·기한을 정하고 작성 내용을 Excel로 보관합니다.</p></li></ol></section>
+<section class="gz-intro-section" aria-labelledby="sa-criteria"><h2 id="sa-criteria">평가 기준</h2><p>Control 전체의 이행 상태를 기준으로 평가합니다.</p>
+<div class="sa-guide-table-wrap" role="region" aria-label="네 가지 평가 기준과 개선계획 작성 조건" tabindex="0"><table class="sa-guide-table"><thead><tr><th scope="col">평가 결과</th><th scope="col">판단 기준</th><th scope="col">개선계획</th></tr></thead><tbody>
+<tr><th scope="row">충족</th><td>조직에 적용되는 Implementation Guide의 활동을 모두 이행하고 있으며, 관련 Evidence가 현재 운영 상태를 반영하고 이행 사실을 확인할 수 있는 상태</td><td>선택</td></tr>
+<tr><th scope="row">부분 충족</th><td>핵심 활동은 이행하고 있으나, 일부 활동이 미흡하거나 Evidence의 누락·최신성·확인 가능성에 보완이 필요한 상태</td><td><strong>필수</strong></td></tr>
+<tr><th scope="row">미충족</th><td>Control 목적을 달성하기 위한 핵심 활동이 이행되지 않거나, 대부분의 활동이 이행되지 않은 상태</td><td><strong>필수</strong></td></tr>
+<tr><th scope="row">적용 제외</th><td>조직의 업무·시스템·정보처리 범위와 적용 조건을 검토한 결과 해당 Control이 적용되지 않으며, 그 사유를 기록한 상태</td><td>원칙적으로 불필요</td></tr></tbody></table></div>
+<p class="gz-intro-note"><strong>아직 판단하기 어렵다면</strong><br>평가 결과를 선택하지 않은 미평가 상태로 저장하고, 평가 근거에 추가 확인할 내용을 적습니다. 자료가 부족하다는 이유만으로 미충족이나 적용 제외를 선택하지 않습니다.</p></section>
+<section class="gz-intro-section" aria-labelledby="sa-records"><h2 id="sa-records">무엇을 기록하나요?</h2>
+<dl class="sa-guide-records"><div><dt>평가 근거</dt><dd>확인한 현황과 평가한 이유를 적습니다. 부분 충족은 미흡한 부분을, 적용 제외는 제외 사유를 설명합니다.</dd></div><div><dt>확인한 증적</dt><dd>실제 확인한 자료의 이름·보관 위치 또는 링크·버전·기간을 기록합니다. 가이드라인의 Evidence는 참고할 자료 안내이고, 여기는 실제로 확인한 자료를 적는 곳입니다.</dd></div><div><dt>개선계획</dt><dd>개선조치·조치 담당자·완료 예정일·진행 상태를 함께 작성합니다. 진행 상태는 예정·진행 중·완료 중 선택합니다. 선택 사항인 개선계획을 작성할 때도 같은 항목을 채웁니다.</dd></div></dl>
+<p class="sa-guide-small">미충족이고 확인한 자료가 없다면 평가 근거에 사유를 적고 확인한 증적은 비워둘 수 있습니다. 충족·부분 충족·적용 제외는 판단에 사용한 자료를 기록합니다. 증적 파일 자체를 업로드하는 기능은 없습니다.</p>
+<h3>개선 후에는 다시 평가합니다</h3><p>개선조치에 수행 결과를 덧붙이고 평가 근거·확인한 증적·평가일을 갱신합니다. 조치를 완료해도 평가 결과는 자동으로 충족으로 바뀌지 않습니다. 재평가 전후의 Excel 파일은 각각 보관하세요.</p></section>
+<section class="gz-intro-section" aria-labelledby="sa-excel"><div class="sa-excel-heading"><div><h2 id="sa-excel">Excel 템플릿 구조</h2><p>실제 다운로드되는 엑셀 템플릿 양식입니다.</p></div><a class="sa-excel-download" href="/assets/assessment/control-template.xlsx" download="GapZer0-Control-Template.xlsx" target="_blank" rel="noopener">Excel 다운로드</a></div>
+<figure class="sa-excel-figure"><div class="sa-excel-scroll" role="region" aria-label="Excel 템플릿 미리보기, 가로로 스크롤할 수 있습니다" tabindex="0"><table class="sa-excel-preview"><caption class="sa-visually-hidden">실제 Excel 평가 기록 시트의 상단과 첫 3개 Control</caption><colgroup><col style="width:8%"><col style="width:16%"><col style="width:8%"><col style="width:15%"><col style="width:15%"><col style="width:15%"><col style="width:8%"><col style="width:8%"><col style="width:7%"></colgroup><tbody><tr><th colspan="9" class="sa-excel-title">GapZer0 Control 자가진단</th></tr><tr><th scope="row" class="sa-excel-meta">평가 범위</th><td colspan="8" class="sa-excel-input"></td></tr><tr><th scope="row" class="sa-excel-meta">평가기간 시작일</th><td colspan="8" class="sa-excel-input"></td></tr><tr><th scope="row" class="sa-excel-meta">평가기간 종료일</th><td colspan="8" class="sa-excel-input"></td></tr><tr><th scope="row" class="sa-excel-meta">평가 담당자</th><td colspan="8" class="sa-excel-input"></td></tr><tr><th scope="row" class="sa-excel-meta">평가일</th><td colspan="8" class="sa-excel-input"></td></tr><tr aria-hidden="true"><td colspan="9" style="height:12px;padding:0"></td></tr><tr><th scope="col" class="sa-excel-head-0">Control ID</th><th scope="col" class="sa-excel-head-0">Control Name</th><th scope="col" class="sa-excel-head-1">평가 결과</th><th scope="col" class="sa-excel-head-1">평가 근거</th><th scope="col" class="sa-excel-head-1">확인한 증적</th><th scope="col" class="sa-excel-head-2">개선조치</th><th scope="col" class="sa-excel-head-2">조치 담당자</th><th scope="col" class="sa-excel-head-2">완료 예정일</th><th scope="col" class="sa-excel-head-2">진행 상태</th></tr><tr><td class="sa-excel-fixed">GOV-C-01</td><td class="sa-excel-fixed">전략 결과 검토·방향 조정</td><td class="sa-excel-input"></td><td class="sa-excel-input"></td><td class="sa-excel-input"></td><td class="sa-excel-input"></td><td class="sa-excel-input"></td><td class="sa-excel-input"></td><td class="sa-excel-input"></td></tr><tr><td class="sa-excel-fixed">GOV-C-02</td><td class="sa-excel-fixed">조직 맥락 기반 사이버보안 정책 수립·시행</td><td class="sa-excel-input"></td><td class="sa-excel-input"></td><td class="sa-excel-input"></td><td class="sa-excel-input"></td><td class="sa-excel-input"></td><td class="sa-excel-input"></td><td class="sa-excel-input"></td></tr><tr><td class="sa-excel-fixed">GOV-C-03</td><td class="sa-excel-fixed">변화 반영 정책 검토·갱신·시행</td><td class="sa-excel-input"></td><td class="sa-excel-input"></td><td class="sa-excel-input"></td><td class="sa-excel-input"></td><td class="sa-excel-input"></td><td class="sa-excel-input"></td><td class="sa-excel-input"></td></tr></tbody></table></div></figure>
+<dl class="sa-guide-records"><div><dt>상단 기본정보</dt><dd>평가 범위·평가기간 시작일과 종료일·평가 담당자·평가일을 한 번만 입력합니다.</dd></div><div><dt>Control별 기록</dt><dd>한 행에 하나의 Control을 평가합니다. Control ID와 이름을 제외한 7개 열에 평가 결과와 개선계획을 작성합니다.</dd></div></dl>
 
-아래의 설명을 읽으신 후에 자가 진단을 시작해 주세요.
-<link rel="stylesheet" href="{{ '/assets/assessment/guide.css' | relative_url }}">
-<p class="sa-start-area"><a class="sa-start-button" href="{{ '/self-assessment/form/' | relative_url }}">자가진단 시작하기</a></p>
-
-## 자가 진단 작성 순서
-
-**Question ID → 충족 여부 → 평가 근거 → 확인한 증적 → 개선조치**
-
-1. 평가 대상 조직·업무·시스템과 평가기간을 정하고, 평가 담당자와 작성일을 기록합니다.
-2. 해당 질문의 Control, 평가 관점, Implementation Guide와 Evidence를 확인합니다.
-3. 대상의 실제 현황과 관련 자료를 확인한 뒤, 다섯 가지 기준 중 하나로 충족 여부를 평가합니다.
-4. 해당 평가를 내린 이유를 **평가 근거**에 작성하고, 판단에 사용한 자료를 **확인한 증적**에 별도로 기록합니다.
-5. 평가 결과에 따라 개선계획 또는 추가 확인 계획을 작성합니다.
-6. 작성 내용을 XLSX 파일로 보관합니다. 조치 후 결과와 증적을 확인하여 해당 질문을 재평가하고, 변경 전후의 XLSX 파일을 구분하여 보관합니다.
-
-## 평가 관점
-
-| 평가 관점 | 설명 |
-|---|---|
-| Design | 대상·기준·절차·주기·책임·승인·예외 처리 등 통제의 주요 요소가 명확히 정의되고, 통제 목적을 달성할 수 있도록 적절하게 설계되어 있는지 평가하는 질문입니다. |
-| Implementation | 설계된 통제가 적용 대상에 실제로 적용되고, 관련 활동·설정·교육·검토 등이 정의된 기준과 절차에 따라 수행되는지 평가하는 질문입니다. |
-| Operating Effectiveness | 평가기간의 실제 운영 결과, 시험·사례 및 후속 조치를 근거로 통제 목적이 달성되고 통제가 일관되게 작동했는지 평가하는 질문입니다. 단순한 시행 여부를 넘어 실제 효과성을 검증할 수 있도록 설계하였습니다. |
-
-평가 기준은 각 질문의 관점에 맞추어 적용합니다. 절차가 정의되어 있다는 사실만으로 실제 이행이나 운영 효과성까지 충족되는 것으로 판단할 수 없습니다. Operating Effectiveness는 평가기간의 운영 결과를 확인하며, 시험·훈련을 활용한 경우 실제 운영 실적과 구분하여 평가 근거에 명시합니다.
-
-## 평가 기준
-
-| 담당자 응답 | 판정 기준 |
-|---|---|
-| 충족 | 요구되는 활동이 이행되고 필요한 Evidence를 통해 확인할 수 있는 상태 |
-| 부분 충족 | 일부 활동은 수행되고 있으나 대상, 절차, 기준 또는 운영 측면에서 보완이 필요한 상태 |
-| 미충족 | 요구되는 활동이 구현 또는 운영되지 않은 상태 |
-| 확인 필요 | 판단에 필요한 정보나 Evidence가 충분하지 않아 추가 확인이 필요한 상태 |
-| 적용 제외 | 조직의 적용 범위나 업무 특성상 해당 Control이 적용되지 않으며 그 사유를 확인한 상태 |
-
-일부 활동이 이행되지 않았거나 보완 필요성이 확인된 경우와, 정보가 부족하여 수행 여부를 판단하지 못한 경우를 구분합니다. 자료를 확보하지 못했다는 이유만으로 부분 충족을 선택하지 않으며, 미이행 사실이 확인된 경우에는 그 사실에 따라 판단합니다. 사고나 변경 사례가 없다는 사실만으로 충족 또는 적용 제외로 판단하지 않습니다.
-
-## 평가 기록 항목
-
-| 항목 | 작성 내용 |
-|---|---|
-| Question ID | 평가 질문을 식별하는 ID입니다. 질문과 연결된 Control ID, 평가 관점, 질문 내용을 확인합니다. |
-| 담당자 평가 | 충족 / 부분 충족 / 미충족 / 확인 필요 / 적용 제외 중 하나를 선택합니다. |
-| 평가 근거 | 해당 기준을 선택한 이유와 확인된 현황·미흡사항을 작성합니다. 적용 대상, 평가기간 및 확인 범위를 구체적으로 적습니다. |
-| 확인한 증적 | 해당 Assessment Question에 대해 다섯 가지 기준으로 평가를 내리기 위해 실제로 확인한 자료를 기록합니다. |
-| 개선조치 | 미흡사항을 보완할 계획 또는 판단에 필요한 추가 확인 계획과 수행 결과를 기록합니다. 응답별 필수 여부는 아래 표를 따릅니다. |
-
-### 평가 근거 작성 방법
-
-'수행하고 있음', '문제없음'과 같은 표현만 적지 않고, 어떤 대상에서 무엇을 확인했으며 그 결과가 질문의 요구사항과 어떻게 연결되는지 설명합니다. 질문에 여러 확인 요소가 포함되어 있다면 각각의 확인 결과를 반영하고, 부분 충족은 충족한 부분과 보완이 필요한 부분을 구분합니다.
-
-예: '평가 대상 4개 시스템 중 3개 시스템은 정해진 주기에 따라 접근권한 검토를 수행하였으나, 1개 시스템은 평가기간의 검토가 누락되어 부분 충족으로 판단함.'
-
-### 확인한 증적 작성 방법
-
-Control-Guide의 Evidence 항목을 참고하여 작성합니다. 담당자가 실제 판단에 사용한 자료를 반드시 기록합니다.
-
-- 자료 이름과 파일의 보관 위치 또는 링크를 기록합니다. 증적 파일 자체를 업로드하는 기능은 제공하지 않습니다.
-- 문서는 버전·작성일과 해당 페이지·조항을, 기록·로그는 대상과 해당 기간·조회 위치를 기록하여 같은 근거를 다시 확인할 수 있도록 합니다.
-- 같은 자료를 여러 질문에 활용하더라도 각 질문의 판단과 관련된 위치를 명시합니다.
-- 확인하지 않은 자료를 확인한 증적으로 기록하지 않습니다. 자료가 없는 경우에는 아래 응답별 기준에 따라 없음과 사유를 명시합니다.
-
-작성 예시: '접근권한 관리지침 v2.1, 제5조(정기 검토), 5쪽, 문서 링크 / 평가기간 접근권한 검토 결과서, 시스템 A·B·C 항목, 파일 링크'
-
-## 응답별 필수 입력 항목과 개선조치 작성 조건
-
-모든 질문에서 **담당자 응답과 평가 근거는 필수**입니다. 확인한 증적과 개선조치는 다음 조건에 따라 작성합니다.
-
-| 담당자 응답 | 평가 근거 | 확인한 증적 | 개선조치 작성 조건 |
-|---|---|---|---|
-| 충족 | 요구사항을 충족한다고 판단한 현황을 필수 작성합니다. | 판단에 사용한 자료를 필수 기록합니다. | 선택 사항입니다. |
-| 부분 충족 | 충족한 부분과 보완이 필요한 부분을 구분하여 필수 작성합니다. | 판단에 사용한 자료를 필수 기록합니다. | 미흡사항에 대한 개선계획을 필수 작성합니다. |
-| 미충족 | 구현·운영되지 않은 활동과 현재 상태를 필수 작성합니다. | 확인한 자료가 있으면 기록합니다. 없으면 자료가 없는 사유를 명시합니다. | 구현·운영을 위한 개선계획을 필수 작성합니다. |
-| 확인 필요 | 무엇을 확인하지 못했고 어떤 정보가 부족한지 필수 작성합니다. | 이미 확인한 자료를 기록합니다. 없으면 '확인한 증적 없음'을 명시합니다. | 추가 확인 계획을 필수 작성합니다. |
-| 적용 제외 | 해당 Control이 적용되지 않는 업무·범위상의 사유를 필수 작성합니다. | 적용 제외 판단에 사용한 자료를 필수 기록합니다. | 원칙적으로 불필요합니다. |
-
-**확인 필요는 통제의 미흡 여부가 아직 확정되지 않은 상태입니다.** 미흡사항을 추정하여 개선을 요구하기보다, 필요한 자료와 확인 대상·방법을 정하고 확인 후 응답을 다시 결정합니다.
-
-## 개선조치 작성 및 관리
-
-### 기록 항목
-
-부분 충족·미충족은 조치 유형을 **개선**으로, 확인 필요는 **추가 확인**으로 작성합니다. 평가 질문의 요구사항을 충족한 상태에서도 자율적으로 개선 사항을 기록할 수도 있습니다.
-
-| 세부 항목 | 작성 내용 | 작성 시점 |
-|---|---|---|
-| 조치 유형 | 부분 충족·미충족은 개선, 확인 필요는 추가 확인으로 구분합니다. 화면과 XLSX에서는 응답에 따라 표시됩니다. | 계획 작성 시 필수 |
-| 조치 내용 | 어떤 미흡사항을 어떻게 보완할지, 또는 어떤 자료를 확보하여 무엇을 추가 확인할지 구체적으로 작성합니다. | 계획 작성 시 필수 |
-| 조치 담당자 | 실제로 조치를 수행할 담당자를 지정합니다. | 계획 작성 시 필수 |
-| 완료 예정일 | 조치를 완료할 목표일을 기록합니다. | 계획 작성 시 필수 |
-| 진행 상태 | 예정 / 진행 중 / 완료 중 선택하고 수행 현황에 맞게 갱신합니다. | 계획 작성 시 필수, 이후 갱신 |
-| 완료 결과·증적 | 실제 수행한 결과와 완료일, 결과를 확인한 자료 및 해당 위치를 기록합니다. | 완료 처리 시 필수 |
-
-'개선 예정' 또는 '추후 확인'만으로 계획 작성을 완료하지 않습니다. 수행할 내용·담당자·완료 예정일을 함께 기록합니다.
-
-### 응답별 작성 예시
-
-아래는 작성 방법을 설명하기 위한 가상 사례입니다. 조직의 실제 기준·대상·확인 결과로 바꾸어 작성합니다.
-
-| 담당자 응답 | 평가 근거 예시 | 확인한 증적 예시 | 개선조치 예시 |
-|---|---|---|---|
-| 충족 | 평가 대상 전체의 정기 접근권한 검토가 정해진 주기에 따라 수행된 것을 확인함. | 접근권한 관리지침 해당 조항, 평가기간의 시스템별 검토 결과서와 조치 기록 | 선택 사항 |
-| 부분 충족 | 4개 대상 시스템 중 3개는 검토하였으나, 1개 시스템의 검토가 누락됨. | 검토 대상 목록, 시스템별 검토 일정·수행 현황, 3개 시스템의 검토 결과서 | 개선: 누락 시스템의 검토를 수행하고 정기 검토 일정에 반영. 담당자: 시스템 담당자. 완료 예정일: 평가일로부터 30일 이내의 구체적인 날짜. 상태: 예정. |
-| 미충족 | 정기 접근권한 검토 활동을 운영하지 않는 것을 담당 부서와 실제 운영 현황을 통해 확인함. | 현행 운영절차 및 담당 부서 확인 기록. 확인한 자료가 전혀 없다면 자료가 없는 사유를 기재. | 개선: 검토 절차·책임자·주기를 정하고 최초 검토 수행. 담당자와 완료 예정일 지정. 상태: 예정. |
-| 확인 필요 | 검토를 수행했다는 설명은 있으나 관련 결과서를 확보하지 못하여 수행 여부를 판단하기 어려움. | 접근권한 관리지침 및 담당 부서 확인 기록. 검토 결과서는 미확보라고 평가 근거에 명시. | 추가 확인: 평가기간의 검토 기록을 확보하여 대상·수행일·결과 확인. 확인 담당자와 완료 예정일 지정. 상태: 예정. |
-| 적용 제외 | 평가 범위 내에서 해당 Control의 적용 조건에 해당하는 업무·처리 활동이 없음을 확인함. | 평가 범위 문서, 업무·자산·처리 활동 현황 등 적용 조건을 확인한 자료 | 원칙적으로 불필요 |
-
-### 조치 완료와 재평가
-
-1. 조치가 끝나면 수행 결과와 완료 증적을 기록하고 진행 상태를 갱신합니다.
-2. 완료 결과가 해당 질문의 요구사항을 충족하는지 확인하여 담당자 응답·평가 근거·확인한 증적을 다시 작성합니다.
-3. **조치 완료만으로 응답을 자동으로 충족으로 변경하지 않습니다.** 운영 효과성을 확인할 기간이나 증적이 부족하다면 그 상태에 맞게 응답합니다.
-4. 추가 확인 후 미흡사항이 확인되면 부분 충족 또는 미충족으로 응답하고 개선계획을 작성합니다. 여전히 판단이 어렵다면 확인 필요를 유지하고 부족한 정보와 후속 확인 계획을 갱신합니다.
-5. 재평가 전에 현재 작성 내용을 XLSX 파일로 다운로드하여 보관합니다. 재평가 시 평가일과 평가 근거에 변경 내용을 기록하고, 변경 후 XLSX 파일도 별도로 보관합니다. 브라우저에는 최신 작성 내용만 저장됩니다.
-
-## 자가진단 도구 사용 안내
-
-Control별 질문을 선택하여 현재 상태를 평가하고 개선계획을 작성합니다. 작성 항목과 필수 조건은 위 안내를 따릅니다.
-
-- **브라우저에 저장:** 입력할 때 자동 저장되며, 같은 브라우저와 같은 사이트 주소로 다시 접속하면 이어서 작성할 수 있습니다. '브라우저에 저장' 버튼으로도 저장할 수 있습니다. 공용 기기 사용과 브라우저 데이터 삭제에 유의하세요.
-- **작성 내용 초기화:** 평가 기본정보와 모든 질문의 입력, 이 평가의 현재·이전 형식 브라우저 저장 기록을 지웁니다. 화면 필터와 관계없이 전체 평가가 초기화되며 복구할 수 없으므로 필요한 내용은 먼저 XLSX 파일로 보관해야 합니다.
-- **작성 내용 점검:** 질문별 필수 입력 항목 중에서 어떤 부분이 누락되었는지 안내합니다.
-- **작성 내용 XLSX 다운로드하기:** 응답·평가 근거·확인한 증적·개선조치 중 하나라도 입력한 질문만 질문당 한 행으로 다운로드합니다. 응답을 선택하지 않은 작성 중인 질문도 포함되며, 화면 필터와 관계없이 지금까지 작성한 질문을 모두 포함합니다. 열람만 한 질문이나 입력을 모두 지운 질문은 제외합니다.
-- **빈 템플릿 XLSX 다운로드하기:** Control·Question ID, 질문, Evidence 안내가 포함된 전체 489개 질문을 다운로드합니다.
-- **PC의 XLSX 파일 불러오기:** 이전에 다운로드하거나 수정한 XLSX를 사용자 기기의 브라우저에서 읽습니다. 파일 검사 후 복원할 질문 수와 평가 기본정보를 확인하고, ‘XLSX 내용으로 교체하기’를 선택합니다. 확정하면 현재 평가 전체가 파일 내용으로 교체되며, 파일에 없는 질문의 기존 기록도 지워집니다. 기존 내용은 먼저 XLSX로 보관하세요. 취소하거나 파일 검사·저장에 실패하면 현재 기록을 유지합니다.
-XLSX 파일에는 **‘평가 기록’ 시트 하나**가 포함됩니다. 기준 정보와 작성 영역을 색상으로 구분하며, 제목행·Control ID 열 고정, 필터, 응답·진행 상태 선택 목록을 사용할 수 있습니다. 작성 방법은 이 안내 페이지를 참고하세요.
-
-파일에는 Control 정보, 평가 질문과 Evidence 안내, 담당자 응답·평가 근거·확인한 증적, 개선조치 및 평가 기본정보가 포함됩니다. 'Evidence'는 가이드라인의 자료 안내이며 '확인한 증적'은 담당자가 실제 확인한 자료입니다.
-
-Excel에서 수정한 파일은 **.xlsx로 저장한 뒤 그대로 불러올 수 있습니다.** ‘평가 기록’ 시트 이름과 첫 행의 열 이름, Question ID·Control ID·평가 관점은 유지하세요. 날짜는 `YYYY-MM-DD` 형식으로 작성하거나 Excel 날짜 셀을 사용합니다. 평가 기본정보는 같은 평가의 행마다 동일하게 기록합니다. 수식 대신 값을 입력하며 암호가 없는 파일을 사용합니다. 파일은 최대 25MB까지 지원합니다. 매우 긴 셀은 Excel 행 높이 제한으로 일부가 가려질 수 있으므로 셀을 선택하여 수식 입력줄에서 확인하세요.
-
-불러온 내용은 작성 중인 상태로 복원됩니다. 질문별 **‘작성 내용 점검’**으로 필수 항목을 확인하세요. 질문과 Evidence는 사이트의 기준 정보를 유지하며, XLSX의 질문 문구가 달라진 경우 안내하므로 기존 응답과 평가 근거를 다시 검토합니다. 파일 읽기·저장·다운로드는 브라우저에서 처리하며 작성 내용을 서버로 전송하지 않습니다.
+<div class="sa-guide-import"><h3>Excel을 수정하고 다시 불러올 때</h3><ul><li><strong>이 가이드라인에서 제공하는 Excel 템플릿으로 작성한 .xlsx 파일만 사용하세요.</strong> 임의 양식이나 이전 질문별 평가 파일은 불러올 수 없습니다.</li><li>평가 기록의 시트 이름, 상단 기본정보의 항목·위치, 8행의 열 이름·순서와 Control ID를 변경하지 마세요.</li><li>평가 결과·진행 상태는 선택 목록의 값을 사용하고, 날짜는 YYYY-MM-DD 형식 또는 Excel 날짜 셀로 입력하세요. 수식 대신 값을 입력하세요.</li><li>25MB 이하의 .xlsx 파일로 저장한 뒤, 작성 페이지의 ‘PC의 Excel 파일 불러오기’에서 선택하세요.</li><li><strong>불러오기 전에는 현재 작성 내용을 Excel로 백업하세요.</strong> 미리보기를 확인하고 교체를 확정하면 파일에 없는 기록을 포함해 현재 평가 전체가 파일 내용으로 바뀝니다.</li></ul></div></section>
+<section class="gz-intro-section" aria-labelledby="sa-save"><h2 id="sa-save">저장과 이어서 작성하기</h2>
+<div class="sa-guide-table-wrap" role="region" aria-label="저장 및 이어서 작성하는 방법" tabindex="0"><table class="sa-guide-table"><thead><tr><th scope="col">기능</th><th scope="col">사용 방법 및 유의사항</th></tr></thead><tbody><tr><th scope="row">브라우저에 저장</th><td>입력 내용은 자동 저장됩니다. 같은 기기·브라우저·사이트 주소에서 이어서 작성할 수 있습니다. 서버에 저장되지 않으므로 브라우저 데이터를 지우기 전에 Excel로 보관하세요.</td></tr><tr><th scope="row">작성 내용 Excel로 다운로드</th><td>지금까지 작성한 모든 Control이 포함됩니다. 평가 결과를 선택하지 않은 작성 중인 내용도 포함되며, 열람만 한 Control은 제외됩니다.</td></tr><tr><th scope="row">빈 템플릿 Excel로 다운로드</th><td>121개 Control의 ID와 이름이 포함된 빈 평가 양식을 받습니다.</td></tr><tr><th scope="row">작성 내용 점검</th><td>현재 Control의 필수 입력 누락을 확인합니다. 평가 결과의 적절성은 담당자가 확인합니다.</td></tr><tr><th scope="row">작성 내용 초기화</th><td><strong>기본정보와 모든 Control의 작성 내용을 삭제합니다.</strong> 현재 화면에 보이는 항목과 관계없이 전체 평가가 초기화되므로, 먼저 Excel로 백업하세요.</td></tr></tbody></table></div>
+</section>
+</div>

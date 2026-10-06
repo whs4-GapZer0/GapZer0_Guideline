@@ -1,37 +1,7 @@
-# Self-assessment 검증 및 유지보수
+# Validation
 
-## 범위와 구성
-
-자가진단은 브라우저 저장과 XLSX 다운로드·불러오기를 제공합니다. 계정·서버 저장·증적 파일 업로드·공동 편집·점수 집계는 없습니다. 기존 24개 열과 질문을 유지하며 작성 내용과 전체 489개 질문의 빈 템플릿을 구분합니다. Excel 파일은 ‘평가 기록’ 시트 하나로 구성됩니다.
-
-- `_pages/05-self-assessment.md`: 담당자 작성 안내
-- `_pages/self-assessment/form.md`: 입력 화면
-- `assets/assessment/questions.json`: 121개 Control·489개 질문과 Evidence
-- `assets/assessment/app.mjs`: 입력·검사·저장·파일 선택·미리보기·교체 확인
-- `assets/assessment/transfer.mjs`: 열 이름·ID·중복·응답·날짜·기본정보 검사
-- `assets/assessment/excel.mjs`: OOXML과 비압축 ZIP으로 서식 있는 XLSX 생성
-- `assets/assessment/excel-import.mjs`: ZIP·XML·공유 문자열·날짜를 읽는 템플릿 전용 모듈
-- `assets/assessment/app.css`: 입력 화면·모바일·테마 스타일
-
-외부 실행 라이브러리나 백엔드를 추가하지 않습니다. 브라우저의 DOMParser와 DecompressionStream을 사용하며 최신 Chrome·Edge에서 점검합니다. 이 사이트의 평가 기록 템플릿을 복원하는 용도입니다.
-
-## 저장과 파일 처리
-
-- 저장 키는 `gapzer0.assessment.<평가 질문 버전>.template-v2`입니다. 이전 키에서 현재 입력만 읽으며 이력은 변경하지 않습니다. 초기화할 때만 두 키를 지웁니다.
-- 불러오기는 최대 25MB, ZIP 항목 512개, 압축 해제 내용 총 50MB, 시트 행 번호 1,000 이하·셀 24,000개 이하로 제한합니다. 최종 데이터는 현재 질문 수 이내여야 합니다. 셀 최대 32,767자, 작성 필드 최대 20,000자입니다.
-- ZIP의 크기·CRC·경로를 검사합니다. 암호·매크로·XML DTD·수식·오류 셀은 허용하지 않습니다. 외부 관계는 읽지 않고 서버 요청 없이 처리합니다. 압축 해제는 실제 출력 크기도 검사합니다.
-- 압축·비압축 ZIP, inline/shared strings와 여러 줄 텍스트, Excel 1900/1904 날짜를 지원합니다. 날짜는 ISO 문자열로 복원하며 시간 포함 날짜는 거부합니다. `_xNNNN_` 형태의 리터럴 문자열을 보존합니다.
-- 열 순서 변경과 기존 Evidence·평가 근거 열 이름을 지원합니다. ‘평가 기록’ 시트의 첫 행에 모든 열 이름이 있어야 합니다. 기존 두 시트 파일도 평가 기록만 읽습니다.
-- 파일 전체를 검사하고 교체할 질문 수와 기본정보를 표시합니다. 사용자가 확정하면 현재 키에 먼저 저장하고 화면을 교체합니다. 검사·취소·저장 실패 시 기존 내용은 유지합니다. 파일에 없는 질문 기록은 교체 시 지워집니다. 빈 템플릿만 불러와 기존 기록을 지우는 것은 허용하지 않습니다.
-- 질문·Evidence는 사이트 기준 정보를 유지합니다. 문구 차이는 안내하고 ID·Control·평가 관점 불일치와 중복은 거부합니다. 미완성 초안도 복원하며 필수 항목은 질문별 ‘작성 내용 점검’에서 확인합니다.
-- 다운로드는 화면 필터와 무관합니다. 작성 파일에는 입력한 질문만, 빈 템플릿에는 전체 489개 질문을 포함합니다. 빈 템플릿에는 사용자 입력이 없으며 기존 저장 기록을 변경하지 않습니다.
-- Excel은 제목행·Control ID 열 고정, 필터, 응답·진행 상태 목록, 평가 관점 글자색을 제공합니다. 날짜 외의 입력은 문자열 셀로 저장하여 수식으로 실행하지 않습니다. 긴 내용은 Excel의 409pt 행 높이 제한으로 가려질 수 있어 수식 입력줄에서 확인합니다.
-- 사용자 입력은 textContent/value로 표시합니다. 파일 내용·증적 링크는 실행하지 않고 서버로 전송하지 않습니다. 동일 출처의 테마·스크립트는 브라우저 저장소에 접근할 수 있으므로 별도로 관리해야 합니다.
-
-## 검증
-
-`node --test tests/assessment.test.mjs tests/transfer.test.mjs`는 평가 규칙, 저장 형식, 내보낼 질문 선택, 전체 파일 검사, XLSX 구조와 압축·손상·크기 제한을 확인합니다.
-
-`tests/file-transfer-browser.mjs`는 실제 브라우저에서 XLSX 다운로드→불러오기, 취소, 오류, 저장 실패 보존, 새로고침, 공유 문자열·압축·1904 날짜, 수식·XML 거부, HTML 텍스트 처리와 서버 전송 여부를 확인합니다. `tests/xlsx-fixtures.mjs`는 Excel 재저장 형식을 모사한 압축 테스트 파일을 생성합니다.
-
-`.github/workflows/validate-jekyll.yml`은 review/self-assessment push와 main 대상 PR에서 전체 Jekyll 빌드 및 Chromium 메뉴 이동·저장·모바일·테마·파일 처리를 검사합니다. 배포하지 않으며 결과 사이트는 실행 페이지에서 7일간 보관합니다. tests 디렉터리는 사이트 출력에서 제외됩니다.
+Run `node --test tests/*.test.mjs` for the Control assessment and legacy backup checks.
+The question-era tests target `assets/assessment/legacy/`; current assessment tests use `controls.json`.
+After a Jekyll build, run `THEME_TEST_ROOT=_site node tests/control-site-browser.mjs` with Playwright installed.
+This checks the generated theme, framework drawer, navigation, browser storage and Excel round trip.
+`theme-navigation.mjs` and `file-transfer-browser.mjs` are historical question-era browser scenarios and are not current CI entry points.
