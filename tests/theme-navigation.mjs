@@ -16,7 +16,7 @@ try{
  assert.equal(await page.locator('.book-summary a[href="/self-assessment/form/"]:visible').count(),0);
  assert.equal(await page.locator('#assessment-app').count(),0);
  assert.equal(await page.getByRole('link',{name:'자가진단 시작하기',exact:true}).count(),1);
- assert.equal(await page.locator('.sa-start-button').evaluate(e=>getComputedStyle(e).backgroundColor),'rgb(21, 107, 113)');
+ assert.equal(await page.locator('.sa-start-button').evaluate(e=>getComputedStyle(e).backgroundColor),'rgb(137, 80, 25)');
  await page.getByRole('link',{name:'자가진단 시작하기',exact:true}).click();
  await page.locator('.sa-question').first().waitFor();
  await page.getByLabel('평가 범위 (조직·업무·시스템)').fill('테마 통합 시험');
