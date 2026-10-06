@@ -22,11 +22,22 @@ B 담당자가 작성하는 `control-index.md`와 A 담당자의 `SKILL.md`가 �
 5. 하나의 업무 표현이 여러 Control과 관련될 수 있으므로 중복 키워드를 허용한다.
 6. Source Path는 Skill이 실제 원문을 다시 읽을 수 있도록 정확한 위치를 기록한다.
 
-## 권장 레코드 형식
+## 레코드 형식
 
-| Control ID | Control Name | Domain | Class | Search Keywords | Applying Condition Summary | Source Path |
-|---|---|---|---|---|---|---|
-| [ID] | [원문 명칭] | [Domain] | [Class] | 키워드1, 키워드2 | [원문 기반 요약] | references/controls/... |
+긴 키워드와 적용 조건의 가독성, Control ID 기반 검색을 위해 Control별 블록 형식을 사용한다.
+
+```markdown
+## [Control ID] — [Control Name]
+
+- **Domain:** [Domain]
+- **Class:** [Common / Enhancement / Local]
+- **검색 키워드:** 키워드1, 키워드2
+- **적용 조건 요약:** [원문의 적용 시점과 적용 대상 요약]
+- **원문 위치:** `references/controls/[Domain 폴더]/[Class 파일]#[Control ID]`
+- **가이드라인 원본:** `_pages/control-guide/[Domain 폴더]/[Class 파일]#[Control ID]`
+```
+
+`가이드라인 원본`은 저장소 안의 추적성을 위한 보조 필드이며, Skill이 답변을 작성할 때는 `원문 위치`의 Skill용 Control 원문을 읽는다.
 
 ## 연결 검수
 - 인덱스의 모든 ID가 실제 Control 원문에 존재하는가?

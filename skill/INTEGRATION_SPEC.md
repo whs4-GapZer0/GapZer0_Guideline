@@ -20,9 +20,15 @@ skill/
 │       │   ├── common.md
 │       │   └── enhancement.md
 │       └── ...
+├── scripts/
+│   ├── build-control-data.mjs
+│   ├── validate-control-data.mjs
+│   └── test-control-search.mjs
 └── tests/
+    ├── control-search-cases.md
     ├── test-scenarios.md
-    └── integration-checklist.md
+    ├── integration-checklist.md
+    └── validation-results.md
 ```
 
 ## 2. 경로 규칙
@@ -33,6 +39,7 @@ skill/
 - Framework 공통 설명은 `skill/references/framework-overview.md`를 사용한다.
 - 출력 구조는 `skill/references/output-formats.md`를 사용한다.
 - 테스트 자료는 `skill/tests/`에 둔다.
+- 원본 동기화와 구조 검증 스크립트는 `skill/scripts/`에 둔다.
 - 인덱스의 Source Path는 `references/controls/...`처럼 SKILL.md 기준 상대경로로 기록한다.
 
 ## 3. controls 디렉터리 규칙
@@ -83,6 +90,8 @@ Skill은 인덱스에서 후보를 찾은 뒤 Source Path의 실제 원문을 �
 6. `tests/test-scenarios.md`의 T01~T10 실행
 7. FAIL 항목 수정 후 재시험
 8. 전체 PASS 후 PR 검토 요청
+
+Control Guide 원문이 변경되면 `scripts/build-control-data.mjs`를 다시 실행한 뒤 `scripts/validate-control-data.mjs`로 ID, 경로와 본문 동일성을 확인한다. `scripts/test-control-search.mjs`는 대표 실무 표현으로 예상 Control 후보가 검색되는지 확인하는 간이 검색 검증에 사용한다.
 
 ## 8. 현재 A 파트 상태
 

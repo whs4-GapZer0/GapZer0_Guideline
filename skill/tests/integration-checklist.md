@@ -1,10 +1,10 @@
 # GapZer0 AI Skill 통합 QA 체크리스트
 
 ## 자료 연결
-- [ ] control-index의 모든 Control ID가 실제 원문에 존재한다.
-- [ ] Control ID와 Control Name이 원문과 일치한다.
-- [ ] Domain / Class가 원문과 일치한다.
-- [ ] Source Path가 실제 Control 파일을 가리킨다.
+- [x] control-index의 모든 Control ID가 실제 원문에 존재한다.
+- [x] Control ID와 Control Name이 원문과 일치한다.
+- [x] Domain / Class가 원문과 일치한다.
+- [x] Source Path가 실제 Control 파일을 가리킨다.
 - [ ] 검색 키워드가 Control 의미를 벗어나지 않는다.
 
 ## 요청 처리
