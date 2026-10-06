@@ -1,7 +1,7 @@
 name: Validate Jekyll build
 on:
   push:
-    branches: [review/self-assessment, design/document-orange]
+    branches: [review/self-assessment, design/document-orange, review/guideline-prose]
   pull_request:
     branches: [main]
 permissions:
