@@ -2,11 +2,11 @@
 import {MAX_IMPORT_BYTES,HEADERS,importRows} from './transfer.mjs';
 import {crc} from './excel.mjs';
 const LIMIT=50*1024*1024,decoder=new TextDecoder('utf-8',{fatal:true});
-const fail=()=>{throw Error('XLSX 파일이 손상되었거나 지원하지 않는 형식입니다. 암호 없이 .xlsx로 저장하세요.');};
+const fail=()=>{throw Error('Excel 파일이 손상되었거나 지원하지 않는 형식입니다. 암호 없이 .xlsx로 저장하세요.');};
 
 export async function readZip(buffer){
  const bytes=new Uint8Array(buffer),view=new DataView(bytes.buffer,bytes.byteOffset,bytes.byteLength);
- if(bytes.length>MAX_IMPORT_BYTES)throw Error('XLSX 파일은 25MB 이하만 불러올 수 있습니다.');
+ if(bytes.length>MAX_IMPORT_BYTES)throw Error('Excel 파일은 25MB 이하만 불러올 수 있습니다.');
  if(bytes.length<22||view.getUint32(0,true)!==0x04034b50)fail();
  let end=-1;
  for(let i=bytes.length-22;i>=Math.max(0,bytes.length-65557);i--)if(view.getUint32(i,true)===0x06054b50&&i+22+view.getUint16(i+20,true)===bytes.length){end=i;break;}
@@ -24,11 +24,11 @@ export async function readZip(buffer){
   if(view.getUint32(offset,true)!==0x04034b50||view.getUint16(offset+6,true)!==flags||view.getUint16(offset+8,true)!==method)fail();
   const localName=view.getUint16(offset+26,true),localExtra=view.getUint16(offset+28,true),dataStart=offset+30+localName+localExtra;
   if(dataStart+packed>start||decoder.decode(bytes.subarray(offset+30,offset+30+localName))!==name)fail();
-  total+=length;if(total>LIMIT)throw Error('압축 해제한 XLSX 내용이 너무 큽니다. 불필요한 시트와 서식을 제거하세요.');
+  total+=length;if(total>LIMIT)throw Error('압축 해제한 Excel 내용이 너무 큽니다. 불필요한 시트와 서식을 제거하세요.');
   const data=bytes.subarray(dataStart,dataStart+packed);let output;
   if(method===0){if(packed!==length)fail();output=data;}
   else{
-   let stream;try{stream=new Blob([data]).stream().pipeThrough(new DecompressionStream('deflate-raw'));}catch{throw Error('이 브라우저에서는 XLSX를 읽을 수 없습니다. 최신 Chrome 또는 Edge를 사용하세요.');}
+   let stream;try{stream=new Blob([data]).stream().pipeThrough(new DecompressionStream('deflate-raw'));}catch{throw Error('이 브라우저에서는 Excel를 읽을 수 없습니다. 최신 Chrome 또는 Edge를 사용하세요.');}
    const reader=stream.getReader(),chunks=[];let actual=0;
    try{while(true){const {done,value}=await reader.read();if(done)break;actual+=value.length;if(actual>length||actual>LIMIT){await reader.cancel();fail();}chunks.push(value);}}finally{reader.releaseLock();}
    if(actual!==length)fail();output=new Uint8Array(actual);let at=0;for(const chunk of chunks){output.set(chunk,at);at+=chunk.length;}
@@ -72,7 +72,7 @@ export async function xlsxRows(buffer){
  const bookPath=related('',relationships(entries,'').find(r=>r.type==='officeDocument'));
  const book=documentXml(entries,bookPath),rels=relationships(entries,bookPath);
  const sheets=nodes(book,'sheet').filter(n=>n.getAttribute('name')==='평가 기록');
- if(sheets.length!==1)throw Error('평가 기록 시트를 찾을 수 없습니다. 이 사이트의 XLSX 템플릿을 사용하세요.');
+ if(sheets.length!==1)throw Error('평가 기록 시트를 찾을 수 없습니다. 이 사이트의 Excel 템플릿을 사용하세요.');
  const sheetId=Array.from(sheets[0].attributes).find(a=>a.localName==='id')?.value;
  const sheetRel=rels.find(r=>r.id===sheetId&&r.type==='worksheet');
  const sheet=documentXml(entries,related(bookPath,sheetRel)),sharedRel=rels.find(r=>r.type==='sharedStrings');

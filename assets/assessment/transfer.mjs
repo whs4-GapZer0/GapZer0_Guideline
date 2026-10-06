@@ -15,15 +15,15 @@ export function importRows(input,bank){
   if(!Array.isArray(row)||row.length!==HEADERS.length)throw Error('평가 기록 열 개수가 맞지 않습니다.');
   return row.map(v=>{if(typeof v!=='string'||v.length>32767||/[\u0000-\u0008\u000b\u000c\u000e-\u001f]/.test(v))throw Error('지원하지 않는 셀 내용입니다.');return v;});
  });
- if(rows.length<2)throw Error('XLSX에 평가 질문이 없습니다.');
+ if(rows.length<2)throw Error('Excel에 평가 질문이 없습니다.');
  const headers=rows.shift().map(h=>aliases[h.trim()]||h.trim());
- if(headers.length!==HEADERS.length||new Set(headers).size!==headers.length||HEADERS.some(h=>!headers.includes(h)))throw Error('XLSX 열 이름이 맞지 않습니다. 이 사이트에서 다운로드한 XLSX의 평가 기록 시트를 사용하세요.');
- if(rows.length>bank.questions.length)throw Error('현재 평가 질문 수보다 XLSX 행이 많습니다.');
+ if(headers.length!==HEADERS.length||new Set(headers).size!==headers.length||HEADERS.some(h=>!headers.includes(h)))throw Error('Excel 열 이름이 맞지 않습니다. 이 사이트에서 다운로드한 Excel의 평가 기록 시트를 사용하세요.');
+ if(rows.length>bank.questions.length)throw Error('현재 평가 질문 수보다 Excel 행이 많습니다.');
  const index=Object.fromEntries(headers.map((h,i)=>[h,i]));
  const questions=new Map(bank.questions.map(q=>[q.id,q]));
  const records={},meta=Object.fromEntries(META_FIELDS.map(k=>[k,''])),seen=new Set();let changedQuestions=0;
  for(let i=0;i<rows.length;i++){
-  const row=rows[i],at=`XLSX ${i+2}행: `;
+  const row=rows[i],at=`Excel ${i+2}행: `;
   if(row.length!==headers.length)throw Error(at+'열 개수가 맞지 않습니다.');
   const get=h=>row[index[h]];
   const id=get('Question ID').trim(),q=questions.get(id);
@@ -52,6 +52,6 @@ export function importRows(input,bank){
  }
  if(meta.start&&meta.end&&meta.start>meta.end)throw Error('평가기간의 시작일은 종료일 이후일 수 없습니다.');
  const count=Object.keys(records).length;
- if(!count)throw Error('불러올 작성 내용이 없습니다. 빈 템플릿 대신 작성한 XLSX를 선택하세요.');
+ if(!count)throw Error('불러올 작성 내용이 없습니다. 빈 템플릿 대신 작성한 Excel를 선택하세요.');
  return {state:{schema:2,bank:bank.version,meta,records},count,changedQuestions};
 }

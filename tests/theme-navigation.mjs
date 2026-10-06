@@ -42,7 +42,7 @@ try{
  await page.locator('.book-summary a[href="/introduction/"]').click();await page.waitForURL('**/introduction/');
  await page.goBack();await page.locator('.sa-question').first().waitFor();
  assert.equal(await page.locator('.sa-question').first().getByLabel('평가 근거 (필수)').inputValue(),'테마 이동 후 유지 시험');
- const downloadPromise=page.waitForEvent('download');await page.getByRole('button',{name:'작성 내용 XLSX 다운로드하기'}).click();const download=await downloadPromise;const csv=await fs.readFile(await download.path(),'utf8');assert.ok(csv.startsWith('PK'));assert.ok(csv.includes('테마 이동 후 유지 시험'));assert.ok(csv.includes('GOV-C-01-AQ-D-01'));assert.ok(csv.includes('확인한 증적'));
+ const downloadPromise=page.waitForEvent('download');await page.getByRole('button',{name:'작성 내용 Excel 다운로드하기'}).click();const download=await downloadPromise;const csv=await fs.readFile(await download.path(),'utf8');assert.ok(csv.startsWith('PK'));assert.ok(csv.includes('테마 이동 후 유지 시험'));assert.ok(csv.includes('GOV-C-01-AQ-D-01'));assert.ok(csv.includes('확인한 증적'));
  await page.locator('#assessment-app').scrollIntoViewIfNeeded();
  await page.screenshot({path:'work/theme-return.png'});
  await page.setViewportSize({width:390,height:844});
@@ -85,7 +85,7 @@ try{
  assert.equal(await page.evaluate(()=>localStorage.getItem('unrelated-setting')),'keep');
  await page.reload();await page.locator('.sa-question').first().waitFor();
  assert.equal(await page.getByLabel('평가 범위 (조직·업무·시스템)').inputValue(),'');
- await page.getByRole('button',{name:'작성 내용 XLSX 다운로드하기',exact:true}).click();
+ await page.getByRole('button',{name:'작성 내용 Excel 다운로드하기',exact:true}).click();
  assert.ok((await page.locator('#assessment-app > [role=status]').innerText()).includes('작성 내용이 없습니다'));
  console.log('PASS: mobile navigation; red reset button, cancel, storage failure, current/legacy clearing and reload.');
 
