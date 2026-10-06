@@ -1,0 +1,48 @@
+name: Publish site for Oracle VM
+
+# main에 병합될 때마다 Jekyll로 빌드한 _site 를 `site` 브랜치에 올린다.
+# Oracle VM은 5분마다 이 브랜치를 받아 /var/www/gapzer0-docs 에 반영한다.
+# (VM 쪽 설정: /usr/local/bin/gapzer0-docs-sync + /etc/cron.d/gapzer0-docs-sync)
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-site
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+
+      - name: Build with GitHub Pages Jekyll
+        uses: actions/jekyll-build-pages@44a6e6beabd48582f863aeeb6cb2151cc1716697
+        with:
+          source: ./
+          destination: ./_site
+
+      - name: Publish _site to the site branch
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          test -f _site/index.html
+          out="$RUNNER_TEMP/site"
+          cp -r _site "$out"
+          cd "$out"
+          git init -q -b site
+          git add -A
+          git -c user.name='github-actions[bot]' \
+              -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+              commit -q -m "Build ${GITHUB_SHA}"
+          git push -f -q "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:site
+          echo "Published $(git ls-files | wc -l) files to the site branch"

@@ -2,7 +2,7 @@
 
 본 저장소는 **NIST CSF 2.0과 ISMS-P를 기반으로 구성한 GapZer0 Framework의 실무 이행 가이드라인**을 관리하기 위한 GitHub Repository입니다.
 
-이 Repository는 일반 문서 저장소가 아니라 **Jekyll + GitHub Pages + jekyll-gitbook 테마**를 이용하여 Markdown 문서를 웹사이트 형태로 배포하는 구조입니다.
+이 Repository는 일반 문서 저장소가 아니라 **Jekyll + jekyll-gitbook 테마**로 Markdown 문서를 웹사이트로 빌드하고, GitHub Actions를 통해 Oracle 서버(`https://docs.whs4-gapzer0.kro.kr`)에 배포하는 구조입니다.
 
 
 ---
@@ -20,7 +20,7 @@ _pages/04-control-guide.md
 
 Jekyll이 이 파일을 읽어 실제 웹사이트의 페이지로 만들어 줍니다.
 
-우리 프로젝트에서는 GitHub Pages가 Jekyll을 이용하여 Repository의 내용을 자동으로 빌드하고 배포합니다.
+우리 프로젝트에서는 `main`에 반영되면 GitHub Actions(`Publish site for Oracle VM`)가 Jekyll로 빌드해 `site` 브랜치에 올리고, Oracle 서버가 5분마다 이 브랜치를 받아 웹사이트에 반영합니다.
 
 따라서 일반적인 작업 흐름은 다음과 같습니다.
 
@@ -29,9 +29,9 @@ Markdown 파일 작성
         ↓
 GitHub에 Commit
         ↓
-GitHub Pages가 Jekyll Build 수행
+GitHub Actions가 Jekyll Build 수행
         ↓
-웹사이트에 변경사항 반영
+Oracle 서버가 5분 안에 웹사이트에 반영
 ```
 
 ## 왜 GitHub + Jekyll 구조를 사용하는가?
@@ -76,7 +76,7 @@ Control Guide가 Domain과 Class별 파일로 분리되어 있기 때문에 팀�
 
 ### 4. 문서 수정과 웹사이트 업데이트가 연결됨
 
-Markdown 파일을 수정하고 GitHub에 반영하면 GitHub Pages가 Jekyll Build를 수행하여 웹사이트를 다시 생성합니다.
+Markdown 파일을 수정하고 `main`에 반영하면 GitHub Actions가 Jekyll Build를 수행하고, Oracle 서버가 새 빌드를 받아 웹사이트를 갱신합니다.
 
 즉,
 
@@ -123,7 +123,7 @@ Commit으로 변경 이력 기록
         ↓
 필요 시 팀원 Review
         ↓
-GitHub Pages 자동 Build
+GitHub Actions 자동 Build
         ↓
 최신 가이드라인 배포
 ```
@@ -755,7 +755,7 @@ CSV / PDF Export
 
 # 11. 페이지 링크 작성 시 `relative_url` 사용
 
-현재 GitHub Pages 사이트는 커스텀 도메인의 루트에서 제공됩니다.
+현재 사이트는 커스텀 도메인의 루트에서 제공됩니다.
 
 따라서 Markdown에서 내부 링크를 작성할 때는 다음 형식을 권장합니다.
 
@@ -771,7 +771,7 @@ CSV / PDF Export
 [Governance](/controls/governance/)
 ```
 
-처럼 작성하면 GitHub Pages 환경에 따라 잘못된 주소로 이동할 수 있으므로 주의합니다.
+처럼 작성하면 배포 환경에 따라 잘못된 주소로 이동할 수 있으므로 주의합니다.
 
 ---
 
@@ -841,12 +841,12 @@ _pages/control-guide/
 
 # 14. 변경 후 확인 방법
 
-GitHub에서 파일을 수정하고 Commit하면 GitHub Pages가 사이트를 다시 Build합니다.
+`main`에 변경이 반영되면 GitHub Actions가 사이트를 다시 Build하고, Oracle 서버가 5분 안에 새 Build를 반영합니다.
 
 변경사항이 바로 보이지 않을 경우 다음을 확인합니다.
 
-1. GitHub Repository의 **Actions** 탭에서 Pages Build가 성공했는지 확인
-2. Build가 완료된 뒤 사이트 새로고침
+1. GitHub Repository의 **Actions** 탭에서 `Publish site for Oracle VM`이 성공했는지 확인
+2. Build 완료 후 최대 5분 기다린 뒤 사이트 새로고침
 3. 필요한 경우 브라우저에서 `Ctrl + F5` 또는 `Ctrl + Shift + R`로 강제 새로고침
 
 Jekyll Front Matter나 Liquid 문법에 오류가 있으면 Build가 실패할 수 있으므로 Actions 로그를 확인합니다.
