@@ -9,6 +9,10 @@
 #assessment-app button { background: #156b71; color: white; border: 0; border-radius: 4px; padding: .7rem 1rem; cursor: pointer; font: inherit; }
 #assessment-app :focus-visible { outline: 3px solid #ea9800; outline-offset: 3px; }
 #assessment-app .sa-toolbar, #assessment-app .sa-filters { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+#assessment-app .sa-toolbar { margin-bottom: 1rem; }
+#assessment-app .sa-import button { margin: .4rem .6rem .4rem 0; }
+#assessment-app .sa-import [role=status] { overflow-wrap: anywhere; }
+#assessment-app .sa-import [role=status]:empty { display: none; }
 #assessment-app .sa-filters label { flex: 1 1 230px; min-width: 0; }
 #assessment-app .sa-question { border: 1px solid #cbd5e1; border-top: 4px solid #156b71; border-radius: 5px; padding: 1rem; margin: 1.5rem 0; }
 #assessment-app .sa-preserve, #assessment-app pre { white-space: pre-wrap; overflow-wrap: anywhere; }
