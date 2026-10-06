@@ -52,7 +52,7 @@ description: Use the GapZer0 Guideline to find relevant information-security and
 ## 4. 요청 처리 절차
 1. 사용자가 원하는 결과물이 통제 안내, 이행계획, 문서 초안 중 무엇인지 파악한다.
 2. 결과 작성에 반드시 필요한 조직 정보만 확인한다. 모든 요청에 긴 질문지를 먼저 제시하지 않는다.
-3. references/control-index.md에서 관련 Control 후보를 찾는다.
+3. references/control-index.md에서 관련 Control 후보를 찾는다. 검색 시 조사·접속사 등 저가치 단어를 제외하고 업무 대상·행위·위험을 나타내는 핵심어를 우선한다. 대표 후보는 우선 top 3~5 범위에서 검토하되, 관련성이 비슷하거나 복수 Domain 연계가 필요한 경우 필요한 후보를 추가 확인한다.
 4. 후보 Control의 실제 원문을 references/controls/에서 확인한다.
 5. Control의 적용 조건과 사용자가 제공한 상황을 비교한다.
 6. 관련성이 확인된 Control만 선택하고 선택 이유를 설명한다.
