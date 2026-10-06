@@ -48,19 +48,26 @@
 3. 공급자 보안관리 절차 → SUP-C-06, SUP-C-05, SUP-C-01, SUP-C-08
 4. ISMS-P 인증 가능 여부 → 최종 인증 판정 제한 확인
 
-## 5. Merge 전 남은 확인사항
+## 5. 최종 검수 상태
 
-### 필수
-- `validate-control-data.mjs`의 source/mirror 비교 전에 CRLF/LF 줄바꿈 정규화
-- B 수정 후 validator 재실행 및 결과 확인
+### 완료
+- PR #44의 `validate-control-data.mjs` LF/CRLF 줄바꿈 정규화 반영 확인
+- B 파트 Control 원문과 Control Index를 변경하지 않은 상태로 A 파트에 통합
+- 기존 행동 안전성 T01~T10: 10/10 PASS
+- 실무 검색 S01~S10: 10/10 PASS (정적·원문 기반)
+- 통제 안내 / 이행계획 / 실무 문서 초안 3개 기능 구조 검증 완료
+- README에 실제 사용 예시 및 처리 흐름 추가
 
-### 권장
+### 런타임 확인 필요
+- Virtual Chibbo 배포 URL이 DNS 이름 해석 오류(`ERR_NAME_NOT_RESOLVED`)로 접속되지 않아 실제 UI E2E 테스트는 보류
+- URL 복구 후 T01~T10 대표 프롬프트 회귀 테스트 수행 필요
+
+### 후속 검색 품질 개선
 - 검색 키워드의 저가치 불용어 정제
-- 핵심 검색 시나리오에 top 3~5 정확도 검증 추가
-- 실제 Agent Skill 런타임에서 대표 프롬프트 회귀 테스트
+- 핵심 검색 시나리오의 top 3~5 정확도 검증
 
 ## 6. 최종 상태
 
-A 파트 기준 10/7 예정 작업인 **최종 검수, GitHub 반영, 실제 사용 예시 및 시연 준비**까지 선행 완료했다.
+A/B 통합, 정적·원문 기반 검증, 3개 기능 검증, 사용 예시 및 시연 준비까지 완료했다.
 
-PR Merge는 B 파트의 필수 validator 수정 확인 후 진행한다.
+현재 최종 배포 전 남은 blocker는 **Virtual Chibbo 실제 UI E2E 회귀 테스트**이다. 이는 배포 URL DNS 복구 후 수행한다. 검색 top 3~5 검증과 stopword 정제는 후속 검색 품질 개선 항목으로 관리한다.
