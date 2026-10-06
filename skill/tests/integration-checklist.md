@@ -5,7 +5,7 @@
 - [x] Control ID와 Control Name이 원문과 일치한다.
 - [x] Domain / Class가 원문과 일치한다.
 - [x] Source Path가 실제 Control 파일을 가리킨다.
-- [x] 검색 키워드가 Control 의미를 벗어나지 않는다.
+- [x] 대표 검색 시나리오에서 검색 키워드가 Control 의미를 벗어나지 않는지 검증했다.
 
 ## 요청 처리
 - [x] 사용자 요청 유형을 통제 안내 / 이행계획 / 문서 초안으로 구분한다.
@@ -32,10 +32,13 @@
 - [x] Control 원문 위치를 표시한다.
 - [x] 인덱스와 원문 충돌 시 원문을 우선하고 충돌을 기록한다.
 
-
 ## 런타임 최종 확인
 - [x] 행동 안전성 T01~T10 정적·원문 기반 검증
 - [x] 실무 검색 S01~S10 정적·원문 기반 검증
 - [x] 통제 안내 / 이행계획 / 문서 초안 3개 기능 구조 검증
-- [ ] Virtual Chibbo 실제 UI 회귀 테스트 — 배포 URL DNS 오류로 보류
-- [ ] 배포 URL 복구 후 동일 프롬프트 최종 회귀 테스트
+- [x] Codex에서 repo-scoped `gapzero-guide` Skill 파일 존재 및 작업 브랜치 확인
+- [x] Virtual Chibbo 시나리오 V01 통제 안내 Runtime PASS
+- [x] Virtual Chibbo 시나리오 V02 이행계획 Runtime PASS
+- [x] Virtual Chibbo 시나리오 V03 실무 문서 초안 Runtime PASS
+- [ ] T01~T10 전체 Codex Runtime 회귀 테스트 — 후속 품질 검증
+- [ ] 검색 top 3~5 정확도 및 stopword 정제 — 후속 검색 품질 개선
