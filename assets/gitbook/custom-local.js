@@ -80,7 +80,7 @@
   var info=content[trigger.dataset.frameworkTopic];
   if (!panel || !info) return;
   opener=trigger;
-  panel.querySelector('#framework-detail-title').textContent=info[0];
+  panel.setAttribute('aria-label',info[0]);
   panel.querySelector('.framework-drawer-content').innerHTML=info[1];
   if (!panel.open) {
    pageScroll=Array.from(document.querySelectorAll('.book-body,.body-inner,.book-summary')).concat([document.scrollingElement]).filter(Boolean).map(function(el){return {el:el,top:el.scrollTop,left:el.scrollLeft};});
