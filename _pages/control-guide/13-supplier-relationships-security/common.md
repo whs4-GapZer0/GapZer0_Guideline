@@ -47,7 +47,7 @@ Common
 
 ### Stakeholders
 
-CISO, CPO, 법무, 업무부서, IT 운영, 재무, 감사, 공급자 담당자
+CISO, CPO, 법무 담당자, 업무부서, IT 운영 담당자, 재무 담당자, 감사 담당자, 공급자 담당자
 
 ### 매핑된 ISMS-P 항목
 
@@ -133,7 +133,7 @@ Common
 
 ### Stakeholders
 
-CISO, CPO, 법무, 업무부서, IT 운영, 재무, 감사, 공급자 담당자
+CISO, CPO, 법무 담당자, 업무부서, IT 운영 담당자, 재무 담당자, 감사 담당자, 공급자 담당자
 
 ### 매핑된 ISMS-P 항목
 
@@ -216,7 +216,7 @@ Common
 
 ### Stakeholders
 
-최고경영자(CEO), 경영진, CISO, CPO, 법무, 업무부서, IT 운영, 재무, 감사, 공급자 담당자
+최고경영자(CEO), 경영진, CISO, CPO, 법무 담당자, 업무부서, IT 운영 담당자, 재무 담당자, 감사 담당자, 공급자 담당자
 
 ### 매핑된 ISMS-P 항목
 
@@ -297,7 +297,7 @@ Common
 
 ### Stakeholders
 
-CISO, CPO, 법무, 업무부서, IT 운영, 재무, 감사, 공급자 담당자
+CISO, CPO, 법무 담당자, 업무부서, IT 운영 담당자, 재무 담당자, 감사 담당자, 공급자 담당자
 
 ### 매핑된 ISMS-P 항목
 
@@ -376,7 +376,7 @@ Common
 
 ### Stakeholders
 
-CISO, CPO, 법무, 업무부서, IT 운영, 재무, 감사, 공급자 담당자
+CISO, CPO, 법무 담당자, 업무부서, IT 운영 담당자, 재무 담당자, 감사 담당자, 공급자 담당자
 
 ### 매핑된 ISMS-P 항목
 
@@ -455,7 +455,7 @@ Common
 
 ### Stakeholders
 
-CISO, CPO, 법무, 업무부서, IT 운영, 재무, 감사, 공급자 담당자
+CISO, CPO, 법무 담당자, 업무부서, IT 운영 담당자, 재무 담당자, 감사 담당자, 공급자 담당자
 
 ### 매핑된 ISMS-P 항목
 
@@ -535,7 +535,7 @@ Common
 
 ### Stakeholders
 
-CISO, CPO, 법무, 업무부서, IT 운영, 재무, 감사, 공급자 담당자
+CISO, CPO, 법무 담당자, 업무부서, IT 운영 담당자, 재무 담당자, 감사 담당자, 공급자 담당자
 
 ### 매핑된 ISMS-P 항목
 
@@ -615,7 +615,7 @@ Common
 
 ### Stakeholders
 
-CISO, CPO, 법무, 업무부서, IT 운영, 재무, 감사, 공급자 담당자
+CISO, CPO, 법무 담당자, 업무부서, IT 운영 담당자, 재무 담당자, 감사 담당자, 공급자 담당자
 
 ### 매핑된 ISMS-P 항목
 
