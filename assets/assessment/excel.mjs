@@ -24,13 +24,13 @@ function height(values,cols){
 function styles(){
  const fonts=['<font><sz val="11"/><name val="맑은 고딕"/><color rgb="FF243746"/></font>',...['FFFFFF','2563EB','15803D','F59E0B'].map(color=>`<font><b/><sz val="11"/><name val="맑은 고딕"/><color rgb="FF${color}"/></font>`)];
  const fills=['<fill><patternFill patternType="none"/></fill>','<fill><patternFill patternType="gray125"/></fill>',...['34343C','AD450E','765B49','475569','F1F5F9','FFF7E7'].map(color=>`<fill><patternFill patternType="solid"><fgColor rgb="FF${color}"/><bgColor indexed="64"/></patternFill></fill>`)];
- const xf=(font,fill,num=0)=>`<xf numFmtId="${num}" fontId="${font}" fillId="${fill}" borderId="0" xfId="0" applyAlignment="1" applyNumberFormat="1"><alignment vertical="top" wrapText="1"/></xf>`;
- const formats=[xf(0,0),xf(1,2),xf(1,3),xf(1,4),xf(1,5),xf(0,6),xf(0,7),xf(2,0),xf(3,0),xf(4,0),xf(1,2),xf(0,7,164)];
- return declaration+`<styleSheet xmlns="${NS}"><numFmts count="1"><numFmt numFmtId="164" formatCode="yyyy-mm-dd"/></numFmts><fonts count="${fonts.length}">${fonts.join('')}</fonts><fills count="${fills.length}">${fills.join('')}</fills><borders count="1"><border><left/><right/><top/><bottom/><diagonal/></border></borders><cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs><cellXfs count="${formats.length}">${formats.join('')}</cellXfs><cellStyles count="1"><cellStyle name="Normal" xfId="0" builtinId="0"/></cellStyles></styleSheet>`;
+ const xf=(font,fill,num=0,border=1)=>`<xf numFmtId="${num}" fontId="${font}" fillId="${fill}" borderId="${border}" xfId="0" applyBorder="1" applyAlignment="1" applyNumberFormat="1"><alignment vertical="top" wrapText="1"/></xf>`;
+ const formats=[xf(0,0,0,0),xf(1,2),xf(1,3),xf(1,4),xf(1,5),xf(0,6),xf(0,7),xf(2,0),xf(3,0),xf(4,0),xf(1,2),xf(0,7,164)];
+ return declaration+`<styleSheet xmlns="${NS}"><numFmts count="1"><numFmt numFmtId="164" formatCode="yyyy-mm-dd"/></numFmts><fonts count="${fonts.length}">${fonts.join('')}</fonts><fills count="${fills.length}">${fills.join('')}</fills><borders count="2"><border><left/><right/><top/><bottom/><diagonal/></border><border><left style="thin"><color rgb="FFB8BEC7"/></left><right style="thin"><color rgb="FFB8BEC7"/></right><top style="thin"><color rgb="FFB8BEC7"/></top><bottom style="thin"><color rgb="FFB8BEC7"/></bottom><diagonal/></border></borders><cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs><cellXfs count="${formats.length}">${formats.join('')}</cellXfs><cellStyles count="1"><cellStyle name="Normal" xfId="0" builtinId="0"/></cellStyles></styleSheet>`;
 }
 function recordsSheet(headers,rows,meta){
  const title=`<row r="1" ht="36">${cell('GapZer0 Control 자가진단',0,1,1)}</row>`;
- const info=META_FIELDS.map((k,i)=>`<row r="${i+2}" ht="30">${cell(META_LABELS[i],0,i+2,5)}${cell(meta[k]||'',1,i+2,6,['start','end','date'].includes(k))}</row>`).join('');
+ const info=META_FIELDS.map((k,i)=>`<row r="${i+2}" ht="30">${cell(META_LABELS[i],0,i+2,5)}${cell(meta[k]||'',1,i+2,6,['start','end','date'].includes(k))}${Array.from({length:7},(_,j)=>cell('',j+2,i+2,6)).join('')}</row>`).join('');
  const note=`<row r="7" ht="12" customHeight="1">${cell('',0,7,0)}</row>`;
  const header=`<row r="8" ht="32">${headers.map((h,i)=>cell(h,i,8,i<2?1:i<5?2:3)).join('')}</row>`;
  const data=rows.map((values,i)=>`<row r="${i+9}" ht="${height(values,widths)}" customHeight="1">${values.map((v,j)=>cell(v,j,i+9,j<2?5:6,j===7)).join('')}</row>`).join('');
