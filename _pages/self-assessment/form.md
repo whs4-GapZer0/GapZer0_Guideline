@@ -4,11 +4,9 @@ title: "자가진단 작성"
 permalink: /self-assessment/form/
 ---
 
-[자가 진단 활용 안내]({{ '/self-assessment/' | relative_url }})
-
-평가 기본정보를 입력하고 Control별 질문에 따라 충족 여부, 평가 근거, 확인한 증적과 개선조치를 작성하세요. 작성 내용은 이 브라우저에 자동 저장되며 서버로 전송되지 않습니다. 작성 내용을 Excel(.xlsx) 템플릿으로 다운로드하고, PC에서 수정한 Excel 파일을 다시 불러올 수 있습니다.
-
-<link rel="stylesheet" href="{{ '/assets/assessment/app.css' | relative_url }}">
-<div id="assessment-app" data-questions="{{ '/assets/assessment/questions.json' | relative_url }}">자가 진단 질문을 불러오는 중입니다.</div>
-<noscript>자가 진단 입력 화면을 사용하려면 JavaScript를 허용해야 합니다. 작성 방법 및 평가 기준은 안내 페이지에서 확인할 수 있습니다.</noscript>
-<script type="module" src="{{ '/assets/assessment/app.mjs' | relative_url }}"></script>
+<p><a href="/self-assessment/">자가진단 활용 안내</a></p>
+<p>121개 Control의 Implementation Guide와 Evidence를 확인하고 현재 이행 상태와 개선계획을 기록하세요. 작성 내용은 이 브라우저에 저장되며 서버로 전송되지 않습니다.</p>
+<link rel="stylesheet" href="/assets/assessment/app.css?v=control5">
+<div id="assessment-app" data-controls="/assets/assessment/controls.json?v=control2">Control 목록을 불러오는 중입니다.</div>
+<noscript>자가진단 입력 화면을 사용하려면 JavaScript를 허용하세요. 안내 페이지를 참고하여 Excel에서 작성할 수도 있습니다.</noscript>
+<script type="module" src="/assets/assessment/app.mjs?v=control6"></script>

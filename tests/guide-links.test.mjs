@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 
 test('all guide links resolve to published Control pages and matching headings', () => {
-  const bank = JSON.parse(fs.readFileSync(new URL('../assets/assessment/questions.json', import.meta.url), 'utf8'));
+  const bank = JSON.parse(fs.readFileSync(new URL('../assets/assessment/controls.json', import.meta.url), 'utf8'));
   const root = new URL('../_pages/control-guide/', import.meta.url);
   const pages = new Map();
   for (const domain of fs.readdirSync(root, {withFileTypes: true}).filter(e => e.isDirectory())) {

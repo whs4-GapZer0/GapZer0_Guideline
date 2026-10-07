@@ -4,9 +4,6 @@ title: "Supplier Relationships Security - Common Controls"
 permalink: /controls/supplier-relationships-security/common/
 ---
 
-Supplier Relationships Security의 Common Control은 외부 서비스·공급망 의존성을 식별하고 계약·운영·사고대응·종료 전 과정에서 보안 위험을 관리하기 위한 요구사항을 제공합니다.
-
----
 
 ## SUP-C-01
 
@@ -411,7 +408,7 @@ CISO, CPO, 법무, 업무부서, IT 운영, 재무, 감사, 공급자 담당자
 
 - **위험평가·요구사항 목록:** 계약 요구의 근거를 확인합니다.
 - **계약서·SLA:** 보안 요구의 법적·계약적 반영을 확인합니다.
-- **예외·승인 기록:** 미반영 위험의 통제를 확인합니다.
+- **예외·승인 기록:** 미반영 위험의 Control을 확인합니다.
 - **이행점검 기록:** 계약 요구 준수를 확인합니다.
 
 ---

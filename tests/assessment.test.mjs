@@ -1,8 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {blank,validate,parseState,actionType,exportRows,hasDraft} from '../assets/assessment/app.mjs';
-const bank=JSON.parse(fs.readFileSync(new URL('../assets/assessment/questions.json',import.meta.url),'utf8'));
+import {blank,validate,parseState,actionType,exportRows,hasDraft} from '../assets/assessment/legacy/app.mjs';
+const bank=JSON.parse(fs.readFileSync(new URL('../assets/assessment/legacy/questions.json',import.meta.url),'utf8'));
 const meta={scope:'시험 시스템',start:'2026-01-01',end:'2026-09-29',assessor:'담당자',date:'2026-09-29'};
 const base=()=>({...blank(),response:'충족',reason:'전체 기준 확인',evidence:'정책 v1 p.3'});
 const plan={action:'검토 실시',owner:'담당자',due:'2026-10-15',status:'예정'};
