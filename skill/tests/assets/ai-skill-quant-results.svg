@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620">
+<rect width="1200" height="620" fill="#f8fafc"/>
+<text x="60" y="65" font-family="Arial,sans-serif" font-size="34" font-weight="700" fill="#0f172a">GapZer0 AI Skill — Quantitative Evaluation</text>
+<text x="60" y="100" font-family="Arial,sans-serif" font-size="17" fill="#475569">Actual runtime validation + control-search quality improvement</text>
+<g font-family="Arial,sans-serif">
+<rect x="60" y="135" width="250" height="125" rx="18" fill="#e0f2fe"/><text x="85" y="175" font-size="17" fill="#0369a1">Runtime scenarios</text><text x="85" y="225" font-size="38" font-weight="700" fill="#0c4a6e">13 / 13</text><text x="230" y="225" font-size="21" font-weight="700" fill="#0284c7">100%</text>
+<rect x="330" y="135" width="250" height="125" rx="18" fill="#dcfce7"/><text x="355" y="175" font-size="17" fill="#15803d">Top-5 case pass</text><text x="355" y="225" font-size="38" font-weight="700" fill="#14532d">8 / 8</text><text x="500" y="225" font-size="21" font-weight="700" fill="#16a34a">100%</text>
+<rect x="600" y="135" width="250" height="125" rx="18" fill="#ede9fe"/><text x="625" y="175" font-size="17" fill="#6d28d9">Expected controls Top-5</text><text x="625" y="225" font-size="38" font-weight="700" fill="#4c1d95">11 / 11</text><text x="770" y="225" font-size="21" font-weight="700" fill="#7c3aed">100%</text>
+<rect x="870" y="135" width="270" height="125" rx="18" fill="#fef3c7"/><text x="895" y="175" font-size="17" fill="#b45309">Regression failures</text><text x="895" y="225" font-size="38" font-weight="700" fill="#78350f">0</text><text x="940" y="225" font-size="18" fill="#92400e">new failures</text>
+
+<text x="60" y="315" font-size="22" font-weight="700" fill="#0f172a">Search quality improvement</text>
+<text x="60" y="355" font-size="17" fill="#334155">Metric</text><text x="430" y="355" font-size="17" fill="#334155">Initial</text><text x="650" y="355" font-size="17" fill="#334155">Final</text><text x="880" y="355" font-size="17" fill="#334155">Change</text>
+<line x1="60" y1="370" x2="1140" y2="370" stroke="#cbd5e1"/>
+<text x="60" y="410" font-size="18" fill="#0f172a">Top-5 Case Pass Rate</text><text x="430" y="410" font-size="18" fill="#64748b">87.5% (7/8)</text><text x="650" y="410" font-size="20" font-weight="700" fill="#15803d">100% (8/8)</text><text x="880" y="410" font-size="18" font-weight="700" fill="#15803d">+12.5%p</text>
+<line x1="60" y1="430" x2="1140" y2="430" stroke="#e2e8f0"/>
+<text x="60" y="470" font-size="18" fill="#0f172a">Expected-Control Top-5 Hit Rate</text><text x="430" y="470" font-size="18" fill="#64748b">90.9% (10/11)</text><text x="650" y="470" font-size="20" font-weight="700" fill="#15803d">100% (11/11)</text><text x="880" y="470" font-size="18" font-weight="700" fill="#15803d">+9.1%p</text>
+<line x1="60" y1="490" x2="1140" y2="490" stroke="#e2e8f0"/>
+<text x="60" y="530" font-size="18" fill="#0f172a">HRS-C-01 rank</text><text x="430" y="530" font-size="18" fill="#64748b">6th</text><text x="650" y="530" font-size="20" font-weight="700" fill="#15803d">4th</text><text x="880" y="530" font-size="18" font-weight="700" fill="#15803d">+2 ranks</text>
+<text x="60" y="585" font-size="15" fill="#64748b">Scope: 8 representative search queries / 11 expected controls. Results do not imply 100% accuracy for all security queries.</text>
+</g></svg>
