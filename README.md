@@ -2,8 +2,6 @@
 
 NIST CSF 2.0과 ISMS-P를 기반으로 만든 GapZer0 Framework의 실무 이행 가이드라인입니다. **15개 보안 영역의 121개 Control**에 대한 이행 방법과 Evidence, 자가진단 기능을 제공합니다.
 
-[가이드라인 사이트](https://docs.whs4-gapzer0.kro.kr/)
-
 ## 문서 구성
 
 | 페이지 | 파일 | 내용 |
@@ -22,13 +20,14 @@ NIST CSF 2.0과 ISMS-P를 기반으로 만든 GapZer0 Framework의 실무 이행
 
 ```text
 _pages/control-guide/
-└── 01-governance/           # 보안 영역별 폴더 예시
+└── 05-identity-access-management/  # 보안 영역별 폴더 예시
     ├── index.md            # 영역 소개
     ├── common.md           # Common Control
-    └── enhancement.md      # Enhancement Control
+    ├── enhancement.md      # Enhancement Control
+    └── local.md            # Local Control
 ```
 
-Local Control이 있는 영역에는 `local.md`가 추가됩니다. 각 Class 파일에는 여러 Control이 포함되며 Control ID별로 목적·요구사항·적용 조건·책임자·Stakeholders·기준 매핑·Implementation Guide·Evidence를 작성합니다.
+각 Class 파일에는 여러 Control이 포함되며 Control ID별로 목적·요구사항·적용 조건·책임자·Stakeholders·기준 매핑·Implementation Guide·Evidence를 작성합니다.
 
 ## 주요 설정·기능 파일
 
