@@ -1,7 +1,7 @@
 // GitBook replaces .book during menu/history navigation. Module script tags in
 // the injected page are not re-executed, so initialize through its lifecycle.
 (function () {
-    var moduleUrl = new URL('../assessment/app.mjs?v=control6', document.currentScript.src).href;
+    var moduleUrl = new URL('../assessment/app.mjs?v=security1', document.currentScript.src).href;
     function initializeAssessment() {
         var root = document.getElementById('assessment-app');
         if (!root) return;
