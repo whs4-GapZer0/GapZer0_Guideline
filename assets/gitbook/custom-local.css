@@ -494,7 +494,7 @@ a,button,input,select,textarea,summary { touch-action:manipulation; }
 .gz-wordmark { display:block; position:relative; width:230px; height:55px; overflow:hidden; flex:none; }
 .book .markdown-section .gz-wordmark img { position:absolute; width:310px; height:auto; max-width:none; left:-36px; top:-28px; margin:0; }
 .book .gz-brand-label { font-size:32px; font-weight:600; line-height:1.2; }
-.book.color-theme-2 .gz-wordmark { background:#fff; border-radius:2px; }
+.book.color-theme-2 .gz-wordmark { background:transparent; }
 @media(max-width:600px) {
  .book .markdown-section .gz-brand-title { gap:12px; }
  .gz-wordmark { width:150px; height:36px; }
@@ -842,6 +842,7 @@ html.framework-drawer-open, html.framework-drawer-open body { overflow:hidden !i
   .book .gz-home-brand .gz-brand-label { font-size: 28px; letter-spacing: -1.3px; }
 }
 .book .gz-home-brand .gz-wordmark { width: auto; height: auto; flex: 0 0 auto; }
+.book.color-theme-2 .gz-home-brand .gz-wordmark { color: #ffffff !important; }
 
 .book .gz-home-brand .gz-wordmark, .book .gz-home-brand .gz-brand-label { font-family: GapZer0Sans, sans-serif !important; font-weight: 800; letter-spacing: -1.5px; }
 .book .markdown-section .gz-home-brand .gz-wordmark, .book .markdown-section .gz-home-brand .gz-brand-label { font-family: GapZer0Sans, sans-serif !important; }
