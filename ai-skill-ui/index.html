@@ -1,13 +1,67 @@
 <!doctype html>
-<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GapZer0 AI Assistant</title><link rel="stylesheet" href="styles.css"><script type="module" src="app.js"></script></head>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>GapZer0 AI Assistant</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
 <body><main>
-<header><div class="eyebrow">GAPZER0 · INFORMATION SECURITY & GRC</div><h1>GapZer0 AI Assistant</h1><p>조직 상황을 입력하면 GapZer0 Framework에서 관련 Control을 찾아 실무 적용을 지원합니다.</p><span class="demo">Demo Mode · 실시간 AI 호출 없음</span></header>
-<div class="flow">사용자 질문 <span>→</span> GapZer0 AI Skill <span>→</span> 관련 Control <span>→</span> 가이드라인 근거 <span>→</span> 실무 결과</div>
-<section class="workspace"><div class="intro"><h2>어떤 도움이 필요한가요?</h2><p>원문을 확인하고, 조직에서 결정할 사항을 구분하세요.</p></div>
-<div class="modes" role="group" aria-label="기능 선택"><button data-mode="guide" aria-pressed="true"><b>01 · Control 안내</b><span>관련 통제와 적용 조건 확인</span></button><button data-mode="plan" aria-pressed="false"><b>02 · 이행계획 작성</b><span>목표·활동·역할·증적 정리</span></button><button data-mode="document" aria-pressed="false"><b>03 · 실무 문서 초안</b><span>조직에서 검토할 절차 초안</span></button></div>
-<form id="question-form"><label for="question">조직 상황 또는 요청</label><textarea id="question" rows="4" maxlength="2000" placeholder="예: 직원이 퇴사할 때 계정과 접근권한을 어떻게 회수해야 하나요?"></textarea><div class="submit-row"><p>Demo는 아래 세 예시만 지원합니다. 질문은 외부로 전송하지 않습니다.</p><button id="submit" type="submit">GapZer0에 질문하기 <span aria-hidden="true">→</span></button></div></form>
-<div class="examples"><span>검증 시나리오</span><button data-example="guide">퇴사자 접근권한 회수</button><button data-example="plan">CON-C-01 이행계획</button><button data-example="document">클라우드 공급자 사전 보안검토</button></div>
-<p id="error" role="alert" hidden></p><p id="status" role="status">Demo 자료를 불러오는 중입니다.</p></section>
-<section id="results" hidden aria-label="응답 결과"><div class="result-title"><div><div class="eyebrow">SOURCE-GROUNDED DEMO</div><h2>관련 GapZer0 Controls</h2></div><span class="demo">Demo 재구성 · 원본 Runtime 응답 전문 아님</span></div><p id="result-question"></p><div id="control-cards"></div><div id="practical"></div></section>
-<footer><h2>GapZer0 프로젝트 구조</h2><div class="architecture"><div>GapZer0 Framework → Guideline → AI Skill<br><strong>Control Guidance / Implementation Plan / Document Draft</strong></div><div>Virtual Chibbo → Evidence → GRC<br><span>별도 Evidence 연계 흐름 · 이 UI에서 실행하지 않음</span></div></div><p>이 화면은 원문과 검증 기록을 바탕으로 재구성한 Demo입니다. 인증·법적 충족 여부를 판정하지 않습니다.</p></footer>
-</main></body></html>
+  <header>
+    <div class="eyebrow">GAPZER0 · INFORMATION SECURITY & GRC</div>
+    <h1>GapZer0 AI Assistant</h1>
+    <p class="hero-purpose">보안 업무 상황을 질문하면 GapZer0 가이드라인에서 필요한 보안 통제를 찾아 실행 방법과 문서 초안까지 제공합니다.</p>
+    <p class="hero-description">복잡한 보안 가이드라인을 직접 검색하지 않아도 조직 상황에 맞는 Control과 실무 적용 방법을 확인할 수 있습니다.</p>
+    <p class="term-help"><b>Control</b> = 조직이 수행해야 하는 보안 통제</p>
+    <section class="usage" aria-labelledby="usage-title">
+      <h2 id="usage-title">3단계로 사용하세요</h2>
+      <ol class="usage-steps">
+        <li><span aria-hidden="true">1</span>필요한 도움 선택</li>
+        <li><span aria-hidden="true">2</span>보안 업무 상황 입력</li>
+        <li><span aria-hidden="true">3</span>관련 통제와 실행 방법 확인</li>
+      </ol>
+      <p class="demo-note">현재 데모에서는 검증이 완료된 대표 시나리오를 제공합니다. <span class="demo">Demo Mode · 실시간 AI 호출 없음</span></p>
+    </section>
+  </header>
+  <div class="flow" aria-label="근거 기반 지원 흐름">
+    <div>사용자 질문<small>해결할 보안 업무 상황</small></div><span aria-hidden="true">→</span>
+    <div>GapZer0 AI Skill<small>가이드라인 활용 규칙</small></div><span aria-hidden="true">→</span>
+    <div>관련 Control<small>우리 상황에 필요한 통제</small></div><span aria-hidden="true">→</span>
+    <div>가이드라인 근거<small>실제 Control 원문 확인</small></div><span aria-hidden="true">→</span>
+    <div>실무 결과<small>적용 방법·계획·문서 초안</small></div>
+  </div>
+  <section class="workspace">
+    <div class="intro"><h2>어떤 도움이 필요한가요?</h2><p>원하는 결과를 선택한 뒤, 예시 질문으로 시작하세요.</p></div>
+    <div class="modes" role="group" aria-label="기능 선택">
+      <button data-mode="guide" aria-pressed="true"><span class="mode-number">01</span><b>어떤 보안 통제가 필요한지 찾기</b><span>우리 상황에 적용할 GapZer0 통제를 추천받습니다.</span><small>Control 안내</small></button>
+      <button data-mode="plan" aria-pressed="false"><span class="mode-number">02</span><b>보안 통제 실행계획 만들기</b><span>담당자·실행 활동·증적을 포함한 이행계획을 만듭니다.</span><small>이행계획</small></button>
+      <button data-mode="document" aria-pressed="false"><span class="mode-number">03</span><b>실무 문서 초안 만들기</b><span>보안 절차서와 실무 문서의 초안을 만듭니다.</span><small>실무 문서 초안</small></button>
+    </div>
+    <form id="question-form">
+      <label for="question">무엇을 해결하고 싶나요?</label>
+      <p class="input-help" id="question-help">현재 조직에서 겪고 있는 보안 상황이나 필요한 업무를 입력하세요.</p>
+      <textarea id="question" rows="3" maxlength="2000" aria-describedby="question-help demo-limit" placeholder="예: 직원이 퇴사했습니다. 계정과 접근권한을 어떻게 회수해야 하나요?"></textarea>
+      <div class="submit-row"><p id="demo-limit">현재 Demo는 아래 세 예시 질문만 지원합니다. 질문은 외부로 전송하지 않습니다.</p><button id="submit" type="submit">관련 보안 통제 확인하기 <span aria-hidden="true">→</span></button></div>
+    </form>
+    <div class="examples">
+      <h3>처음이라면 예시로 시작해보세요</h3>
+      <div class="example-buttons">
+        <button data-example="guide"><span>통제 찾기</span>퇴사자 계정과 접근권한 회수</button>
+        <button data-example="plan"><span>이행계획</span>CON-C-01 적용 계획 만들기</button>
+        <button data-example="document"><span>문서 초안</span>클라우드 공급자 도입 전 보안 검토 절차</button>
+      </div>
+    </div>
+    <p id="error" role="alert" hidden></p><p id="status" role="status">Demo 자료를 불러오는 중입니다.</p>
+  </section>
+  <section id="results" hidden aria-label="응답 결과">
+    <div class="result-title"><div><div class="eyebrow">SOURCE-GROUNDED DEMO</div><h2>추천 결과</h2></div><span class="demo">Demo 재구성 · 원본 Runtime 응답 전문 아님</span></div>
+    <p id="result-question"></p>
+    <div id="result-summary" class="result-summary"></div>
+    <div class="glossary" aria-label="용어 도움말"><p><b>Control</b> = 조직이 수행해야 하는 보안 통제</p><p><b>Evidence</b> = 통제를 수행했다는 것을 확인할 수 있는 증적</p></div>
+    <h3 class="controls-heading">관련 GapZer0 Controls · 추천 통제</h3>
+    <div id="control-cards"></div><div id="practical"></div>
+  </section>
+  <footer><h2>GapZer0 프로젝트 구조</h2><div class="architecture"><div>GapZer0 Framework → Guideline → AI Skill<br><strong>Control Guidance / Implementation Plan / Document Draft</strong></div><div>Virtual Chibbo → Evidence → GRC<br><span>별도 Evidence 연계 흐름 · 이 UI에서 실행하지 않음</span></div></div><p>이 화면은 원문과 검증 기록을 바탕으로 재구성한 Demo입니다. 인증·법적 충족 여부를 판정하지 않습니다.</p></footer>
+</main></body>
+</html>

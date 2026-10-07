@@ -6,6 +6,9 @@ const el = (tag,text,cls) => {const n=document.createElement(tag);if(text!==unde
 const tag = (text,cls) => el('span',text,'tag '+cls);
 function select(value) {
   mode=value;
+  const actions={guide:'관련 보안 통제 확인하기',plan:'이행계획 만들기',document:'문서 초안 만들기'};
+  $('#submit').replaceChildren(document.createTextNode(actions[value]+' '),el('span','→'));
+  $('#submit span').setAttribute('aria-hidden','true');
   document.querySelectorAll('[data-mode]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.mode===value)));
   $('#results').hidden=true;$('#error').hidden=true;
 }
@@ -19,10 +22,22 @@ function block(container,title,text,kind='ground',label='가이드라인 근거'
 }
 function render(result) {
   $('#result-question').textContent=result.question;
+  const summary=$('#result-summary');summary.replaceChildren();
+  const names={guide:'관련 통제와 실행 방법',plan:'이행계획 초안',document:'보안 검토 절차 초안'};
+  summary.append(el('b',names[result.mode]),el('p',`검토할 Control ${result.controls.length}개 · ${result.controls.map(c=>c.id+(c.conditional?' (조건부)':'')).join(' / ')}`),el('p','아래에서 필요한 이유 → 실행 활동 → Evidence → 원문을 확인하세요. 조직별 조건과 결정 사항은 별도로 검토해야 합니다.'));
   const cards=$('#control-cards');cards.replaceChildren();
   for(const c of result.controls){
-    const card=el('article',undefined,'control-card');card.append(el('div',c.id+(c.conditional?' · 조건부':''),'control-id'),el('h3',c.name),el('div',c.domain+' · '+c.classification,'meta'),tag('가이드라인 근거','ground'),el('b','왜 관련되는지 — 원문 목표'),el('div',c.fields['Control Objective'],'excerpt'),tag('확인 필요','check'),el('b','적용 시 확인사항 — 원문 조건'),el('div',c.fields['적용 조건'],'excerpt'));
-    const details=el('details');details.append(el('summary','적용 방법 · 원문 Implementation Guide'),el('div',c.fields['Implementation Guide'],'excerpt'));card.append(details);
+    const card=el('article',undefined,'control-card');
+    card.append(el('div',c.id+(c.conditional?' · 조건부':''),'control-id'),el('h3',c.name),el('div',c.domain+' · '+c.classification,'meta'),tag('가이드라인 근거','ground'),el('b','왜 필요한가 — 원문 목표'),el('div',c.fields['Control Objective'],'excerpt'));
+    const details=el('details');
+    details.append(el('summary','무엇을 해야 하는가 — 실행 활동 확인'),el('div',c.fields['Implementation Guide'],'excerpt'));
+    card.append(details);
+    const evidence=el('details');
+    evidence.append(el('summary','Evidence — 확인하거나 남겨야 할 증적'),el('p','필요한 자료 예시이며 이미 확보된 증적이 아닙니다.','evidence-note'),el('div',c.fields['Evidence'],'excerpt'));
+    card.append(evidence);
+    const conditions=el('details');
+    conditions.append(el('summary','적용 조건과 가이드라인 근거 확인'),tag('확인 필요','check'),el('div',c.fields['적용 조건'],'excerpt'));
+    card.append(conditions);
     const a=el('a','Source · '+c.source,'source');a.href='./sources/'+c.id.toLowerCase()+'.html#'+c.id.toLowerCase();a.target='_blank';a.rel='noopener';card.append(a);cards.append(card);
   }
   const practical=$('#practical');practical.replaceChildren();
@@ -30,6 +45,7 @@ function render(result) {
   if(result.mode==='plan'){
     const c=result.controls[0];
     for(const [title,key] of [['Control', 'Control Name'],['목표','Control Objective'],['실행 활동','Implementation Guide'],['Owner — 원문 역할','Control Owner'],['Stakeholders — 원문 협업 역할','Stakeholders'],['Timing — 원문 적용 시점','적용 조건'],['Evidence — 필요한 증적 예시, 확보된 증적 아님','Evidence']])block(practical,title,c.fields[key]);
+    block(practical,'이행계획 활용 안내','원문 역할을 실제 담당 역할과 대조하고 실행 활동·필요 Evidence를 검토하여 조직의 이행계획 초안으로 활용하세요.','proposal','AI 제안');
     block(practical,'Status','초안 · 이행 상태 및 실제 증적 확보 여부 확인 필요','check','확인 필요');
     block(practical,'Source',c.source);
   }
