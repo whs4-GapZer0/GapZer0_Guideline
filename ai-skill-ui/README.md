@@ -65,7 +65,7 @@ UI_URL=http://127.0.0.1:8893/ai-skill-ui/ node ai-skill-ui/tests/ui-tests.cjs
 
 Windows PowerShell에서는 `$env:UI_URL='http://127.0.0.1:8893/ai-skill-ui/'`로 설정한다. Chromium 경로는 `CHROMIUM_PATH`로 지정한다. 테스트 의존성은 일반 UI 실행에 필요 없다. 개발용 테스트 도구가 없다면 UI와 별도로 Playwright를 설치해야 한다.
 
-현재 한계: 임의 자연어 질의 미지원, live Skill 연결 미구현, 인증/멀티테넌트/저장/내보내기 미구현, 원문은 Markdown 텍스트로 표시, 공개 배포 PENDING, UI에서 운영 GRC 연결 미실행. 원문에 있는 조건부 법령은 실제 조직 적용 여부를 따로 확인해야 한다.
+현재 한계: 임의 자연어 질의 미지원, live Skill 연결 미구현, 인증/멀티테넌트/저장/내보내기 미구현, 원문 Markdown은 DOM으로 렌더링, 공개 배포 PENDING, UI에서 운영 GRC 연결 미실행. 원문에 있는 조건부 법령은 실제 조직 적용 여부를 따로 확인해야 한다.
 
 ## 결과 가독성 개선
 
@@ -94,3 +94,31 @@ python ai-skill-ui/build-showcase.py
 이 명령은 기존 Control/Skill/report를 읽기만 하고 UI data만 갱신한다. source 보고서의 근거가 없으면 중단하며 지표를 새로 추정하지 않는다. 최신 `_pages/`와의 전체 동기화는 별도 단계다.
 
 [Showcase 검증 보고서](tests/SHOWCASE_VALIDATION.md), [Desktop](tests/showcase-desktop.png), [Mobile](tests/showcase-mobile.png). 최종 디자인 리뉴얼, 실시간 LLM/API, 운영 배포는 포함하지 않는다.
+
+## Quantitative Showcase — 정량 근거 확장
+
+`검증 결과`에 13개 지표, 5개 SVG 도넛, Top-3/Top-5 비교 4개 bar, 검증 Matrix, T01–T10 탐색, T05/T06 단일 안전성 관찰, Codex/Claude 대표 기능 비교와 Runtime 구조를 추가했다. **선정된 검증 범위의 결과이며 전체 AI 정확도·전체 Control 충족률이 아니다.** 분자·분모·범위·측정 의미·Source를 확인할 수 있고 백분율은 JS로 계산한다.
+
+Explorer 통계와 Domain/Class 분포는 기존 `data/controls.json`에서 실행 시 집계한다. 분포를 클릭하면 필터에 적용된다. Demo의 Control ID는 Explorer 원문으로 연결된다. 추가 기능 CTA는 같은 Control이 포함된 기존 Demo에만 연결하고 지원하지 않는 조합은 비활성화한다. Evidence는 필요한 자료 예시이며 실제 확보됐다고 주장하지 않는다.
+
+- 정량 snapshot: [data/quantitative.json](data/quantitative.json)
+- 재생성: `python ai-skill-ui/build-quantitative.py` — 실제 보고서·결과 파일을 대조하고 source SHA-256을 기록. Control·Skill·검색 코드 수정 없음.
+- 검증: [QUANTITATIVE_VALIDATION.md](tests/QUANTITATIVE_VALIDATION.md), [VAL01–VAL32 결과](tests/quantitative-test-results.json)
+- 새 단계는 로컬 구현·테스트·캡처만 완료. **commit / push / deploy 미실행**. 운영 공개 URL에 반영되지 않았다.
+
+검증 순서는 `ui-tests.cjs`, `ux-tests.cjs` → `readability-tests.cjs` → `showcase-tests.cjs` → snapshot 재생성 → `quantitative-tests.cjs`다. `UX_BASELINE`에는 작업 전 파일 SHA-256 map JSON 경로를 설정한다. 이번 실행은 다음 환경을 사용했다:
+
+```bash
+python -m http.server 8944 --bind 127.0.0.1
+# 다른 터미널, repository root
+export UI_URL=http://127.0.0.1:8944/ai-skill-ui/
+export UX_BASELINE=/tmp/quantitative-before.json
+node ai-skill-ui/tests/ui-tests.cjs
+node ai-skill-ui/tests/ux-tests.cjs
+node ai-skill-ui/tests/readability-tests.cjs
+node ai-skill-ui/tests/showcase-tests.cjs
+python ai-skill-ui/build-quantitative.py
+node ai-skill-ui/tests/quantitative-tests.cjs
+```
+
+`/tmp/quantitative-before.json`은 이번 작업공간의 시작 snapshot이다. 다른 환경에서는 해당 작업 시작 시 snapshot을 새로 생성해야 한다. 기존 미커밋 검색 알고리즘 변경은 읽기 전용으로 대조·보존했으며 UI 변경에 포함하지 않는다. 최신 Guideline 동기화·실시간 자유질의·Production Chibbo/GRC 연결은 별도 검증이 필요하다.

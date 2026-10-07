@@ -53,7 +53,8 @@ function render(result) {
   const cards=$('#control-cards');cards.replaceChildren();
   for(const c of result.controls){
     const card=el('article',undefined,'control-card');card.id='control-'+c.id.toLowerCase();card.tabIndex=-1;
-    card.append(el('div',c.id+(c.conditional?' · 조건부':''),'control-id'),el('h3',c.name),el('div',c.domain+' · '+c.classification,'meta'),tag('가이드라인 근거','ground'),el('h4','왜 필요한가'),el('div',c.fields['Control Objective'],'excerpt objective'));
+    const id=el('div',undefined,'control-id');const explorerLink=el('a',c.id+(c.conditional?' · 조건부':''));explorerLink.href='#control-explorer';explorerLink.dataset.exploreControl=c.id;explorerLink.title='Control Explorer에서 이 통제의 원문 확인';id.append(explorerLink);
+    card.append(id,el('h3',c.name),el('div',c.domain+' · '+c.classification,'meta'),tag('가이드라인 근거','ground'),el('h4','왜 필요한가'),el('div',c.fields['Control Objective'],'excerpt objective'));
     card.append(el('h4','해야 할 일'));
     const activities=el('ul',undefined,'key-activities');
     for(const title of activityTitles(c.fields['Implementation Guide']).slice(0,3)){const li=el('li');li.append(inline(title.replace(/^\d+\.\s*/,'')));activities.append(li);}card.append(activities);
@@ -65,7 +66,17 @@ function render(result) {
     const chips=el('div',undefined,'evidence-chips');
     for(const title of evidenceTitles(c.fields['Evidence']).slice(0,3))chips.append(el('span',title));card.append(chips,evidence);
     const source=el('details',undefined,'source-details');source.append(el('summary','가이드라인 근거 보기'),tag('확인 필요','check'),renderMarkdown(c.fields['적용 조건']));
-    const a=el('a','Source · '+c.source,'source');a.href='./sources/'+c.id.toLowerCase()+'.html#'+c.id.toLowerCase();a.target='_blank';a.rel='noopener';source.append(a);card.append(source);cards.append(card);
+    const a=el('a','Source · '+c.source,'source');a.href='./sources/'+c.id.toLowerCase()+'.html#'+c.id.toLowerCase();a.target='_blank';a.rel='noopener';source.append(a);card.append(source);
+    const next=el('details',undefined,'scenario-cta');next.append(el('summary','이 Control로 다음 기능 확인'));
+    for(const [mode,label] of [['plan','검증된 이행계획 보기'],['document','검증된 문서 초안 보기']]){
+      const scenario=adapter.examples().find(s=>s.mode===mode);
+      const supported=scenario.controls.some(control=>control.id===c.id);
+      const button=el('button',label);button.type='button';button.disabled=!supported;button.dataset.scenarioTarget=mode;
+      if(supported)button.addEventListener('click',()=>{document.querySelector(`[data-example=${mode}]`).click();$('#submit').click();});
+      next.append(button);
+    }
+    next.append(el('p','이 Control이 포함된 기존 검증 Demo로만 이동합니다. 지원하지 않는 조합은 비활성 상태이며 새 AI 결과를 생성하지 않습니다.','section-note'));
+    card.append(next);cards.append(card);
   }
   const practical=$('#practical');practical.replaceChildren();
   if(result.mode==='guide')block(practical,'선택 이유 · 적용 방법','관련성과 적용 방법은 위 카드의 실제 Control 목표·적용 조건·Implementation Guide를 확인하세요. 물리적 접근권한이 있는 경우 PHY-C-02를 함께 검토합니다.','proposal','AI 제안');

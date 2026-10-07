@@ -1,4 +1,5 @@
-import {renderMarkdown} from './markdown-renderer.js';
+import {renderMarkdown,evidenceTitles} from './markdown-renderer.js';
+import {initializeQuantitative} from './quantitative.js';
 const $=s=>document.querySelector(s);
 const node=(tag,text,cls)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n;};
 let snapshot;
@@ -20,10 +21,11 @@ function applyFilters(){
   const tokens=$('#explorer-search').value.trim().split(/\s+/).filter(Boolean).map(normalize);
   filtered=catalog.controls.filter(c=>(!$('#explorer-domain').value||c.domain===$('#explorer-domain').value)&&(!$('#explorer-class').value||c.classification===$('#explorer-class').value)&&tokens.every(t=>normalize(c.id+' '+c.name+' '+c.keywords.join(' ')).includes(t)));
   limit=12;$('#explorer-detail').hidden=true;renderExplorer();
+  document.dispatchEvent(new CustomEvent('explorer:results',{detail:{count:filtered.length,total:catalog.controls.length}}));
 }
 function renderExplorer(){
   $('#explorer-results').replaceChildren();
-  $('#explorer-status').textContent=`${filtered.length} / ${catalog.count}개 Control · ${Math.min(limit,filtered.length)}개 표시`;
+  $('#explorer-status').textContent=`${catalog.controls.length}개 중 ${filtered.length}개 Control · ${Math.min(limit,filtered.length)}개 표시`;
   if(!filtered.length)$('#explorer-results').append(node('p','검색 결과가 없습니다. 검색어나 필터를 변경하세요.','empty-state'));
   for(const c of filtered.slice(0,limit)){
     const b=node('button',undefined,'explorer-card');b.type='button';b.dataset.controlId=c.id;
@@ -33,12 +35,14 @@ function renderExplorer(){
 }
 function selectControl(c){
   const target=$('#explorer-detail');target.replaceChildren();target.dataset.controlId=c.id;
-  target.append(node('h3',c.id+' · '+c.name),node('p',c.domain+' · '+c.classification,'section-note'));
+  target.append(node('h3',c.id+' · '+c.name),node('p',c.domain+' · '+c.classification,'section-note'),node('p','Control → Objective → Statement → Evidence → Source','source-chain'));
   for(const [key,label] of [['Control Objective','Objective'],['Control Statement','Control Statement'],['Control Owner','Owner — 원문 역할'],['Stakeholders','Stakeholders — 원문 역할'],['Evidence','Evidence — 필요한 자료 예시']]){
     if(!Object.hasOwn(c.fields,key))continue;
-    const s=node('section');s.dataset.field=key;s.append(node('h4',label),renderMarkdown(c.fields[key]));target.append(s);
+    const s=node('section');s.dataset.field=key;s.append(node('h4',label));
+    if(key==='Evidence'){s.append(node('p','Evidence는 통제를 실제 수행했음을 확인할 수 있는 자료입니다. 필요한 자료 예시이며 확보된 증적이 아닙니다.','section-note'));const chips=node('div',undefined,'evidence-chips');for(const t of evidenceTitles(c.fields[key]))chips.append(node('span',t));s.append(chips);}
+    s.append(renderMarkdown(c.fields[key]));target.append(s);
   }
-  const source=node('section',undefined,'explorer-source');source.append(node('h4','Source'),node('p',c.source),repositoryLink(c.repositorySource,'저장소 Control 원문 확인'));target.append(source);
+  const source=node('section',undefined,'explorer-source');source.append(node('h4','이 답변의 근거 — Source'),node('p',c.source),node('p',c.repositorySource),repositoryLink(c.repositorySource,'저장소 Control 원문 확인'));target.append(source);
   const details=node('details',undefined,'explorer-original');details.append(node('summary','Control 원문 보기'),renderMarkdown(c.original));target.append(details);
   target.hidden=false;target.scrollIntoView({block:'start'});
 }
@@ -60,6 +64,10 @@ async function load(){
   for(const id of ['explorer-search','explorer-domain','explorer-class'])$('#'+id).addEventListener(id==='explorer-search'?'input':'change',applyFilters);
   $('#explorer-reset').addEventListener('click',()=>{for(const id of ['explorer-search','explorer-domain','explorer-class'])$('#'+id).value='';applyFilters();});
   $('#explorer-more').addEventListener('click',()=>{limit+=12;renderExplorer();});
-  applyFilters();$('#showcase-status').textContent='Showcase 자료 준비 완료 · 현재 저장소 검증 보고서와 AI Skill snapshot 기준';
+  document.addEventListener('click',event=>{const a=event.target.closest('[data-explore-control]');if(!a)return;event.preventDefault();openControl(a.dataset.exploreControl);});
+  function openControl(id){const c=catalog.controls.find(c=>c.id===id);if(!c)return;$('#explorer-search').value=id;$('#explorer-domain').value='';$('#explorer-class').value='';applyFilters();selectControl(c);}
+  applyFilters();
+  await initializeQuantitative(catalog,{filter(field,value){$('#explorer-search').value='';$('#explorer-domain').value=field==='domain'?value:'';$('#explorer-class').value=field==='classification'?value:'';applyFilters();$('#control-explorer').scrollIntoView();}});
+  $('#showcase-status').textContent='Showcase 자료 준비 완료 · 현재 저장소 검증 보고서와 AI Skill snapshot 기준';
 }
 load().catch(e=>{$('#showcase-status').textContent=e.message;$('#showcase-status').setAttribute('role','alert');$('#explorer-status').textContent='자료 로딩 실패 · 결과를 표시할 수 없습니다.';});

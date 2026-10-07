@@ -83,6 +83,7 @@
   <section class="showcase-section" id="control-explorer" aria-labelledby="explorer-title">
     <div class="section-heading"><div><div class="eyebrow">CONTROL EXPLORER</div><h2 id="explorer-title">Control 탐색</h2><p>AI Skill이 참고하는 GapZer0 Control을 직접 확인할 수 있습니다.</p></div><span id="catalog-count" class="demo">자료 로딩 중</span></div>
     <p class="section-note">현재 AI Skill source snapshot 기준입니다. 최신 Guideline 전체 동기화는 수행하지 않았습니다. 이 탐색은 ID·이름·키워드의 문자열 필터이며 Skill의 검색 랭킹 평가와는 별도입니다.</p>
+    <div id="dataset-statistics"></div>
     <div class="explorer-filters"><label>Control ID / 이름 / keyword<input id="explorer-search" type="search" placeholder="예: IAM-C-01, 백업, 퇴사자" maxlength="200"></label><label>Domain<select id="explorer-domain"><option value="">모든 Domain</option></select></label><label>Class<select id="explorer-class"><option value="">모든 Class</option></select></label><button id="explorer-reset" type="button">초기화</button></div>
     <p id="explorer-status" role="status">Control 자료를 불러오는 중입니다.</p>
     <div id="explorer-results" class="explorer-grid"></div>
@@ -110,7 +111,9 @@
     <details class="traceability-section"><summary>AI가 왜 이 답을 했나요? · Source 추적 보기</summary><p>추천 Control → Control 원문 → Source → 실무 결과</p><p>결과 카드의 ‘가이드라인 근거 보기’에서 원문 경로와 적용 조건을 확인할 수 있습니다. Control 탐색에서는 원문 전체를 읽을 수 있습니다. 현재 UI는 원문에 근거해 재구성한 Demo로, 실시간 추론 trace를 제공하지 않습니다.</p></details>
   </section>
   <section class="showcase-section" id="validation" aria-labelledby="validation-title">
-    <div class="eyebrow">VALIDATION DASHBOARD</div><h2 id="validation-title">검증 결과</h2><p>현재 저장소 보고서에서 확인한 결과입니다. <b>검증 시나리오 범위 기준</b>이며 일반적인 AI 정확도를 나타내지 않습니다.</p>
+    <div class="eyebrow">VALIDATION DASHBOARD</div><h2 id="validation-title">AI Skill 검증 결과</h2><p>아래 수치는 전체 AI 성능을 의미하지 않으며, 명시된 검증 시나리오와 테스트 범위에서 측정된 결과입니다. <b>검증 시나리오 범위 기준</b>입니다.</p>
+    <div id="quantitative-dashboard"></div>
+    <h3>기존 검증 근거 요약</h3>
     <div id="validation-metrics" class="validation-grid"></div>
     <section class="runtime-environments"><h3>지원 및 검증 환경</h3><div class="component-grid">
       <section><h4>Codex</h4><p>실제 Runtime 검증 완료 · V01–V03 / T01–T10</p><a data-repo-path="skill/tests/runtime-test-results.md">Runtime 보고서</a></section>
@@ -124,7 +127,7 @@
     <div class="project-flow"><span>Framework</span><span>Guideline</span><span>AI Skill</span><span>Implementation</span><span>Evidence</span><span>GRC</span></div>
     <details><summary>전체 연결 상세 설명 보기</summary><dl><dt>Framework</dt><dd>무엇을 관리해야 하는지 정의</dd><dt>Guideline</dt><dd>어떻게 이행할지 안내</dd><dt>AI Skill</dt><dd>필요한 Control을 찾고 적용을 지원</dd><dt>Implementation</dt><dd>조직에서 실제 수행</dd><dt>Evidence</dt><dd>수행 사실을 확인할 수 있는 자료</dd><dt>GRC</dt><dd>Evidence를 기반으로 평가·관리</dd></dl><p>이 연결은 프로젝트 역할 설명입니다. Web UI가 실제 이행이나 GRC 평가를 자동 실행하는 기능은 없습니다.</p></details>
     <details id="chibbo-explanation"><summary>실증 환경 · Virtual Chibbo 보기</summary><p>Virtual Chibbo의 합성 fixture를 사용해 Evidence XLSX 생성과 실제 GRC consumer/parser의 instance·Control 연결 및 평가 실행을 로컬에서 검증했습니다.</p><p><b>E03: D — local verification.</b> 연결 대상은 TVM-C-06 / TVM-E-03입니다. 운영 S3·DB·API·UI 전체 파이프라인과 TVM-E-04는 미검증입니다. 평가 코드 실행 성공은 Control 전체 충족을 뜻하지 않습니다.</p><a data-repo-path="skill/tests/VIRTUAL_CHIBBO_GRC_E2E_E03.md">실제 E03 검증 보고서</a></details>
-    <details class="artifacts-section"><summary>산출물 / Repository 보기</summary><div id="repository-artifacts" class="artifact-list"></div></details>
+    <details class="artifacts-section"><summary>산출물 / Repository 보기</summary><div id="repository-artifacts" class="artifact-list"></div><div id="artifact-map"></div></details>
     <details class="limitations-section"><summary>현재 제한사항과 향후 확장 보기</summary><ul><li>현재 Web UI는 실시간 LLM API를 호출하지 않는 Demo Mode입니다.</li><li>직접 사용하기는 검증 완료된 대표 Scenario 3개만 지원합니다.</li><li>AI Skill Runtime 검증은 Codex / Claude에서 별도로 수행했습니다.</li><li>Explorer는 현재 AI Skill source snapshot이며 최신 Guideline 전체 동기화를 수행하지 않았습니다.</li><li>자유질의 Web Runtime은 향후 확장 가능성으로, 현재 구현된 기능이 아닙니다.</li><li>이 변경에서 최종 디자인 리뉴얼·운영 배포·workflow 변경은 하지 않습니다.</li></ul></details>
     <p id="showcase-status" role="status">Showcase 자료를 불러오는 중입니다.</p>
   </section>
