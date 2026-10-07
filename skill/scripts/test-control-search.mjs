@@ -62,6 +62,11 @@ const scoreEntry = (entry, query) => {
 };
 
 let failures = 0;
+let top3CasesPassed = 0;
+let top5CasesPassed = 0;
+let expectedTop3Hits = 0;
+let expectedTop5Hits = 0;
+let expectedTotal = 0;
 for (const test of cases) {
   const ranked = entries
     .map((entry) => ({ ...entry, score: scoreEntry(entry, test.query) }))
@@ -70,7 +75,14 @@ for (const test of cases) {
     .slice(0, 5);
 
   const rankedIds = ranked.map((entry) => entry.id);
+  const top3Ids = rankedIds.slice(0, 3);
   const missing = test.expected.filter((id) => !rankedIds.includes(id));
+  const missingTop3 = test.expected.filter((id) => !top3Ids.includes(id));
+  expectedTotal += test.expected.length;
+  expectedTop3Hits += test.expected.length - missingTop3.length;
+  expectedTop5Hits += test.expected.length - missing.length;
+  if (missingTop3.length === 0) top3CasesPassed += 1;
+  if (missing.length === 0) top5CasesPassed += 1;
 
   if (missing.length) {
     failures += 1;
@@ -84,5 +96,8 @@ for (const test of cases) {
 }
 
 if (failures) process.exit(1);
-console.log(`Top-5 search quality tests passed: ${cases.length}/${cases.length}`);
+console.log(`Top-3 case pass rate: ${top3CasesPassed}/${cases.length} (${(top3CasesPassed / cases.length * 100).toFixed(1)}%)`);
+console.log(`Top-5 case pass rate: ${top5CasesPassed}/${cases.length} (${(top5CasesPassed / cases.length * 100).toFixed(1)}%)`);
+console.log(`Top-3 expected-control hit rate: ${expectedTop3Hits}/${expectedTotal} (${(expectedTop3Hits / expectedTotal * 100).toFixed(1)}%)`);
+console.log(`Top-5 expected-control hit rate: ${expectedTop5Hits}/${expectedTotal} (${(expectedTop5Hits / expectedTotal * 100).toFixed(1)}%)`);
 console.log(`Stopwords enabled: ${STOPWORDS.size}`);
