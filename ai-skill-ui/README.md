@@ -66,3 +66,11 @@ UI_URL=http://127.0.0.1:8893/ai-skill-ui/ node ai-skill-ui/tests/ui-tests.cjs
 Windows PowerShell에서는 `$env:UI_URL='http://127.0.0.1:8893/ai-skill-ui/'`로 설정한다. Chromium 경로는 `CHROMIUM_PATH`로 지정한다. 테스트 의존성은 일반 UI 실행에 필요 없다. 개발용 테스트 도구가 없다면 UI와 별도로 Playwright를 설치해야 한다.
 
 현재 한계: 임의 자연어 질의 미지원, live Skill 연결 미구현, 인증/멀티테넌트/저장/내보내기 미구현, 원문은 Markdown 텍스트로 표시, 공개 배포 PENDING, UI에서 운영 GRC 연결 미실행. 원문에 있는 조건부 법령은 실제 조직 적용 여부를 따로 확인해야 한다.
+
+## 결과 가독성 개선
+
+추천 결과에는 실제 원문에서 계산한 Control·실행 항목·Evidence 항목 합계를 표시한다. 항목 합계는 Control 사이에 중복될 수 있으며 이행 완료 수가 아니다. 각 카드에는 원문 목표, 최초 3개 실행 제목, 최초 3개 Evidence 제목을 보여주고 나머지는 접힌 상세에서 모두 확인할 수 있다. Source 경로는 ‘가이드라인 근거 보기’ 안에서 확인한다. Quick navigation은 해당 Control 카드로 이동한다.
+
+Markdown은 렌더링 단계에서 제목·목록·강조·안전한 HTTP(S) 링크로 표현한다. Raw HTML은 실행하지 않는다. Source snapshot 페이지도 숨겨진 원문 텍스트를 같은 renderer로 표시하며 원문 데이터는 유지한다. UI는 로그인 없이 사용하는 정적 Demo이고 이번 변경은 commit/push까지만 진행한다. 운영 URL에 반영되었다고 주장하지 않는다.
+
+[가독성 검증](tests/READABILITY_VALIDATION.md), [로컬 결과 화면](tests/readability-desktop.png)을 참고한다. ‘5~10초 이해’는 디자인 목표이며 실제 사용자 소요시간은 측정하지 않았다.

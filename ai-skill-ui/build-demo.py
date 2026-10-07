@@ -15,7 +15,7 @@ for mode,question,ids in specs:
         path=REPO/'skill'/source.split('#')[0]
         section=re.search(r'^## '+cid+r'\s*\n([\s\S]*?)(?=^## |\Z)',path.read_text(),re.M)[1]
         source_dir=ROOT/'sources'; source_dir.mkdir(exist_ok=True)
-        source_html='<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+cid+' · GapZer0 source</title><style>body{max-width:960px;margin:40px auto;padding:0 24px;font:16px/1.7 sans-serif;color:#172d37}pre{white-space:pre-wrap;overflow-wrap:anywhere}a{color:#156b71}</style><a href="../">← UI Demo</a><h1 id="'+cid.lower()+'">'+cid+'</h1><p>가이드라인 원문 snapshot · '+html.escape(source)+'</p><p>조직 적용 조건을 확인해야 합니다. 이 자료는 인증·법적 충족 판정이 아닙니다.</p><pre>'+html.escape('## '+cid+'\n\n'+section)+'</pre></html>'
+        source_html='<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+cid+' · GapZer0 source</title><style>body{max-width:960px;margin:40px auto;padding:0 24px;font:16px/1.7 sans-serif;color:#172d37}pre{white-space:pre-wrap;overflow-wrap:anywhere}a{color:#156b71}</style><a href="../">← UI Demo</a><h1 id="'+cid.lower()+'">'+cid+'</h1><p>가이드라인 원문 snapshot · '+html.escape(source)+'</p><p>조직 적용 조건을 확인해야 합니다. 이 자료는 인증·법적 충족 판정이 아닙니다.</p><div id="source-content"></div><pre id="source-text" hidden>'+html.escape('## '+cid+'\n\n'+section)+'</pre><script type="module" src="../source-view.js"></script></html>'
         (source_dir/(cid.lower()+'.html')).write_text(source_html)
         fields={m[1]:m[2].strip().removesuffix('---').strip() for m in re.finditer(r'^### (.+)\n([\s\S]*?)(?=^### |\Z)',section,re.M)}
         assert fields['Control Name']==match[1]
