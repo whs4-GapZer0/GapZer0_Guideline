@@ -40,8 +40,14 @@ export async function mount(root){
  function clearImport(){sequence++;pending=null;file.value='';preview.replaceChildren();apply.hidden=cancel.hidden=true;}
  clearImport();file.onchange=async()=>{const n=++sequence;pending=null;apply.hidden=cancel.hidden=true;preview.replaceChildren();const f=file.files[0];if(!f)return;try{if(!/\.xlsx$/i.test(f.name)||f.size>MAX_IMPORT_BYTES)throw Error('25MB 이하의 .xlsx 파일을 선택하세요.');const {importXlsx}=await import('./excel-import.mjs?v=security1'),parsed=await importXlsx(await f.arrayBuffer(),bank);if(n!==sequence||!root.isConnected)return;pending=parsed;preview.append(el('p',`작성한 Control ${parsed.count}개 · 평가 범위: ${parsed.state.meta.scope||'미입력'} · 담당자: ${parsed.state.meta.assessor||'미입력'} · 평가일: ${parsed.state.meta.date||'미입력'}`));if(parsed.changedNames)preview.append(el('p','통제 이름이 현재 사이트와 다른 항목이 있습니다. 사이트의 최신 기준을 확인하여 재평가하세요.'));apply.hidden=cancel.hidden=false;}catch(e){if(n===sequence&&root.isConnected)preview.textContent=e.message;}};
  importArea.append(fileLabel,preview,apply,cancel);root.append(importArea);
- const progress=el('p',undefined,{'aria-live':'polite'});root.append(progress);
- function summary(){const count=bank.controls.filter(c=>RESPONSES.includes(state.records[c.id]?.response)).length;progress.textContent=`전체 ${bank.controls.length}개 통제 · 평가 결과 선택 ${count}개 · 미평가 ${bank.controls.length-count}개`;}
+ const overview=el('div',undefined,{class:'sa-overview','aria-live':'polite'}),progress=el('p'),breakdown=el('ul',undefined,{class:'sa-result-counts','aria-label':'전체 Control 평가 결과별 개수'});
+ overview.append(progress,breakdown);root.append(overview);
+ function summary(){
+  const counts=RESPONSES.map(response=>bank.controls.filter(c=>state.records[c.id]?.response===response).length),count=counts.reduce((sum,n)=>sum+n,0);
+  progress.textContent=`전체 ${bank.controls.length}개 통제 · 평가 결과 선택 ${count}개 · 미평가 ${bank.controls.length-count}개`;
+  breakdown.replaceChildren(...RESPONSES.flatMap((response,i)=>counts[i]>0?[el('li',`${response} ${counts[i]}개`,{class:`sa-result-count sa-result-count-${i}`})]:[]));
+  breakdown.hidden=count===0;
+ }
  let domain='',result='';const filters=el('div',undefined,{class:'sa-filters'});
  const [dl]=select('보안 영역',[['','전체'],...[...new Set(bank.controls.map(c=>c.domain))].map(d=>[d,d])],v=>{domain=v;refresh();});
  const [rl]=select('평가 결과별 보기',[['','전체'],['미평가','미평가'],...RESPONSES.map(r=>[r,r])],v=>{result=v;refresh();});

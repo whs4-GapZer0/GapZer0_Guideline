@@ -14,6 +14,18 @@
 #assessment-app .sa-import [role=status] { overflow-wrap: anywhere; }
 #assessment-app .sa-import [role=status]:empty { display: none; }
 #assessment-app .sa-filters label { flex: 1 1 230px; min-width: 0; }
+#assessment-app .sa-overview { margin: 28px 0 32px; }
+#assessment-app .sa-overview > p { margin: 0 0 14px; }
+#assessment-app .sa-result-counts { display:flex; flex-wrap:wrap; gap:10px; list-style:none; padding:0; margin:0; }
+#assessment-app .sa-result-count { margin:0; padding:6px 14px; border-radius:6px; font-size:15px; font-weight:600; line-height:1.6; }
+#assessment-app .sa-result-count-0 { background:#e8f5ec; color:#166534; }
+#assessment-app .sa-result-count-1 { background:#fff0dd; color:#9a420b; }
+#assessment-app .sa-result-count-2 { background:#fdebec; color:#a92332; }
+#assessment-app .sa-result-count-3 { background:#eef0f3; color:#4b5563; }
+.book.color-theme-2 #assessment-app .sa-result-count-0 { background:#19392c; color:#9be2b0; }
+.book.color-theme-2 #assessment-app .sa-result-count-1 { background:#432e1b; color:#ffc78b; }
+.book.color-theme-2 #assessment-app .sa-result-count-2 { background:#44242b; color:#ffadb5; }
+.book.color-theme-2 #assessment-app .sa-result-count-3 { background:#30333b; color:#d1d5db; }
 #assessment-app .sa-control-form { border: 1px solid #cbd5e1; border-top: 4px solid #156b71; border-radius: 5px; padding: 1rem; margin: 1.5rem 0; }
 #assessment-app .sa-preserve, #assessment-app pre { white-space: pre-wrap; overflow-wrap: anywhere; }
 #assessment-app details { margin: 1rem 0; }
