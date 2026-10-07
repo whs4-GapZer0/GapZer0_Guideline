@@ -23,7 +23,7 @@ function render(result) {
   for(const c of result.controls){
     const card=el('article',undefined,'control-card');card.append(el('div',c.id+(c.conditional?' · 조건부':''),'control-id'),el('h3',c.name),el('div',c.domain+' · '+c.classification,'meta'),tag('가이드라인 근거','ground'),el('b','왜 관련되는지 — 원문 목표'),el('div',c.fields['Control Objective'],'excerpt'),tag('확인 필요','check'),el('b','적용 시 확인사항 — 원문 조건'),el('div',c.fields['적용 조건'],'excerpt'));
     const details=el('details');details.append(el('summary','적용 방법 · 원문 Implementation Guide'),el('div',c.fields['Implementation Guide'],'excerpt'));card.append(details);
-    const a=el('a','Source · '+c.source,'source');a.href='../skill/'+c.source;a.target='_blank';a.rel='noopener';card.append(a);cards.append(card);
+    const a=el('a','Source · '+c.source,'source');a.href='./sources/'+c.id.toLowerCase()+'.html#'+c.id.toLowerCase();a.target='_blank';a.rel='noopener';card.append(a);cards.append(card);
   }
   const practical=$('#practical');practical.replaceChildren();
   if(result.mode==='guide')block(practical,'선택 이유 · 적용 방법','관련성과 적용 방법은 위 카드의 실제 Control 목표·적용 조건·Implementation Guide를 확인하세요. 물리적 접근권한이 있는 경우 PHY-C-02를 함께 검토합니다.','proposal','AI 제안');

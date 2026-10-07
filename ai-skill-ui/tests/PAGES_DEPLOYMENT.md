@@ -1,0 +1,54 @@
+# Pages deployment verification
+
+확인일: 2026-10-08 (Asia/Seoul). 현재 상태: **PENDING**, LIVE 아님.
+
+## 기존 구조 조사
+
+- 현재 작업 브랜치: `work/ai-skill-quant-eval-v2-young-eon`.
+- 조사한 main commit: `0b6e209cc85d3254ba0a7e60a9f3f36502b94ce6`.
+- Jekyll + jekyll-gitbook 테마. 현재 작업 브랜치 `_config.yml`은 `skill/`을 exclude하므로 외부 source 디렉터리에 의존하지 않는 구조로 준비했다.
+- 최신 main의 `_config.yml`: url `https://docs.whs4-gapzer0.kro.kr`, baseurl 빈 값. main에는 CNAME 없음; 작업 브랜치에는 CNAME 있음. 어느 것도 변경하지 않았다.
+- 최신 main `.github/workflows/deploy-oracle.yml`: main push → Jekyll `_site` 생성 → `site` 브랜치 게시. 코드 주석은 Oracle VM이 해당 브랜치를 주기적으로 동기화한다고 설명한다. 실제 VM 실행은 확인하지 않았다.
+- `.github/workflows/validate-jekyll.yml`은 PR Jekyll 검증이며 GitHub Pages 게시 workflow가 아니다. `actions/deploy-pages` workflow는 조사한 브랜치에서 발견하지 못했다.
+- `site` 원격 브랜치 존재 확인. **GitHub Pages source branch는 미확인**: Settings API가 Forbidden으로 접근 불가. `site` 브랜치 존재만으로 Pages source라고 추정하지 않는다.
+- 로컬 Ruby/Jekyll 없음: Jekyll 실제 빌드는 NOT VERIFIED. HTML에 front matter를 추가하지 않고 기존 Jekyll 설정을 유지하여 static 복사 방식으로 준비했다. 실제 빌드 산출물 포함 여부는 PR/배포 환경에서 확인해야 한다.
+
+## 배포 준비
+
+수정 범위는 `ai-skill-ui/`뿐이다. CSS/JS/JSON/Source 링크는 상대경로다. 실행 코드에는 localhost API 의존성이 없으며 README·테스트의 localhost는 로컬 검증 주소다. Demo Mode는 유지한다.
+
+14개 읽기 전용 `sources/*.html`은 실제 원문 섹션의 텍스트를 HTML escape하여 표시한다. Control source 파일 자체는 변경하지 않는다. UI의 Source 표시에는 canonical 원문 위치가 유지된다. 외부 skill 경로가 배포에서 제외되더라도 snapshot 링크를 제공한다.
+
+현재 브랜치 전체를 main에 병합하면 UI 외 기존 차이가 섞일 수 있다. 따라서 main을 기반으로 `ai-skill-ui/`만 추가한 `publish/ai-skill-ui-young-eon`을 배포 후보로 준비한다. main/site 강제 push, Pages 설정 변경, workflow 교체는 하지 않는다.
+
+## 실제 공개 URL 확인
+
+대상: `https://whs4-gapzer0.github.io/GapZer0_Guideline/ai-skill-ui/`
+
+urllib HTTP 접근은 프록시 tunnel 403 Forbidden으로 차단됐으며 Chromium 탐색은 `net::ERR_TUNNEL_CONNECTION_FAILED`로 실패했다. 서버 측 404 또는 배포 완료 여부를 관찰한 것이 아니다. 기존 Guideline URL도 같은 제한으로 확인할 수 없었다.
+
+| ID | 공개 검증 항목 | 결과 |
+|---|---|---|
+| P01 | 공개 URL HTTP 접근 성공 | PENDING |
+| P02 | 메인 UI 렌더링 | PENDING |
+| P03 | CSS 적용 | PENDING |
+| P04 | JavaScript 동작 | PENDING |
+| P05 | 기능 탭 3개 | PENDING |
+| P06 | 예시 질문 3개 | PENDING |
+| P07 | Demo 결과 | PENDING |
+| P08 | Source 표시·접근 | PENDING |
+| P09 | 안전성 태그 | PENDING |
+| P10 | 기존 Guideline 정상 접근 | PENDING |
+
+공개 PASS 0 / FAIL 0 / PENDING 10. 성공률은 실행 완료 분모가 없어 N/A.
+
+로컬 project base path `/GapZer0_Guideline/ai-skill-ui/` 재현에서는 U01–U10 **10/10 PASS**, 브라우저 오류 0건이다. 이는 P01–P10 공개 검증 PASS로 대체하지 않는다.
+
+## 다음 조치
+
+1. GitHub Settings → Pages에서 실제 source branch/path 및 custom domain을 확인한다. 현재 Oracle 게시 workflow와 GitHub Pages의 관계를 확정한다.
+2. UI-only 배포 후보 브랜치의 PR을 검토한다. GitHub API가 막혀 PR 생성이 실패할 경우 compare 화면에서 수동 생성한다.
+3. 배포 source에 UI 파일이 포함되도록 승인된 PR을 병합하고 빌드 결과에서 `ai-skill-ui/index.html`, CSS/JS/JSON, 14개 Source snapshot을 확인한다. main 자동 병합은 하지 않는다.
+4. 실제 공개 URL에서 P01–P10을 실행한 후에만 LIVE 및 README Live Demo로 갱신한다. custom domain redirect가 있다면 최종 주소도 기록한다.
+
+기존 Control sources·Index·Codex Skill·Claude Skill·검색 알고리즘·정량/Runtime/E03 보고서·기존 사이트 설정은 변경하지 않았다.
