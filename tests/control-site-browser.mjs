@@ -14,10 +14,35 @@ try {
  await page.locator('.doc-control').first().waitFor();
  assert.equal(await page.locator('.markdown-section > h1 + hr').count(),0);
  assert.equal(await page.locator('.doc-control').first().evaluate(e=>getComputedStyle(e).marginTop),'46px');
- await page.goto(base+'/introduction/');
- await page.locator('[data-framework-topic="domains"]').click();
- await page.locator('dialog[open]').waitFor();
- await page.locator('[data-close-framework]').click();
+ async function checkDrawers() {
+  for (const topic of ['domains','controls','common','enhancement','local']) {
+   await page.locator(`[data-framework-topic="${topic}"]`).click();
+   await page.locator('dialog[open]').waitFor();
+   const layout=await page.locator('#framework-detail').evaluate(dialog=>{
+    const content=dialog.querySelector('.framework-drawer-content');
+    return {directChild:content.parentElement===dialog,width:content.getBoundingClientRect().width,panelWidth:dialog.clientWidth,overflow:content.scrollWidth>content.clientWidth};
+   });
+   assert(layout.directChild,`${topic}: drawer content must remain outside the close-button wrapper after AJAX navigation`);
+   assert(layout.width>layout.panelWidth-4,`${topic}: drawer content must fill the panel`);
+   assert(!layout.overflow,`${topic}: drawer content must not overflow horizontally`);
+   await page.locator('[data-close-framework]').click();
+  }
+ }
+ // A direct load misses GitBook's HTML rewriting bug; enter through its menu.
+ await page.locator('.book-summary a[href="/introduction/"]').click();
+ await checkDrawers();
+ await page.reload();
+ await checkDrawers();
+ await page.setViewportSize({width:390,height:844});
+ await page.goto(base+'/');
+ await page.locator('.book-header .fa-align-justify').locator('..').click();
+ await page.locator('.book-summary a[href="/introduction/"]').click();
+ await checkDrawers();
+ await page.setViewportSize({width:1280,height:900});
+ await page.reload();
+ if (!await page.locator('.book').evaluate(el=>el.classList.contains('with-summary'))) {
+  await page.locator('.book-header .fa-align-justify').locator('..').click();
+ }
  await page.locator('.book-summary a[href="/self-assessment/"]').click();
  await page.getByRole('link',{name:'자가진단 시작하기',exact:true}).click();
  await page.locator('.sa-control-form').first().waitFor();
