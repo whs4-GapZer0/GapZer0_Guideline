@@ -20,7 +20,16 @@ def main():
         assert sha(REPO / item['portable']) == item['sha256'], item['portable']
     for name in ['FUNCTION_SPEC.md', 'INTEGRATION_SPEC.md']:
         assert (ROOT / name).read_bytes() == (CANONICAL / name).read_bytes()
-    assert (ROOT / 'SKILL.md').read_bytes().startswith((CANONICAL / 'SKILL.md').read_bytes())
+    portable_skill = (ROOT / 'SKILL.md').read_bytes()
+    canonical_skill = (CANONICAL / 'SKILL.md').read_bytes()
+    def body(data):
+        assert data.startswith(b'---')
+        return data[data.index(b'---', 3) + 3:]
+    assert body(portable_skill).startswith(body(canonical_skill))
+    metadata = portable_skill[:portable_skill.index(b'---', 3)].decode()
+    assert re.findall(r'^([a-z_]+):', metadata, re.M) == ['name', 'description']
+    assert 'name: gapzero-guide' in metadata
+    assert 'description: GapZer0 Framework' in metadata
     index = (ROOT / 'references/control-index.md').read_text()
     records = list(re.finditer(r'^## ([A-Z]{3}-[CEL]-\d{2}) — (.+)\n([\s\S]*?)(?=^## |\Z)', index, re.M))
     assert records
@@ -53,7 +62,7 @@ def main():
             'control_source_files':len(list((ROOT/'references/controls').rglob('*.md'))),
             'index_records_verified':len(records),'unique_control_ids':len(ids),
             'scenario_candidate_ids_verified':6,'copied_specifications_byte_equal':2,
-            'original_skill_prefix_preserved':True,'codex_reference_parity':True,
+            'original_skill_body_preserved':True,'upload_metadata_validated':True,'codex_reference_parity':True,
             'claude_runtime_validation':'NOT TESTED','cross_runtime_agreement':'NOT MEASURED'}
 
 

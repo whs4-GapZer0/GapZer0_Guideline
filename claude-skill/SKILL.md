@@ -1,6 +1,6 @@
 ---
 name: gapzero-guide
-description: Use the GapZer0 Guideline to find relevant information-security and privacy Controls, draft implementation plans, and prepare policy, procedure, plan, or checklist drafts grounded in the approved Control source. Do not use it to make final certification or legal-compliance determinations.
+description: GapZer0 Framework의 실제 Control 근거를 사용하여 관련 통제를 안내하고, 이행계획과 실무 문서 초안을 작성하는 정보보호·GRC 지원 Skill
 ---
 
 # GapZer0 Guideline AI Skill
