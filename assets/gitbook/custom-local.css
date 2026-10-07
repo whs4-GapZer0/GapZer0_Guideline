@@ -830,3 +830,18 @@ html.framework-drawer-open, html.framework-drawer-open body { overflow:hidden !i
 
 /* Give the first Control table more space below the page title. */
 .book .markdown-section > h1 + .doc-control { margin-top: 46px; }
+
+/* Homepage wordmark: angular sans-serif lettering. */
+.book .gz-home-brand { gap: 20px; align-items: baseline; }
+.book .gz-home-brand .gz-wordmark { display: inline-flex; align-items: baseline; font-family: GapZer0Sans, sans-serif !important; font-size: 43px; font-weight: 900; letter-spacing: -2px; line-height: 1.2; color: #111111 !important; white-space: nowrap; }
+.book .gz-home-brand .gz-wordmark-zero { color: #ff681f !important; }
+.book .gz-home-brand .gz-brand-label { font-family: GapZer0Sans, sans-serif; font-size: 43px; font-weight: 900; letter-spacing: -2px; line-height: 1.2; color: #ff681f !important; }
+@media (max-width: 600px) {
+  .book .gz-home-brand { gap: 16px !important; }
+  .book .gz-home-brand .gz-wordmark { font-size: 28px; letter-spacing: -1.3px; }
+  .book .gz-home-brand .gz-brand-label { font-size: 28px; letter-spacing: -1.3px; }
+}
+.book .gz-home-brand .gz-wordmark { width: auto; height: auto; flex: 0 0 auto; }
+
+@font-face { font-family: GapZer0Rounded; src: url("../fonts/Nunito.ttf") format("truetype"); font-weight: 200 1000; font-style: normal; font-display: swap; }
+.book .gz-home-brand .gz-wordmark, .book .gz-home-brand .gz-brand-label { font-family: GapZer0Rounded, sans-serif !important; font-weight: 900; letter-spacing: -1.5px; }
