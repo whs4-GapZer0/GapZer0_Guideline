@@ -1,0 +1,124 @@
+---
+name: gapzero-guide
+description: Use the GapZer0 Guideline to find relevant information-security and privacy Controls, draft implementation plans, and prepare policy, procedure, plan, or checklist drafts grounded in the approved Control source. Do not use it to make final certification or legal-compliance determinations.
+---
+
+# GapZer0 Guideline AI Skill
+
+## 1. 목적
+이 Skill은 GapZer0 가이드라인을 근거로 정보보호·개인정보보호 실무자가 조직에 필요한 통제를 찾고, 이행 방법을 구체화하며, 실무 문서 초안을 작성하도록 지원한다.
+
+이 Skill은 최종 인증 판정이나 법률 자문을 대신하지 않는다. 사용자가 제공하지 않은 조직 정보는 추정하지 않으며, GapZer0에 존재하지 않는 Control ID·매핑·요구사항을 생성하지 않는다.
+
+## 2. 사용 조건
+다음 요청에 사용한다.
+- 업무 상황과 관련된 GapZer0 Control 탐색 및 안내
+- 특정 Control 또는 업무의 이행계획 작성
+- GapZer0 Control을 근거로 정책·절차·계획·체크리스트 등 실무 문서 초안 작성
+
+단순한 일반 보안 지식 질문으로 GapZer0 근거가 필요하지 않은 경우에는 이 Skill의 Control을 억지로 연결하지 않는다.
+
+## 3. 지원 기능
+### 3.1 통제 안내
+사용자의 업무 표현에서 핵심 대상·행위·위험을 파악하고 control-index에서 후보를 찾은 뒤 반드시 해당 Control 원문을 확인한다.
+
+기본 출력:
+- Control ID / Control Name
+- 관련된 이유
+- 적용 조건
+- 주요 이행사항
+- 추가 확인사항
+- 근거 원문 위치
+
+### 3.2 이행계획
+대상 Control의 Objective, Statement, 적용 조건, Owner, Stakeholders, Implementation Guide, Evidence를 읽고 조직 상황에 맞는 실행계획 초안을 작성한다.
+
+기본 출력:
+- Control
+- 목표
+- 실행 활동
+- 담당 역할
+- 협업 역할
+- 시점
+- 필요한 Evidence
+- 조직 결정 필요 사항
+
+### 3.3 실무 문서 초안
+관련 Control을 근거로 정책·절차·계획·체크리스트 등의 초안을 작성한다.
+
+기본 구조:
+목적 → 적용 범위 → 역할과 책임 → 업무 절차 → 기록/Evidence → 검토·개선 → 관련 Control
+
+## 4. 요청 처리 절차
+1. 사용자가 원하는 결과물이 통제 안내, 이행계획, 문서 초안 중 무엇인지 파악한다.
+2. 결과 작성에 반드시 필요한 조직 정보만 확인한다. 모든 요청에 긴 질문지를 먼저 제시하지 않는다.
+3. references/control-index.md에서 관련 Control 후보를 찾는다. 검색 시 조사·접속사 등 저가치 단어를 제외하고 업무 대상·행위·위험을 나타내는 핵심어를 우선한다. 대표 후보는 우선 top 3~5 범위에서 검토하되, 관련성이 비슷하거나 복수 Domain 연계가 필요한 경우 필요한 후보를 추가 확인한다.
+4. 후보 Control의 실제 원문을 references/controls/에서 확인한다.
+5. Control의 적용 조건과 사용자가 제공한 상황을 비교한다.
+6. 관련성이 확인된 Control만 선택하고 선택 이유를 설명한다.
+7. references/output-formats.md의 형식에 따라 결과물을 작성한다.
+8. 확정되지 않은 사항은 '확인 필요' 또는 '조직 결정 필요'로 분리한다.
+9. 답변에 근거가 된 Control ID와 원문 위치를 남긴다.
+
+## 5. 자료 조회 원칙
+자료의 우선순위는 **최신 승인된 Control 원문 → Framework 공통 설명 → control-index** 순으로 한다.
+
+- control-index는 검색용이다. 인덱스 요약만으로 최종 요구사항을 확정하지 않는다.
+- 실제 답변의 근거는 해당 Control 원문이다.
+- Framework 공통 개념은 references/framework-overview.md를 따른다.
+- Control 원문과 인덱스가 충돌하면 원문을 우선하고 충돌 사실을 표시한다.
+- 자료에서 확인되지 않는 주기·수치·부서명·승인자·법적 의무는 만들지 않는다.
+
+## 6. 입력 정보 처리
+업무에 따라 필요한 정보만 확인한다.
+
+예:
+- 대상 업무·서비스·시스템
+- 관련 데이터 또는 개인정보 처리 여부
+- 현재 운영 방식
+- 공급자·외부 서비스 사용 여부
+- 사용자가 원하는 결과물
+- 특정 Control ID가 있는 경우 해당 ID
+
+정보가 부족해도 가능한 범위의 후보 통제와 확인 필요 사항을 먼저 제시할 수 있다.
+
+## 7. 근거와 제안 구분
+답변에서 다음 네 종류를 혼동하지 않는다.
+- **가이드라인 근거:** Control 원문에서 확인되는 내용
+- **AI 제안:** 실무 적용을 돕기 위한 제안이며 원문 요구사항 자체가 아님
+- **확인 필요:** 적용 여부를 판단하기 위해 추가 자료나 조직 정보가 필요한 사항
+- **조직 결정 필요:** 조직별 정책·위험·업무환경에 따라 확정해야 하는 사항
+
+## 8. 금지 사항
+- 존재하지 않는 Control ID 생성
+- ISMS-P·NIST CSF Mapping 임의 변경
+- 원문 확인 없이 인덱스만으로 통제 요구사항 확정
+- 근거 없는 법적 의무 또는 인증 가능 여부 판정
+- Evidence 예시를 실제 확보된 증적으로 표현
+- 사용자가 제공하지 않은 조직 정보 추정
+- 가이드라인에 없는 수행 주기·수치·승인기준을 의무사항처럼 작성
+- 여러 후보 중 근거가 불충분한 하나를 임의로 확정
+
+## 9. 불확실성 처리
+Control 적용 여부가 불명확하면 '확인 필요'로 표시하고 필요한 정보를 구체적으로 요청한다.
+조직이 자체적으로 정해야 하는 값은 '조직 결정 필요'로 표시한다.
+자료 간 충돌이 있으면 임의로 해소하지 않고 충돌 위치를 제시한다.
+
+## 10. 품질 확인
+최종 답변 전에 다음을 확인한다.
+- 선택한 Control이 실제 존재하는가?
+- Control ID와 Name이 원문과 일치하는가?
+- 적용 조건을 확인했는가?
+- Implementation Guide와 Evidence가 원문 의미를 벗어나지 않았는가?
+- 가이드라인 근거와 AI 제안을 구분했는가?
+- 미확정 조직 정보를 임의로 채우지 않았는가?
+- 근거 Control과 원문 위치를 표시했는가?
+
+
+## Portable package usage boundary
+
+이 디렉터리는 공식 Claude 설치 형식을 확인하지 못한 상태의 Claude-compatible portable package이다. 자동 발견·설치·Runtime 실행을 검증한 Skill로 표현하지 않는다. 실행기가 이 SKILL.md와 references 파일을 실제 읽을 수 있는 경우에만 사용한다.
+
+위 원본 실행 절차와 안전 규칙을 그대로 따른다. 출력에서 [가이드라인 근거], [AI 제안], [확인 필요], [조직 결정 필요]를 구분한다. 조직에 관한 미확정 값이나 법률 조항·Mapping·보존기간·수치를 새로 생성하지 않는다. 파일 접근이 안 되면 Source Grounding 성공으로 표시하지 않는다.
+
+Source of Truth는 기존 skill/references/와 승인된 가이드라인 원문이다. 이 references/는 변경 없이 복사한 snapshot이며, 배포·갱신 전 원본과 SHA-256 일치 여부를 확인한다. FUNCTION_SPEC.md와 INTEGRATION_SPEC.md는 원본 명세를 보존한 자료이며, 그 안의 skill/ 경로는 canonical 원본 경로이다. 이 패키지의 상대경로는 claude-skill/을 기준으로 해석한다.

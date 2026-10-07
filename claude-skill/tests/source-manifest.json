@@ -1,0 +1,168 @@
+{
+  "source_commit": "9dd7394d38da6c54053181f97b9c0200c92ea1b8",
+  "package_type": "Claude-compatible portable package",
+  "official_format_verified": false,
+  "claude_runtime_tested": false,
+  "files": [
+    {
+      "source": "skill/references/control-index-schema.md",
+      "portable": "claude-skill/references/control-index-schema.md",
+      "sha256": "fa804b29130a6d1fba74b799e4c89cfb94ca01fb3470c8fc93dbd389315ec697"
+    },
+    {
+      "source": "skill/references/control-index.md",
+      "portable": "claude-skill/references/control-index.md",
+      "sha256": "eadb4876a972a69f9dada3ac626160501a70231ed8426c86b057a067adc8a8d8"
+    },
+    {
+      "source": "skill/references/controls/01-governance/common.md",
+      "portable": "claude-skill/references/controls/01-governance/common.md",
+      "sha256": "ce8c9b4628d96613c4d9bc22a838f316d0ba0bac7832eb1e611531b61edbd5d2"
+    },
+    {
+      "source": "skill/references/controls/01-governance/enhancement.md",
+      "portable": "claude-skill/references/controls/01-governance/enhancement.md",
+      "sha256": "d6c6f2b3bba34f14c8b491895c1273e17823445be86fb17576706199dbaaea27"
+    },
+    {
+      "source": "skill/references/controls/02-asset-management/common.md",
+      "portable": "claude-skill/references/controls/02-asset-management/common.md",
+      "sha256": "29c60cfcc9001f967ed816a695ac89f356d64ff5d4358cc65559e094476258c6"
+    },
+    {
+      "source": "skill/references/controls/02-asset-management/enhancement.md",
+      "portable": "claude-skill/references/controls/02-asset-management/enhancement.md",
+      "sha256": "2f009e48856f3b97ff745074a3419f2e90020ed08b5442d0b6e8c4d7bb6cd9ca"
+    },
+    {
+      "source": "skill/references/controls/03-continuity/common.md",
+      "portable": "claude-skill/references/controls/03-continuity/common.md",
+      "sha256": "1e3ef90aa595d2d92b6c39a149643b9f97fbf8f30b8925be6af934e56c8ba34e"
+    },
+    {
+      "source": "skill/references/controls/03-continuity/enhancement.md",
+      "portable": "claude-skill/references/controls/03-continuity/enhancement.md",
+      "sha256": "742f13292aa6af45d992661bb0885f738415a96244dc4e7077df4d1bf155a112"
+    },
+    {
+      "source": "skill/references/controls/04-human-resource-security/common.md",
+      "portable": "claude-skill/references/controls/04-human-resource-security/common.md",
+      "sha256": "6b1dee03e788a65a88d03c4ab349ed748da1170ea8b0feca047500c563b0dc4d"
+    },
+    {
+      "source": "skill/references/controls/05-identity-access-management/common.md",
+      "portable": "claude-skill/references/controls/05-identity-access-management/common.md",
+      "sha256": "42aa7ce16219c085a972ec6cd32dd3b3cd92d7d3eef0ee4cf1559ac929ae40b7"
+    },
+    {
+      "source": "skill/references/controls/05-identity-access-management/enhancement.md",
+      "portable": "claude-skill/references/controls/05-identity-access-management/enhancement.md",
+      "sha256": "c557227f2cc219986b44c4849a5a60c58b9dabe5a7a9f042a09da857a24f8a44"
+    },
+    {
+      "source": "skill/references/controls/05-identity-access-management/local.md",
+      "portable": "claude-skill/references/controls/05-identity-access-management/local.md",
+      "sha256": "d3e0a9331c8aecd3ac21ff11e9432fefc722b4050efcba1dbce7405d2d037185"
+    },
+    {
+      "source": "skill/references/controls/06-information-protection/common.md",
+      "portable": "claude-skill/references/controls/06-information-protection/common.md",
+      "sha256": "330a309bc5c0cba9e7a7ed24bd999901c0d9841809bd7d3cc750bc1c3f4a6eb6"
+    },
+    {
+      "source": "skill/references/controls/06-information-protection/enhancement.md",
+      "portable": "claude-skill/references/controls/06-information-protection/enhancement.md",
+      "sha256": "eeb922315246a4a5b01a3f53300deb24efdee0fcf765c4f1dfe52590264db545"
+    },
+    {
+      "source": "skill/references/controls/06-information-protection/local.md",
+      "portable": "claude-skill/references/controls/06-information-protection/local.md",
+      "sha256": "c61e83fa48e3ea00f7a9b5091127f469707ca9422f1dfe84e8626e89b21f4aa8"
+    },
+    {
+      "source": "skill/references/controls/07-information-security-assurance/common.md",
+      "portable": "claude-skill/references/controls/07-information-security-assurance/common.md",
+      "sha256": "7a6f3f383e8ed153418ff691b0da2e5e3869dbf8eecd7f5c6cae546e077cc25c"
+    },
+    {
+      "source": "skill/references/controls/08-information-security-event-management/common.md",
+      "portable": "claude-skill/references/controls/08-information-security-event-management/common.md",
+      "sha256": "61b22182d7aa4c16a6fe584fc30bcd982c02c31412cd41f0e6e28c0feba669af"
+    },
+    {
+      "source": "skill/references/controls/08-information-security-event-management/enhancement.md",
+      "portable": "claude-skill/references/controls/08-information-security-event-management/enhancement.md",
+      "sha256": "c2a93301239ad98637fe66b4b54b9cae9329697667d73a845bf5fd0723fececb"
+    },
+    {
+      "source": "skill/references/controls/09-legal-compliance/enhancement.md",
+      "portable": "claude-skill/references/controls/09-legal-compliance/enhancement.md",
+      "sha256": "ba6a24be797c51c2ec9ede7c559494d22171c7db51f41ccd973aee5e20319cbc"
+    },
+    {
+      "source": "skill/references/controls/09-legal-compliance/local.md",
+      "portable": "claude-skill/references/controls/09-legal-compliance/local.md",
+      "sha256": "1f47d70dbadd9c7a56eb371dc39c31a12d866ad6ca636f0064a80655c1811019"
+    },
+    {
+      "source": "skill/references/controls/10-physical-security/common.md",
+      "portable": "claude-skill/references/controls/10-physical-security/common.md",
+      "sha256": "e5afca3b14e2bdba4893f715957df883fafd922356c0a9835b24963a56cde8df"
+    },
+    {
+      "source": "skill/references/controls/10-physical-security/local.md",
+      "portable": "claude-skill/references/controls/10-physical-security/local.md",
+      "sha256": "dc9b36245679bd71945551b1fc79546a323b44dd9a069550d595acf0a04daa91"
+    },
+    {
+      "source": "skill/references/controls/11-application-security/enhancement.md",
+      "portable": "claude-skill/references/controls/11-application-security/enhancement.md",
+      "sha256": "db0c195b4230da3cb0b3f4d46701516167cd1e030c2f34a9a0632d7fc4ee41bc"
+    },
+    {
+      "source": "skill/references/controls/12-secure-configuration/common.md",
+      "portable": "claude-skill/references/controls/12-secure-configuration/common.md",
+      "sha256": "88180c5541adf1049e2bd993daa2f9cb68bcc309ef51854b396fb1cdc5e605dd"
+    },
+    {
+      "source": "skill/references/controls/13-supplier-relationships-security/common.md",
+      "portable": "claude-skill/references/controls/13-supplier-relationships-security/common.md",
+      "sha256": "e70f648ff5ac4e6bc0b31cf7cbc5f06a3560a8a7f377d5733c9e3a9074421717"
+    },
+    {
+      "source": "skill/references/controls/13-supplier-relationships-security/enhancement.md",
+      "portable": "claude-skill/references/controls/13-supplier-relationships-security/enhancement.md",
+      "sha256": "b36e5b267752c9ce0be007ec309401d181fb37bb0e3894cf8b607339a97d0210"
+    },
+    {
+      "source": "skill/references/controls/13-supplier-relationships-security/local.md",
+      "portable": "claude-skill/references/controls/13-supplier-relationships-security/local.md",
+      "sha256": "607778bd88e78537d1a64d54b402f7925545740fc14463157caa26ec1cad4553"
+    },
+    {
+      "source": "skill/references/controls/14-system-network-security/common.md",
+      "portable": "claude-skill/references/controls/14-system-network-security/common.md",
+      "sha256": "b8c571dbfb2405f07ee0e846a622a9b433b40a4391438c61a8a3fd13c183fdd0"
+    },
+    {
+      "source": "skill/references/controls/15-threat-vulnerability-management/common.md",
+      "portable": "claude-skill/references/controls/15-threat-vulnerability-management/common.md",
+      "sha256": "00f6cf3004516349365cc688cc13a757a44d0bbf063dc321b113457fbeffff4a"
+    },
+    {
+      "source": "skill/references/controls/15-threat-vulnerability-management/enhancement.md",
+      "portable": "claude-skill/references/controls/15-threat-vulnerability-management/enhancement.md",
+      "sha256": "433aa9c1c7e73636ceb7d5eb7c5514b7c92e9de0d2b8421254e77303f95ac86b"
+    },
+    {
+      "source": "skill/references/framework-overview.md",
+      "portable": "claude-skill/references/framework-overview.md",
+      "sha256": "5e3e0eee7798d0dad35b5fdaf67eddb5e8cd1bb06a33763364e700ac5cc67f28"
+    },
+    {
+      "source": "skill/references/output-formats.md",
+      "portable": "claude-skill/references/output-formats.md",
+      "sha256": "c526eac95e79faaf2eeb06f076cf6b0069b8d2f06b7c815e68fc7f2e9ab33b35"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "validation_type": "STATIC ONLY",
+  "reference_files_byte_equal": 32,
+  "control_source_files": 28,
+  "index_records_verified": 121,
+  "unique_control_ids": 121,
+  "scenario_candidate_ids_verified": 6,
+  "copied_specifications_byte_equal": 2,
+  "original_skill_prefix_preserved": true,
+  "codex_reference_parity": true,
+  "claude_runtime_validation": "NOT TESTED",
+  "cross_runtime_agreement": "NOT MEASURED",
+  "existing_files_integrity": "PASS",
+  "existing_files_checked": 90
+}
