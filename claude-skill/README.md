@@ -1,13 +1,15 @@
 # GapZer0 AI Skill — Claude Port
 
-**Claude-compatible portable package — 구조 포팅 완료 / Claude Runtime 미검증.**
+**Claude 웹 Skill 업로드·활성화 성공 / 대표 Runtime 시나리오 C01–C03 3/3 PASS.**
+
+현재 결과는 사용자가 제공한 실제 Claude 웹 설치·실행 기록에 근거한다. 100%는 대표 시나리오 3건의 성공률이며 전체 질의 정확도가 아니다.
 
 The Claude port does not replace the Codex Skill.
 Both ports use the same GapZer0 Control sources and behavioral rules.
 
 ## 목적과 기존 Skill 관계
 
-기존 `skill/SKILL.md`와 `.codex/skills/gapzero-guide/`의 행동 규칙을 유지하면서, Claude에서도 자료를 읽어 활용할 수 있는 독립적인 portable package를 제공한다. 공식 Claude 자동 인식·설치 형식이 검증된 패키지라고 주장하지 않는다. 기존 Codex 디렉터리는 변경하지 않았다.
+기존 `skill/SKILL.md`와 `.codex/skills/gapzero-guide/`의 행동 규칙을 유지하면서, Claude에서도 자료를 읽어 활용할 수 있는 독립적인 portable package를 제공한다. 초기 portable package 작성 시에는 미검증이었으나, 이후 Claude 웹 Skills 기능을 통해 실제 업로드 및 활성화에 성공했다. 모든 Claude 배포 방식의 호환성을 검증한 것은 아니다. 기존 Codex 디렉터리는 변경하지 않았다.
 
 ## 규격 판단
 
@@ -17,6 +19,8 @@ Both ports use the same GapZer0 Control sources and behavioral rules.
 - https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview
 
 저장소에 기존 Claude Skill 구성은 발견되지 않았으며 `claude` 실행기도 확인되지 않았다. 이에 사용자 요청의 fallback 경로 `claude-skill/`을 사용했다. 이 주소의 현재 내용·설치 경로·문법은 확인된 것으로 인용하지 않는다. `/opt/codex/bin/codex`는 존재하지만 이것이 Claude 실행 가능성을 의미하지 않는다.
+
+이후 사용자는 Claude 웹 Skills에서 `gapzero-guide` v1, 구성 파일 41개의 업로드·활성화와 C01–C03 실행을 완료했다. 초기 403 및 로컬 실행기 부재는 과거 포팅 환경의 기록이며 현재 웹 설치·Runtime 미검증 상태를 뜻하지 않는다. 문서 업데이트: 2026-10-08 (Asia/Seoul).
 
 ## 구조
 
@@ -78,13 +82,16 @@ PYTHONDONTWRITEBYTECODE=1 python claude-skill/tests/validate_port.py
 |---|---|
 | Porting Status | COMPLETE — portable 구조 |
 | Static Validation | PASS — 결과 JSON 참조 |
-| Claude Runtime Validation | NOT TESTED |
-| Cross-Runtime Agreement | NOT MEASURED |
+| Claude Web Skill Upload / Activation | PASS / PASS — 사용자 실제 웹 기록 |
+| Claude Runtime Validation | 3/3 PASS — C01–C03 |
+| Runtime Scenario Pass Rate | 100% — 대표 3건 |
+| Cross-Runtime Functional Agreement | 3/3 = 100% — 대표 기능 충족 |
 
 ## Known Limitations
 
-- 공식 Claude Skill 형식·자동 발견·설치·호출 미검증.
-- 실제 Claude 파일 접근·검색·응답 품질 미검증.
-- C01~C03 Codex/Claude paired run 미실행; 기존 Codex 성적을 재사용하지 않음.
-- 검색 알고리즘 스크립트는 이 패키지에 복제하지 않는다. 지침은 인덱스와 원문 파일 검색을 요구하며 Runtime별 검색 방식은 미검증이다.
+- Claude 웹 업로드·활성화는 성공했다. CLI 및 다른 배포 방식, 웹 보안 스캔 상세 결과는 미검증이다.
+- 실제 웹 대표 시나리오에서 Source Grounding 3/3 PASS. 전체 121 Control의 exhaustive Runtime test와 모든 질의의 품질을 검증한 것은 아니다.
+- 기존 Codex V01–V03와 Claude C01–C03의 대표 기능 충족을 비교했다. 동일 입력 paired 재실행이나 텍스트 동일성을 측정한 것이 아니다. 초기 시나리오 표·정적 JSON의 NOT TESTED는 당시 기록이고 현재 결과는 검증 보고서를 따른다.
+- 웹 실행 결과는 사용자 제공 요약이다. 응답 전문·파일 읽기 trace·모델 버전은 독립 확인하지 않았으며 장기 안정성/모델 버전 변화도 평가하지 않았다.
+- 검색 알고리즘 스크립트는 이 패키지에 복제하지 않는다. 지침은 인덱스와 원문 파일 검색을 요구하며 대표 웹 시나리오에서 검색·원문 근거 제시가 확인됐지만 Runtime별 검색 구현의 동등성은 측정하지 않았다.
 - 복사본은 자동 갱신되지 않는다. manifest hash와 canonical 비교가 필요하다.
