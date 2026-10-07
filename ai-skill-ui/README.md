@@ -74,3 +74,23 @@ Windows PowerShell에서는 `$env:UI_URL='http://127.0.0.1:8893/ai-skill-ui/'`�
 Markdown은 렌더링 단계에서 제목·목록·강조·안전한 HTTP(S) 링크로 표현한다. Raw HTML은 실행하지 않는다. Source snapshot 페이지도 숨겨진 원문 텍스트를 같은 renderer로 표시하며 원문 데이터는 유지한다. UI는 로그인 없이 사용하는 정적 Demo이고 이번 변경은 commit/push까지만 진행한다. 운영 URL에 반영되었다고 주장하지 않는다.
 
 [가독성 검증](tests/READABILITY_VALIDATION.md), [로컬 결과 화면](tests/readability-desktop.png)을 참고한다. ‘5~10초 이해’는 디자인 목표이며 실제 사용자 소요시간은 측정하지 않았다.
+
+## Interactive AI Skill Showcase — 로컬 검토 단계
+
+상단 6개 navigation으로 소개, Demo, Control 탐색, 동작 원리, 검증 결과, GapZer0 연결을 확인한다. 설명은 펼치기 방식으로 제공하고 기존 디자인과 세 Demo 시나리오는 유지한다. 이번 변경은 로컬 검토용이며 **commit / push / deploy를 수행하지 않는다**. 위 Public Demo URL은 기존 배포 안내이고 새 Showcase 반영 여부를 뜻하지 않는다.
+
+- Explorer: 현재 `skill/references/control-index.md`와 실제 원문에서 구성한 121개 Control, 15개 Domain, 실제 Class 값 3개. ID/Name/keyword 문자열 검색, Domain/Class 복합 필터, 초기화, 12개씩 더 보기, 선택 상세와 전체 원문 보기.
+- Explorer의 유일한 Control dataset: `data/controls.json`. 후보 metadata·keywords는 Index, 상세 필드는 실제 source에서 가져온다. missing field를 생성하지 않는다. 기존 `demo-data.json`은 과거 검증된 대표 Demo snapshot으로 유지하며 Explorer UI에 Control을 중복 hardcoding하지 않는다.
+- Dashboard: 기존 Codex Runtime·검색 품질·Claude 보고서와 실제 로컬 UI 결과에서 8개 metric을 읽어 구성한 `data/showcase.json`. 각 지표에는 범위·판정 기준·제한·report source를 표시한다. 일반 정확도나 모든 질의의 안전성을 보장하지 않는다.
+- GitHub 근거 링크는 기준 commit에 고정되어 있다. 원문 경로·SHA-256·source commit을 JSON에 남긴다.
+- E03는 합성 fixture의 로컬 D 검증만 설명하며 운영 S3/DB/API/UI와 TVM-E-04 미검증을 표시한다.
+
+현재 AI Skill snapshot만 재생성하려면 저장소 루트에서:
+
+```bash
+python ai-skill-ui/build-showcase.py
+```
+
+이 명령은 기존 Control/Skill/report를 읽기만 하고 UI data만 갱신한다. source 보고서의 근거가 없으면 중단하며 지표를 새로 추정하지 않는다. 최신 `_pages/`와의 전체 동기화는 별도 단계다.
+
+[Showcase 검증 보고서](tests/SHOWCASE_VALIDATION.md), [Desktop](tests/showcase-desktop.png), [Mobile](tests/showcase-mobile.png). 최종 디자인 리뉴얼, 실시간 LLM/API, 운영 배포는 포함하지 않는다.
