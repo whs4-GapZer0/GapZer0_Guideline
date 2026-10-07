@@ -1,0 +1,61 @@
+{
+  "total": 10,
+  "pass": 10,
+  "fail": 0,
+  "passRate": 100,
+  "browser": "Chromium via Playwright",
+  "runtime": "static demo; no LLM",
+  "results": [
+    {
+      "id": "U01",
+      "name": "메인 화면 렌더링",
+      "status": "PASS"
+    },
+    {
+      "id": "U02",
+      "name": "기능 선택",
+      "status": "PASS"
+    },
+    {
+      "id": "U03",
+      "name": "예시 질문 입력",
+      "status": "PASS"
+    },
+    {
+      "id": "U04",
+      "name": "Control 안내 결과",
+      "status": "PASS"
+    },
+    {
+      "id": "U05",
+      "name": "이행계획 결과",
+      "status": "PASS"
+    },
+    {
+      "id": "U06",
+      "name": "실무 문서 결과",
+      "status": "PASS"
+    },
+    {
+      "id": "U07",
+      "name": "실제 Source 표시 및 읽기",
+      "status": "PASS"
+    },
+    {
+      "id": "U08",
+      "name": "안전성 태그 구분",
+      "status": "PASS"
+    },
+    {
+      "id": "U09",
+      "name": "잘못된 입력 처리",
+      "status": "PASS"
+    },
+    {
+      "id": "U10",
+      "name": "Demo 표시 및 레이아웃",
+      "status": "PASS"
+    }
+  ],
+  "browserErrors": []
+}
