@@ -9,4 +9,4 @@ permalink: /self-assessment/form/
 <link rel="stylesheet" href="/assets/assessment/app.css?v=control5">
 <div id="assessment-app" data-controls="/assets/assessment/controls.json?v=control2">Control 목록을 불러오는 중입니다.</div>
 <noscript>자가진단 입력 화면을 사용하려면 JavaScript를 허용하세요. 안내 페이지를 참고하여 Excel에서 작성할 수도 있습니다.</noscript>
-<script type="module" src="/assets/assessment/app.mjs?v=control6"></script>
+<script type="module" src="/assets/assessment/app.mjs?v=security1"></script>

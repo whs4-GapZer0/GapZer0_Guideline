@@ -9,7 +9,7 @@ description: >
 url: "https://docs.whs4-gapzer0.kro.kr"
 baseurl: ""
 
-remote_theme: sighingnow/jekyll-gitbook
+remote_theme: sighingnow/jekyll-gitbook@a7d876936fe650c46eaf9eca92dc7afe0f1e1f17
 
 toc:
   enabled: true

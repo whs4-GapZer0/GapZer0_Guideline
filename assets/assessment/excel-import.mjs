@@ -2,6 +2,10 @@
 import {MAX_IMPORT_BYTES,HEADERS,META_FIELDS,META_LABELS,importRows} from './transfer.mjs?v=control2';
 import {crc} from './excel.mjs?v=control6';
 const LIMIT=50*1024*1024,decoder=new TextDecoder('utf-8',{fatal:true});
+// Bound XML complexity before DOMParser allocates nodes on the UI thread.
+const MAX_XML_BYTES=8*1024*1024,MAX_SHARED_XML_BYTES=2*1024*1024;
+const MAX_XML_ELEMENTS=50000,MAX_SHARED_STRINGS=5000;
+const tooComplex=()=>{throw Error('Excel 내부 데이터가 너무 많습니다. 이 사이트의 빈 템플릿에 작성한 값만 옮겨 다시 저장하세요.');};
 const fail=()=>{throw Error('Excel 파일이 손상되었거나 지원하지 않는 형식입니다. 암호 없이 .xlsx로 저장하세요.');};
 
 export async function readZip(buffer){
@@ -38,10 +42,14 @@ export async function readZip(buffer){
  if(pos!==end)fail();return entries;
 }
 const nodes=(node,name)=>Array.from(node.getElementsByTagNameNS('*',name));
-function documentXml(entries,path){
+function documentXml(entries,path,maxBytes=MAX_XML_BYTES){
  const bytes=entries.get(path);if(!bytes)fail();
+ if(bytes.length>maxBytes)tooComplex();
  let text;try{text=decoder.decode(bytes);}catch{fail();}
  if(/<!DOCTYPE|<!ENTITY/i.test(text))fail();
+ // Count non-ASCII element names too; DOMParser validates their syntax later.
+ let count=0;const tags=/<[^!?/\s>]/g;
+ while(tags.exec(text))if(++count>MAX_XML_ELEMENTS)tooComplex();
  const doc=new DOMParser().parseFromString(text,'application/xml');if(nodes(doc,'parsererror').length)fail();return doc;
 }
 function resolve(base,target){
@@ -68,7 +76,7 @@ function serialDate(value,date1904){
 }
 export async function xlsxRows(buffer){
  const entries=await readZip(buffer),types=documentXml(entries,'[Content_Types].xml');
- if(nodes(types,'Override').some(n=>/macroEnabled|vbaProject/i.test(n.getAttribute('ContentType'))))throw Error('매크로가 없는 .xlsx 파일을 사용하세요.');
+ if([...nodes(types,'Override'),...nodes(types,'Default')].some(n=>/macroEnabled|vbaProject/i.test(n.getAttribute('ContentType'))))throw Error('매크로가 없는 .xlsx 파일을 사용하세요.');
  const bookPath=related('',relationships(entries,'').find(r=>r.type==='officeDocument'));
  const book=documentXml(entries,bookPath),rels=relationships(entries,bookPath);
  const sheets=nodes(book,'sheet').filter(n=>n.getAttribute('name')==='평가 기록');
@@ -76,7 +84,9 @@ export async function xlsxRows(buffer){
  const sheetId=Array.from(sheets[0].attributes).find(a=>a.localName==='id')?.value;
  const sheetRel=rels.find(r=>r.id===sheetId&&r.type==='worksheet');
  const sheet=documentXml(entries,related(bookPath,sheetRel)),sharedRel=rels.find(r=>r.type==='sharedStrings');
- const strings=sharedRel?nodes(documentXml(entries,related(bookPath,sharedRel)),'si').map(richText):[];
+ const shared=sharedRel?nodes(documentXml(entries,related(bookPath,sharedRel),MAX_SHARED_XML_BYTES),'si'):[];
+ if(shared.length>MAX_SHARED_STRINGS)tooComplex();
+ const strings=shared.map(richText);
  const date1904=['1','true'].includes(nodes(book,'workbookPr')[0]?.getAttribute('date1904'));
  const rows=[],meta={},seenRows=new Set();let cells=0;
  for(const row of nodes(sheet,'row')){

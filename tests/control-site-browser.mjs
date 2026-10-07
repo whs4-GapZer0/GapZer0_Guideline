@@ -3,6 +3,7 @@ import http from 'node:http';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import assert from 'node:assert/strict';
+import {checkSecurity} from './security-browser.mjs';
 const root=path.resolve(process.env.THEME_TEST_ROOT||'work/theme-preview');
 const server=http.createServer(async(req,res)=>{try{let p=new URL(req.url,'http://localhost').pathname;if(p.endsWith('/'))p+='index.html';const f=path.resolve(root,'.'+p);if(!f.startsWith(root+path.sep))throw Error();res.setHeader('Content-Type',f.endsWith('.mjs')||f.endsWith('.js')?'text/javascript':f.endsWith('.json')?'application/json':f.endsWith('.css')?'text/css':f.endsWith('.html')?'text/html':'application/octet-stream');res.end(await fs.readFile(f));}catch{res.statusCode=404;res.end();}});
 await new Promise(r=>server.listen(0,'127.0.0.1',r));
@@ -62,4 +63,5 @@ try {
  assert.equal(await page.locator('.sa-control-form textarea').first().inputValue(),'작성 중인 Control 기록');
  await page.screenshot({path:'work/control-site.png'});
  console.log('PASS: Jekyll Control layout, framework drawer, navigation, storage and Excel round trip');
+ await checkSecurity(page,base);
 } finally { await browser.close(); await new Promise(resolve=>server.close(resolve)); }
