@@ -1,0 +1,108 @@
+{
+  "total": 20,
+  "pass": 20,
+  "fail": 0,
+  "scope": "Automated local Chromium; production Guideline not accessible",
+  "results": [
+    {
+      "id": "DESIGN01",
+      "name": "Repository Guideline accent",
+      "status": "PASS"
+    },
+    {
+      "id": "DESIGN02",
+      "name": "Tokens",
+      "status": "PASS"
+    },
+    {
+      "id": "DESIGN03",
+      "name": "Desktop layout",
+      "status": "PASS"
+    },
+    {
+      "id": "DESIGN04",
+      "name": "Responsive widths",
+      "status": "PASS"
+    },
+    {
+      "id": "DESIGN05",
+      "name": "Mobile menu",
+      "status": "PASS"
+    },
+    {
+      "id": "DESIGN06",
+      "name": "All three Demo results",
+      "status": "PASS"
+    },
+    {
+      "id": "DESIGN07",
+      "name": "Explorer search",
+      "status": "PASS"
+    },
+    {
+      "id": "DESIGN08",
+      "name": "Explorer filter",
+      "status": "PASS"
+    },
+    {
+      "id": "DESIGN09",
+      "name": "Chart filter interaction",
+      "status": "PASS"
+    },
+    {
+      "id": "DESIGN10",
+      "name": "Validation tables",
+      "status": "PASS"
+    },
+    {
+      "id": "DESIGN11",
+      "name": "Five accessible donuts",
+      "status": "PASS"
+    },
+    {
+      "id": "DESIGN12",
+      "name": "Source links",
+      "status": "PASS"
+    },
+    {
+      "id": "DESIGN13",
+      "name": "Details open close",
+      "status": "PASS"
+    },
+    {
+      "id": "DESIGN14",
+      "name": "Keyboard focus",
+      "status": "PASS"
+    },
+    {
+      "id": "DESIGN15",
+      "name": "Primary color contrast",
+      "status": "PASS"
+    },
+    {
+      "id": "DESIGN16",
+      "name": "Long text wrapping",
+      "status": "PASS"
+    },
+    {
+      "id": "DESIGN17",
+      "name": "360px screenshots",
+      "status": "PASS"
+    },
+    {
+      "id": "DESIGN18",
+      "name": "All data unchanged",
+      "status": "PASS"
+    },
+    {
+      "id": "DESIGN19",
+      "name": "Copyedited meanings preserved",
+      "status": "PASS"
+    },
+    {
+      "id": "DESIGN20",
+      "name": "Outside UI zero changes",
+      "status": "PASS"
+    }
+  ]
+}

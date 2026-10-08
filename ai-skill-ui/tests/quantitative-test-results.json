@@ -1,0 +1,168 @@
+{
+  "total": 32,
+  "pass": 32,
+  "fail": 0,
+  "scope": "Local Chromium quantitative Showcase; selected report dataset; no runtime retest or deployment",
+  "results": [
+    {
+      "id": "VAL01",
+      "name": "Executive summary 13 actual metrics",
+      "status": "PASS"
+    },
+    {
+      "id": "VAL02",
+      "name": "Donut rendering and accessible labels",
+      "status": "PASS"
+    },
+    {
+      "id": "VAL03",
+      "name": "Donut denominators and scope",
+      "status": "PASS"
+    },
+    {
+      "id": "VAL04",
+      "name": "Top3 Top5 comparison and HRS case",
+      "status": "PASS"
+    },
+    {
+      "id": "VAL05",
+      "name": "87.5 calculation",
+      "status": "PASS"
+    },
+    {
+      "id": "VAL06",
+      "name": "90.9 calculation",
+      "status": "PASS"
+    },
+    {
+      "id": "VAL07",
+      "name": "Validation Matrix 13 sourced rows",
+      "status": "PASS"
+    },
+    {
+      "id": "VAL08",
+      "name": "Test Explorer T01-T10 details",
+      "status": "PASS"
+    },
+    {
+      "id": "VAL09",
+      "name": "T05 safety single observation",
+      "status": "PASS"
+    },
+    {
+      "id": "VAL10",
+      "name": "T06 safety single observation",
+      "status": "PASS"
+    },
+    {
+      "id": "VAL11",
+      "name": "Cross-runtime representative functional comparison",
+      "status": "PASS"
+    },
+    {
+      "id": "VAL12",
+      "name": "Runtime diagram source Codex Claude static Demo",
+      "status": "PASS"
+    },
+    {
+      "id": "VAL13",
+      "name": "Control total runtime calculation",
+      "status": "PASS"
+    },
+    {
+      "id": "VAL14",
+      "name": "Domain count runtime calculation",
+      "status": "PASS"
+    },
+    {
+      "id": "VAL15",
+      "name": "Domain distribution counts sum and values",
+      "status": "PASS"
+    },
+    {
+      "id": "VAL16",
+      "name": "Classification distribution counts",
+      "status": "PASS"
+    },
+    {
+      "id": "VAL17",
+      "name": "Search result count updates",
+      "status": "PASS"
+    },
+    {
+      "id": "VAL18",
+      "name": "Distribution click filters domain and class",
+      "status": "PASS"
+    },
+    {
+      "id": "VAL19",
+      "name": "Demo Control to Explorer and safe CTA",
+      "status": "PASS"
+    },
+    {
+      "id": "VAL20",
+      "name": "Evidence explanation does not claim secured evidence",
+      "status": "PASS"
+    },
+    {
+      "id": "VAL21",
+      "name": "Source evidence trace links actual paths",
+      "status": "PASS"
+    },
+    {
+      "id": "VAL22",
+      "name": "Methodology actual five methods",
+      "status": "PASS"
+    },
+    {
+      "id": "VAL23",
+      "name": "Limitations scope and offline distinctions",
+      "status": "PASS"
+    },
+    {
+      "id": "VAL24",
+      "name": "Artifact map all actual repository paths",
+      "status": "PASS"
+    },
+    {
+      "id": "VAL25",
+      "name": "Desktop and mobile chart screenshots no overflow",
+      "status": "PASS"
+    },
+    {
+      "id": "VAL26",
+      "name": "Accessibility keyboard links details filter and charts",
+      "status": "PASS"
+    },
+    {
+      "id": "VAL27",
+      "name": "showcase existing regression 30/30",
+      "status": "PASS"
+    },
+    {
+      "id": "VAL28",
+      "name": "ui existing regression 10/10",
+      "status": "PASS"
+    },
+    {
+      "id": "VAL29",
+      "name": "ux existing regression 12/12",
+      "status": "PASS"
+    },
+    {
+      "id": "VAL30",
+      "name": "readability existing regression 13/13",
+      "status": "PASS"
+    },
+    {
+      "id": "VAL31",
+      "name": "No invented metrics: provenance and all calculations",
+      "status": "PASS"
+    },
+    {
+      "id": "VAL32",
+      "name": "Outside ai-skill-ui changes zero; demo adapter unchanged",
+      "status": "PASS"
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "metrics": [
+    {
+      "id": "codex",
+      "title": "Codex Runtime",
+      "numerator": 13,
+      "denominator": 13,
+      "source": "skill/tests/runtime-test-results.md",
+      "sourceSha256": "af52d88932e032a97824a456901e90a8078ab8794533d14b140e05a8d4d1707f",
+      "reportEvidence": "총 13/13 PASS",
+      "scope": "V01–V03 + T01–T10",
+      "details": "Control 안내·이행계획·문서 초안과 부족한 정보·가짜 ID·인증 판단 등 예외 요청을 검사한 보고서입니다.",
+      "limitations": "정의한 13개 시나리오 범위이며 모든 질의의 정확도가 아닙니다."
+    },
+    {
+      "id": "core",
+      "title": "Core Functions",
+      "numerator": 3,
+      "denominator": 3,
+      "source": "skill/tests/runtime-test-results.md",
+      "sourceSha256": "af52d88932e032a97824a456901e90a8078ab8794533d14b140e05a8d4d1707f",
+      "reportEvidence": "V01~V03: 3/3 PASS",
+      "scope": "핵심 기능 V01–V03",
+      "details": "세 기능의 기대 출력 구조와 실제 원문 근거를 검증했습니다.",
+      "limitations": "모든 Control을 실행한 exhaustive test가 아닙니다."
+    },
+    {
+      "id": "regression",
+      "title": "Regression Scenarios",
+      "numerator": 10,
+      "denominator": 10,
+      "source": "skill/tests/runtime-test-results.md",
+      "sourceSha256": "af52d88932e032a97824a456901e90a8078ab8794533d14b140e05a8d4d1707f",
+      "reportEvidence": "T01~T10: 10/10 PASS",
+      "scope": "실무·예외 T01–T10",
+      "details": "퇴사, 백업 계획, 공급자, 가짜 ID, 인증판정, 개인정보, 취약점, 사고 등 정의한 요청을 검사했습니다.",
+      "limitations": "향후 모든 입력의 안전성을 보장하지 않습니다."
+    },
+    {
+      "id": "top5",
+      "title": "Search Top-5 Case",
+      "numerator": 8,
+      "denominator": 8,
+      "source": "ai-skill-ui/data/guideline-sync.json",
+      "sourceSha256": "2b902c40eb88ce26733ad5941a4b6c2f657b8e7ea6d1a494b255defa779e9687",
+      "reportEvidence": "Top-5 case pass rate: 8/8 (100.0%)",
+      "scope": "검색 질의 8개",
+      "details": "각 질의의 모든 기대 Control이 Top-5 안에 포함돼야 해당 Case가 PASS입니다.",
+      "limitations": "최신 pinned Guideline Index로 다시 실행한 선정 검색 평가; 일반 정확도가 아님."
+    },
+    {
+      "id": "hit5",
+      "title": "Expected-Control Top-5 Hit",
+      "numerator": 11,
+      "denominator": 11,
+      "source": "ai-skill-ui/data/guideline-sync.json",
+      "sourceSha256": "2b902c40eb88ce26733ad5941a4b6c2f657b8e7ea6d1a494b255defa779e9687",
+      "reportEvidence": "Top-5 expected-control hit rate: 11/11 (100.0%)",
+      "scope": "기대 Control 11개",
+      "details": "검색 상위 5개에서 개별 기대 Control을 찾았는지 집계했습니다.",
+      "limitations": "최신 pinned Guideline Index로 다시 실행한 선정 검색 평가; 일반 정확도가 아님."
+    },
+    {
+      "id": "claude",
+      "title": "Claude Runtime",
+      "numerator": 3,
+      "denominator": 3,
+      "source": "claude-skill/tests/CLAUDE_PORT_VALIDATION.md",
+      "sourceSha256": "885be0b0d76d63b4aa317e7788d3609998fcff2f7cd0eb12e7a5fe3ac87c07ac",
+      "reportEvidence": "| Claude Runtime Validation | 3/3 PASS |",
+      "scope": "대표 C01–C03",
+      "details": "사용자가 실제 Claude 웹 Skill 업로드·활성화 후 실행한 결과를 문서화했습니다.",
+      "limitations": "사용자 제공 실행 요약입니다. 모델 버전·응답 전문·trace 독립 재평가와 장기 안정성은 미검증입니다."
+    },
+    {
+      "id": "agreement",
+      "title": "Cross-runtime Representative Agreement",
+      "numerator": 3,
+      "denominator": 3,
+      "source": "claude-skill/tests/CLAUDE_PORT_VALIDATION.md",
+      "sourceSha256": "885be0b0d76d63b4aa317e7788d3609998fcff2f7cd0eb12e7a5fe3ac87c07ac",
+      "reportEvidence": "| Cross-Runtime Functional Agreement | 3/3 = 100% |",
+      "scope": "대표 기능 유형 3개",
+      "details": "기존 Codex V01–V03와 Claude C01–C03 모두 핵심 기능 기대 동작을 충족했습니다.",
+      "limitations": "동일 입력 paired 재실행이나 문장 동일성을 측정한 수치가 아닙니다."
+    },
+    {
+      "id": "ui",
+      "title": "UI Tests",
+      "numerator": 10,
+      "denominator": 10,
+      "source": "ai-skill-ui/tests/ui-test-results.json",
+      "sourceSha256": "513521c92692cd9ba7e3e5ed4ac9a44db25b32c7bc58fe4a989646a886b7155d",
+      "reportEvidence": "\"pass\": 10",
+      "scope": "UI U01–U10",
+      "details": "실제 로컬 Chromium에서 화면, 기능 선택, 예시, 세 결과, Source, 태그, 오류, Demo 표시를 검사했습니다.",
+      "limitations": "실시간 LLM·운영 배포 검증이 아닙니다."
+    }
+  ],
+  "artifacts": [
+    "skill/SKILL.md",
+    ".codex/skills/gapzero-guide/SKILL.md",
+    "claude-skill/SKILL.md",
+    "skill/references/control-index.md",
+    "skill/references/controls",
+    "skill/references/output-formats.md",
+    "skill/tests",
+    "ai-skill-ui"
+  ],
+  "sources": {
+    "skill": "skill/SKILL.md",
+    "formats": "skill/references/output-formats.md",
+    "e03": "skill/tests/VIRTUAL_CHIBBO_GRC_E2E_E03.md"
+  },
+  "snapshots": {
+    "skill/SKILL.md": "5890e9593b26f29d7dab671df42145f016334882e797f03baf7dfdb9ead3ccc1",
+    "skill/references/output-formats.md": "c526eac95e79faaf2eeb06f076cf6b0069b8d2f06b7c815e68fc7f2e9ab33b35",
+    "skill/tests/VIRTUAL_CHIBBO_GRC_E2E_E03.md": "939a47584737cf404f68d35aafae874be8b1d785d1ab914e261b5e3d5afe17a9"
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "total": 30,
+  "pass": 30,
+  "fail": 0,
+  "passRate": 100,
+  "browserErrors": [],
+  "scope": "Local Showcase tests; existing UI/UX/READ suites executed separately; no live LLM/deployment",
+  "results": [
+    {
+      "id": "SHOW01",
+      "name": "AI Skill 소개와 6개 navigation",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOW02",
+      "name": "Problem/Solution 요약 펼치기",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOW03",
+      "name": "3개 기능에서 직접 사용하기 이동",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOW04",
+      "name": "Demo 3개와 오류 없는 결과",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOW05",
+      "name": "다른 기능에서 예시 자동 선택",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOW06",
+      "name": "결과 요약·실제 Control 수",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOW07",
+      "name": "Control 원문 접기·펼치기",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOW08",
+      "name": "Markdown DOM 렌더링",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOW09",
+      "name": "Explorer 121개 단일 source와 pagination",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOW10",
+      "name": "Control ID 검색·빈 결과",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOW11",
+      "name": "keyword·이름 검색·HTML 입력 안전",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOW12",
+      "name": "Domain 실제 값 filter",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOW13",
+      "name": "Class 실제 값·복합 filter",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOW14",
+      "name": "Control 상세 실제 필드·Source",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOW15",
+      "name": "7단계 Skill Flow",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOW16",
+      "name": "실제 Skill 구성요소 repository path",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOW17",
+      "name": "3개 기능 Output 구조·원문 format",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOW18",
+      "name": "실제 Grounding 원칙",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOW19",
+      "name": "Source traceability 결과→원문",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOW20",
+      "name": "실제 report 근거 8개 metric",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOW21",
+      "name": "metric마다 검증 내용·범위·PASS 기준·제한·report",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOW22",
+      "name": "Codex/Claude/Web UI 구분",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOW23",
+      "name": "GapZer0 전체 Flow·상세",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOW24",
+      "name": "E03 실제 report local D·Production 미검증",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOW25",
+      "name": "실제 Repository 산출물",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOW26",
+      "name": "현재 제한과 향후 기능 명확",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOW27",
+      "name": "Desktop navigation·레이아웃·캡처",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOW28",
+      "name": "Mobile navigation·Explorer·Demo·캡처",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOW29",
+      "name": "기존 실제 UI/UX/READ regression 0",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOW30",
+      "name": "ai-skill-ui 외 변경/삭제/추가 0",
+      "status": "PASS"
+    }
+  ]
+}
