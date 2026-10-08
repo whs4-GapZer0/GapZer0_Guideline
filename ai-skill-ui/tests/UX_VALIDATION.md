@@ -1,0 +1,46 @@
+# First-visit UX validation
+
+검증일: 2026-10-08 (Asia/Seoul). 로컬 Chromium/Playwright 검증이며 공개 배포·실시간 LLM 검증이 아니다.
+
+## 결과
+
+| Test set | Total | PASS | FAIL | Pass Rate |
+|---|---|---|---|---|
+| 기존 U01–U10 | 10 | 10 | 0 | 100% |
+| 신규 UX01–UX12 | 12 | 12 | 0 | 100% |
+
+두 테스트 실행의 종료 코드는 0이고 브라우저 JavaScript 오류는 0건이다. 100%는 선정한 UI 테스트의 성공률이며 실제 사용자 이해도를 측정한 수치가 아니다. ‘10초 내 이해’는 디자인 목표로, 실제 사용자 시간 측정은 하지 않았다.
+
+UX01 목적 및 입력 설명, UX02 3단계 사용법, UX03 기능 3개, UX04 예시 3개, UX05 다른 기능에서 예시 선택 시 자동 전환, UX06 질문 입력·실행 버튼 문구, UX07 결과 요약·Evidence, UX08 Control ID/이름, UX09 Source 링크, UX10 Demo 고지·반응형, UX11 기존 시나리오·데이터·안전 태그, UX12 UI 외 파일 변경 0을 검사했다.
+
+첫 신규 테스트 실행은 11 PASS / 1 FAIL이었다. UX11에서 이행계획 결과의 AI 제안 태그 누락을 확인했다. 원문 요구사항을 변경하지 않고 활용 안내를 AI 제안으로 구분해 표시한 후 12/12 PASS를 확인했다. 최종 JSON은 [ux-test-results.json](ux-test-results.json)이다.
+
+## 실행
+
+저장소 루트에서 실제 서버를 실행했다:
+
+```bash
+python -m http.server 8911 --bind 127.0.0.1
+UI_URL=http://127.0.0.1:8911/ai-skill-ui/ node ai-skill-ui/tests/ui-tests.cjs
+UI_URL=http://127.0.0.1:8911/ai-skill-ui/ UX_BASELINE=/tmp/gapzero-ux-before.json node ai-skill-ui/tests/ux-tests.cjs
+```
+
+`UX_BASELINE`은 **수정 전** 파일 상대경로→SHA-256 값을 저장한 JSON이다. 이번 작업의 baseline은 `/tmp/gapzero-ux-before.json`이며 223개 파일을 포함한다. 이 파일은 일시적인 검증 입력이고 서비스 자산이 아니다. 이후 변경 작업에서 UX12를 재실행하려면 작업 시작 전에 새 baseline을 확보해야 한다. 기존 미커밋 검색 스크립트 변경도 baseline과 비교하여 그대로 보존했으며 이번 변경으로 집계하지 않았다.
+
+## 변경 범위
+
+- 목적·단계·기능·예시 문구 및 버튼 표현 개선.
+- Control 추천 요약과 이유·실행 활동·Evidence·근거 순서 정리.
+- 조건·긴 원문은 펼쳐보기로 제공. 원문 텍스트와 Source 경로 유지.
+- Demo 입력·응답 매칭과 세 시나리오는 그대로 유지. 기존 예시 버튼의 자동 선택 동작을 유지하고 명확하게 표시.
+- Control 원문, Index, Skill, 기존 평가 보고서, 기존 사이트 설정 및 UI 외 파일 변경 0.
+- `demo-data.json`, `runtime-adapter.js`, `sources/` 변경 없음.
+- Commit / push / merge / deploy 없음.
+
+## 화면 캡처
+
+- [데스크톱 첫 화면](ux-main-desktop.png)
+- [데스크톱 추천 결과](ux-result-desktop.png)
+- [모바일 첫 화면](ux-main-mobile.png)
+
+1440×1080 데스크톱 및 390×844 모바일에서 가로 넘침이 없음을 확인했다. 데스크톱 캡처를 직접 검토했다. 실제 사용자 테스트, 공개 URL 반영, 운영 배포는 아직 수행하지 않았다.

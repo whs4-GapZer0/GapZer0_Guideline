@@ -1,0 +1,38 @@
+{
+  "total": 6,
+  "pass": 6,
+  "fail": 0,
+  "scope": "Local sync UI/source link checks; no external LLM or production deployment",
+  "results": [
+    {
+      "id": "SYNCUI01",
+      "name": "Sync panel matches actual pinned analysis",
+      "status": "PASS"
+    },
+    {
+      "id": "SYNCUI02",
+      "name": "Actual current search n/d and local evidence source",
+      "status": "PASS"
+    },
+    {
+      "id": "SYNCUI03",
+      "name": "Latest changed Stakeholders presented in plan Demo",
+      "status": "PASS"
+    },
+    {
+      "id": "SYNCUI04",
+      "name": "Explorer canonical source GitHub link points to actual main revision",
+      "status": "PASS"
+    },
+    {
+      "id": "SYNCUI05",
+      "name": "Historical Runtime explicitly marked not rerun",
+      "status": "PASS"
+    },
+    {
+      "id": "SYNCUI06",
+      "name": "Sync source protected and desktop mobile runtime error free",
+      "status": "PASS"
+    }
+  ]
+}
