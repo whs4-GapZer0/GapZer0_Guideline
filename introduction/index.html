@@ -1,0 +1,510 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head><meta charset="UTF-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"><title>01. GapZer0 가이드라인 소개 · GapZer0 Guideline</title><meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="description" content="NIST CSF 2.0과 ISMS-P를 기반으로 한 GapZer0 통합 정보보호 가이드라인
+"><meta name="generator" content="Jekyll (using style of GitBook)"><meta name="author" content="GapZer0"><link rel="stylesheet" href="/assets/gitbook/style.css">
+<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-expandable-chapters-small2/expandable-chapters-small.css">
+<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-fontsettings/website.css">
+<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-search-pro/search.css">
+<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-splitter/splitter.css">
+
+<link rel="stylesheet" href="/assets/gitbook/rouge/colorful.css">
+
+<link rel="stylesheet" href="/assets/gitbook/custom.css">
+<link rel="stylesheet" href="/assets/gitbook/custom-local.css?v=1791475446">
+
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/assets/gitbook/images/apple-touch-icon-precomposed-152.png">
+<link rel="shortcut icon" href="/" type="image/x-icon">
+
+
+
+
+            <link rel="prev" href="/" />
+        
+
+        
+            <link rel="next" href="/how-to-use/" />
+        
+    </head>
+    <body>
+        <div class="book"><div class="book-summary">
+
+    <script type="text/javascript">
+        // 페이지 이동 시 본문을 맨 위로 이동
+        function pageScrollToTop(element) {
+            $('div.body-inner').animate({ scrollTop: 0 });
+            return true;
+        }
+
+        // 모바일 환경에서 본문 내 앵커 이동 처리
+        function mobilePageScrollToAnchor(element) {
+            $(element).closest('li.chapter').find('ul>li').removeClass('active');
+            $(element).parent().addClass('active');
+
+            if ($(document).width() <= 1240) {
+                let target = $($(element).attr('href'));
+
+                if (target.length) {
+                    $('div.body-inner').animate({
+                        scrollTop: target.get(0).offsetTop
+                    });
+                }
+            }
+
+            return true;
+        }
+    </script>
+
+    <nav role="navigation">
+
+        <!-- 검색창 -->
+        <div id="book-search-input" role="search">
+            <input type="text" placeholder="Type to search" />
+        </div>
+
+        <div id="book-search-input-link" role="search">
+            <a href="/assets/search.html">
+                Click to Search
+            </a>
+        </div>
+
+        <ul class="summary">
+
+            <!-- 홈페이지 -->
+            <li class="chapter">
+                <a href="/"
+                   onclick="pageScrollToTop(this)">
+                    GapZer0 Guideline
+                </a>
+            </li>
+
+            <li class="divider"></li>
+
+            <!-- 가이드라인 목차와 AI Skill 바로가기 -->
+            
+
+                
+
+                <!-- 현재 페이지와 메뉴 URL이 같은 경우 -->
+                
+
+                <!-- Control 하위 페이지에서는 04를 active로 표시 -->
+                
+
+                <!-- 자가진단 작성 화면도 05 메뉴에 포함 -->
+                
+
+                <li class="chapter active"
+                    data-path="/introduction/">
+
+                    
+                    <a href="/introduction/"
+                       onclick="pageScrollToTop(this)">
+                        01. GapZer0 가이드라인 소개
+                    </a>
+                    
+
+                </li>
+
+            
+
+                
+
+                <!-- 현재 페이지와 메뉴 URL이 같은 경우 -->
+                
+
+                <!-- Control 하위 페이지에서는 04를 active로 표시 -->
+                
+
+                <!-- 자가진단 작성 화면도 05 메뉴에 포함 -->
+                
+
+                <li class="chapter"
+                    data-path="/how-to-use/">
+
+                    
+                    <a href="/how-to-use/"
+                       onclick="pageScrollToTop(this)">
+                        02. 가이드라인 활용 방법
+                    </a>
+                    
+
+                </li>
+
+            
+
+                
+
+                <!-- 현재 페이지와 메뉴 URL이 같은 경우 -->
+                
+
+                <!-- Control 하위 페이지에서는 04를 active로 표시 -->
+                
+
+                <!-- 자가진단 작성 화면도 05 메뉴에 포함 -->
+                
+
+                <li class="chapter"
+                    data-path="/terms/">
+
+                    
+                    <a href="/terms/"
+                       onclick="pageScrollToTop(this)">
+                        03. 주요 용어
+                    </a>
+                    
+
+                </li>
+
+            
+
+                
+
+                <!-- 현재 페이지와 메뉴 URL이 같은 경우 -->
+                
+
+                <!-- Control 하위 페이지에서는 04를 active로 표시 -->
+                
+
+                <!-- 자가진단 작성 화면도 05 메뉴에 포함 -->
+                
+
+                <li class="chapter"
+                    data-path="/controls/">
+
+                    
+                    <a href="/controls/"
+                       onclick="pageScrollToTop(this)">
+                        04. Control 이행 안내
+                    </a>
+                    
+
+                </li>
+
+            
+
+                
+
+                <!-- 현재 페이지와 메뉴 URL이 같은 경우 -->
+                
+
+                <!-- Control 하위 페이지에서는 04를 active로 표시 -->
+                
+
+                <!-- 자가진단 작성 화면도 05 메뉴에 포함 -->
+                
+
+                <li class="chapter"
+                    data-path="/self-assessment/">
+
+                    
+                    <a href="/self-assessment/"
+                       onclick="pageScrollToTop(this)">
+                        05. 자가 진단
+                    </a>
+                    
+
+                </li>
+
+            
+
+                
+
+                <!-- 현재 페이지와 메뉴 URL이 같은 경우 -->
+                
+
+                <!-- Control 하위 페이지에서는 04를 active로 표시 -->
+                
+
+                <!-- 자가진단 작성 화면도 05 메뉴에 포함 -->
+                
+
+                <li class="chapter"
+                    data-path="https://docs.whs4-gapzer0.kro.kr/ai-skill-ui/">
+
+                    
+                    <a class="gz-ai-skill-link" href="https://docs.whs4-gapzer0.kro.kr/ai-skill-ui/" target="_blank" rel="noopener noreferrer"
+                       aria-label="GapZer0 AI Skill (새 탭에서 열기)">
+                        GapZer0 AI Skill <span class="gz-external-icon" aria-hidden="true">↗</span>
+                    </a>
+                    
+
+                </li>
+
+            
+
+            
+
+        </ul>
+
+    </nav>
+
+</div>
+<div class="book-body">
+                <div class="book-header" role="navigation">
+                    <!-- Title -->
+                    <h1>
+                        <i class="fa fa-circle-o-notch fa-spin"></i>
+                        
+                            <a href="." >01. GapZer0 가이드라인 소개</a>
+                        
+                    </h1>
+                </div>
+
+                <div class="body-inner"><div class="page-wrapper" tabindex="-1" role="main">
+    
+
+    <div class="page-inner">
+        <div id="book-search-results">
+            <div class="search-noresults">
+                <section class="normal markdown-section">
+                    
+                        <h1 id="/01-introduction">01. GapZer0 가이드라인 소개</h1>
+                    
+
+                    <div class="gz-intro-page">
+<p class="gz-intro-lead">NIST CSF 2.0 기반 국내 정보보호 컴플라이언스 프레임워크</p>
+<p>GapZer0는 NIST CSF 2.0과 ISMS-P를 연계하고 개인정보 보호법을 검토해, 국내 조직이 보안 요구사항을 함께 관리할 수 있도록 설계한 통합 프레임워크입니다. 이 가이드라인은 프레임워크의 Control을 실제 업무에서 이행하는 방법과 확인 자료를 안내합니다.</p>
+<section class="gz-intro-section" aria-labelledby="intro-purpose"><h2 id="intro-purpose">프레임워크 제작 배경과 목적</h2><div class="gz-intro-background"><article><h3>인증 이후에도 점검은 필요합니다</h3><p>인증을 보유한 조직에서도 보안사고와 운영 결함이 발생합니다. Control이 실제로 이행되고 보안 목적을 달성하는지 지속적으로 확인해야 합니다.</p></article><article><h3>국내 기준과 국제 목표를 연결합니다</h3><p>NIST CSF 2.0과 ISMS-P를 매핑하고 개인정보 보호법을 검토했습니다. 공통 요구사항과 보완할 사항을 하나의 Control 체계로 정리했습니다.</p></article><article><h3>이행 방법과 확인 자료를 제시합니다</h3><p>Control별 Implementation Guide와 Evidence를 통해 수행할 활동과 확인할 자료를 안내합니다. 현재 상태를 점검하고 개선계획을 세울 수 있습니다.</p></article></div></section>
+<section class="gz-intro-section" aria-labelledby="intro-method"><h2 id="intro-method">프레임워크는 어떻게 만들었나요?</h2><ol class="gz-intro-steps gz-intro-process" aria-label="프레임워크 제작 순서"><li><strong>요구사항 매핑</strong><span>NIST CSF 2.0의 106개 Subcategory와 ISMS-P의 101개 인증기준을 세부 요구사항 단위로 비교했습니다. 대응관계는 Direct·Partial·Related·N/A로 구분하고 팀 내 교차검토를 거쳤습니다.</span></li><li><strong>Gap과 국내 고유 요구사항 식별</strong><span>ISMS-P만으로 CSF의 요구범위를 충분히 충족하기 어려운 영역과, CSF에 대응되지 않는 국내 고유 요구사항을 구분했습니다. 개인정보 보호법도 함께 검토했습니다.</span></li><li><strong>Control 설계</strong><span>공통 요구사항은 통합하고 부족한 사항은 보완하여 Common·Enhancement·Local의 121개 Control로 구성했습니다. 각 Control은 원본 기준과 연결해 설계 근거를 확인할 수 있도록 했습니다.</span></li></ol></section>
+<section class="gz-intro-section" aria-labelledby="intro-framework"><h2 id="intro-framework">프레임워크 구성</h2><p>15개 보안 영역에 121개 Control을 배치하고, 요구사항의 성격에 따라 세 유형으로 구분합니다.</p><figure class="gz-framework-figure"><svg xmlns="http://www.w3.org/2000/svg" class="gz-framework-interactive" width="900" height="570" viewBox="0 0 900 570" role="group" aria-labelledby="framework-diagram-title framework-diagram-desc"><title id="framework-diagram-title">GapZer0 Framework 구성 개요</title><desc id="framework-diagram-desc">15개 Security Domain, 총 121개 Control. Common 76개, Enhancement 30개, Local 15개로 구성됩니다.</desc><defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="#ad450e" stroke="none" /></marker></defs>
+<g font-family="'Noto Sans KR','Malgun Gothic',sans-serif">
+<circle cx="450" cy="165" r="119" fill="white" stroke="#e4d4c8" stroke-width="2" /><circle cx="450" cy="165" r="103" fill="#fff3e9" stroke="#f36b21" stroke-width="10" />
+<text x="450" y="131" text-anchor="middle" font-size="26" font-weight="700" fill="#272530">GapZer0</text><a href="#framework-detail" role="button" tabindex="0" data-framework-topic="domains" aria-controls="framework-detail"><text x="450" y="168" text-anchor="middle" font-size="18" fill="#595663">15개 보안 영역</text></a><a href="#framework-detail" role="button" tabindex="0" data-framework-topic="controls" aria-controls="framework-detail"><text x="450" y="209" text-anchor="middle" font-size="27" font-weight="700" fill="#ad450e">121개 Control</text></a>
+<g fill="none" stroke="#ad450e" stroke-width="2" stroke-linejoin="round"><path d="M161 345V312Q161 302 171 302H385Q395 302 395 292V280" marker-end="url(#arrow)" /><path d="M450 345V285" marker-end="url(#arrow)" /><path d="M739 345V312Q739 302 729 302H515Q505 302 505 292V280" marker-end="url(#arrow)" /></g>
+<rect x="24" y="350" width="274" height="182" rx="6" fill="#fff" stroke="#d8c7ba" stroke-width="2" /><rect x="313" y="350" width="274" height="182" rx="6" fill="#fff" stroke="#d8c7ba" stroke-width="2" /><rect x="602" y="350" width="274" height="182" rx="6" fill="#fff" stroke="#d8c7ba" stroke-width="2" />
+<path d="M24 350H298M313 350H587M602 350H876" stroke="#f36b21" stroke-width="5" />
+<g text-anchor="middle" fill="#272530" font-weight="700" font-size="23"><a href="#framework-detail" role="button" tabindex="0" data-framework-topic="common" aria-controls="framework-detail"><text x="161" y="389">Common</text></a><a href="#framework-detail" role="button" tabindex="0" data-framework-topic="enhancement" aria-controls="framework-detail"><text x="450" y="389">Enhancement</text></a><a href="#framework-detail" role="button" tabindex="0" data-framework-topic="local" aria-controls="framework-detail"><text x="739" y="389">Local</text></a></g>
+<g text-anchor="middle" fill="#ad450e" font-weight="700" font-size="24"><text x="161" y="426">76개</text><text x="450" y="426">30개</text><text x="739" y="426">15개</text></g>
+<g text-anchor="middle" fill="#595663" font-size="17"><text x="161" y="465">두 체계의 공통 요구사항을</text><text x="161" y="492">통합한 Control</text><text x="450" y="465">ISMS-P만으로 부족한</text><text x="450" y="492">CSF 요구사항을 보완</text><text x="739" y="465">CSF에 대응되지 않는</text><text x="739" y="492">ISMS-P 고유 요구사항</text></g></g></svg><figcaption>밑줄이 있는 문구를 클릭하면 상세 설명을 볼 수 있습니다.</figcaption></figure><dialog id="framework-detail" class="framework-drawer" aria-label="프레임워크 상세 설명"><div class="framework-drawer-header"><button type="button" data-close-framework="" aria-label="상세 설명 닫기">×</button></div><div class="framework-drawer-content"></div></dialog></section>
+<section class="gz-intro-section" aria-labelledby="intro-information"><h2 id="intro-information">어떤 정보를 제공하나요?</h2><p>Control 이행 안내는 다음 항목으로 Control을 설명합니다.</p><table class="gz-intro-info-table"><thead><tr><th scope="col">항목</th><th scope="col">제공 정보</th></tr></thead><tbody>
+<tr><th scope="row">Control ID · Control Name</th><td>Control의 식별번호와 이름</td></tr><tr><th scope="row">Security Domain · Control Class</th><td>보안 영역과 Control 유형</td></tr><tr><th scope="row">Control Objective</th><td>Control을 통해 달성하려는 보안 목적</td></tr><tr><th scope="row">Control Statement</th><td>핵심 요구사항과 필요한 이유</td></tr><tr><th scope="row">적용 조건</th><td>적용 시점·대상과 관련 법령</td></tr><tr><th scope="row">Control Owner · Stakeholders</th><td>Control 책임자와 협업 주체</td></tr><tr><th scope="row">매핑된 ISMS-P · CSF 항목</th><td>원본 기준과 Control의 연결관계</td></tr><tr><th scope="row">Implementation Guide</th><td>실무자가 수행할 구체적인 이행 활동과 설명</td></tr><tr><th scope="row">Evidence</th><td>Control 이행을 확인할 수 있는 자료 예시</td></tr><tr><th scope="row">ISMS-P Limitation · CSF Coverage</th><td>Enhancement Control에서 보완할 요구사항과 CSF 목표의 반영 내용</td></tr>
+</tbody></table></section>
+<section class="gz-intro-section" aria-labelledby="intro-audience"><h2 id="intro-audience">사용 대상</h2><p>가이드라인은 <strong>ISMS-P 인증을 준비하거나 인증 취득 후 관리체계를 운영하는 국내 조직의 정보보호·개인정보보호 담당자</strong>를 위해 만들었습니다.</p><p>담당자는 기존 관리체계에서 Control의 이행 방법과 필요한 Evidence를 확인하고, 관련 부서와 보완할 사항을 정리할 때 이 가이드라인을 활용할 수 있습니다.</p></section></div>
+</section>
+            </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div></div>
+    </div>
+</div>
+
+<!-- introduce mathjax support -->
+<!-- GitBook re-runs inline includes during AJAX navigation. Load MathJax once. -->
+<script>
+(function () {
+  if (!window.gapzer0MathJaxReady) {
+    window.MathJax = {
+      tex: { inlineMath: [ ['$', '$'], ['\\(', '\\)'] ] },
+      svg: { fontCache: 'global' }
+    };
+    window.gapzer0MathJaxReady = new Promise(function (resolve, reject) {
+      var script = document.createElement('script');
+      script.id = 'MathJax-script';
+      script.async = true;
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js';
+      script.onload = resolve;
+      script.onerror = reject;
+      document.head.appendChild(script);
+    });
+  }
+  window.gapzer0MathJaxReady
+    .then(function () { return window.MathJax.startup.promise; })
+    .then(function () {
+      window.MathJax.typesetClear();
+      return window.MathJax.typesetPromise();
+    })
+    .catch(function (error) { console.warn('MathJax rendering unavailable', error); });
+}());
+</script>
+
+
+<!-- introduce per-page mermaid support -->
+
+
+<!-- introduce mathjax support -->
+<script>
+    function fixes_chrome_anchors() {
+        let chrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+        if (window.location.hash && chrome) {
+            setTimeout(function () {
+                var hash = window.location.hash;
+                window.location.hash = "";
+                window.location.hash = hash;
+            }, 300);
+        }
+    }
+
+    if (document.readyState === "loading") {
+        // Loading hasn't finished yet
+        document.addEventListener("DOMContentLoaded", fixes_chrome_anchors);
+    } else {
+        // `DOMContentLoaded` has already fired
+        fixes_chrome_anchors();
+    }
+</script>
+
+
+                        <a href="/" class="navigation navigation-prev navigation-unique" aria-label="Previous page: GapZer0 Guideline">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+                    
+
+                    
+                        <a href="/how-to-use/" class="navigation navigation-next navigation-unique" aria-label="Next page: 02. 가이드라인 활용 방법">
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    
+                </div>
+            </div>
+
+            <script>
+            var gitbook = gitbook || [];
+            gitbook.push(function() {
+                gitbook.page.hasChanged({
+    "page": {
+        "title": "Introduction",
+        "level": "1.1",
+        "depth": 1,
+        
+        "next": {
+            "title": "02. 가이드라인 활용 방법",
+            "level": "1.2",
+            "depth": 1,
+            "path": "_pages/02-how-to-use.md",
+            "ref": "_pages/02-how-to-use.md",
+            "articles": []
+        },
+        
+        "dir": "ltr"
+    },    "config": {
+        "plugins": ["fontsettings", "highlight", "livereload", "lunr", "search", "sharing", "theme-default", "livereload"],
+        "styles": {
+            "ebook": "styles/ebook.css",
+            "epub": "styles/epub.css",
+            "mobi": "styles/mobi.css",
+            "pdf": "styles/pdf.css",
+            "print": "styles/print.css",
+            "website": "styles/website.css"
+        },
+        "pluginsConfig": {
+            "expandable-chapter-small2": {
+                "articlesExpand": true,
+            },
+            "fontsettings": {
+                "family": "sans",
+                "size": 2,
+                "theme": "white"
+            },
+            "highlight": {},
+            "livereload": {},
+            "lunr": {
+                "ignoreSpecialCharacters": false,
+                "maxIndexSize": 1000000
+            },
+            "search": {},            "sharing": {
+                "facebook": true,
+
+                "google": false,
+
+                "github": true,
+              
+                "github_link": "https://github.com",
+              
+
+                "telegram": false,
+                "telegram_link": "https://t.me",
+
+                "instapaper": false,
+
+                "twitter": true,
+              
+
+                "vk": false,
+
+                "weibo": false,
+
+                "all": ["facebook", "google", "twitter", "weibo", "instapaper", "github", "telegram"]
+            },
+"theme-default": {
+                "showLevel": false,
+                "styles": {
+                    "ebook": "styles/ebook.css",
+                    "epub": "styles/epub.css",
+                    "mobi": "styles/mobi.css",
+                    "pdf": "styles/pdf.css",
+                    "print": "styles/print.css",
+                    "website": "styles/website.css"
+                }
+            },
+        },
+        "theme": "default",
+        "author": "Tao He",
+        "pdf": {
+            "pageNumbers": true,
+            "fontSize": 12,
+            "fontFamily": "Arial",
+            "paperSize": "a4",
+            "chapterMark": "pagebreak",
+            "pageBreaksBefore": "/",
+            "margin": {
+                "right": 62,
+                "left": 62,
+                "top": 56,
+                "bottom": 56
+            }
+        },
+        "structure": {
+            "langs": "LANGS.md",
+            "readme": "README.md",
+        },
+        "variables": {},
+        "title": "GapZer0 Guideline",
+        "language": "en",
+        "gitbook": "*"
+    },
+    "file": {
+        "path": "_pages/01-introduction.md",
+        "mtime": "2026-10-08 16:04:06 +0000",
+        "type": "markdown"
+    },
+    "gitbook": {
+        "version": "",
+        "time": "2026-10-08 16:04:06 +0000"
+    },
+    "basePath": "",
+    "book": {
+        "language": ""
+    }
+});
+            });
+            </script>
+        </div><script src="/assets/vendor/jquery-3.7.1.min.js"></script>
+<script src="/assets/gitbook/gitbook.js?v=security1"></script>
+<script src="/assets/gitbook/theme.js?v=security1"></script>
+
+<script src="/assets/gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-expandable-chapters-small2/expandable-chapters-small.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-fontsettings/fontsettings.js?v=night-icon2"></script>
+<script src="/assets/gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-search-pro/search.js?v=security1"></script>
+<script src="/assets/gitbook/gitbook-plugin-sharing/buttons.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-splitter/splitter.js"></script>
+
+<script src="/assets/gitbook/custom.js"></script>
+<script src="/assets/gitbook/custom-local.js?v=domain-codes1"></script>
+
+</body>
+</html>

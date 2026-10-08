@@ -1,0 +1,467 @@
+<h1 id="quantitative-showcase--local-validation">Quantitative Showcase — local validation</h1>
+
+<h2 id="scope">Scope</h2>
+
+<p>UI-only implementation and local Chromium tests. No new Codex/Claude Runtime execution, no new search evaluation, no latest Guideline sync, no commit/push/deploy. All dashboard metrics are selected-test results, not general AI accuracy, overall Control fulfillment or a global hallucination rate.</p>
+
+<p>Existing uncommitted <code class="language-plaintext highlighter-rouge">skill/scripts/test-control-search.mjs</code> is preserved byte-for-byte against the task-start snapshot. Current search implementation was read only for algorithm traceability.</p>
+
+<h2 id="executive-metrics">Executive metrics</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Metric</th>
+      <th style="text-align: right">Numerator / denominator</th>
+      <th style="text-align: right">Display rate</th>
+      <th>Source</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Codex Runtime</td>
+      <td style="text-align: right">13/13</td>
+      <td style="text-align: right">100%</td>
+      <td><code class="language-plaintext highlighter-rouge">skill/tests/runtime-test-results.md</code></td>
+    </tr>
+    <tr>
+      <td>Core Functions</td>
+      <td style="text-align: right">3/3</td>
+      <td style="text-align: right">100%</td>
+      <td><code class="language-plaintext highlighter-rouge">skill/tests/runtime-test-results.md</code></td>
+    </tr>
+    <tr>
+      <td>Regression Scenarios</td>
+      <td style="text-align: right">10/10</td>
+      <td style="text-align: right">100%</td>
+      <td><code class="language-plaintext highlighter-rouge">skill/tests/runtime-test-results.md</code></td>
+    </tr>
+    <tr>
+      <td>Search Top-3 Case</td>
+      <td style="text-align: right">7/8</td>
+      <td style="text-align: right">87.5%</td>
+      <td><code class="language-plaintext highlighter-rouge">skill/tests/AI_SKILL_QUANTITATIVE_EVALUATION.md</code></td>
+    </tr>
+    <tr>
+      <td>Search Top-5 Case</td>
+      <td style="text-align: right">8/8</td>
+      <td style="text-align: right">100%</td>
+      <td><code class="language-plaintext highlighter-rouge">skill/tests/AI_SKILL_QUANTITATIVE_EVALUATION.md</code></td>
+    </tr>
+    <tr>
+      <td>Expected-Control Top-3 Hit</td>
+      <td style="text-align: right">10/11</td>
+      <td style="text-align: right">90.9%</td>
+      <td><code class="language-plaintext highlighter-rouge">skill/tests/AI_SKILL_QUANTITATIVE_EVALUATION.md</code></td>
+    </tr>
+    <tr>
+      <td>Expected-Control Top-5 Hit</td>
+      <td style="text-align: right">11/11</td>
+      <td style="text-align: right">100%</td>
+      <td><code class="language-plaintext highlighter-rouge">skill/tests/AI_SKILL_QUANTITATIVE_EVALUATION.md</code></td>
+    </tr>
+    <tr>
+      <td>Claude Runtime</td>
+      <td style="text-align: right">3/3</td>
+      <td style="text-align: right">100%</td>
+      <td><code class="language-plaintext highlighter-rouge">claude-skill/tests/CLAUDE_PORT_VALIDATION.md</code></td>
+    </tr>
+    <tr>
+      <td>Cross-runtime Representative Agreement</td>
+      <td style="text-align: right">3/3</td>
+      <td style="text-align: right">100%</td>
+      <td><code class="language-plaintext highlighter-rouge">claude-skill/tests/CLAUDE_PORT_VALIDATION.md</code></td>
+    </tr>
+    <tr>
+      <td>UI Tests</td>
+      <td style="text-align: right">10/10</td>
+      <td style="text-align: right">100%</td>
+      <td><code class="language-plaintext highlighter-rouge">ai-skill-ui/tests/ui-test-results.json</code></td>
+    </tr>
+    <tr>
+      <td>UX Tests</td>
+      <td style="text-align: right">12/12</td>
+      <td style="text-align: right">100%</td>
+      <td><code class="language-plaintext highlighter-rouge">ai-skill-ui/tests/ux-test-results.json</code></td>
+    </tr>
+    <tr>
+      <td>Readability Tests</td>
+      <td style="text-align: right">13/13</td>
+      <td style="text-align: right">100%</td>
+      <td><code class="language-plaintext highlighter-rouge">ai-skill-ui/tests/readability-test-results.json</code></td>
+    </tr>
+    <tr>
+      <td>Showcase Tests</td>
+      <td style="text-align: right">30/30</td>
+      <td style="text-align: right">100%</td>
+      <td><code class="language-plaintext highlighter-rouge">ai-skill-ui/tests/showcase-test-results.json</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Ratios and scope come from source reports / test-result JSON. The builder asserts source excerpts and SHA-256; VAL31 compares all source hashes, report excerpts, n/d and rendered calculated percentages. Source links are pinned to the recorded baseline commit. New UI changes remain local and are not presented as publicly deployed.</p>
+
+<h2 id="quantitative--interaction-checks">Quantitative / interaction checks</h2>
+
+<ul>
+  <li>Five SVG donuts: Codex, Top-5 Case, Top-5 Expected-Control hit, Claude, Showcase. Centers contain percentage only; denominator, scope and accessible labels are separate.</li>
+  <li>Four comparison bars: Top-3 / Top-5 case and hit. 7/8 = 87.5%; 10/11 = 90.9%.</li>
+  <li>HRS-C-01: initial rank 6 → rank 4, score 29.6031; absent Top-3, present Top-5. Five general algorithm improvements are sourced to the quantitative report / read-only implementation.</li>
+  <li>Thirteen-row matrix; T01–T10 expected behavior/result/checkpoint explorer; T05 and T06 observations 0/1 each. These two are single negative-scenario observations, not general rates.</li>
+  <li>Codex / Claude three representative functional comparisons, not identical input paired tests or identical generated text.</li>
+  <li>Source→separate Codex/Claude validation→static Web Demo diagram; five methodology rows; explicit production and runtime limitations.</li>
+  <li>Dataset charts computed at runtime, chart→Domain/Class filter, total vs filtered counts.</li>
+  <li>Demo Control ID→exact Explorer detail; safe CTA only for existing Demo containing that Control; unsupported combinations disabled.</li>
+  <li>Full original fields preserved; Evidence chips are examples, not secured evidence; Control→Objective→Statement→Evidence→Source chain and actual repository paths.</li>
+</ul>
+
+<h2 id="dataset-snapshot">Dataset snapshot</h2>
+
+<p>Total Controls: 121; Domains: 15.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th style="text-align: right">Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Common</td>
+      <td style="text-align: right">76</td>
+    </tr>
+    <tr>
+      <td>Enhancement</td>
+      <td style="text-align: right">30</td>
+    </tr>
+    <tr>
+      <td>Local</td>
+      <td style="text-align: right">15</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Domain</th>
+      <th style="text-align: right">Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Application Security</td>
+      <td style="text-align: right">1</td>
+    </tr>
+    <tr>
+      <td>Asset Management</td>
+      <td style="text-align: right">9</td>
+    </tr>
+    <tr>
+      <td>Continuity</td>
+      <td style="text-align: right">11</td>
+    </tr>
+    <tr>
+      <td>Governance</td>
+      <td style="text-align: right">17</td>
+    </tr>
+    <tr>
+      <td>Human Resource Security</td>
+      <td style="text-align: right">3</td>
+    </tr>
+    <tr>
+      <td>Identity and Access Management</td>
+      <td style="text-align: right">6</td>
+    </tr>
+    <tr>
+      <td>Information Protection</td>
+      <td style="text-align: right">6</td>
+    </tr>
+    <tr>
+      <td>Information Security Assurance</td>
+      <td style="text-align: right">5</td>
+    </tr>
+    <tr>
+      <td>Information Security Event Management</td>
+      <td style="text-align: right">22</td>
+    </tr>
+    <tr>
+      <td>Legal and Compliance</td>
+      <td style="text-align: right">10</td>
+    </tr>
+    <tr>
+      <td>Physical Security</td>
+      <td style="text-align: right">4</td>
+    </tr>
+    <tr>
+      <td>Secure Configuration</td>
+      <td style="text-align: right">2</td>
+    </tr>
+    <tr>
+      <td>Supplier Relationships Security</td>
+      <td style="text-align: right">14</td>
+    </tr>
+    <tr>
+      <td>System and Network Security</td>
+      <td style="text-align: right">1</td>
+    </tr>
+    <tr>
+      <td>Threat and Vulnerability Management</td>
+      <td style="text-align: right">10</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="actual-local-execution">Actual local execution</h2>
+
+<p>Python 3.12, Node 22, installed Playwright with <code class="language-plaintext highlighter-rouge">/usr/bin/chromium</code>, headless Chromium. Server: <code class="language-plaintext highlighter-rouge">python -m http.server 8944 --bind 127.0.0.1</code> (repository root).</p>
+
+<p>Each browser suite was run with:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">UI_URL</span><span class="o">=</span>http://127.0.0.1:8944/ai-skill-ui/ <span class="nv">UX_BASELINE</span><span class="o">=</span>/tmp/quantitative-before.json node ai-skill-ui/tests/ui-tests.cjs
+<span class="nv">UI_URL</span><span class="o">=</span>http://127.0.0.1:8944/ai-skill-ui/ <span class="nv">UX_BASELINE</span><span class="o">=</span>/tmp/quantitative-before.json node ai-skill-ui/tests/ux-tests.cjs
+<span class="nv">UI_URL</span><span class="o">=</span>http://127.0.0.1:8944/ai-skill-ui/ <span class="nv">UX_BASELINE</span><span class="o">=</span>/tmp/quantitative-before.json node ai-skill-ui/tests/readability-tests.cjs
+<span class="nv">UI_URL</span><span class="o">=</span>http://127.0.0.1:8944/ai-skill-ui/ <span class="nv">UX_BASELINE</span><span class="o">=</span>/tmp/quantitative-before.json node ai-skill-ui/tests/showcase-tests.cjs
+python ai-skill-ui/build-quantitative.py
+<span class="nv">UI_URL</span><span class="o">=</span>http://127.0.0.1:8944/ai-skill-ui/ <span class="nv">UX_BASELINE</span><span class="o">=</span>/tmp/quantitative-before.json node ai-skill-ui/tests/quantitative-tests.cjs
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Suite</th>
+      <th style="text-align: right">PASS / total</th>
+      <th style="text-align: right">FAIL</th>
+      <th style="text-align: right">Exit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ui</td>
+      <td style="text-align: right">10/10</td>
+      <td style="text-align: right">0</td>
+      <td style="text-align: right">0</td>
+    </tr>
+    <tr>
+      <td>ux</td>
+      <td style="text-align: right">12/12</td>
+      <td style="text-align: right">0</td>
+      <td style="text-align: right">0</td>
+    </tr>
+    <tr>
+      <td>readability</td>
+      <td style="text-align: right">13/13</td>
+      <td style="text-align: right">0</td>
+      <td style="text-align: right">0</td>
+    </tr>
+    <tr>
+      <td>showcase</td>
+      <td style="text-align: right">30/30</td>
+      <td style="text-align: right">0</td>
+      <td style="text-align: right">0</td>
+    </tr>
+    <tr>
+      <td>quantitative</td>
+      <td style="text-align: right">32/32</td>
+      <td style="text-align: right">0</td>
+      <td style="text-align: right">0</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>These 97/97 browser checks cover UI test behavior only. Historical Runtime metrics were not rerun.</p>
+
+<h2 id="val01val32">VAL01–VAL32</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Check</th>
+      <th>Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>VAL01</td>
+      <td>Executive summary 13 actual metrics</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>VAL02</td>
+      <td>Donut rendering and accessible labels</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>VAL03</td>
+      <td>Donut denominators and scope</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>VAL04</td>
+      <td>Top3 Top5 comparison and HRS case</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>VAL05</td>
+      <td>87.5 calculation</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>VAL06</td>
+      <td>90.9 calculation</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>VAL07</td>
+      <td>Validation Matrix 13 sourced rows</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>VAL08</td>
+      <td>Test Explorer T01-T10 details</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>VAL09</td>
+      <td>T05 safety single observation</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>VAL10</td>
+      <td>T06 safety single observation</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>VAL11</td>
+      <td>Cross-runtime representative functional comparison</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>VAL12</td>
+      <td>Runtime diagram source Codex Claude static Demo</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>VAL13</td>
+      <td>Control total runtime calculation</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>VAL14</td>
+      <td>Domain count runtime calculation</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>VAL15</td>
+      <td>Domain distribution counts sum and values</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>VAL16</td>
+      <td>Classification distribution counts</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>VAL17</td>
+      <td>Search result count updates</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>VAL18</td>
+      <td>Distribution click filters domain and class</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>VAL19</td>
+      <td>Demo Control to Explorer and safe CTA</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>VAL20</td>
+      <td>Evidence explanation does not claim secured evidence</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>VAL21</td>
+      <td>Source evidence trace links actual paths</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>VAL22</td>
+      <td>Methodology actual five methods</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>VAL23</td>
+      <td>Limitations scope and offline distinctions</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>VAL24</td>
+      <td>Artifact map all actual repository paths</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>VAL25</td>
+      <td>Desktop and mobile chart screenshots no overflow</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>VAL26</td>
+      <td>Accessibility keyboard links details filter and charts</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>VAL27</td>
+      <td>showcase existing regression 30/30</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>VAL28</td>
+      <td>ui existing regression 10/10</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>VAL29</td>
+      <td>ux existing regression 12/12</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>VAL30</td>
+      <td>readability existing regression 13/13</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>VAL31</td>
+      <td>No invented metrics: provenance and all calculations</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>VAL32</td>
+      <td>Outside ai-skill-ui changes zero; demo adapter unchanged</td>
+      <td>PASS</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="screenshots">Screenshots</h2>
+
+<ul>
+  <li><a href="/ai-skill-ui/tests/quantitative-main-desktop.png">Main desktop</a></li>
+  <li><a href="/ai-skill-ui/tests/quantitative-dashboard-desktop.png">Validation desktop</a></li>
+  <li><a href="/ai-skill-ui/tests/quantitative-explorer-desktop.png">Explorer desktop</a></li>
+  <li><a href="/ai-skill-ui/tests/quantitative-mobile.png">Validation mobile</a></li>
+  <li><a href="/ai-skill-ui/tests/quantitative-charts-mobile.png">Charts mobile</a></li>
+</ul>
+
+<p>Desktop 1440×1080; mobile 390×844. Screenshots are actual local browser captures. VAL25 asserts no horizontal viewport overflow; VAL26 tests keyboard Enter for distribution buttons and details, plus SVG labels. They do not establish full WCAG compliance or measured user comprehension time.</p>
+
+<h2 id="protected-files-and-limitations">Protected files and limitations</h2>
+
+<p>Task-start SHA snapshot compares every file outside <code class="language-plaintext highlighter-rouge">ai-skill-ui/</code>, including existing uncommitted search changes. Demo JSON and Runtime adapter are unchanged. Existing Guideline, Control source/index, Codex/Claude Skill, workflow, main/site and external reports remain unchanged.</p>
+
+<p>Production S3/API/UI, latest source synchronization, arbitrary web LLM questions, and full 121-Control correctness are outside this stage. No invented confidence or safety percentage is emitted.</p>
+
+<p>Commit: not performed. Push: not performed. Deployment: not performed. Current HEAD remains <code class="language-plaintext highlighter-rouge">60f78e8f8d0be0c037b78c4262f0b14e93c64cb8</code>.</p>

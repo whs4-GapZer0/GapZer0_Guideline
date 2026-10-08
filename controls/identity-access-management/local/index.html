@@ -1,0 +1,589 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head><meta charset="UTF-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"><title>Identity and Access Management - Local Controls · GapZer0 Guideline</title><meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="description" content="NIST CSF 2.0과 ISMS-P를 기반으로 한 GapZer0 통합 정보보호 가이드라인
+"><meta name="generator" content="Jekyll (using style of GitBook)"><meta name="author" content="GapZer0"><link rel="stylesheet" href="/assets/gitbook/style.css">
+<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-expandable-chapters-small2/expandable-chapters-small.css">
+<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-fontsettings/website.css">
+<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-search-pro/search.css">
+<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-splitter/splitter.css">
+
+<link rel="stylesheet" href="/assets/gitbook/rouge/colorful.css">
+
+<link rel="stylesheet" href="/assets/gitbook/custom.css">
+<link rel="stylesheet" href="/assets/gitbook/custom-local.css?v=1791475446">
+
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/assets/gitbook/images/apple-touch-icon-precomposed-152.png">
+<link rel="shortcut icon" href="/" type="image/x-icon">
+
+
+
+
+            <link rel="prev" href="/controls/identity-access-management/" />
+        
+
+        
+            <link rel="next" href="/controls/information-protection/common/" />
+        
+    </head>
+    <body>
+        <div class="book"><div class="book-summary">
+
+    <script type="text/javascript">
+        // 페이지 이동 시 본문을 맨 위로 이동
+        function pageScrollToTop(element) {
+            $('div.body-inner').animate({ scrollTop: 0 });
+            return true;
+        }
+
+        // 모바일 환경에서 본문 내 앵커 이동 처리
+        function mobilePageScrollToAnchor(element) {
+            $(element).closest('li.chapter').find('ul>li').removeClass('active');
+            $(element).parent().addClass('active');
+
+            if ($(document).width() <= 1240) {
+                let target = $($(element).attr('href'));
+
+                if (target.length) {
+                    $('div.body-inner').animate({
+                        scrollTop: target.get(0).offsetTop
+                    });
+                }
+            }
+
+            return true;
+        }
+    </script>
+
+    <nav role="navigation">
+
+        <!-- 검색창 -->
+        <div id="book-search-input" role="search">
+            <input type="text" placeholder="Type to search" />
+        </div>
+
+        <div id="book-search-input-link" role="search">
+            <a href="/assets/search.html">
+                Click to Search
+            </a>
+        </div>
+
+        <ul class="summary">
+
+            <!-- 홈페이지 -->
+            <li class="chapter">
+                <a href="/"
+                   onclick="pageScrollToTop(this)">
+                    GapZer0 Guideline
+                </a>
+            </li>
+
+            <li class="divider"></li>
+
+            <!-- 가이드라인 목차와 AI Skill 바로가기 -->
+            
+
+                
+
+                <!-- 현재 페이지와 메뉴 URL이 같은 경우 -->
+                
+
+                <!-- Control 하위 페이지에서는 04를 active로 표시 -->
+                
+
+                <!-- 자가진단 작성 화면도 05 메뉴에 포함 -->
+                
+
+                <li class="chapter"
+                    data-path="/introduction/">
+
+                    
+                    <a href="/introduction/"
+                       onclick="pageScrollToTop(this)">
+                        01. GapZer0 가이드라인 소개
+                    </a>
+                    
+
+                </li>
+
+            
+
+                
+
+                <!-- 현재 페이지와 메뉴 URL이 같은 경우 -->
+                
+
+                <!-- Control 하위 페이지에서는 04를 active로 표시 -->
+                
+
+                <!-- 자가진단 작성 화면도 05 메뉴에 포함 -->
+                
+
+                <li class="chapter"
+                    data-path="/how-to-use/">
+
+                    
+                    <a href="/how-to-use/"
+                       onclick="pageScrollToTop(this)">
+                        02. 가이드라인 활용 방법
+                    </a>
+                    
+
+                </li>
+
+            
+
+                
+
+                <!-- 현재 페이지와 메뉴 URL이 같은 경우 -->
+                
+
+                <!-- Control 하위 페이지에서는 04를 active로 표시 -->
+                
+
+                <!-- 자가진단 작성 화면도 05 메뉴에 포함 -->
+                
+
+                <li class="chapter"
+                    data-path="/terms/">
+
+                    
+                    <a href="/terms/"
+                       onclick="pageScrollToTop(this)">
+                        03. 주요 용어
+                    </a>
+                    
+
+                </li>
+
+            
+
+                
+
+                <!-- 현재 페이지와 메뉴 URL이 같은 경우 -->
+                
+
+                <!-- Control 하위 페이지에서는 04를 active로 표시 -->
+                
+
+                <!-- 자가진단 작성 화면도 05 메뉴에 포함 -->
+                
+
+                <li class="chapter active"
+                    data-path="/controls/">
+
+                    
+                    <a href="/controls/"
+                       onclick="pageScrollToTop(this)">
+                        04. Control 이행 안내
+                    </a>
+                    
+
+                </li>
+
+            
+
+                
+
+                <!-- 현재 페이지와 메뉴 URL이 같은 경우 -->
+                
+
+                <!-- Control 하위 페이지에서는 04를 active로 표시 -->
+                
+
+                <!-- 자가진단 작성 화면도 05 메뉴에 포함 -->
+                
+
+                <li class="chapter"
+                    data-path="/self-assessment/">
+
+                    
+                    <a href="/self-assessment/"
+                       onclick="pageScrollToTop(this)">
+                        05. 자가 진단
+                    </a>
+                    
+
+                </li>
+
+            
+
+                
+
+                <!-- 현재 페이지와 메뉴 URL이 같은 경우 -->
+                
+
+                <!-- Control 하위 페이지에서는 04를 active로 표시 -->
+                
+
+                <!-- 자가진단 작성 화면도 05 메뉴에 포함 -->
+                
+
+                <li class="chapter"
+                    data-path="https://docs.whs4-gapzer0.kro.kr/ai-skill-ui/">
+
+                    
+                    <a class="gz-ai-skill-link" href="https://docs.whs4-gapzer0.kro.kr/ai-skill-ui/" target="_blank" rel="noopener noreferrer"
+                       aria-label="GapZer0 AI Skill (새 탭에서 열기)">
+                        GapZer0 AI Skill <span class="gz-external-icon" aria-hidden="true">↗</span>
+                    </a>
+                    
+
+                </li>
+
+            
+
+            
+
+        </ul>
+
+    </nav>
+
+</div>
+<div class="book-body">
+                <div class="book-header" role="navigation">
+                    <!-- Title -->
+                    <h1>
+                        <i class="fa fa-circle-o-notch fa-spin"></i>
+                        
+                            <a href="." >Identity and Access Management - Local Controls</a>
+                        
+                    </h1>
+                </div>
+
+                <div class="body-inner"><div class="page-wrapper" tabindex="-1" role="main">
+    
+
+    <div class="page-inner">
+        <div id="book-search-results">
+            <div class="search-noresults">
+                <section class="normal markdown-section">
+                    
+                        <h1 id="/controls/identity-access-management/local">Identity and Access Management - Local Controls</h1>
+                    
+
+                    <h2 id="iam-l-01">IAM-L-01</h2>
+
+<h3 id="control-name">Control Name</h3>
+
+<p>이용자 단말기 접근 보호</p>
+
+<h3 id="security-domain">Security Domain</h3>
+
+<p>Identity and Access Management</p>
+
+<h3 id="control-class">Control Class</h3>
+
+<p>Local</p>
+
+<h3 id="control-objective">Control Objective</h3>
+
+<p>모바일 앱 등이 이용자의 단말기 내 정보와 기능에 접근할 때 접근 목적과 필요성을 명확히 알리고 적법한 동의를 받도록 하여, 이용자가 자신의 단말기 정보와 기능에 대한 접근을 실질적으로 통제할 수 있도록 합니다. 서비스 제공에 필수적이지 않은 접근권한을 거부하더라도 기본 서비스 이용이 부당하게 제한되지 않도록 하며, 동의 이후에도 철회 방법을 제공하여 이용자의 선택권을 보장합니다.</p>
+
+<h3 id="control-statement">Control Statement</h3>
+
+<p>모바일 서비스는 위치, 연락처, 카메라, 마이크, 저장공간 등 이용자 단말기의 정보와 기능에 접근하여 다양한 서비스를 제공합니다. 그러나 서비스 제공에 반드시 필요하지 않은 권한까지 포괄적으로 요청하거나, 접근 목적과 대상을 충분히 알리지 않은 채 동의를 받으면 이용자가 어떤 정보와 기능이 사용되는지 통제하기 어렵습니다.</p>
+
+<p>이 Control은 단말기 접근권한을 서비스 기능과 연결하여 필요성을 검토하고, 필요한 권한과 선택 가능한 권한을 구분하여 이용자에게 명확히 고지하도록 합니다. 접근권한에 대한 동의·거부·철회가 실제 서비스 동작에 반영되도록 하여 이용자의 단말기와 개인정보에 대한 자기결정권을 보호합니다.</p>
+
+<h3 id="적용-조건">적용 조건</h3>
+
+<h4 id="적용-시점">적용 시점</h4>
+
+<p>정보통신서비스 제공자가 모바일 앱 등으로 이용자의 이동통신단말장치에 저장된 정보나 카메라·위치·연락처·마이크 등의 기능에 접근하려는 경우 적용합니다. 앱 최초 제공, 신규 기능·접근권한 변경 및 이용자의 동의·거부·철회 시에 적용합니다.</p>
+
+<h4 id="적용-대상">적용 대상</h4>
+
+<p>접근권한을 요청하는 앱·서비스, 고지·동의·철회 화면과 실제 권한 처리 기능, 서비스 기획·모바일 개발·운영 담당자에게 적용합니다. 운영체제·단말장치·소프트웨어를 제작·공급하는 경우에는 법 제22조의2제3항에 따른 역할도 적용됩니다.</p>
+
+<h4 id="관련-법령">관련 법령</h4>
+
+<ul>
+  <li><a href="https://www.law.go.kr/법령/정보통신망이용촉진및정보보호등에관한법률/제22조의2">「정보통신망 이용촉진 및 정보보호 등에 관한 법률」 제22조의2</a> — 단말기 접근권한의 고지·동의, 선택권한 동의 거부에 따른 서비스 제공 거부 금지 및 운영체제·단말장치·소프트웨어 제작·공급자의 동의·철회 방법 마련 등 보호조치 의무.</li>
+</ul>
+
+<h3 id="control-owner">Control Owner</h3>
+
+<p>개인정보보호 최고책임자(CPO), 개인정보보호 담당부서</p>
+
+<h3 id="stakeholders">Stakeholders</h3>
+
+<p>모바일 개발부서, 서비스 기획부서, 정보보호 담당부서, 법무 담당부서, 품질검증(QA) 담당부서</p>
+
+<h3 id="매핑된-isms-p-항목">매핑된 ISMS-P 항목</h3>
+
+<ul>
+  <li>3.2.3 이용자 단말기 접근 보호</li>
+</ul>
+
+<h3 id="매핑된-csf-항목">매핑된 CSF 항목</h3>
+
+<ul>
+  <li>N/A</li>
+</ul>
+
+<h3 id="implementation-guide">Implementation Guide</h3>
+
+<h4 id="1-단말기-접근권한-목록과-사용목적-식별">1. 단말기 접근권한 목록과 사용목적 식별</h4>
+
+<p>앱이 요청하거나 실제 사용하는 단말기 접근권한을 기능별로 식별하고, 각 권한을 통해 어떤 정보·기능에 접근하는지와 사용 목적을 문서화합니다. 운영체제 버전이나 신규 기능 도입으로 새 접근권한이 추가되는 경우 목록을 갱신합니다.</p>
+
+<h4 id="2-필수선택-권한의-필요성-검토">2. 필수·선택 권한의 필요성 검토</h4>
+
+<p>각 접근권한이 해당 서비스 기능 제공에 반드시 필요한지 검토하고 필수 권한과 선택 권한을 구분합니다. 서비스 제공에 직접 필요하지 않은 권한은 선택 권한으로 처리하고, 이용자가 동의하지 않아도 해당 권한과 무관한 서비스 이용이 가능하도록 설계합니다.</p>
+
+<p>불필요한 권한은 요청하지 않거나 제거하고, 하나의 기능을 위해 과도한 범위의 단말기 정보에 접근하지 않도록 서비스에 필요한 권한만 요청하는 원칙을 적용합니다.</p>
+
+<h4 id="3-이용자-고지와-동의-절차-운영">3. 이용자 고지와 동의 절차 운영</h4>
+
+<p>접근하려는 단말기 정보·기능, 접근 목적, 필수·선택 여부를 이용자가 이해할 수 있도록 명확하게 안내합니다. 동의가 필요한 권한은 실제 접근이 발생하기 전에 적절한 시점에 동의를 받고, 운영체제 권한 요청 화면과 서비스 내부 설명이 서로 모순되지 않도록 합니다.</p>
+
+<h4 id="4-선택-권한-거부-시-서비스-동작-검증">4. 선택 권한 거부 시 서비스 동작 검증</h4>
+
+<p>이용자가 선택 권한을 거부한 경우 해당 권한이 필요한 부가 기능만 제한되고 핵심 서비스는 계속 이용할 수 있는지 시험합니다. 권한이 없을 때 앱이 비정상 종료되거나 반복적으로 동의를 강요하지 않도록 예외처리를 구현합니다.</p>
+
+<h4 id="5-동의-철회와-권한-변경-방법-제공">5. 동의 철회와 권한 변경 방법 제공</h4>
+
+<p>이용자가 이미 허용한 접근권한을 이후에 변경·철회할 수 있도록 앱 설정 또는 운영체제 설정으로 이동하는 방법을 안내합니다. 철회된 권한을 앱이 다시 사용하지 않도록 실제 권한 상태를 확인하고 서비스 동작에 반영합니다.</p>
+
+<h4 id="6-앱-변경-시-권한-적정성-재검토">6. 앱 변경 시 권한 적정성 재검토</h4>
+
+<p>신규 기능 추가, 외부 소프트웨어 개발도구(SDK)·라이브러리 변경, 운영체제 업데이트 등으로 단말기 접근권한이 변경되는 경우 기존 승인내용과 실제 접근범위를 비교합니다. 사용하지 않는 권한이나 외부 개발도구에 의해 추가된 권한이 있는지 확인하고 불필요한 접근을 제거합니다.</p>
+
+<h3 id="evidence">Evidence</h3>
+
+<ul>
+  <li><strong>단말기 접근권한 목록:</strong> 앱별 접근권한, 접근 정보·기능, 사용목적과 필수·선택 구분을 확인할 수 있는 자료입니다.</li>
+  <li><strong>접근권한 필요성 검토·승인 기록:</strong> 각 권한이 서비스 기능에 필요한지 검토하고 불필요 권한을 제거한 내역을 확인할 수 있는 자료입니다.</li>
+  <li><strong>접근권한 고지·동의 화면:</strong> 이용자에게 접근대상·목적·필수 여부를 명확히 알리고 동의를 받는지 확인할 수 있는 자료입니다.</li>
+  <li><strong>선택 권한 거부 시험 결과:</strong> 선택 권한에 동의하지 않아도 관련 없는 서비스가 정상 제공되는지 확인할 수 있는 품질검증(QA) 결과.</li>
+  <li><strong>권한 철회 방법 및 동작 확인:</strong> 이용자가 동의를 철회·변경할 수 있는 절차와 철회 후 앱이 해당 권한을 사용하지 않는지 확인할 수 있는 자료입니다.</li>
+  <li><strong>앱 권한 변경·검토 이력:</strong> 신규 기능, SDK, 운영체제 변경에 따른 권한 추가·삭제와 적정성 검토 결과를 확인할 수 있는 자료입니다.</li>
+</ul>
+</section>
+            </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div></div>
+    </div>
+</div>
+
+<!-- introduce mathjax support -->
+<!-- GitBook re-runs inline includes during AJAX navigation. Load MathJax once. -->
+<script>
+(function () {
+  if (!window.gapzer0MathJaxReady) {
+    window.MathJax = {
+      tex: { inlineMath: [ ['$', '$'], ['\\(', '\\)'] ] },
+      svg: { fontCache: 'global' }
+    };
+    window.gapzer0MathJaxReady = new Promise(function (resolve, reject) {
+      var script = document.createElement('script');
+      script.id = 'MathJax-script';
+      script.async = true;
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js';
+      script.onload = resolve;
+      script.onerror = reject;
+      document.head.appendChild(script);
+    });
+  }
+  window.gapzer0MathJaxReady
+    .then(function () { return window.MathJax.startup.promise; })
+    .then(function () {
+      window.MathJax.typesetClear();
+      return window.MathJax.typesetPromise();
+    })
+    .catch(function (error) { console.warn('MathJax rendering unavailable', error); });
+}());
+</script>
+
+
+<!-- introduce per-page mermaid support -->
+
+
+<!-- introduce mathjax support -->
+<script>
+    function fixes_chrome_anchors() {
+        let chrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+        if (window.location.hash && chrome) {
+            setTimeout(function () {
+                var hash = window.location.hash;
+                window.location.hash = "";
+                window.location.hash = hash;
+            }, 300);
+        }
+    }
+
+    if (document.readyState === "loading") {
+        // Loading hasn't finished yet
+        document.addEventListener("DOMContentLoaded", fixes_chrome_anchors);
+    } else {
+        // `DOMContentLoaded` has already fired
+        fixes_chrome_anchors();
+    }
+</script>
+
+
+                        <a href="/controls/identity-access-management/" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Identity and Access Management(IAM)">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+                    
+
+                    
+                        <a href="/controls/information-protection/common/" class="navigation navigation-next navigation-unique" aria-label="Next page: Information Protection - Common Controls">
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    
+                </div>
+            </div>
+
+            <script>
+            var gitbook = gitbook || [];
+            gitbook.push(function() {
+                gitbook.page.hasChanged({
+    "page": {
+        "title": "Introduction",
+        "level": "1.1",
+        "depth": 1,
+        
+        "next": {
+            "title": "Information Protection - Common Controls",
+            "level": "1.2",
+            "depth": 1,
+            "path": "_pages/control-guide/06-information-protection/common.md",
+            "ref": "_pages/control-guide/06-information-protection/common.md",
+            "articles": []
+        },
+        
+        "dir": "ltr"
+    },    "config": {
+        "plugins": ["fontsettings", "highlight", "livereload", "lunr", "search", "sharing", "theme-default", "livereload"],
+        "styles": {
+            "ebook": "styles/ebook.css",
+            "epub": "styles/epub.css",
+            "mobi": "styles/mobi.css",
+            "pdf": "styles/pdf.css",
+            "print": "styles/print.css",
+            "website": "styles/website.css"
+        },
+        "pluginsConfig": {
+            "expandable-chapter-small2": {
+                "articlesExpand": true,
+            },
+            "fontsettings": {
+                "family": "sans",
+                "size": 2,
+                "theme": "white"
+            },
+            "highlight": {},
+            "livereload": {},
+            "lunr": {
+                "ignoreSpecialCharacters": false,
+                "maxIndexSize": 1000000
+            },
+            "search": {},            "sharing": {
+                "facebook": true,
+
+                "google": false,
+
+                "github": true,
+              
+                "github_link": "https://github.com",
+              
+
+                "telegram": false,
+                "telegram_link": "https://t.me",
+
+                "instapaper": false,
+
+                "twitter": true,
+              
+
+                "vk": false,
+
+                "weibo": false,
+
+                "all": ["facebook", "google", "twitter", "weibo", "instapaper", "github", "telegram"]
+            },
+"theme-default": {
+                "showLevel": false,
+                "styles": {
+                    "ebook": "styles/ebook.css",
+                    "epub": "styles/epub.css",
+                    "mobi": "styles/mobi.css",
+                    "pdf": "styles/pdf.css",
+                    "print": "styles/print.css",
+                    "website": "styles/website.css"
+                }
+            },
+        },
+        "theme": "default",
+        "author": "Tao He",
+        "pdf": {
+            "pageNumbers": true,
+            "fontSize": 12,
+            "fontFamily": "Arial",
+            "paperSize": "a4",
+            "chapterMark": "pagebreak",
+            "pageBreaksBefore": "/",
+            "margin": {
+                "right": 62,
+                "left": 62,
+                "top": 56,
+                "bottom": 56
+            }
+        },
+        "structure": {
+            "langs": "LANGS.md",
+            "readme": "README.md",
+        },
+        "variables": {},
+        "title": "GapZer0 Guideline",
+        "language": "en",
+        "gitbook": "*"
+    },
+    "file": {
+        "path": "_pages/control-guide/05-identity-access-management/local.md",
+        "mtime": "2026-10-08 16:04:06 +0000",
+        "type": "markdown"
+    },
+    "gitbook": {
+        "version": "",
+        "time": "2026-10-08 16:04:06 +0000"
+    },
+    "basePath": "",
+    "book": {
+        "language": ""
+    }
+});
+            });
+            </script>
+        </div><script src="/assets/vendor/jquery-3.7.1.min.js"></script>
+<script src="/assets/gitbook/gitbook.js?v=security1"></script>
+<script src="/assets/gitbook/theme.js?v=security1"></script>
+
+<script src="/assets/gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-expandable-chapters-small2/expandable-chapters-small.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-fontsettings/fontsettings.js?v=night-icon2"></script>
+<script src="/assets/gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-search-pro/search.js?v=security1"></script>
+<script src="/assets/gitbook/gitbook-plugin-sharing/buttons.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-splitter/splitter.js"></script>
+
+<script src="/assets/gitbook/custom.js"></script>
+<script src="/assets/gitbook/custom-local.js?v=domain-codes1"></script>
+
+</body>
+</html>

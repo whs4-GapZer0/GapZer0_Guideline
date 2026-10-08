@@ -1,0 +1,979 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head><meta charset="UTF-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"><title>Supplier Relationships Security - Enhancement Controls · GapZer0 Guideline</title><meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="description" content="NIST CSF 2.0과 ISMS-P를 기반으로 한 GapZer0 통합 정보보호 가이드라인
+"><meta name="generator" content="Jekyll (using style of GitBook)"><meta name="author" content="GapZer0"><link rel="stylesheet" href="/assets/gitbook/style.css">
+<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-expandable-chapters-small2/expandable-chapters-small.css">
+<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-fontsettings/website.css">
+<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-search-pro/search.css">
+<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-splitter/splitter.css">
+
+<link rel="stylesheet" href="/assets/gitbook/rouge/colorful.css">
+
+<link rel="stylesheet" href="/assets/gitbook/custom.css">
+<link rel="stylesheet" href="/assets/gitbook/custom-local.css?v=1791475446">
+
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/assets/gitbook/images/apple-touch-icon-precomposed-152.png">
+<link rel="shortcut icon" href="/" type="image/x-icon">
+
+
+
+
+            <link rel="prev" href="/controls/supplier-relationships-security/common/" />
+        
+
+        
+            <link rel="next" href="/controls/supplier-relationships-security/" />
+        
+    </head>
+    <body>
+        <div class="book"><div class="book-summary">
+
+    <script type="text/javascript">
+        // 페이지 이동 시 본문을 맨 위로 이동
+        function pageScrollToTop(element) {
+            $('div.body-inner').animate({ scrollTop: 0 });
+            return true;
+        }
+
+        // 모바일 환경에서 본문 내 앵커 이동 처리
+        function mobilePageScrollToAnchor(element) {
+            $(element).closest('li.chapter').find('ul>li').removeClass('active');
+            $(element).parent().addClass('active');
+
+            if ($(document).width() <= 1240) {
+                let target = $($(element).attr('href'));
+
+                if (target.length) {
+                    $('div.body-inner').animate({
+                        scrollTop: target.get(0).offsetTop
+                    });
+                }
+            }
+
+            return true;
+        }
+    </script>
+
+    <nav role="navigation">
+
+        <!-- 검색창 -->
+        <div id="book-search-input" role="search">
+            <input type="text" placeholder="Type to search" />
+        </div>
+
+        <div id="book-search-input-link" role="search">
+            <a href="/assets/search.html">
+                Click to Search
+            </a>
+        </div>
+
+        <ul class="summary">
+
+            <!-- 홈페이지 -->
+            <li class="chapter">
+                <a href="/"
+                   onclick="pageScrollToTop(this)">
+                    GapZer0 Guideline
+                </a>
+            </li>
+
+            <li class="divider"></li>
+
+            <!-- 가이드라인 목차와 AI Skill 바로가기 -->
+            
+
+                
+
+                <!-- 현재 페이지와 메뉴 URL이 같은 경우 -->
+                
+
+                <!-- Control 하위 페이지에서는 04를 active로 표시 -->
+                
+
+                <!-- 자가진단 작성 화면도 05 메뉴에 포함 -->
+                
+
+                <li class="chapter"
+                    data-path="/introduction/">
+
+                    
+                    <a href="/introduction/"
+                       onclick="pageScrollToTop(this)">
+                        01. GapZer0 가이드라인 소개
+                    </a>
+                    
+
+                </li>
+
+            
+
+                
+
+                <!-- 현재 페이지와 메뉴 URL이 같은 경우 -->
+                
+
+                <!-- Control 하위 페이지에서는 04를 active로 표시 -->
+                
+
+                <!-- 자가진단 작성 화면도 05 메뉴에 포함 -->
+                
+
+                <li class="chapter"
+                    data-path="/how-to-use/">
+
+                    
+                    <a href="/how-to-use/"
+                       onclick="pageScrollToTop(this)">
+                        02. 가이드라인 활용 방법
+                    </a>
+                    
+
+                </li>
+
+            
+
+                
+
+                <!-- 현재 페이지와 메뉴 URL이 같은 경우 -->
+                
+
+                <!-- Control 하위 페이지에서는 04를 active로 표시 -->
+                
+
+                <!-- 자가진단 작성 화면도 05 메뉴에 포함 -->
+                
+
+                <li class="chapter"
+                    data-path="/terms/">
+
+                    
+                    <a href="/terms/"
+                       onclick="pageScrollToTop(this)">
+                        03. 주요 용어
+                    </a>
+                    
+
+                </li>
+
+            
+
+                
+
+                <!-- 현재 페이지와 메뉴 URL이 같은 경우 -->
+                
+
+                <!-- Control 하위 페이지에서는 04를 active로 표시 -->
+                
+
+                <!-- 자가진단 작성 화면도 05 메뉴에 포함 -->
+                
+
+                <li class="chapter active"
+                    data-path="/controls/">
+
+                    
+                    <a href="/controls/"
+                       onclick="pageScrollToTop(this)">
+                        04. Control 이행 안내
+                    </a>
+                    
+
+                </li>
+
+            
+
+                
+
+                <!-- 현재 페이지와 메뉴 URL이 같은 경우 -->
+                
+
+                <!-- Control 하위 페이지에서는 04를 active로 표시 -->
+                
+
+                <!-- 자가진단 작성 화면도 05 메뉴에 포함 -->
+                
+
+                <li class="chapter"
+                    data-path="/self-assessment/">
+
+                    
+                    <a href="/self-assessment/"
+                       onclick="pageScrollToTop(this)">
+                        05. 자가 진단
+                    </a>
+                    
+
+                </li>
+
+            
+
+                
+
+                <!-- 현재 페이지와 메뉴 URL이 같은 경우 -->
+                
+
+                <!-- Control 하위 페이지에서는 04를 active로 표시 -->
+                
+
+                <!-- 자가진단 작성 화면도 05 메뉴에 포함 -->
+                
+
+                <li class="chapter"
+                    data-path="https://docs.whs4-gapzer0.kro.kr/ai-skill-ui/">
+
+                    
+                    <a class="gz-ai-skill-link" href="https://docs.whs4-gapzer0.kro.kr/ai-skill-ui/" target="_blank" rel="noopener noreferrer"
+                       aria-label="GapZer0 AI Skill (새 탭에서 열기)">
+                        GapZer0 AI Skill <span class="gz-external-icon" aria-hidden="true">↗</span>
+                    </a>
+                    
+
+                </li>
+
+            
+
+            
+
+        </ul>
+
+    </nav>
+
+</div>
+<div class="book-body">
+                <div class="book-header" role="navigation">
+                    <!-- Title -->
+                    <h1>
+                        <i class="fa fa-circle-o-notch fa-spin"></i>
+                        
+                            <a href="." >Supplier Relationships Security - Enhancement Controls</a>
+                        
+                    </h1>
+                </div>
+
+                <div class="body-inner"><div class="page-wrapper" tabindex="-1" role="main">
+    
+
+    <div class="page-inner">
+        <div id="book-search-results">
+            <div class="search-noresults">
+                <section class="normal markdown-section">
+                    
+                        <h1 id="/controls/supplier-relationships-security/enhancement">Supplier Relationships Security - Enhancement Controls</h1>
+                    
+
+                    <h2 id="sup-e-01">SUP-E-01</h2>
+
+<h3 id="control-name">Control Name</h3>
+
+<p>공급망 위험평가·개선 프로세스의 ERM 통합</p>
+
+<h3 id="security-domain">Security Domain</h3>
+
+<p>Supplier Relationships Security</p>
+
+<h3 id="control-class">Control Class</h3>
+
+<p>Enhancement</p>
+
+<h3 id="control-objective">Control Objective</h3>
+
+<p>공급망 사이버보안 위험의 식별·평가·처리·개선 결과를 전사 위험관리(ERM)와 연결하여 조직 전체 위험 의사결정에 반영합니다.</p>
+
+<h3 id="control-statement">Control Statement</h3>
+
+<p>공급망 위험을 구매·보안 부서 내부에서만 관리하면 전사 우선순위와 자원배분에 반영되지 않을 수 있습니다. 조직은 공급망 위험평가와 개선결과를 ERM 보고·승인·추적 체계에 통합해야 합니다.</p>
+
+<h3 id="적용-조건">적용 조건</h3>
+
+<h4 id="적용-시점">적용 시점</h4>
+
+<p>공급망 위험평가, 전사 위험평가·경영검토, 중요 공급자 변경 시 적용합니다.</p>
+
+<h4 id="적용-대상">적용 대상</h4>
+
+<p>중요 공급자·외부 서비스 및 이와 연계된 전사 위험관리 체계에 적용합니다.</p>
+
+<h4 id="관련-법령">관련 법령</h4>
+
+<ul>
+  <li><a href="https://www.law.go.kr/LSW/lsLinkCommonInfo.do?lsJoLnkSeq=900079061">「개인정보 보호법」 제26조</a> — 개인정보 처리업무를 외부에 위탁하는 공급망에 해당하는 경우 수탁자 관리 등 관련 의무를 함께 검토합니다.</li>
+</ul>
+
+<h3 id="control-owner">Control Owner</h3>
+
+<p>구매·계약/공급자 위험관리 책임자</p>
+
+<h3 id="stakeholders">Stakeholders</h3>
+
+<p>CISO, CPO, 법무 담당자, 업무부서, IT 운영 담당자, 재무 담당자, 감사 담당자, 공급자 담당자</p>
+
+<h3 id="매핑된-isms-p-항목">매핑된 ISMS-P 항목</h3>
+
+<ul>
+  <li>2.3.1 외부자 현황 관리</li>
+  <li>1.2.3 위험 평가</li>
+</ul>
+
+<h3 id="매핑된-csf-항목">매핑된 CSF 항목</h3>
+
+<ul>
+  <li>GV.SC-03 — Cybersecurity supply chain risk management is integrated into cybersecurity and enterprise risk management, risk assessment, and improvement processes</li>
+</ul>
+
+<h3 id="implementation-guide">Implementation Guide</h3>
+
+<h4 id="1-공통-위험기준-연결">1. 공통 위험기준 연결</h4>
+
+<p>공급망 위험등급을 ERM 영향·가능성 기준과 연결합니다.</p>
+
+<h4 id="2-위험등록부-통합">2. 위험등록부 통합</h4>
+
+<p>중요 공급망 위험과 책임자·대응기한을 전사 위험등록부에 반영합니다.</p>
+
+<h4 id="3-경영-보고">3. 경영 보고</h4>
+
+<p>중요 위험·추세·미해결 개선 사항을 경영진 위험검토에 포함합니다.</p>
+
+<h4 id="4-개선-추적">4. 개선 추적</h4>
+
+<p>전사 우선순위와 자원배분 결과를 공급자 개선계획에 반영하고 효과를 재평가합니다.</p>
+
+<h3 id="evidence">Evidence</h3>
+
+<ul>
+  <li><strong>ERM-공급망 위험 기준:</strong> 평가기준 연결을 확인합니다.</li>
+  <li><strong>전사 위험등록부:</strong> 공급망 위험의 통합을 확인합니다.</li>
+  <li><strong>경영진 보고·결정:</strong> 전사 의사결정 반영을 확인합니다.</li>
+  <li><strong>개선·재평가 기록:</strong> 위험 감소 효과를 확인합니다.</li>
+</ul>
+
+<h3 id="isms-p-limitation">ISMS-P Limitation</h3>
+
+<p>ISMS-P는 외부자 현황관리와 조직 위험평가를 요구하지만 공급망 위험평가·개선 프로세스를 ERM에 명시적으로 통합하는 결과는 상대적으로 구체적이지 않습니다.</p>
+
+<h3 id="csf-coverage">CSF Coverage</h3>
+
+<p>GV.SC-03의 공급망 사이버보안 위험관리 통합 결과를 보완합니다.</p>
+
+<hr />
+
+<h2 id="sup-e-02">SUP-E-02</h2>
+
+<h3 id="control-name-1">Control Name</h3>
+
+<p>공급자 위험도 우선순위화</p>
+
+<h3 id="security-domain-1">Security Domain</h3>
+
+<p>Supplier Relationships Security</p>
+
+<h3 id="control-class-1">Control Class</h3>
+
+<p>Enhancement</p>
+
+<h3 id="control-objective-1">Control Objective</h3>
+
+<p>공급자의 중요도·접근범위·데이터·의존도와 위험을 기준으로 공급자를 우선순위화하여 관리강도를 차등 적용합니다.</p>
+
+<h3 id="control-statement-1">Control Statement</h3>
+
+<p>모든 공급자를 동일 수준으로 관리하면 핵심 공급자에 필요한 자원을 집중하기 어렵습니다. 조직은 일관된 기준으로 공급자 중요도와 위험등급을 정하고 등급별 실사·계약·모니터링 수준을 차등화해야 합니다.</p>
+
+<h3 id="적용-조건-1">적용 조건</h3>
+
+<h4 id="적용-시점-1">적용 시점</h4>
+
+<p>공급자 신규등록·평가·갱신 및 중요 변경 시 적용합니다.</p>
+
+<h4 id="적용-대상-1">적용 대상</h4>
+
+<p>조직과 관계를 맺는 공급자·제3자 전체에 적용합니다.</p>
+
+<h4 id="관련-법령-1">관련 법령</h4>
+
+<ul>
+  <li><a href="https://www.law.go.kr/LSW/lsLinkCommonInfo.do?lsJoLnkSeq=900079061">「개인정보 보호법」 제26조</a> — 개인정보 처리업무를 외부에 위탁하는 공급망에 해당하는 경우 수탁자 관리 등 관련 의무를 함께 검토합니다.</li>
+</ul>
+
+<h3 id="control-owner-1">Control Owner</h3>
+
+<p>구매·계약/공급자 위험관리 책임자</p>
+
+<h3 id="stakeholders-1">Stakeholders</h3>
+
+<p>CISO, CPO, 법무 담당자, 업무부서, IT 운영 담당자, 재무 담당자, 감사 담당자, 공급자 담당자</p>
+
+<h3 id="매핑된-isms-p-항목-1">매핑된 ISMS-P 항목</h3>
+
+<ul>
+  <li>2.3.1 외부자 현황 관리</li>
+  <li>2.3.2 외부자 계약 시 보안</li>
+</ul>
+
+<h3 id="매핑된-csf-항목-1">매핑된 CSF 항목</h3>
+
+<ul>
+  <li>GV.SC-04 — Suppliers are known and prioritized by criticality</li>
+</ul>
+
+<h3 id="implementation-guide-1">Implementation Guide</h3>
+
+<h4 id="1-분류-기준-정의">1. 분류 기준 정의</h4>
+
+<p>업무 중요도, 정보 민감도, 권한, 대체가능성, 사고영향 기준을 정합니다.</p>
+
+<h4 id="2-공급자-평가등급화">2. 공급자 평가·등급화</h4>
+
+<p>객관적 근거로 공급자별 위험등급과 중요도를 산정합니다.</p>
+
+<h4 id="3-차등-관리">3. 차등 관리</h4>
+
+<p>등급별 실사 깊이, 승인수준, 계약요건, 모니터링 주기를 정합니다.</p>
+
+<h4 id="4-재분류">4. 재분류</h4>
+
+<p>서비스·위험·사고 변화 시 등급을 재검토합니다.</p>
+
+<h3 id="evidence-1">Evidence</h3>
+
+<ul>
+  <li><strong>공급자 분류기준:</strong> 등급 산정 원칙을 확인합니다.</li>
+  <li><strong>공급자 등급대장:</strong> 실제 평가결과를 확인합니다.</li>
+  <li><strong>등급별 관리기준:</strong> 차등통제 적용을 확인합니다.</li>
+  <li><strong>재평가 기록:</strong> 변화 반영을 확인합니다.</li>
+</ul>
+
+<h3 id="isms-p-limitation-1">ISMS-P Limitation</h3>
+
+<p>ISMS-P의 외부자 현황·계약 관리는 존재하지만 공급자 사이버보안 위험을 체계적으로 우선순위화하는 결과는 명시성이 제한적입니다.</p>
+
+<h3 id="csf-coverage-1">CSF Coverage</h3>
+
+<p>GV.SC-04의 공급자 중요도·위험 기반 우선순위화 결과를 보완합니다.</p>
+
+<hr />
+
+<h2 id="sup-e-03">SUP-E-03</h2>
+
+<h3 id="control-name-2">Control Name</h3>
+
+<p>공급자 관계 전 기간 위험관리</p>
+
+<h3 id="security-domain-2">Security Domain</h3>
+
+<p>Supplier Relationships Security</p>
+
+<h3 id="control-class-2">Control Class</h3>
+
+<p>Enhancement</p>
+
+<h3 id="control-objective-2">Control Objective</h3>
+
+<p>공급자 선정부터 계약·운영·변경·갱신·종료까지 전 수명주기에서 위험을 지속적으로 식별·평가·처리합니다.</p>
+
+<h3 id="control-statement-2">Control Statement</h3>
+
+<p>계약 시점의 일회성 보안검토만으로는 운영 중 변화와 신규 위험을 관리하기 어렵습니다. 조직은 공급자 관계의 각 단계에 위험검토와 승인·개선·종료 절차를 연결해야 합니다.</p>
+
+<h3 id="적용-조건-2">적용 조건</h3>
+
+<h4 id="적용-시점-2">적용 시점</h4>
+
+<p>공급자 관계의 선정·계약·운영·변경·갱신·종료 전 단계에 적용합니다.</p>
+
+<h4 id="적용-대상-2">적용 대상</h4>
+
+<p>중요 공급자·외부 서비스와 관련 내부 담당부서에 적용합니다.</p>
+
+<h4 id="관련-법령-2">관련 법령</h4>
+
+<ul>
+  <li><a href="https://www.law.go.kr/LSW/lsLinkCommonInfo.do?lsJoLnkSeq=900079061">「개인정보 보호법」 제26조</a> — 개인정보 처리업무를 외부에 위탁하는 공급망에 해당하는 경우 수탁자 관리 등 관련 의무를 함께 검토합니다.</li>
+</ul>
+
+<h3 id="control-owner-2">Control Owner</h3>
+
+<p>구매·계약/공급자 위험관리 책임자</p>
+
+<h3 id="stakeholders-2">Stakeholders</h3>
+
+<p>CISO, CPO, 법무 담당자, 업무부서, IT 운영 담당자, 재무 담당자, 감사 담당자, 공급자 담당자</p>
+
+<h3 id="매핑된-isms-p-항목-2">매핑된 ISMS-P 항목</h3>
+
+<ul>
+  <li>2.3.3 외부자 보안 이행 관리</li>
+</ul>
+
+<h3 id="매핑된-csf-항목-2">매핑된 CSF 항목</h3>
+
+<ul>
+  <li>GV.SC-07 — The risks posed by a supplier, their products and services, and other third parties are understood, recorded, prioritized, assessed, responded to, and monitored over the course of the relationship</li>
+</ul>
+
+<h3 id="implementation-guide-2">Implementation Guide</h3>
+
+<h4 id="1-수명주기-단계-정의">1. 수명주기 단계 정의</h4>
+
+<p>선정·계약·온보딩·운영·변경·갱신·종료별 보안활동을 정합니다.</p>
+
+<h4 id="2-단계별-게이트-운영">2. 단계별 게이트 운영</h4>
+
+<p>중요 단계에서 위험평가·승인·보완조치 완료 여부를 확인합니다.</p>
+
+<h4 id="3-운영-중-변화관리">3. 운영 중 변화관리</h4>
+
+<p>사고, 소유구조, 서비스·하위공급자 변화 시 재평가합니다.</p>
+
+<h4 id="4-종료피드백">4. 종료·피드백</h4>
+
+<p>종료조치와 잔여위험을 확인하고 결과를 다음 공급자 관리에 반영합니다.</p>
+
+<h3 id="evidence-2">Evidence</h3>
+
+<ul>
+  <li><strong>공급자 수명주기 절차:</strong> 단계별 Control을 확인합니다.</li>
+  <li><strong>평가·승인 기록:</strong> 각 단계의 위험 의사결정을 확인합니다.</li>
+  <li><strong>변경·재평가 기록:</strong> 운영 중 위험관리를 확인합니다.</li>
+  <li><strong>종료·교훈 기록:</strong> 잔여위험과 개선을 확인합니다.</li>
+</ul>
+
+<h3 id="isms-p-limitation-2">ISMS-P Limitation</h3>
+
+<p>ISMS-P 2.3.3은 외부자 보안 이행관리를 요구하지만 공급자 관계 전 기간을 하나의 연속된 위험관리 수명주기로 관리하는 결과는 명시성이 제한적입니다.</p>
+
+<h3 id="csf-coverage-2">CSF Coverage</h3>
+
+<p>GV.SC-07의 공급자·제3자 관계 전 수명주기 위험관리 결과를 보완합니다.</p>
+
+<hr />
+
+<h2 id="sup-e-04">SUP-E-04</h2>
+
+<h3 id="control-name-3">Control Name</h3>
+
+<p>공급 제품·서비스 수명주기 보안·성과관리</p>
+
+<h3 id="security-domain-3">Security Domain</h3>
+
+<p>Supplier Relationships Security</p>
+
+<h3 id="control-class-3">Control Class</h3>
+
+<p>Enhancement</p>
+
+<h3 id="control-objective-3">Control Objective</h3>
+
+<p>공급 제품·서비스의 기획·조달·개발·운영·폐기 단계별 보안활동과 책임을 정하고 이행성과를 지속적으로 관리합니다. 공급망 보안활동을 조직의 사이버보안 및 전사 위험관리(ERM) 체계와 연결하여 단계별 관리 공백을 줄이고 미흡 사항을 개선합니다.</p>
+
+<h3 id="control-statement-3">Control Statement</h3>
+
+<p>공급 제품·서비스는 도입 시점의 평가만으로 안전성을 유지하기 어렵습니다. 개발·변경·운영·지원 종료 과정에서 보안 요구사항과 위험이 달라질 수 있으므로, 조직은 기획·조달·개발·운영·폐기 단계별 보안활동, 책임자와 완료기준을 정해야 합니다.</p>
+
+<p>단계별 이행 기록과 공급망 성과지표(KPI)를 정기적으로 검토하고, 미흡 사항은 담당자·기한·완료기준이 포함된 개선계획으로 등록·추적해야 합니다. 검토 결과를 사이버보안 및 ERM 보고·의사결정에 연결하여 필요한 자원과 후속 조치가 실제 운영에 반영되도록 합니다.</p>
+
+<h3 id="적용-조건-3">적용 조건</h3>
+
+<h4 id="적용-시점-3">적용 시점</h4>
+
+<p>공급 제품·서비스의 기획·조달·개발·운영·변경·폐기 단계와 정기 성과평가·ERM 검토·경영검토 및 주요 사고 후 적용합니다.</p>
+
+<h4 id="적용-대상-3">적용 대상</h4>
+
+<p>조직의 정보·시스템·서비스에 접근하거나 핵심 기능을 제공하는 공급 제품·서비스와 관련 공급자 및 내부 담당부서에 적용합니다.</p>
+
+<h4 id="관련-법령-3">관련 법령</h4>
+
+<ul>
+  <li><a href="https://www.law.go.kr/LSW/lsLinkCommonInfo.do?lsJoLnkSeq=900079061">「개인정보 보호법」 제26조</a> — 개인정보 처리업무를 외부에 위탁하는 공급망에 해당하는 경우 수탁자 관리 등 관련 의무를 함께 검토합니다.</li>
+</ul>
+
+<h3 id="control-owner-3">Control Owner</h3>
+
+<p>구매·계약/공급자 위험관리 책임자</p>
+
+<h3 id="stakeholders-3">Stakeholders</h3>
+
+<p>CISO, CPO, 법무 담당자, 업무부서, IT 운영 담당자, 재무 담당자, 감사 담당자, 공급자 담당자</p>
+
+<h3 id="매핑된-isms-p-항목-3">매핑된 ISMS-P 항목</h3>
+
+<ul>
+  <li>2.3.3 외부자 보안 이행 관리</li>
+  <li>2.3.4 외부자 계약 변경 및 만료 시 보안</li>
+  <li>2.3.1 외부자 현황 관리</li>
+</ul>
+
+<h3 id="매핑된-csf-항목-3">매핑된 CSF 항목</h3>
+
+<ul>
+  <li>GV.SC-09 — Supply chain security practices are integrated into cybersecurity and enterprise risk management programs, and their performance is monitored throughout the technology product and service life cycle</li>
+</ul>
+
+<h3 id="implementation-guide-3">Implementation Guide</h3>
+
+<h4 id="1-수명주기-단계별-보안활동과-책임-정의">1. 수명주기 단계별 보안활동과 책임 정의</h4>
+
+<p>공급 제품·서비스의 기획·조달·개발·운영·폐기 단계를 구분하고 단계별 담당자, 보안 요구사항과 완료기준을 정합니다. 공급자의 중요도·의존도·정보 및 시스템 접근범위를 고려하여 적용할 활동과 확인 수준을 결정합니다.</p>
+
+<h4 id="2-기획조달개발-단계의-보안-요구-반영">2. 기획·조달·개발 단계의 보안 요구 반영</h4>
+
+<p>기획 시 필요한 보호 수준을 정하고 조달 시 실사·위험평가 결과를 계약 보안조항과 서비스 수준에 반영합니다. 개발·구축이 포함된 경우 보안 요구사항 검토, 시험과 인수 기준을 정하고 충족 여부를 확인·기록합니다.</p>
+
+<h4 id="3-운영변경폐기-단계의-보안활동-수행">3. 운영·변경·폐기 단계의 보안활동 수행</h4>
+
+<p>운영 중 점검·모니터링·사고 대응과 변경 시 보안검토를 수행합니다. 지원 종료·교체·폐기 시에는 접근권한 회수, 정보·자산 반환 및 데이터 파기 등을 확인하고, 단계별 수행 결과와 미완료 사항을 기록합니다.</p>
+
+<h4 id="4-수명주기-성과지표와-정기-검토-운영">4. 수명주기 성과지표와 정기 검토 운영</h4>
+
+<p>단계별 보안검토 완료율, 조치 기한 준수율, 반복 미흡 사항, 종료조치 완료율 등 KPI와 필요한 위험지표(KRI)를 정합니다. 지표별 산정근거·담당자·목표·검토 주기를 정의하고 실사·시험·점검·사고·종료 기록을 근거로 성과와 잔여 위험을 검토합니다.</p>
+
+<h4 id="5-개선조치-추적과-경영-의사결정-연계">5. 개선조치 추적과 경영 의사결정 연계</h4>
+
+<p>미흡 사항의 원인을 분석하고 개선계획에 담당자·완료 기한·검증기준을 등록합니다. 중요한 위험과 자원 요청을 사이버보안 및 ERM 검토에 반영하고, 조치 완료와 효과를 확인하여 보안 요구사항·성과목표·운영절차를 갱신합니다.</p>
+
+<h3 id="evidence-3">Evidence</h3>
+
+<ul>
+  <li><strong>수명주기별 보안활동·책임표:</strong> 기획·조달·개발·운영·폐기 단계별 요구사항, 담당자와 완료기준을 확인합니다.</li>
+  <li><strong>단계별 이행 기록:</strong> 실사·위험평가, 계약 보안조항, 개발·인수 시험, 운영·변경 점검 및 접근회수·반환·파기 결과를 확인합니다.</li>
+  <li><strong>공급망 KPI/KRI와 검토자료:</strong> 지표 정의·목표·검토 주기와 실제 단계별 성과 및 잔여 위험을 확인합니다.</li>
+  <li><strong>개선계획·조치 추적표:</strong> 미흡 사항의 원인, 담당자·기한·완료기준과 조치 효과 검증 결과를 확인합니다.</li>
+  <li><strong>사이버보안·ERM 검토 및 결정 기록:</strong> 성과와 위험 검토 결과가 자원 배분과 후속 개선에 반영되었는지 확인합니다.</li>
+</ul>
+
+<h3 id="isms-p-limitation-3">ISMS-P Limitation</h3>
+
+<p>ISMS-P는 외부자 현황·보안 이행·계약 변경 및 만료 시 보안관리를 요구하지만, 공급망 보안 관행을 사이버보안 및 ERM 프로그램에 통합하고 공급 제품·서비스의 전 수명주기 성과를 일관되게 모니터링하는 요구는 상대적으로 구체적이지 않습니다.</p>
+
+<h3 id="csf-coverage-3">CSF Coverage</h3>
+
+<p>GV.SC-09의 공급망 보안 관행을 사이버보안 및 ERM 프로그램에 통합하고 기술 제품·서비스 수명주기 전반의 성과를 모니터링하는 결과를 다룹니다.</p>
+
+<hr />
+
+<h2 id="sup-e-05">SUP-E-05</h2>
+
+<h3 id="control-name-4">Control Name</h3>
+
+<p>핵심 공급자 식별 및 도입 전 위험평가</p>
+
+<h3 id="security-domain-4">Security Domain</h3>
+
+<p>Supplier Relationships Security</p>
+
+<h3 id="control-class-4">Control Class</h3>
+
+<p>Enhancement</p>
+
+<h3 id="control-objective-4">Control Objective</h3>
+
+<p>조직의 핵심 기능·정보·서비스에 중대한 영향을 줄 수 있는 Critical Supplier를 정의·식별하고 도입 전에 위험을 평가하여 강화된 관리수준을 적용합니다.</p>
+
+<h3 id="control-statement-4">Control Statement</h3>
+
+<p>핵심 공급자를 명확히 구분하지 않으면 제한된 관리자원이 저위험 공급자에 분산될 수 있습니다. 조직은 중요 공급자 기준을 정의하고 계약·도입 전 위험평가와 강화된 승인·모니터링을 수행해야 합니다.</p>
+
+<h3 id="적용-조건-4">적용 조건</h3>
+
+<h4 id="적용-시점-4">적용 시점</h4>
+
+<p>신규 공급자 도입·중요도 변경·정기 재평가 시 적용합니다.</p>
+
+<h4 id="적용-대상-4">적용 대상</h4>
+
+<p>핵심업무 중단, 중요정보 접근, 높은 기술의존성 또는 대체곤란성을 가진 공급자 후보·기존 공급자에 적용합니다.</p>
+
+<h4 id="관련-법령-4">관련 법령</h4>
+
+<ul>
+  <li><a href="https://www.law.go.kr/LSW/lsLinkCommonInfo.do?lsJoLnkSeq=900079061">「개인정보 보호법」 제26조</a> — 개인정보 처리업무를 외부에 위탁하는 공급망에 해당하는 경우 수탁자 관리 등 관련 의무를 함께 검토합니다.</li>
+</ul>
+
+<h3 id="control-owner-4">Control Owner</h3>
+
+<p>구매·계약/공급자 위험관리 책임자</p>
+
+<h3 id="stakeholders-4">Stakeholders</h3>
+
+<p>CISO, CPO, 법무 담당자, 업무부서, IT 운영 담당자, 재무 담당자, 감사 담당자, 공급자 담당자</p>
+
+<h3 id="매핑된-isms-p-항목-4">매핑된 ISMS-P 항목</h3>
+
+<ul>
+  <li>2.3.1 외부자 현황 관리</li>
+  <li>2.3.2 외부자 계약 시 보안</li>
+</ul>
+
+<h3 id="매핑된-csf-항목-4">매핑된 CSF 항목</h3>
+
+<ul>
+  <li>ID.RA-10 — Critical suppliers are assessed prior to acquisition</li>
+</ul>
+
+<h3 id="implementation-guide-4">Implementation Guide</h3>
+
+<h4 id="1-critical-supplier-기준-정의">1. Critical Supplier 기준 정의</h4>
+
+<p>업무중단 영향, 정보 민감도, 권한, 집중도, 대체가능성 등 기준을 정합니다.</p>
+
+<h4 id="2-후보-식별">2. 후보 식별</h4>
+
+<p>공급자 목록에 기준을 적용하여 Critical Supplier를 지정합니다.</p>
+
+<h4 id="3-도입-전-위험평가">3. 도입 전 위험평가</h4>
+
+<p>보안역량·취약성·사고이력·하위공급망·복구역량을 평가합니다.</p>
+
+<h4 id="4-강화-control-적용">4. 강화 Control 적용</h4>
+
+<p>추가 계약요건, 승인, 모니터링, 사고·연속성 요구를 적용합니다.</p>
+
+<h4 id="5-정기-재평가">5. 정기 재평가</h4>
+
+<p>업무·서비스·위험 변화에 따라 지정과 관리수준을 갱신합니다.</p>
+
+<h3 id="evidence-4">Evidence</h3>
+
+<ul>
+  <li><strong>Critical Supplier 선정기준:</strong> 중요도 판단 근거를 확인합니다.</li>
+  <li><strong>Critical Supplier 목록:</strong> 실제 식별결과를 확인합니다.</li>
+  <li><strong>도입 전 위험평가:</strong> 사전평가 수행을 확인합니다.</li>
+  <li><strong>강화 계약·모니터링 기록:</strong> 차등관리 이행을 확인합니다.</li>
+</ul>
+
+<h3 id="isms-p-limitation-4">ISMS-P Limitation</h3>
+
+<p>ISMS-P는 외부자 현황과 계약보안을 요구하지만 Critical Supplier를 명시적으로 정의하고 도입 전 위험을 별도로 평가하는 결과는 제한적입니다.</p>
+
+<h3 id="csf-coverage-4">CSF Coverage</h3>
+
+<p>ID.RA-10의 중요 공급자 식별 및 관계 수립 전 평가 결과를 보완합니다.</p>
+</section>
+            </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div></div>
+    </div>
+</div>
+
+<!-- introduce mathjax support -->
+<!-- GitBook re-runs inline includes during AJAX navigation. Load MathJax once. -->
+<script>
+(function () {
+  if (!window.gapzer0MathJaxReady) {
+    window.MathJax = {
+      tex: { inlineMath: [ ['$', '$'], ['\\(', '\\)'] ] },
+      svg: { fontCache: 'global' }
+    };
+    window.gapzer0MathJaxReady = new Promise(function (resolve, reject) {
+      var script = document.createElement('script');
+      script.id = 'MathJax-script';
+      script.async = true;
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js';
+      script.onload = resolve;
+      script.onerror = reject;
+      document.head.appendChild(script);
+    });
+  }
+  window.gapzer0MathJaxReady
+    .then(function () { return window.MathJax.startup.promise; })
+    .then(function () {
+      window.MathJax.typesetClear();
+      return window.MathJax.typesetPromise();
+    })
+    .catch(function (error) { console.warn('MathJax rendering unavailable', error); });
+}());
+</script>
+
+
+<!-- introduce per-page mermaid support -->
+
+
+<!-- introduce mathjax support -->
+<script>
+    function fixes_chrome_anchors() {
+        let chrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+        if (window.location.hash && chrome) {
+            setTimeout(function () {
+                var hash = window.location.hash;
+                window.location.hash = "";
+                window.location.hash = hash;
+            }, 300);
+        }
+    }
+
+    if (document.readyState === "loading") {
+        // Loading hasn't finished yet
+        document.addEventListener("DOMContentLoaded", fixes_chrome_anchors);
+    } else {
+        // `DOMContentLoaded` has already fired
+        fixes_chrome_anchors();
+    }
+</script>
+
+
+                        <a href="/controls/supplier-relationships-security/common/" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Supplier Relationships Security - Common Controls">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+                    
+
+                    
+                        <a href="/controls/supplier-relationships-security/" class="navigation navigation-next navigation-unique" aria-label="Next page: Supplier Relationships Security(SUP)">
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    
+                </div>
+            </div>
+
+            <script>
+            var gitbook = gitbook || [];
+            gitbook.push(function() {
+                gitbook.page.hasChanged({
+    "page": {
+        "title": "Introduction",
+        "level": "1.1",
+        "depth": 1,
+        
+        "next": {
+            "title": "Supplier Relationships Security(SUP)",
+            "level": "1.2",
+            "depth": 1,
+            "path": "_pages/control-guide/13-supplier-relationships-security/index.md",
+            "ref": "_pages/control-guide/13-supplier-relationships-security/index.md",
+            "articles": []
+        },
+        
+        "dir": "ltr"
+    },    "config": {
+        "plugins": ["fontsettings", "highlight", "livereload", "lunr", "search", "sharing", "theme-default", "livereload"],
+        "styles": {
+            "ebook": "styles/ebook.css",
+            "epub": "styles/epub.css",
+            "mobi": "styles/mobi.css",
+            "pdf": "styles/pdf.css",
+            "print": "styles/print.css",
+            "website": "styles/website.css"
+        },
+        "pluginsConfig": {
+            "expandable-chapter-small2": {
+                "articlesExpand": true,
+            },
+            "fontsettings": {
+                "family": "sans",
+                "size": 2,
+                "theme": "white"
+            },
+            "highlight": {},
+            "livereload": {},
+            "lunr": {
+                "ignoreSpecialCharacters": false,
+                "maxIndexSize": 1000000
+            },
+            "search": {},            "sharing": {
+                "facebook": true,
+
+                "google": false,
+
+                "github": true,
+              
+                "github_link": "https://github.com",
+              
+
+                "telegram": false,
+                "telegram_link": "https://t.me",
+
+                "instapaper": false,
+
+                "twitter": true,
+              
+
+                "vk": false,
+
+                "weibo": false,
+
+                "all": ["facebook", "google", "twitter", "weibo", "instapaper", "github", "telegram"]
+            },
+"theme-default": {
+                "showLevel": false,
+                "styles": {
+                    "ebook": "styles/ebook.css",
+                    "epub": "styles/epub.css",
+                    "mobi": "styles/mobi.css",
+                    "pdf": "styles/pdf.css",
+                    "print": "styles/print.css",
+                    "website": "styles/website.css"
+                }
+            },
+        },
+        "theme": "default",
+        "author": "Tao He",
+        "pdf": {
+            "pageNumbers": true,
+            "fontSize": 12,
+            "fontFamily": "Arial",
+            "paperSize": "a4",
+            "chapterMark": "pagebreak",
+            "pageBreaksBefore": "/",
+            "margin": {
+                "right": 62,
+                "left": 62,
+                "top": 56,
+                "bottom": 56
+            }
+        },
+        "structure": {
+            "langs": "LANGS.md",
+            "readme": "README.md",
+        },
+        "variables": {},
+        "title": "GapZer0 Guideline",
+        "language": "en",
+        "gitbook": "*"
+    },
+    "file": {
+        "path": "_pages/control-guide/13-supplier-relationships-security/enhancement.md",
+        "mtime": "2026-10-08 16:04:06 +0000",
+        "type": "markdown"
+    },
+    "gitbook": {
+        "version": "",
+        "time": "2026-10-08 16:04:06 +0000"
+    },
+    "basePath": "",
+    "book": {
+        "language": ""
+    }
+});
+            });
+            </script>
+        </div><script src="/assets/vendor/jquery-3.7.1.min.js"></script>
+<script src="/assets/gitbook/gitbook.js?v=security1"></script>
+<script src="/assets/gitbook/theme.js?v=security1"></script>
+
+<script src="/assets/gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-expandable-chapters-small2/expandable-chapters-small.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-fontsettings/fontsettings.js?v=night-icon2"></script>
+<script src="/assets/gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-search-pro/search.js?v=security1"></script>
+<script src="/assets/gitbook/gitbook-plugin-sharing/buttons.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-splitter/splitter.js"></script>
+
+<script src="/assets/gitbook/custom.js"></script>
+<script src="/assets/gitbook/custom-local.js?v=domain-codes1"></script>
+
+</body>
+</html>

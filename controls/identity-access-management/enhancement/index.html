@@ -1,0 +1,716 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head><meta charset="UTF-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"><title>Identity and Access Management - Enhancement Controls · GapZer0 Guideline</title><meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="description" content="NIST CSF 2.0과 ISMS-P를 기반으로 한 GapZer0 통합 정보보호 가이드라인
+"><meta name="generator" content="Jekyll (using style of GitBook)"><meta name="author" content="GapZer0"><link rel="stylesheet" href="/assets/gitbook/style.css">
+<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-expandable-chapters-small2/expandable-chapters-small.css">
+<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-fontsettings/website.css">
+<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-search-pro/search.css">
+<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-splitter/splitter.css">
+
+<link rel="stylesheet" href="/assets/gitbook/rouge/colorful.css">
+
+<link rel="stylesheet" href="/assets/gitbook/custom.css">
+<link rel="stylesheet" href="/assets/gitbook/custom-local.css?v=1791475446">
+
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/assets/gitbook/images/apple-touch-icon-precomposed-152.png">
+<link rel="shortcut icon" href="/" type="image/x-icon">
+
+
+
+
+            <link rel="prev" href="/controls/identity-access-management/common/" />
+        
+
+        
+            <link rel="next" href="/controls/identity-access-management/" />
+        
+    </head>
+    <body>
+        <div class="book"><div class="book-summary">
+
+    <script type="text/javascript">
+        // 페이지 이동 시 본문을 맨 위로 이동
+        function pageScrollToTop(element) {
+            $('div.body-inner').animate({ scrollTop: 0 });
+            return true;
+        }
+
+        // 모바일 환경에서 본문 내 앵커 이동 처리
+        function mobilePageScrollToAnchor(element) {
+            $(element).closest('li.chapter').find('ul>li').removeClass('active');
+            $(element).parent().addClass('active');
+
+            if ($(document).width() <= 1240) {
+                let target = $($(element).attr('href'));
+
+                if (target.length) {
+                    $('div.body-inner').animate({
+                        scrollTop: target.get(0).offsetTop
+                    });
+                }
+            }
+
+            return true;
+        }
+    </script>
+
+    <nav role="navigation">
+
+        <!-- 검색창 -->
+        <div id="book-search-input" role="search">
+            <input type="text" placeholder="Type to search" />
+        </div>
+
+        <div id="book-search-input-link" role="search">
+            <a href="/assets/search.html">
+                Click to Search
+            </a>
+        </div>
+
+        <ul class="summary">
+
+            <!-- 홈페이지 -->
+            <li class="chapter">
+                <a href="/"
+                   onclick="pageScrollToTop(this)">
+                    GapZer0 Guideline
+                </a>
+            </li>
+
+            <li class="divider"></li>
+
+            <!-- 가이드라인 목차와 AI Skill 바로가기 -->
+            
+
+                
+
+                <!-- 현재 페이지와 메뉴 URL이 같은 경우 -->
+                
+
+                <!-- Control 하위 페이지에서는 04를 active로 표시 -->
+                
+
+                <!-- 자가진단 작성 화면도 05 메뉴에 포함 -->
+                
+
+                <li class="chapter"
+                    data-path="/introduction/">
+
+                    
+                    <a href="/introduction/"
+                       onclick="pageScrollToTop(this)">
+                        01. GapZer0 가이드라인 소개
+                    </a>
+                    
+
+                </li>
+
+            
+
+                
+
+                <!-- 현재 페이지와 메뉴 URL이 같은 경우 -->
+                
+
+                <!-- Control 하위 페이지에서는 04를 active로 표시 -->
+                
+
+                <!-- 자가진단 작성 화면도 05 메뉴에 포함 -->
+                
+
+                <li class="chapter"
+                    data-path="/how-to-use/">
+
+                    
+                    <a href="/how-to-use/"
+                       onclick="pageScrollToTop(this)">
+                        02. 가이드라인 활용 방법
+                    </a>
+                    
+
+                </li>
+
+            
+
+                
+
+                <!-- 현재 페이지와 메뉴 URL이 같은 경우 -->
+                
+
+                <!-- Control 하위 페이지에서는 04를 active로 표시 -->
+                
+
+                <!-- 자가진단 작성 화면도 05 메뉴에 포함 -->
+                
+
+                <li class="chapter"
+                    data-path="/terms/">
+
+                    
+                    <a href="/terms/"
+                       onclick="pageScrollToTop(this)">
+                        03. 주요 용어
+                    </a>
+                    
+
+                </li>
+
+            
+
+                
+
+                <!-- 현재 페이지와 메뉴 URL이 같은 경우 -->
+                
+
+                <!-- Control 하위 페이지에서는 04를 active로 표시 -->
+                
+
+                <!-- 자가진단 작성 화면도 05 메뉴에 포함 -->
+                
+
+                <li class="chapter active"
+                    data-path="/controls/">
+
+                    
+                    <a href="/controls/"
+                       onclick="pageScrollToTop(this)">
+                        04. Control 이행 안내
+                    </a>
+                    
+
+                </li>
+
+            
+
+                
+
+                <!-- 현재 페이지와 메뉴 URL이 같은 경우 -->
+                
+
+                <!-- Control 하위 페이지에서는 04를 active로 표시 -->
+                
+
+                <!-- 자가진단 작성 화면도 05 메뉴에 포함 -->
+                
+
+                <li class="chapter"
+                    data-path="/self-assessment/">
+
+                    
+                    <a href="/self-assessment/"
+                       onclick="pageScrollToTop(this)">
+                        05. 자가 진단
+                    </a>
+                    
+
+                </li>
+
+            
+
+                
+
+                <!-- 현재 페이지와 메뉴 URL이 같은 경우 -->
+                
+
+                <!-- Control 하위 페이지에서는 04를 active로 표시 -->
+                
+
+                <!-- 자가진단 작성 화면도 05 메뉴에 포함 -->
+                
+
+                <li class="chapter"
+                    data-path="https://docs.whs4-gapzer0.kro.kr/ai-skill-ui/">
+
+                    
+                    <a class="gz-ai-skill-link" href="https://docs.whs4-gapzer0.kro.kr/ai-skill-ui/" target="_blank" rel="noopener noreferrer"
+                       aria-label="GapZer0 AI Skill (새 탭에서 열기)">
+                        GapZer0 AI Skill <span class="gz-external-icon" aria-hidden="true">↗</span>
+                    </a>
+                    
+
+                </li>
+
+            
+
+            
+
+        </ul>
+
+    </nav>
+
+</div>
+<div class="book-body">
+                <div class="book-header" role="navigation">
+                    <!-- Title -->
+                    <h1>
+                        <i class="fa fa-circle-o-notch fa-spin"></i>
+                        
+                            <a href="." >Identity and Access Management - Enhancement Controls</a>
+                        
+                    </h1>
+                </div>
+
+                <div class="body-inner"><div class="page-wrapper" tabindex="-1" role="main">
+    
+
+    <div class="page-inner">
+        <div id="book-search-results">
+            <div class="search-noresults">
+                <section class="normal markdown-section">
+                    
+                        <h1 id="/controls/identity-access-management/enhancement">Identity and Access Management - Enhancement Controls</h1>
+                    
+
+                    <h2 id="iam-e-01">IAM-E-01</h2>
+
+<h3 id="control-name">Control Name</h3>
+
+<p>신원 확인 및 자격증명 연결</p>
+
+<h3 id="security-domain">Security Domain</h3>
+
+<p>Identity and Access Management</p>
+
+<h3 id="control-class">Control Class</h3>
+
+<p>Enhancement</p>
+
+<h3 id="control-objective">Control Objective</h3>
+
+<p>계정과 자격증명을 발급하기 전에 접근 주체의 실제 신원을 위험 수준에 맞게 확인하고, 검증된 신원과 자격증명을 신뢰성 있게 연결하여 명의도용·위장계정·자격증명 오발급을 방지합니다. 이를 통해 인증 이전 단계부터 신뢰할 수 있는 신원 기반을 확보하고, 계정·인증수단의 발급·변경·복구 과정에서 신원과 자격증명의 연결이 유지되도록 합니다.</p>
+
+<h3 id="control-statement">Control Statement</h3>
+
+<p>사용자 식별자와 로그인 인증 절차가 존재하더라도, 계정을 발급받는 사람이 실제로 누구인지 충분히 확인하지 않거나 검증된 신원과 자격증명을 연결하는 절차가 불명확하면 위장계정과 신원도용을 사전에 걸러내기 어렵습니다. 특히 비대면 가입, 외부인력 등록, 고위험 업무 계정 발급과 인증수단 복구 과정에서는 단순한 정보 입력만으로 신원을 신뢰하기 어렵습니다.</p>
+
+<p>이 Control은 계정 발급·복구 등 업무 상황의 위험에 따라 필요한 신원확인 수준을 정하고, 확인된 신원과 계정·인증수단·자격증명을 일관되게 연결하도록 합니다. 최초 발급뿐 아니라 변경·재발급·복구 과정에서도 동일한 신원확인과 승인기준을 적용하여 자격증명이 잘못된 주체에게 발급되거나 이전되는 것을 방지합니다.</p>
+
+<h3 id="적용-조건">적용 조건</h3>
+
+<h4 id="적용-시점">적용 시점</h4>
+
+<p>신규 계정·인증수단을 발급하거나 신원정보 변경·인증수단 분실·재발급·복구로 신원과 인증수단의 연결을 새로 설정하거나 변경하는 경우 적용합니다. 개인정보처리시스템의 계정을 발급·관리하는 경우 관련 계정·인증수단 보호 의무와 함께 적용합니다.</p>
+
+<h4 id="적용-대상">적용 대상</h4>
+
+<p>사용자·관리자·외부인력의 계정 발급·복구 절차, 신원 확인 자료, 인증서·인증용 토큰·일회용 비밀번호(OTP) 등의 인증수단과 발급·관리 담당자에게 적용합니다.</p>
+
+<h4 id="관련-법령">관련 법령</h4>
+
+<ul>
+  <li><a href="https://www.law.go.kr/법령/개인정보보호법/제29조">「개인정보 보호법」 제29조</a> — 개인정보처리자의 안전한 계정·인증 관리 등 안전조치 의무.</li>
+  <li><a href="https://www.law.go.kr/행정규칙/개인정보의안전성확보조치기준">「개인정보의 안전성 확보조치 기준」 제5조</a> — 개인정보취급자별 계정 발급·공유 제한과 인증수단의 안전한 적용·관리 의무.</li>
+</ul>
+
+<h3 id="control-owner">Control Owner</h3>
+
+<p>계정·접근권한 관리(IAM) 및 IT 운영 책임자</p>
+
+<h3 id="stakeholders">Stakeholders</h3>
+
+<p>정보보호 담당부서, 인사부서, 시스템·응용프로그램 관리 책임자, 개인정보보호 담당부서, 내부감사팀</p>
+
+<h3 id="매핑된-isms-p-항목">매핑된 ISMS-P 항목</h3>
+
+<ul>
+  <li>2.5.2 사용자 식별</li>
+  <li>2.5.3 사용자 인증</li>
+</ul>
+
+<h3 id="매핑된-csf-항목">매핑된 CSF 항목</h3>
+
+<ul>
+  <li>PR.AA-02 — Identities are proofed and bound to credentials based on the context of interactions.</li>
+</ul>
+
+<h3 id="implementation-guide">Implementation Guide</h3>
+
+<p>이 Control에서 자격증명은 비밀번호·인증서·인증용 토큰 등 신원을 인증하는 데 쓰는 정보를 뜻합니다. 자격증명 연결은 해당 인증정보가 어느 사용자에게 발급되었는지 확인하고 그 관계를 관리하는 일입니다.</p>
+
+<h4 id="1-신원확인-대상과-위험-수준-분류">1. 신원확인 대상과 위험 수준 분류</h4>
+
+<p>계정·자격증명 발급 대상과 업무 중요도, 접근 가능한 정보·기능, 외부접속 여부 등을 기준으로 신원확인 필요 수준을 구분합니다. 일반 업무계정, 관리자·특수권한 계정, 외부인력, 비대면 가입 등 서로 다른 위험 수준을 동일한 신원확인 절차로 처리하지 않도록 기준을 정의합니다.</p>
+
+<h4 id="2-위험-수준별-신원확인-방법-정의">2. 위험 수준별 신원확인 방법 정의</h4>
+
+<p>각 위험 수준에 맞는 신원확인 방법을 정합니다. 조직 내부 인력은 인사정보와 고유 식별정보를 활용하고, 외부인력은 계약·소속정보와 승인자를 확인하며, 비대면 환경에서는 조직이 신뢰할 수 있다고 판단한 별도의 신원확인 수단을 적용합니다.</p>
+
+<p>신원확인 과정에서 수집·확인하는 정보는 업무상 필요한 범위로 제한하고, 신원확인 결과와 확인자를 기록하여 추후 발급 근거를 확인할 수 있도록 합니다.</p>
+
+<h4 id="3-검증된-신원과-자격증명의-연결">3. 검증된 신원과 자격증명의 연결</h4>
+
+<p>신원확인이 완료된 주체에게만 계정·인증서·토큰·OTP 등 자격증명을 발급하고, 어떤 신원에 어떤 자격증명이 연결되어 있는지 추적할 수 있도록 관리합니다. 동일 신원에 여러 자격증명이 발급되는 경우에는 각각의 용도와 상태를 구분합니다.</p>
+
+<p>공용·대리 발급을 최소화하고, 예외적으로 다른 사람이 발급 업무를 수행하더라도 실제 사용자와 자격증명의 연결관계가 명확히 남도록 합니다.</p>
+
+<h4 id="4-변경재발급복구-시-재검증">4. 변경·재발급·복구 시 재검증</h4>
+
+<p>이름·소속·직무 등 신원정보 변경, 자격증명 분실·재발급, 비밀번호·인증수단 복구가 발생한 경우 기존 등록정보만을 근거로 자동 처리하지 않고 정해진 신원 재확인 절차를 적용합니다. 특히 관리자·고위험 계정은 일반계정보다 강화된 확인과 승인절차를 적용합니다.</p>
+
+<h4 id="5-연결관계와-예외의-검토-및-정비">5. 연결관계와 예외의 검토 및 정비</h4>
+
+<p>계정·접근권한 관리(IAM)·인증시스템의 신원과 자격증명의 연결정보를 실제 인사·계정 현황과 비교하여 소유자가 불명확한 자격증명, 퇴직자·계약종료자의 잔존 자격증명, 중복·오발급 사례를 점검합니다. 예외처리된 발급 건은 사유·승인자·유효기간을 확인하고 필요성이 종료되면 회수합니다.</p>
+
+<h3 id="evidence">Evidence</h3>
+
+<ul>
+  <li><strong>신원확인 정책 및 위험등급 기준:</strong> 계정·자격증명 유형별 필요한 신원확인 수준과 적용 조건을 확인할 수 있는 자료입니다.</li>
+  <li><strong>신원확인 절차 및 증빙 기록:</strong> 발급 대상자의 신원을 어떤 자료·방법으로 확인했고 누가 검토했는지 확인할 수 있는 자료입니다.</li>
+  <li><strong>신원과 자격증명의 연결 목록:</strong> 사용자와 계정·인증서·토큰·OTP 등 자격증명의 연결관계와 상태를 확인할 수 있는 자료입니다.</li>
+  <li><strong>자격증명 발급·승인 기록:</strong> 신원확인 완료 후 발급되었는지, 고위험 계정에 추가 승인절차가 적용되었는지 확인할 수 있는 자료입니다.</li>
+  <li><strong>재발급·복구 신원 재확인 기록:</strong> 분실·초기화·복구 과정에서 정당한 사용자임을 재검증한 내역을 확인할 수 있는 자료입니다.</li>
+  <li><strong>예외 및 정기검토 기록:</strong> 공용·대리 발급 등 예외 사유와 승인, 잔존·중복 자격증명 점검 및 회수 결과를 확인할 수 있는 자료입니다.</li>
+</ul>
+
+<h3 id="isms-p-limitation">ISMS-P Limitation</h3>
+
+<p>ISMS-P 2.5.2는 사용자별 고유 식별자 부여와 책임추적성을, 2.5.3은 정보시스템 접근 시 안전한 사용자 인증을 요구합니다. 그러나 계정·자격증명을 최초 발급하기 전에 실제 신원을 계정 발급·복구 등 업무 상황과 위험 수준에 맞게 확인하고, 확인된 신원에 자격증명을 연결하는 절차는 명시적으로 다루지 않습니다.</p>
+
+<p>이로 인해 식별자와 인증수단 자체는 관리되더라도, 잘못된 신원에 계정이나 자격증명이 발급되는 위험을 사전에 통제하기 어렵습니다.</p>
+
+<h3 id="csf-coverage">CSF Coverage</h3>
+
+<p>이 Control을 이행하면 위험 수준별 신원확인 방법과 신원·자격증명 연결 절차를 마련하여 ISMS-P의 사용자 식별·인증 요구를 보완할 수 있습니다. 이를 통해 계정 발급·복구 등 업무 상황에 따라 신원을 확인하고 검증된 신원을 자격증명에 연결하도록 요구하는 CSF PR.AA-02의 결과를 충족할 수 있습니다.</p>
+
+<hr />
+
+<h2 id="iam-e-02">IAM-E-02</h2>
+
+<h3 id="control-name-1">Control Name</h3>
+
+<p>신원 증명 정보의 보호·전달·검증</p>
+
+<h3 id="security-domain-1">Security Domain</h3>
+
+<p>Identity and Access Management</p>
+
+<h3 id="control-class-1">Control Class</h3>
+
+<p>Enhancement</p>
+
+<h3 id="control-objective-1">Control Objective</h3>
+
+<p>SSO·연합인증 등에서 전달되는 신원 증명 정보의 진위와 무결성을 보호하고, 수신 시스템이 발급자·유효기간·대상·재사용 여부를 검증하도록 하여 위조·변조·재전송에 따른 비인가 접근을 방지합니다. 이를 통해 인증 주체 간 신뢰관계를 기술적으로 확인하고 연합인증 환경에서 신원정보가 안전하게 전달되는 상태를 확보합니다.</p>
+
+<h3 id="control-statement-1">Control Statement</h3>
+
+<p>현대의 인증환경에서는 사용자가 각 시스템에 직접 로그인하지 않고 SAML·OIDC와 같은 연합인증 방식을 통해 다른 인증시스템이 발급한 신원 증명 정보를 전달받아 접근하는 경우가 많습니다. 이때 신원 증명 정보의 위조·변조, 만료된 정보의 재사용이 발생하거나 신뢰하지 않는 발급자의 신원 증명 정보가 수용되면 정상 인증절차를 거치지 않고도 시스템 접근이 가능해질 수 있습니다.</p>
+
+<p>이 Control은 신원 증명 정보를 생성·전달·수신하는 전 과정에서 무결성과 기밀성을 보호하고, 수신측이 발급자 신뢰관계·서명·대상·유효기간·재사용 여부 등을 검증하도록 합니다. 이를 통해 SSO·연합인증의 편의성을 유지하면서도 신원 증명 정보 자체가 새로운 공격경로가 되지 않도록 통제합니다.</p>
+
+<h3 id="적용-조건-1">적용 조건</h3>
+
+<h4 id="적용-시점-1">적용 시점</h4>
+
+<p>한 번의 로그인으로 여러 서비스를 이용하는 통합인증(SSO)이나 다른 인증시스템의 인증 결과를 신뢰하는 연합인증을 구축·운영·변경하는 경우 적용합니다. 인증 결과의 발급·전달·수신과 서명키·인증서·연동 대상 변경에 적용하며, 개인정보처리시스템과 연계되는 경우 관련 안전조치 의무를 함께 적용합니다.</p>
+
+<h4 id="적용-대상-1">적용 대상</h4>
+
+<p>신원을 확인하고 인증 결과를 발급하는 시스템(IdP), 이를 받아 서비스를 제공하는 시스템(SP), 연동 응용프로그램, 신원 증명 정보·인증 토큰, 서명키·인증서 및 개발·운영 담당자에게 적용합니다.</p>
+
+<h4 id="관련-법령-1">관련 법령</h4>
+
+<ul>
+  <li><a href="https://www.law.go.kr/법령/개인정보보호법/제29조">「개인정보 보호법」 제29조</a> — 개인정보처리자의 비인가 접근·정보 유출 등을 방지하기 위한 안전조치 의무.</li>
+  <li><a href="https://www.law.go.kr/행정규칙/개인정보의안전성확보조치기준">「개인정보의 안전성 확보조치 기준」 제5조</a> — 개인정보취급자 또는 정보주체의 인증수단을 안전하게 적용·관리할 의무.</li>
+</ul>
+
+<h3 id="control-owner-1">Control Owner</h3>
+
+<p>계정·접근권한 관리(IAM) 및 IT 운영 책임자</p>
+
+<h3 id="stakeholders-1">Stakeholders</h3>
+
+<p>정보보호 담당부서, 시스템·응용프로그램 관리 책임자, 개발부서, IT 운영부서, 내부감사팀</p>
+
+<h3 id="매핑된-isms-p-항목-1">매핑된 ISMS-P 항목</h3>
+
+<ul>
+  <li>2.5.3 사용자 인증</li>
+</ul>
+
+<h3 id="매핑된-csf-항목-1">매핑된 CSF 항목</h3>
+
+<ul>
+  <li>PR.AA-04 — Identity assertions are protected, conveyed, and verified.</li>
+</ul>
+
+<h3 id="implementation-guide-1">Implementation Guide</h3>
+
+<p>신원 증명 정보(Identity Assertion)는 인증시스템이 사용자의 신원·인증 결과를 다른 서비스에 전달하는 정보입니다. 통합인증(SSO)은 한 번의 로그인으로 여러 서비스를 이용하는 방식이며, 연합인증은 서로 다른 시스템이 인증 결과를 전달하고 신뢰하는 방식입니다. SAML·OIDC는 이러한 연동에 사용하는 표준입니다. 토큰은 인증 결과 등 정보를 담아 전달하는 데이터이며, 사용 방식에 따라 검증 항목이 달라집니다.</p>
+
+<h4 id="1-신원-증명-정보-사용구간과-신뢰관계-식별">1. 신원 증명 정보 사용구간과 신뢰관계 식별</h4>
+
+<p>조직에서 SSO·연합인증을 사용하는 IdP·SP·응용프로그램과 신원 증명 정보 또는 토큰의 흐름을 식별합니다. 어떤 발급자가 어떤 시스템에 신원정보를 전달하는지, 어떤 프로토콜과 인증서·키를 사용하는지 문서화합니다.</p>
+
+<p>승인되지 않은 IdP나 테스트용 연계가 운영환경에서 신뢰되지 않도록 신뢰관계 등록·변경 절차를 관리합니다.</p>
+
+<h4 id="2-신원-증명-정보-생성전달-보호">2. 신원 증명 정보 생성·전달 보호</h4>
+
+<p>신원 증명 정보 또는 토큰의 위·변조를 방지할 수 있도록 서명·검증 처리 방식을 적용하고, 중요 신원정보가 포함된 경우 전송구간과 필요에 따른 암호화 보호를 적용합니다. 서명키·인증서·연동 프로그램의 인증 비밀정보는 접근권한을 제한하고 안전하게 보관합니다.</p>
+
+<h4 id="3-수신측-유효성신뢰관계-검증">3. 수신측 유효성·신뢰관계 검증</h4>
+
+<p>수신 시스템은 신원 증명 정보의 서명, 발급자, 대상 시스템, 유효기간, 발급·사용 시점 등을 확인하고 사전에 승인된 신뢰관계와 일치하는 경우에만 인증 결과를 수용합니다. 검증 실패한 신원 증명 정보는 접근에 사용하지 않고 실패사유를 기록합니다.</p>
+
+<h4 id="4-재사용재전송-방지">4. 재사용·재전송 방지</h4>
+
+<p>신원 증명 정보와 토큰은 필요한 범위의 짧은 유효기간을 적용하고, 동일 신원 증명 정보의 반복 사용이나 이미 처리된 인증정보의 재전송을 방지할 수 있는 처리 방식을 적용합니다. 세션 종료·계정 정지·권한변경 등이 인증상태에 적절히 반영되도록 합니다.</p>
+
+<h4 id="5-인증서키의-발급교체폐기와-연동설정-관리">5. 인증서·키의 발급·교체·폐기와 연동설정 관리</h4>
+
+<p>서명·암호화에 사용하는 인증서와 키의 발급·교체·만료·폐기 절차를 관리합니다. 인증서 만료나 키 교체로 검증이 중단되지 않도록 변경계획을 수립하고, 더 이상 사용하지 않는 신뢰관계·키·연동 프로그램 등록정보는 제거합니다.</p>
+
+<h4 id="6-신원-증명-정보-오류인증-이상-모니터링-및-개선">6. 신원 증명 정보 오류·인증 이상 모니터링 및 개선</h4>
+
+<p>서명검증 실패, 만료 토큰 사용, 비정상 발급자, 반복 재전송, 신뢰관계 오류 등 인증 이벤트를 모니터링합니다. 반복되는 오류와 공격 의심사례는 설정·키·신뢰관계·세션 정책 개선으로 연결하고 필요한 경우 관련 시스템 소유자와 조치합니다.</p>
+
+<h3 id="evidence-1">Evidence</h3>
+
+<ul>
+  <li><strong>SSO·연합인증 구성도:</strong> IdP·SP·응용프로그램과 신원 증명 정보 흐름, 신뢰관계를 확인할 수 있는 자료입니다.</li>
+  <li><strong>신원 증명 정보 서명·암호화 설정:</strong> 서명 알고리즘, 인증서·키, 전송 보호가 실제로 적용되어 있는지 확인할 수 있는 자료입니다.</li>
+  <li><strong>발급자·대상·유효기간 검증 설정:</strong> 수신측이 승인된 발급자와 대상, 유효기간을 검증하는지 확인할 수 있는 자료입니다.</li>
+  <li><strong>재사용·재전송 방지 설정:</strong> 토큰 만료·일회성 난수(Nonce)·세션 등 재사용 방지 처리 방식을 확인할 수 있는 자료입니다.</li>
+  <li><strong>인증서·키 발급·교체·폐기 과정 기록:</strong> 발급·교체·만료·폐기와 접근권한을 확인할 수 있는 자료입니다.</li>
+  <li><strong>신원 증명 정보 검증 로그:</strong> 서명실패, 만료, 신뢰관계 오류, 재사용 의심 등의 탐지·조치내역을 확인할 수 있는 자료입니다.</li>
+  <li><strong>연동 변경·승인 기록:</strong> 신규 IdP·SP 등록, 신뢰관계·연동 프로그램 설정 변경이 승인된 절차에 따라 이루어졌는지 확인할 수 있는 자료입니다.</li>
+</ul>
+
+<h3 id="isms-p-limitation-1">ISMS-P Limitation</h3>
+
+<p>ISMS-P 2.5.3은 사용자의 안전한 인증과 비인가 접근 방지를 요구하지만, SAML·OIDC 등에서 사용되는 신원 증명 정보 자체의 생성·전달 보호, 서명·암호화, 수신측 유효성 및 발급자 신뢰관계 검증을 위한 별도 기준은 명시되어 있지 않습니다.</p>
+
+<p>따라서 일반적인 로그인 인증요건만으로는 SSO·연합인증 환경에서 신원 증명 정보 위·변조나 재전송 공격을 통제하고 있음을 충분히 입증하기 어렵습니다.</p>
+
+<h3 id="csf-coverage-1">CSF Coverage</h3>
+
+<p>이 Control을 이행하면 신원 증명 정보의 서명·암호화, 유효기간·재사용 방지, 발급자·대상·신뢰관계 검증을 통해 연합인증 환경의 신원정보를 안전하게 보호할 수 있습니다. 이를 통해 신원 증명 정보를 보호·전달하고 수신 시 유효성과 신뢰성을 검증하도록 요구하는 CSF PR.AA-04의 결과를 충족할 수 있습니다.</p>
+</section>
+            </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div></div>
+    </div>
+</div>
+
+<!-- introduce mathjax support -->
+<!-- GitBook re-runs inline includes during AJAX navigation. Load MathJax once. -->
+<script>
+(function () {
+  if (!window.gapzer0MathJaxReady) {
+    window.MathJax = {
+      tex: { inlineMath: [ ['$', '$'], ['\\(', '\\)'] ] },
+      svg: { fontCache: 'global' }
+    };
+    window.gapzer0MathJaxReady = new Promise(function (resolve, reject) {
+      var script = document.createElement('script');
+      script.id = 'MathJax-script';
+      script.async = true;
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js';
+      script.onload = resolve;
+      script.onerror = reject;
+      document.head.appendChild(script);
+    });
+  }
+  window.gapzer0MathJaxReady
+    .then(function () { return window.MathJax.startup.promise; })
+    .then(function () {
+      window.MathJax.typesetClear();
+      return window.MathJax.typesetPromise();
+    })
+    .catch(function (error) { console.warn('MathJax rendering unavailable', error); });
+}());
+</script>
+
+
+<!-- introduce per-page mermaid support -->
+
+
+<!-- introduce mathjax support -->
+<script>
+    function fixes_chrome_anchors() {
+        let chrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+        if (window.location.hash && chrome) {
+            setTimeout(function () {
+                var hash = window.location.hash;
+                window.location.hash = "";
+                window.location.hash = hash;
+            }, 300);
+        }
+    }
+
+    if (document.readyState === "loading") {
+        // Loading hasn't finished yet
+        document.addEventListener("DOMContentLoaded", fixes_chrome_anchors);
+    } else {
+        // `DOMContentLoaded` has already fired
+        fixes_chrome_anchors();
+    }
+</script>
+
+
+                        <a href="/controls/identity-access-management/common/" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Identity and Access Management - Common Controls">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+                    
+
+                    
+                        <a href="/controls/identity-access-management/" class="navigation navigation-next navigation-unique" aria-label="Next page: Identity and Access Management(IAM)">
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    
+                </div>
+            </div>
+
+            <script>
+            var gitbook = gitbook || [];
+            gitbook.push(function() {
+                gitbook.page.hasChanged({
+    "page": {
+        "title": "Introduction",
+        "level": "1.1",
+        "depth": 1,
+        
+        "next": {
+            "title": "Identity and Access Management(IAM)",
+            "level": "1.2",
+            "depth": 1,
+            "path": "_pages/control-guide/05-identity-access-management/index.md",
+            "ref": "_pages/control-guide/05-identity-access-management/index.md",
+            "articles": []
+        },
+        
+        "dir": "ltr"
+    },    "config": {
+        "plugins": ["fontsettings", "highlight", "livereload", "lunr", "search", "sharing", "theme-default", "livereload"],
+        "styles": {
+            "ebook": "styles/ebook.css",
+            "epub": "styles/epub.css",
+            "mobi": "styles/mobi.css",
+            "pdf": "styles/pdf.css",
+            "print": "styles/print.css",
+            "website": "styles/website.css"
+        },
+        "pluginsConfig": {
+            "expandable-chapter-small2": {
+                "articlesExpand": true,
+            },
+            "fontsettings": {
+                "family": "sans",
+                "size": 2,
+                "theme": "white"
+            },
+            "highlight": {},
+            "livereload": {},
+            "lunr": {
+                "ignoreSpecialCharacters": false,
+                "maxIndexSize": 1000000
+            },
+            "search": {},            "sharing": {
+                "facebook": true,
+
+                "google": false,
+
+                "github": true,
+              
+                "github_link": "https://github.com",
+              
+
+                "telegram": false,
+                "telegram_link": "https://t.me",
+
+                "instapaper": false,
+
+                "twitter": true,
+              
+
+                "vk": false,
+
+                "weibo": false,
+
+                "all": ["facebook", "google", "twitter", "weibo", "instapaper", "github", "telegram"]
+            },
+"theme-default": {
+                "showLevel": false,
+                "styles": {
+                    "ebook": "styles/ebook.css",
+                    "epub": "styles/epub.css",
+                    "mobi": "styles/mobi.css",
+                    "pdf": "styles/pdf.css",
+                    "print": "styles/print.css",
+                    "website": "styles/website.css"
+                }
+            },
+        },
+        "theme": "default",
+        "author": "Tao He",
+        "pdf": {
+            "pageNumbers": true,
+            "fontSize": 12,
+            "fontFamily": "Arial",
+            "paperSize": "a4",
+            "chapterMark": "pagebreak",
+            "pageBreaksBefore": "/",
+            "margin": {
+                "right": 62,
+                "left": 62,
+                "top": 56,
+                "bottom": 56
+            }
+        },
+        "structure": {
+            "langs": "LANGS.md",
+            "readme": "README.md",
+        },
+        "variables": {},
+        "title": "GapZer0 Guideline",
+        "language": "en",
+        "gitbook": "*"
+    },
+    "file": {
+        "path": "_pages/control-guide/05-identity-access-management/enhancement.md",
+        "mtime": "2026-10-08 16:04:06 +0000",
+        "type": "markdown"
+    },
+    "gitbook": {
+        "version": "",
+        "time": "2026-10-08 16:04:06 +0000"
+    },
+    "basePath": "",
+    "book": {
+        "language": ""
+    }
+});
+            });
+            </script>
+        </div><script src="/assets/vendor/jquery-3.7.1.min.js"></script>
+<script src="/assets/gitbook/gitbook.js?v=security1"></script>
+<script src="/assets/gitbook/theme.js?v=security1"></script>
+
+<script src="/assets/gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-expandable-chapters-small2/expandable-chapters-small.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-fontsettings/fontsettings.js?v=night-icon2"></script>
+<script src="/assets/gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-search-pro/search.js?v=security1"></script>
+<script src="/assets/gitbook/gitbook-plugin-sharing/buttons.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-splitter/splitter.js"></script>
+
+<script src="/assets/gitbook/custom.js"></script>
+<script src="/assets/gitbook/custom-local.js?v=domain-codes1"></script>
+
+</body>
+</html>

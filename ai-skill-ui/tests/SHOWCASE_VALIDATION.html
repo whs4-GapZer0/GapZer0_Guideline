@@ -1,0 +1,307 @@
+<h1 id="interactive-ai-skill-showcase--local-validation">Interactive AI Skill Showcase — local validation</h1>
+
+<p>검증일: 2026-10-08 (Asia/Seoul). 현재 단계는 정보구조·기능 구현과 로컬 검토다. <strong>commit / push / merge / deploy 없음.</strong> 최종 디자인 리뉴얼, 최신 Guideline 전체 동기화, 실시간 LLM/API를 포함하지 않는다.</p>
+
+<h2 id="범위와-구조">범위와 구조</h2>
+
+<p>상단 6개 navigation: AI Skill / 직접 사용하기 / Control 탐색 / 동작 원리 / 검증 결과 / GapZer0 연결. 기존 목적·사용법·질문 영역·Demo·가독성 구조를 유지했다. 소개·안전장치·구성요소·검증 상세·프로젝트 연결은 펼쳐서 읽는다. 긴 전체 문서를 초기 상태에서 노출하지 않는다.</p>
+
+<ul>
+  <li>Explorer 단일 데이터: <code class="language-plaintext highlighter-rouge">data/controls.json</code>, 121개 Control / 15개 Domain / Common·Enhancement·Local. 후보 metadata와 keyword는 현재 Skill Index, 상세와 전체 원문은 실제 <code class="language-plaintext highlighter-rouge">skill/references/controls/</code>에서 읽었다. 121/121 source hash·원문 텍스트 대조 완료.</li>
+  <li>ID·Name·keyword 문자열 검색, Domain/Class 복합 필터, 초기화, 12개씩 더 보기, 선택 상세와 원문 펼치기. 기존 Skill 검색 알고리즘의 랭킹을 실행하는 기능이 아니다.</li>
+  <li><code class="language-plaintext highlighter-rouge">data/showcase.json</code>은 기존 보고서 근거 8개 metric과 source/hash를 보관한다. 범위·판정·제한·Report Source를 함께 표시한다.</li>
+  <li>저장소 링크는 데이터 생성 시점 source commit 기준이다. 현재 AI Skill snapshot일 뿐 최신 <code class="language-plaintext highlighter-rouge">_pages/</code> 전체 동기화 완료를 주장하지 않는다.</li>
+  <li>기존 Demo 3개와 adapter, 원문·Index·Codex/Claude Skill·기존 보고서·Jekyll/workflow·UI 외 모든 파일은 변경하지 않았다. 작업 전부터 수정된 검색 스크립트도 그대로 보존했다.</li>
+</ul>
+
+<h2 id="dashboard-근거">Dashboard 근거</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Metric</th>
+      <th>Display</th>
+      <th>Actual source</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Codex Runtime</td>
+      <td>13/13</td>
+      <td>skill/tests/runtime-test-results.md</td>
+    </tr>
+    <tr>
+      <td>Core Functions</td>
+      <td>3/3</td>
+      <td>같은 Runtime 보고서, V01–V03</td>
+    </tr>
+    <tr>
+      <td>Regression Scenarios</td>
+      <td>10/10</td>
+      <td>같은 Runtime 보고서, T01–T10</td>
+    </tr>
+    <tr>
+      <td>Search Top-5 Case</td>
+      <td>8/8</td>
+      <td>skill/tests/AI_SKILL_QUANTITATIVE_EVALUATION.md</td>
+    </tr>
+    <tr>
+      <td>Expected-Control Top-5 Hit</td>
+      <td>11/11</td>
+      <td>같은 정량 보고서</td>
+    </tr>
+    <tr>
+      <td>Claude Runtime</td>
+      <td>3/3</td>
+      <td>claude-skill/tests/CLAUDE_PORT_VALIDATION.md</td>
+    </tr>
+    <tr>
+      <td>Cross-runtime Representative Agreement</td>
+      <td>3/3</td>
+      <td>같은 Claude 보고서</td>
+    </tr>
+    <tr>
+      <td>UI Tests</td>
+      <td>10/10</td>
+      <td>ai-skill-ui/tests/ui-test-results.json</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>모든 수치는 정의한 시나리오 범위 기준이다. AI 일반 정확도나 Control 전체 충족률이 아니다. Claude는 사용자 제공 실제 웹 실행 요약이며 Cross-runtime 수치는 대표 기능 충족 비교로, 텍스트 동일성이나 동일 입력 paired 실행의 일치율이 아니다. 검색 보고서의 Top-3 Case는 7/8로 남아 있음을 상세에서 알린다.</p>
+
+<p>Virtual Chibbo 설명은 <code class="language-plaintext highlighter-rouge">skill/tests/VIRTUAL_CHIBBO_GRC_E2E_E03.md</code>의 합성 fixture → XLSX → 실제 GRC consumer/parser → instance/Control → assessment 로컬 D 검증을 따른다. 운영 S3·DB·API·UI와 TVM-E-04는 미검증이다.</p>
+
+<h2 id="실행-결과">실행 결과</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Suite</th>
+      <th>Total</th>
+      <th>PASS</th>
+      <th>FAIL</th>
+      <th>Exit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>기존 UI</td>
+      <td>10</td>
+      <td>10</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>기존 UX</td>
+      <td>12</td>
+      <td>12</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>기존 Readability</td>
+      <td>13</td>
+      <td>13</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>신규 Showcase</td>
+      <td>30</td>
+      <td>30</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>브라우저 JavaScript 오류 0건. 기존 테스트 파일과 판정 기준을 변경하지 않고 실행했다. 100%는 해당 UI 테스트셋 성공률이며 실제 사용자 이해도를 측정한 수치가 아니다. SHOW29는 앞서 실제 실행한 세 suite 결과를 확인한다.</p>
+
+<p>로컬 실행 명령 (저장소 루트):</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python ai-skill-ui/build-showcase.py
+python <span class="nt">-m</span> http.server 8933 <span class="nt">--bind</span> 127.0.0.1
+<span class="nv">UI_URL</span><span class="o">=</span>http://127.0.0.1:8933/ai-skill-ui/ node ai-skill-ui/tests/ui-tests.cjs
+<span class="nv">UI_URL</span><span class="o">=</span>http://127.0.0.1:8933/ai-skill-ui/ <span class="nv">UX_BASELINE</span><span class="o">=</span>/tmp/showcase-before.json node ai-skill-ui/tests/ux-tests.cjs
+<span class="nv">UI_URL</span><span class="o">=</span>http://127.0.0.1:8933/ai-skill-ui/ <span class="nv">UX_BASELINE</span><span class="o">=</span>/tmp/showcase-before.json node ai-skill-ui/tests/readability-tests.cjs
+<span class="nv">UI_URL</span><span class="o">=</span>http://127.0.0.1:8933/ai-skill-ui/ <span class="nv">UX_BASELINE</span><span class="o">=</span>/tmp/showcase-before.json node ai-skill-ui/tests/showcase-tests.cjs
+</code></pre></div></div>
+
+<p>UX_BASELINE은 수정 전 파일 상대경로→SHA-256 JSON이다. 다음 작업에서 무변경 검증을 재현하려면 그 작업 시작 전 snapshot을 제공해야 한다. <code class="language-plaintext highlighter-rouge">/tmp/showcase-before.json</code>은 이번 작업의 임시 입력이다.</p>
+
+<h2 id="신규-테스트-상세">신규 테스트 상세</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Check</th>
+      <th>Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>SHOW01</td>
+      <td>AI Skill 소개와 6개 navigation</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>SHOW02</td>
+      <td>Problem/Solution 요약 펼치기</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>SHOW03</td>
+      <td>3개 기능에서 직접 사용하기 이동</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>SHOW04</td>
+      <td>Demo 3개와 오류 없는 결과</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>SHOW05</td>
+      <td>다른 기능에서 예시 자동 선택</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>SHOW06</td>
+      <td>결과 요약·실제 Control 수</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>SHOW07</td>
+      <td>Control 원문 접기·펼치기</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>SHOW08</td>
+      <td>Markdown DOM 렌더링</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>SHOW09</td>
+      <td>Explorer 121개 단일 source와 pagination</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>SHOW10</td>
+      <td>Control ID 검색·빈 결과</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>SHOW11</td>
+      <td>keyword·이름 검색·HTML 입력 안전</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>SHOW12</td>
+      <td>Domain 실제 값 filter</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>SHOW13</td>
+      <td>Class 실제 값·복합 filter</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>SHOW14</td>
+      <td>Control 상세 실제 필드·Source</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>SHOW15</td>
+      <td>7단계 Skill Flow</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>SHOW16</td>
+      <td>실제 Skill 구성요소 repository path</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>SHOW17</td>
+      <td>3개 기능 Output 구조·원문 format</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>SHOW18</td>
+      <td>실제 Grounding 원칙</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>SHOW19</td>
+      <td>Source traceability 결과→원문</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>SHOW20</td>
+      <td>실제 report 근거 8개 metric</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>SHOW21</td>
+      <td>metric마다 검증 내용·범위·PASS 기준·제한·report</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>SHOW22</td>
+      <td>Codex/Claude/Web UI 구분</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>SHOW23</td>
+      <td>GapZer0 전체 Flow·상세</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>SHOW24</td>
+      <td>E03 실제 report local D·Production 미검증</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>SHOW25</td>
+      <td>실제 Repository 산출물</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>SHOW26</td>
+      <td>현재 제한과 향후 기능 명확</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>SHOW27</td>
+      <td>Desktop navigation·레이아웃·캡처</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>SHOW28</td>
+      <td>Mobile navigation·Explorer·Demo·캡처</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>SHOW29</td>
+      <td>기존 실제 UI/UX/READ regression 0</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>SHOW30</td>
+      <td>ai-skill-ui 외 변경/삭제/추가 0</td>
+      <td>PASS</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="화면-캡처">화면 캡처</h2>
+
+<ul>
+  <li><a href="/ai-skill-ui/tests/showcase-desktop.png">Desktop 소개 / Demo</a></li>
+  <li><a href="/ai-skill-ui/tests/showcase-explorer-desktop.png">Desktop Explorer</a></li>
+  <li><a href="/ai-skill-ui/tests/showcase-validation-desktop.png">Desktop 검증 Dashboard</a></li>
+  <li><a href="/ai-skill-ui/tests/showcase-mobile.png">Mobile 소개</a></li>
+  <li><a href="/ai-skill-ui/tests/showcase-explorer-mobile.png">Mobile Control 상세</a></li>
+</ul>
+
+<p>1440×1080 및 390×844에서 렌더링과 가로 넘침을 검사했고 캡처를 직접 검토했다. 공개 URL 반영은 수행하거나 확인하지 않았다. 최종 디자인/문체 가이드 적용은 별도 단계다.</p>

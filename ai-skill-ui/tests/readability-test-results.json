@@ -1,0 +1,75 @@
+{
+  "total": 13,
+  "pass": 13,
+  "fail": 0,
+  "passRate": 100,
+  "browserErrors": [],
+  "scope": "local only; UI/UX suites executed before READ11/12",
+  "results": [
+    {
+      "id": "READ01",
+      "name": "접힌/펼친 결과 Markdown 기호 없음",
+      "status": "PASS"
+    },
+    {
+      "id": "READ02",
+      "name": "Control별 독립 카드·그룹",
+      "status": "PASS"
+    },
+    {
+      "id": "READ03",
+      "name": "전체 상세 기본 접힘",
+      "status": "PASS"
+    },
+    {
+      "id": "READ04",
+      "name": "상세 열기·닫기·내용 가시성",
+      "status": "PASS"
+    },
+    {
+      "id": "READ05",
+      "name": "원문 핵심 활동·실제 수치",
+      "status": "PASS"
+    },
+    {
+      "id": "READ06",
+      "name": "실제 Evidence chip·설명",
+      "status": "PASS"
+    },
+    {
+      "id": "READ07",
+      "name": "근거 확장·Source 렌더링·원문 보존",
+      "status": "PASS"
+    },
+    {
+      "id": "READ08",
+      "name": "Quick navigation 해당 카드 이동",
+      "status": "PASS"
+    },
+    {
+      "id": "READ09",
+      "name": "3개 Demo·안전 태그·adapter 유지",
+      "status": "PASS"
+    },
+    {
+      "id": "READ10",
+      "name": "다른 기능에서 예시 자동 선택·입력",
+      "status": "PASS"
+    },
+    {
+      "id": "READ11",
+      "name": "기존 UX12개 실제 실행 결과",
+      "status": "PASS"
+    },
+    {
+      "id": "READ12",
+      "name": "기존 UI10개 실제 실행 결과",
+      "status": "PASS"
+    },
+    {
+      "id": "READ13",
+      "name": "UI 외 파일 변경/삭제/추가 0",
+      "status": "PASS"
+    }
+  ]
+}

@@ -1,0 +1,685 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head><meta charset="UTF-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"><title>Asset Management - Enhancement Controls · GapZer0 Guideline</title><meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="description" content="NIST CSF 2.0과 ISMS-P를 기반으로 한 GapZer0 통합 정보보호 가이드라인
+"><meta name="generator" content="Jekyll (using style of GitBook)"><meta name="author" content="GapZer0"><link rel="stylesheet" href="/assets/gitbook/style.css">
+<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-expandable-chapters-small2/expandable-chapters-small.css">
+<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-fontsettings/website.css">
+<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-search-pro/search.css">
+<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-splitter/splitter.css">
+
+<link rel="stylesheet" href="/assets/gitbook/rouge/colorful.css">
+
+<link rel="stylesheet" href="/assets/gitbook/custom.css">
+<link rel="stylesheet" href="/assets/gitbook/custom-local.css?v=1791475446">
+
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/assets/gitbook/images/apple-touch-icon-precomposed-152.png">
+<link rel="shortcut icon" href="/" type="image/x-icon">
+
+
+
+
+            <link rel="prev" href="/controls/asset-management/common/" />
+        
+
+        
+            <link rel="next" href="/controls/asset-management/" />
+        
+    </head>
+    <body>
+        <div class="book"><div class="book-summary">
+
+    <script type="text/javascript">
+        // 페이지 이동 시 본문을 맨 위로 이동
+        function pageScrollToTop(element) {
+            $('div.body-inner').animate({ scrollTop: 0 });
+            return true;
+        }
+
+        // 모바일 환경에서 본문 내 앵커 이동 처리
+        function mobilePageScrollToAnchor(element) {
+            $(element).closest('li.chapter').find('ul>li').removeClass('active');
+            $(element).parent().addClass('active');
+
+            if ($(document).width() <= 1240) {
+                let target = $($(element).attr('href'));
+
+                if (target.length) {
+                    $('div.body-inner').animate({
+                        scrollTop: target.get(0).offsetTop
+                    });
+                }
+            }
+
+            return true;
+        }
+    </script>
+
+    <nav role="navigation">
+
+        <!-- 검색창 -->
+        <div id="book-search-input" role="search">
+            <input type="text" placeholder="Type to search" />
+        </div>
+
+        <div id="book-search-input-link" role="search">
+            <a href="/assets/search.html">
+                Click to Search
+            </a>
+        </div>
+
+        <ul class="summary">
+
+            <!-- 홈페이지 -->
+            <li class="chapter">
+                <a href="/"
+                   onclick="pageScrollToTop(this)">
+                    GapZer0 Guideline
+                </a>
+            </li>
+
+            <li class="divider"></li>
+
+            <!-- 가이드라인 목차와 AI Skill 바로가기 -->
+            
+
+                
+
+                <!-- 현재 페이지와 메뉴 URL이 같은 경우 -->
+                
+
+                <!-- Control 하위 페이지에서는 04를 active로 표시 -->
+                
+
+                <!-- 자가진단 작성 화면도 05 메뉴에 포함 -->
+                
+
+                <li class="chapter"
+                    data-path="/introduction/">
+
+                    
+                    <a href="/introduction/"
+                       onclick="pageScrollToTop(this)">
+                        01. GapZer0 가이드라인 소개
+                    </a>
+                    
+
+                </li>
+
+            
+
+                
+
+                <!-- 현재 페이지와 메뉴 URL이 같은 경우 -->
+                
+
+                <!-- Control 하위 페이지에서는 04를 active로 표시 -->
+                
+
+                <!-- 자가진단 작성 화면도 05 메뉴에 포함 -->
+                
+
+                <li class="chapter"
+                    data-path="/how-to-use/">
+
+                    
+                    <a href="/how-to-use/"
+                       onclick="pageScrollToTop(this)">
+                        02. 가이드라인 활용 방법
+                    </a>
+                    
+
+                </li>
+
+            
+
+                
+
+                <!-- 현재 페이지와 메뉴 URL이 같은 경우 -->
+                
+
+                <!-- Control 하위 페이지에서는 04를 active로 표시 -->
+                
+
+                <!-- 자가진단 작성 화면도 05 메뉴에 포함 -->
+                
+
+                <li class="chapter"
+                    data-path="/terms/">
+
+                    
+                    <a href="/terms/"
+                       onclick="pageScrollToTop(this)">
+                        03. 주요 용어
+                    </a>
+                    
+
+                </li>
+
+            
+
+                
+
+                <!-- 현재 페이지와 메뉴 URL이 같은 경우 -->
+                
+
+                <!-- Control 하위 페이지에서는 04를 active로 표시 -->
+                
+
+                <!-- 자가진단 작성 화면도 05 메뉴에 포함 -->
+                
+
+                <li class="chapter active"
+                    data-path="/controls/">
+
+                    
+                    <a href="/controls/"
+                       onclick="pageScrollToTop(this)">
+                        04. Control 이행 안내
+                    </a>
+                    
+
+                </li>
+
+            
+
+                
+
+                <!-- 현재 페이지와 메뉴 URL이 같은 경우 -->
+                
+
+                <!-- Control 하위 페이지에서는 04를 active로 표시 -->
+                
+
+                <!-- 자가진단 작성 화면도 05 메뉴에 포함 -->
+                
+
+                <li class="chapter"
+                    data-path="/self-assessment/">
+
+                    
+                    <a href="/self-assessment/"
+                       onclick="pageScrollToTop(this)">
+                        05. 자가 진단
+                    </a>
+                    
+
+                </li>
+
+            
+
+                
+
+                <!-- 현재 페이지와 메뉴 URL이 같은 경우 -->
+                
+
+                <!-- Control 하위 페이지에서는 04를 active로 표시 -->
+                
+
+                <!-- 자가진단 작성 화면도 05 메뉴에 포함 -->
+                
+
+                <li class="chapter"
+                    data-path="https://docs.whs4-gapzer0.kro.kr/ai-skill-ui/">
+
+                    
+                    <a class="gz-ai-skill-link" href="https://docs.whs4-gapzer0.kro.kr/ai-skill-ui/" target="_blank" rel="noopener noreferrer"
+                       aria-label="GapZer0 AI Skill (새 탭에서 열기)">
+                        GapZer0 AI Skill <span class="gz-external-icon" aria-hidden="true">↗</span>
+                    </a>
+                    
+
+                </li>
+
+            
+
+            
+
+        </ul>
+
+    </nav>
+
+</div>
+<div class="book-body">
+                <div class="book-header" role="navigation">
+                    <!-- Title -->
+                    <h1>
+                        <i class="fa fa-circle-o-notch fa-spin"></i>
+                        
+                            <a href="." >Asset Management - Enhancement Controls</a>
+                        
+                    </h1>
+                </div>
+
+                <div class="body-inner"><div class="page-wrapper" tabindex="-1" role="main">
+    
+
+    <div class="page-inner">
+        <div id="book-search-results">
+            <div class="search-noresults">
+                <section class="normal markdown-section">
+                    
+                        <h1 id="/controls/asset-management/enhancement">Asset Management - Enhancement Controls</h1>
+                    
+
+                    <h2 id="ast-e-01">AST-E-01</h2>
+
+<h3 id="control-name">Control Name</h3>
+
+<p>승인된 네트워크 구성도·데이터 흐름도 유지</p>
+
+<h3 id="security-domain">Security Domain</h3>
+
+<p>Asset Management</p>
+
+<h3 id="control-class">Control Class</h3>
+
+<p>Enhancement</p>
+
+<h3 id="control-objective">Control Objective</h3>
+
+<p>승인된 네트워크 통신경로와 내·외부 데이터 흐름을 최신 상태로 표현하여, 허용된 연결과 정보 이동을 이해하고 비인가 연결·변경을 식별할 수 있도록 합니다.</p>
+
+<h3 id="control-statement">Control Statement</h3>
+
+<p>네트워크 구성과 데이터 흐름이 실제 운영과 다르면 접근통제, 변경 영향분석, 사고조사와 데이터 보호의 기준선이 불명확해집니다. 조직은 자산·서비스·인터페이스·통신 주체·프로토콜·포트·데이터 유형과 경계 통과 지점을 연결한 구성도·흐름도를 승인하고, 변경과 실제 관측 결과를 반영해 유지해야 합니다.</p>
+
+<h3 id="적용-조건">적용 조건</h3>
+
+<h4 id="적용-시점">적용 시점</h4>
+
+<p>네트워크·클라우드·외부 연결을 신설하거나 통신정책·인터페이스·데이터 흐름을 변경할 때 적용합니다. 정기적인 실제 구성 점검 및 서비스 종료 시 구성도·흐름도를 대조합니다.</p>
+
+<h4 id="적용-대상">적용 대상</h4>
+
+<p>관리체계 범위의 내부망·외부망·클라우드·원격접속·공급자 연결과, 시스템·서비스 간 및 조직 경계를 통과하는 데이터 흐름에 적용합니다. 개인정보 관련 법적 의무는 해당 법령의 적용 요건에 따라 개인정보 처리업무와 관련 시스템·인력에 적용합니다.</p>
+
+<h4 id="관련-법령">관련 법령</h4>
+
+<ul>
+  <li><a href="https://www.law.go.kr/법령/개인정보보호법/제29조">「개인정보 보호법」 제29조</a> — 개인정보의 분실·도난·유출·위조·변조·훼손을 방지하기 위한 기술적·관리적·물리적 안전조치 의무.</li>
+  <li><a href="https://www.law.go.kr/행정규칙/개인정보의안전성확보조치기준">「개인정보의 안전성 확보조치 기준」 제6조</a> — 개인정보처리시스템의 불법 접근을 제한하고 개인정보 유출 시도를 탐지·대응하는 등 접근통제 의무.</li>
+</ul>
+
+<h3 id="control-owner">Control Owner</h3>
+
+<p>네트워크 아키텍처·운영 책임자</p>
+
+<h3 id="stakeholders">Stakeholders</h3>
+
+<p>시스템·서비스 소유자, 정보보호 담당자, 개인정보보호 담당자, 개발·클라우드 운영 담당자, 데이터 소유자, 공급자 담당자</p>
+
+<h3 id="매핑된-isms-p-항목">매핑된 ISMS-P 항목</h3>
+
+<ul>
+  <li>1.2.2 현황 및 흐름분석</li>
+  <li>2.6.1 네트워크 접근</li>
+</ul>
+
+<h3 id="매핑된-csf-항목">매핑된 CSF 항목</h3>
+
+<ul>
+  <li>ID.AM-03 — Representations of the organization’s authorized network communication and internal and external network data flows are maintained.</li>
+</ul>
+
+<h3 id="implementation-guide">Implementation Guide</h3>
+
+<h4 id="1-구성도흐름도의-범위와-표기-기준을-정합니다">1. 구성도·흐름도의 범위와 표기 기준을 정하기</h4>
+
+<p>관리체계 경계, 네트워크 구역, 자산·서비스, 인터페이스, 출발지·목적지, 프로토콜·포트, 데이터 유형·보안등급, 외부 연결과 승인자를 기록할 기준을 정의합니다.</p>
+
+<h4 id="2-승인된-통신데이터-흐름을-문서화합니다">2. 승인된 통신·데이터 흐름을 문서화하기</h4>
+
+<p>네트워크 구성도, 연결·방화벽 정책, 시스템 간 연동 인터페이스(API)·인터페이스, 개인정보·중요정보 흐름을 대조하여 허용된 경로와 경계 통과 지점을 표현하고 소유자와 보안 검토자가 승인합니다.</p>
+
+<h4 id="3-변경관리와-연결합니다">3. 변경관리와 연결하기</h4>
+
+<p>신규 연결, 경로·정책·인터페이스·데이터 유형 변경 전에 영향과 권한을 검토하고, 승인된 변경이 구성도·흐름도와 관련 Control에 반영되도록 합니다.</p>
+
+<h4 id="4-실제-상태와-정합성을-확인합니다">4. 실제 상태와 정합성을 확인하기</h4>
+
+<p>구성정보와 네트워크 관측 결과를 승인된 구성도·흐름도과 대조하여 미등록 연결, 과도한 허용, 폐기되지 않은 경로와 문서 불일치를 조치합니다.</p>
+
+<h3 id="evidence">Evidence</h3>
+
+<ul>
+  <li><strong>승인된 네트워크 구성도·데이터 흐름도:</strong> 허용된 연결, 경계와 정보 이동을 확인할 수 있는 자료입니다.</li>
+  <li><strong>방화벽·라우팅·클라우드·API 구성 및 승인 기록:</strong> 표현된 경로가 실제 허용 정책과 일치하는지 확인할 수 있는 자료입니다.</li>
+  <li><strong>변경 요청·영향분석·검증 기록:</strong> 연결과 흐름 변경이 승인되고 문서에 반영되었는지 확인할 수 있는 자료입니다.</li>
+  <li><strong>구성·흐름 정합성 점검 결과:</strong> 미등록·과도·잔존 경로의 발견과 조치 내역을 확인할 수 있는 자료입니다.</li>
+</ul>
+
+<h3 id="isms-p-limitation">ISMS-P Limitation</h3>
+
+<p>ISMS-P 1.2.2는 정보서비스 및 개인정보 처리의 업무 절차와 흐름을 문서화하고 최신성을 유지하도록 하며, 2.6.1은 네트워크 경로의 식별, 영역 분리 및 접근통제를 요구합니다. 다만 조직이 승인한 네트워크 통신과 내부·외부 네트워크 데이터 흐름을 자산·서비스·인터페이스 단위의 통합된 구성도·흐름도으로 유지하도록 명시하는 요구는 제한적이다.</p>
+
+<h3 id="csf-coverage">CSF Coverage</h3>
+
+<p>이 Control은 네트워크 구역, 자산·서비스, 인터페이스, 출발지·목적지, 프로토콜·포트 및 데이터 유형을 연결하여 승인된 통신과 내부·외부 네트워크 데이터 흐름을 문서화하도록 합니다. 변경관리와 실제 구성 대조로 구성도·흐름도의 최신성과 정확성을 유지하여 CSF ID.AM-03의 요구사항을 보완합니다.</p>
+
+<hr />
+
+<h2 id="ast-e-02">AST-E-02</h2>
+
+<h3 id="control-name-1">Control Name</h3>
+
+<p>통합 자산·데이터 수명주기</p>
+
+<h3 id="security-domain-1">Security Domain</h3>
+
+<p>Asset Management</p>
+
+<h3 id="control-class-1">Control Class</h3>
+
+<p>Enhancement</p>
+
+<h3 id="control-objective-1">Control Objective</h3>
+
+<p>시스템·하드웨어·소프트웨어·서비스·데이터의 도입부터 변경·유지보수·재사용·종료·폐기까지를 하나의 수명주기 체계로 연결하여 단계별 책임과 Control 공백을 방지합니다.</p>
+
+<h3 id="control-statement-1">Control Statement</h3>
+
+<p>자산 유형별 목록과 일부 폐기 절차만으로는 서로 의존하는 시스템·서비스·데이터의 상태와 책임을 전 수명주기에 걸쳐 일관되게 관리하기 어렵습니다. 조직은 모든 자산 유형에 공통 수명주기 상태와 전환 기준을 적용하고, 승인·소유자·보호조치·검증 기록을 연결하여 누락과 잔존 위험을 통제해야 합니다.</p>
+
+<h3 id="적용-조건-1">적용 조건</h3>
+
+<h4 id="적용-시점-1">적용 시점</h4>
+
+<p>자산·데이터의 도입·생성부터 운영·변경·이전·재사용·종료·폐기까지 각 단계 전환 시 적용합니다. 조직·공급자·연계 시스템 변경 시 전체 수명주기와 책임 공백을 재검토합니다.</p>
+
+<h4 id="적용-대상-1">적용 대상</h4>
+
+<p>관리체계 범위의 시스템, 하드웨어, 소프트웨어, 서비스와 데이터에 적용합니다. 개인정보뿐 아니라 조직이 보호 대상으로 지정한 비개인정보 데이터도 포함하며, 자산 유형별 세부 절차는 공통 수명주기 체계와 연결합니다. 개인정보 관련 법적 의무는 해당 법령의 적용 요건에 따라 개인정보 처리업무와 관련 시스템·인력에 적용합니다.</p>
+
+<h4 id="관련-법령-1">관련 법령</h4>
+
+<ul>
+  <li><a href="https://www.law.go.kr/법령/개인정보보호법/제29조">「개인정보 보호법」 제29조</a> — 개인정보의 분실·도난·유출·위조·변조·훼손을 방지하기 위한 기술적·관리적·물리적 안전조치 의무.</li>
+  <li><a href="https://www.law.go.kr/법령/개인정보보호법/제21조">「개인정보 보호법」 제21조</a> — 불필요해진 개인정보의 지체 없는 파기와 복구·재생 방지 및 법정 보존 시 분리 저장·관리 의무.</li>
+  <li><a href="https://www.law.go.kr/법령/개인정보보호법/제26조">「개인정보 보호법」 제26조</a> — 개인정보 처리위탁 시 보호조치 등의 문서화, 위탁사항 공개 및 수탁자 교육·감독 의무.</li>
+</ul>
+
+<h3 id="control-owner-1">Control Owner</h3>
+
+<p>정보자산 거버넌스 책임자 / 정보보호 최고책임자</p>
+
+<h3 id="stakeholders-1">Stakeholders</h3>
+
+<p>자산·데이터·서비스 소유자, IT 운영 담당자, 개발 담당자, 구매·계약 담당자, 개인정보보호 담당자, 법무 담당자, 재무 담당자, 공급자 관리 담당자</p>
+
+<h3 id="매핑된-isms-p-항목-1">매핑된 ISMS-P 항목</h3>
+
+<ul>
+  <li>2.1.3 정보자산 관리</li>
+  <li>2.9.7 정보자산의 재사용 및 폐기</li>
+  <li>3.4.1 개인정보 파기</li>
+</ul>
+
+<h3 id="매핑된-csf-항목-1">매핑된 CSF 항목</h3>
+
+<ul>
+  <li>ID.AM-08 — Systems, hardware, software, services, and data are managed throughout their life cycles.</li>
+</ul>
+
+<h3 id="implementation-guide-1">Implementation Guide</h3>
+
+<h4 id="1-공통-수명주기-모델을-정의합니다">1. 공통 수명주기 모델을 정의하기</h4>
+
+<p>도입·생성, 승인, 운영·이용, 변경, 유지보수, 이전·재사용, 종료·폐기 상태와 전환 조건을 정의하고 자산 유형별 절차·책임·필수 기록을 연결합니다.</p>
+
+<h4 id="2-자산-간-관계와-책임을-연결합니다">2. 자산 간 관계와 책임을 연결하기</h4>
+
+<p>시스템, 하드웨어, 소프트웨어, 서비스와 데이터 목록에 소유자·관리자, 의존관계, 처리 데이터, 공급자와 수명주기 상태를 연결하여 단계별 책임 공백을 확인합니다.</p>
+
+<h4 id="3-단계-전환을-통제합니다">3. 단계 전환을 통제하기</h4>
+
+<p>각 전환 시 위험·보안·법적 요구를 검토하고 승인, 시험·검증, 데이터 이전·삭제, 접근권한·계약·라이선스 정리와 문서 갱신을 완료조건으로 관리합니다.</p>
+
+<h4 id="4-전체-수명주기의-누락과-잔존-위험을-검증합니다">4. 전체 수명주기의 누락과 잔존 위험을 검증하기</h4>
+
+<p>실제 운영·계약·배포·데이터 처리·폐기 기록을 통합 목록과 대조하여 상태 불일치, 소유자 공백, 종료 후 접근·데이터·서비스 잔존을 조치합니다.</p>
+
+<h3 id="evidence-1">Evidence</h3>
+
+<ul>
+  <li><strong>통합 자산 수명주기 정책·절차:</strong> 공통 상태, 전환 조건, 자산 유형별 책임과 완료기준을 확인할 수 있는 자료입니다.</li>
+  <li><strong>통합 자산·데이터 목록 또는 연계도:</strong> 소유자, 의존관계, 공급자, 데이터와 수명주기 상태의 연결을 확인할 수 있는 자료입니다.</li>
+  <li><strong>단계 전환 승인·검증 기록:</strong> 도입·변경·이전·재사용·종료 시 위험검토와 완료조건 이행을 확인할 수 있는 자료입니다.</li>
+  <li><strong>종료·폐기 정합성 점검 결과:</strong> 접근권한·계약·라이선스·데이터·자산 상태의 잔존과 조치 결과를 확인할 수 있는 자료입니다.</li>
+</ul>
+
+<h3 id="isms-p-limitation-1">ISMS-P Limitation</h3>
+
+<p>ISMS-P 2.1.3은 정보자산의 중요도별 취급과 책임자 지정을, 2.9.7과 3.4.1은 정보자산 재사용·폐기 및 개인정보 파기를 다룬다. 비개인정보 데이터까지 포함하여 시스템·하드웨어·소프트웨어·서비스·데이터의 도입·운영·변경·유지보수·재사용·폐기 단계와 책임을 하나의 체계로 연결하는 요구는 명시적으로 통합되어 있지 않다.</p>
+
+<h3 id="csf-coverage-1">CSF Coverage</h3>
+
+<p>이 Control은 모든 자산 유형에 공통 수명주기 상태·전환 기준·소유자·승인·검증 기록을 적용하고, 자산 간 의존관계와 종료 후 잔존 위험을 대조하도록 하여 Gap을 보완합니다. 이는 시스템·하드웨어·소프트웨어·서비스·데이터를 수명주기 전반에서 관리하도록 하는 CSF ID.AM-08의 결과와 연결됩니다.</p>
+
+</section>
+            </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div></div>
+    </div>
+</div>
+
+<!-- introduce mathjax support -->
+<!-- GitBook re-runs inline includes during AJAX navigation. Load MathJax once. -->
+<script>
+(function () {
+  if (!window.gapzer0MathJaxReady) {
+    window.MathJax = {
+      tex: { inlineMath: [ ['$', '$'], ['\\(', '\\)'] ] },
+      svg: { fontCache: 'global' }
+    };
+    window.gapzer0MathJaxReady = new Promise(function (resolve, reject) {
+      var script = document.createElement('script');
+      script.id = 'MathJax-script';
+      script.async = true;
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js';
+      script.onload = resolve;
+      script.onerror = reject;
+      document.head.appendChild(script);
+    });
+  }
+  window.gapzer0MathJaxReady
+    .then(function () { return window.MathJax.startup.promise; })
+    .then(function () {
+      window.MathJax.typesetClear();
+      return window.MathJax.typesetPromise();
+    })
+    .catch(function (error) { console.warn('MathJax rendering unavailable', error); });
+}());
+</script>
+
+
+<!-- introduce per-page mermaid support -->
+
+
+<!-- introduce mathjax support -->
+<script>
+    function fixes_chrome_anchors() {
+        let chrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+        if (window.location.hash && chrome) {
+            setTimeout(function () {
+                var hash = window.location.hash;
+                window.location.hash = "";
+                window.location.hash = hash;
+            }, 300);
+        }
+    }
+
+    if (document.readyState === "loading") {
+        // Loading hasn't finished yet
+        document.addEventListener("DOMContentLoaded", fixes_chrome_anchors);
+    } else {
+        // `DOMContentLoaded` has already fired
+        fixes_chrome_anchors();
+    }
+</script>
+
+
+                        <a href="/controls/asset-management/common/" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Asset Management - Common Controls">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+                    
+
+                    
+                        <a href="/controls/asset-management/" class="navigation navigation-next navigation-unique" aria-label="Next page: Asset Management(AST)">
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    
+                </div>
+            </div>
+
+            <script>
+            var gitbook = gitbook || [];
+            gitbook.push(function() {
+                gitbook.page.hasChanged({
+    "page": {
+        "title": "Introduction",
+        "level": "1.1",
+        "depth": 1,
+        
+        "next": {
+            "title": "Asset Management(AST)",
+            "level": "1.2",
+            "depth": 1,
+            "path": "_pages/control-guide/02-asset-management/index.md",
+            "ref": "_pages/control-guide/02-asset-management/index.md",
+            "articles": []
+        },
+        
+        "dir": "ltr"
+    },    "config": {
+        "plugins": ["fontsettings", "highlight", "livereload", "lunr", "search", "sharing", "theme-default", "livereload"],
+        "styles": {
+            "ebook": "styles/ebook.css",
+            "epub": "styles/epub.css",
+            "mobi": "styles/mobi.css",
+            "pdf": "styles/pdf.css",
+            "print": "styles/print.css",
+            "website": "styles/website.css"
+        },
+        "pluginsConfig": {
+            "expandable-chapter-small2": {
+                "articlesExpand": true,
+            },
+            "fontsettings": {
+                "family": "sans",
+                "size": 2,
+                "theme": "white"
+            },
+            "highlight": {},
+            "livereload": {},
+            "lunr": {
+                "ignoreSpecialCharacters": false,
+                "maxIndexSize": 1000000
+            },
+            "search": {},            "sharing": {
+                "facebook": true,
+
+                "google": false,
+
+                "github": true,
+              
+                "github_link": "https://github.com",
+              
+
+                "telegram": false,
+                "telegram_link": "https://t.me",
+
+                "instapaper": false,
+
+                "twitter": true,
+              
+
+                "vk": false,
+
+                "weibo": false,
+
+                "all": ["facebook", "google", "twitter", "weibo", "instapaper", "github", "telegram"]
+            },
+"theme-default": {
+                "showLevel": false,
+                "styles": {
+                    "ebook": "styles/ebook.css",
+                    "epub": "styles/epub.css",
+                    "mobi": "styles/mobi.css",
+                    "pdf": "styles/pdf.css",
+                    "print": "styles/print.css",
+                    "website": "styles/website.css"
+                }
+            },
+        },
+        "theme": "default",
+        "author": "Tao He",
+        "pdf": {
+            "pageNumbers": true,
+            "fontSize": 12,
+            "fontFamily": "Arial",
+            "paperSize": "a4",
+            "chapterMark": "pagebreak",
+            "pageBreaksBefore": "/",
+            "margin": {
+                "right": 62,
+                "left": 62,
+                "top": 56,
+                "bottom": 56
+            }
+        },
+        "structure": {
+            "langs": "LANGS.md",
+            "readme": "README.md",
+        },
+        "variables": {},
+        "title": "GapZer0 Guideline",
+        "language": "en",
+        "gitbook": "*"
+    },
+    "file": {
+        "path": "_pages/control-guide/02-asset-management/enhancement.md",
+        "mtime": "2026-10-08 16:04:06 +0000",
+        "type": "markdown"
+    },
+    "gitbook": {
+        "version": "",
+        "time": "2026-10-08 16:04:06 +0000"
+    },
+    "basePath": "",
+    "book": {
+        "language": ""
+    }
+});
+            });
+            </script>
+        </div><script src="/assets/vendor/jquery-3.7.1.min.js"></script>
+<script src="/assets/gitbook/gitbook.js?v=security1"></script>
+<script src="/assets/gitbook/theme.js?v=security1"></script>
+
+<script src="/assets/gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-expandable-chapters-small2/expandable-chapters-small.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-fontsettings/fontsettings.js?v=night-icon2"></script>
+<script src="/assets/gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-search-pro/search.js?v=security1"></script>
+<script src="/assets/gitbook/gitbook-plugin-sharing/buttons.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-splitter/splitter.js"></script>
+
+<script src="/assets/gitbook/custom.js"></script>
+<script src="/assets/gitbook/custom-local.js?v=domain-codes1"></script>
+
+</body>
+</html>

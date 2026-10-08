@@ -1,0 +1,705 @@
+<h1 id="gapzer0-guideline--ai-skill-sync-report">GapZer0 Guideline → AI Skill Sync Report</h1>
+
+<h2 id="source-of-truth--approval-basis">Source of Truth / approval basis</h2>
+
+<ul>
+  <li>Canonical source: official <code class="language-plaintext highlighter-rouge">origin/main</code> tree, <code class="language-plaintext highlighter-rouge">_pages/control-guide/</code> at <code class="language-plaintext highlighter-rouge">25b323acee87af4cb9a4d4dbca9708834069127e</code>.</li>
+  <li>Working branch: <code class="language-plaintext highlighter-rouge">work/ai-skill-quant-eval-v2-young-eon</code>; HEAD <code class="language-plaintext highlighter-rouge">f80d34e2de79486ed31cf67a507b8c1664a788cf</code> remains unchanged.</li>
+  <li>Latest remote main was queried before analysis and again at final review; both returned the same pinned SHA. The worktree Guideline is older and was intentionally left unchanged. No merge/reset/rebase/checkout was used.</li>
+  <li>Main history includes the reviewed Domain PR merges and later <code class="language-plaintext highlighter-rouge">c41cbe0</code> (document/assessment design), <code class="language-plaintext highlighter-rouge">1bccb1e</code> (Korean prose), <code class="language-plaintext highlighter-rouge">472a1f4</code> (Stakeholder role clarification). This report uses the official main tree as the operational source. It does not assert that separate individual approval/sign-off documents were obtained.</li>
+  <li>Official supplementary sources: <code class="language-plaintext highlighter-rouge">_pages/01-introduction.md</code>, <code class="language-plaintext highlighter-rouge">_pages/03-term-explanation.md</code>, and <code class="language-plaintext highlighter-rouge">assets/assessment/controls.json</code> from the same pinned tree.</li>
+</ul>
+
+<h2 id="quantitative-structural-comparison">Quantitative structural comparison</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th style="text-align: right">Measured value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Canonical source files</td>
+      <td style="text-align: right">28</td>
+    </tr>
+    <tr>
+      <td>Guideline Controls</td>
+      <td style="text-align: right">121</td>
+    </tr>
+    <tr>
+      <td>Skill before / after</td>
+      <td style="text-align: right">121 / 121</td>
+    </tr>
+    <tr>
+      <td>Domains</td>
+      <td style="text-align: right">15</td>
+    </tr>
+    <tr>
+      <td>Complete field matches before</td>
+      <td style="text-align: right">0</td>
+    </tr>
+    <tr>
+      <td>Changed Controls</td>
+      <td style="text-align: right">121</td>
+    </tr>
+    <tr>
+      <td>Complete field matches after</td>
+      <td style="text-align: right">121</td>
+    </tr>
+    <tr>
+      <td>Changed field values</td>
+      <td style="text-align: right">220</td>
+    </tr>
+    <tr>
+      <td>Added / deleted / renamed IDs</td>
+      <td style="text-align: right">0 / 0 / 0</td>
+    </tr>
+    <tr>
+      <td>Name / Domain / Class / source-path changes</td>
+      <td style="text-align: right">0 / 0 / 0 / 0</td>
+    </tr>
+    <tr>
+      <td>Evidence changes</td>
+      <td style="text-align: right">11</td>
+    </tr>
+    <tr>
+      <td>Index applicability summaries changed</td>
+      <td style="text-align: right">3</td>
+    </tr>
+    <tr>
+      <td>Index keyword changes</td>
+      <td style="text-align: right">0</td>
+    </tr>
+    <tr>
+      <td>Unresolved structural conflicts</td>
+      <td style="text-align: right">0</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>A “changed field” is one Control-field value differing after line-ending/separator normalization. Cosmetic wording changes still count; this is not a count of new security obligations. All source fields, including applicability, mapping, CSF Coverage and ISMS-P Limitation, were compared.</p>
+
+<h3 id="aj-classification">A–J classification</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Meaning</th>
+      <th style="text-align: right">Controls</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>A</td>
+      <td>완전 일치</td>
+      <td style="text-align: right">0</td>
+    </tr>
+    <tr>
+      <td>B</td>
+      <td>문구 변경</td>
+      <td style="text-align: right">121</td>
+    </tr>
+    <tr>
+      <td>C</td>
+      <td>필드 추가/삭제 등 구조 변경</td>
+      <td style="text-align: right">0</td>
+    </tr>
+    <tr>
+      <td>D</td>
+      <td>Control 추가</td>
+      <td style="text-align: right">0</td>
+    </tr>
+    <tr>
+      <td>E</td>
+      <td>Control 삭제</td>
+      <td style="text-align: right">0</td>
+    </tr>
+    <tr>
+      <td>F</td>
+      <td>Control ID 변경</td>
+      <td style="text-align: right">0</td>
+    </tr>
+    <tr>
+      <td>G</td>
+      <td>Domain/Class 변경</td>
+      <td style="text-align: right">0</td>
+    </tr>
+    <tr>
+      <td>H</td>
+      <td>Evidence 변경</td>
+      <td style="text-align: right">11</td>
+    </tr>
+    <tr>
+      <td>I</td>
+      <td>Source path 변경</td>
+      <td style="text-align: right">0</td>
+    </tr>
+    <tr>
+      <td>J</td>
+      <td>구조적 충돌 / 확인 필요</td>
+      <td style="text-align: right">0</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Categories overlap (e.g. B and H); they must not be summed as independent Controls. Existing same-ID Controls were compared directly; no ID renames were inferred from similar text.</p>
+
+<h3 id="field-changes">Field changes</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th style="text-align: right">Controls with changed value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Control Objective</td>
+      <td style="text-align: right">13</td>
+    </tr>
+    <tr>
+      <td>Control Statement</td>
+      <td style="text-align: right">61</td>
+    </tr>
+    <tr>
+      <td>Stakeholders</td>
+      <td style="text-align: right">80</td>
+    </tr>
+    <tr>
+      <td>Implementation Guide</td>
+      <td style="text-align: right">27</td>
+    </tr>
+    <tr>
+      <td>Evidence</td>
+      <td style="text-align: right">11</td>
+    </tr>
+    <tr>
+      <td>CSF Coverage</td>
+      <td style="text-align: right">10</td>
+    </tr>
+    <tr>
+      <td>Control Owner</td>
+      <td style="text-align: right">1</td>
+    </tr>
+    <tr>
+      <td>ISMS-P Limitation</td>
+      <td style="text-align: right">4</td>
+    </tr>
+    <tr>
+      <td>매핑된 ISMS-P 항목</td>
+      <td style="text-align: right">6</td>
+    </tr>
+    <tr>
+      <td>적용 조건</td>
+      <td style="text-align: right">7</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Full old/new values, canonical source path and applied flag for every Control are in <a href="/ai-skill-ui/tests/GUIDELINE_SKILL_STRUCTURAL_DIFF.json">GUIDELINE_SKILL_STRUCTURAL_DIFF.json</a>. They are not AI summaries.</p>
+
+<h3 id="before-comparison-across-consumers">Before comparison across consumers</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Target</th>
+      <th style="text-align: right">Count</th>
+      <th style="text-align: right">Changed against canonical fields</th>
+      <th>IDs preserved</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">skill/references/controls/</code></td>
+      <td style="text-align: right">121</td>
+      <td style="text-align: right">121</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">.codex/skills/gapzero-guide/references/controls/</code></td>
+      <td style="text-align: right">121</td>
+      <td style="text-align: right">121</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">claude-skill/references/controls/</code></td>
+      <td style="text-align: right">121</td>
+      <td style="text-align: right">121</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ai-skill-ui/data/controls.json</code></td>
+      <td style="text-align: right">121</td>
+      <td style="text-align: right">121</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="specific-findings--semantic-preservation">Specific findings / semantic preservation</h3>
+
+<ul>
+  <li>Six ISMS-P mapping labels changed in the canonical source (<code class="language-plaintext highlighter-rouge">IEM-C-04</code>, <code class="language-plaintext highlighter-rouge">IEM-C-06</code>, <code class="language-plaintext highlighter-rouge">IEM-E-04</code>, <code class="language-plaintext highlighter-rouge">PHY-C-02</code>, <code class="language-plaintext highlighter-rouge">SCF-C-02</code>, <code class="language-plaintext highlighter-rouge">SNS-C-01</code>). The original uses “Control” in some former “통제” labels. We copied these literal labels and did not correct or reinterpret the official mapping. All mapping numbers remain identical.</li>
+  <li>Official Assessment JSON has 93 case-only Domain label differences (e.g. <code class="language-plaintext highlighter-rouge">Asset management</code> vs <code class="language-plaintext highlighter-rouge">Asset Management</code>). The comparison verifies equality under case folding only for this display label; canonical Control Domain values are preserved exactly. There are no Name/Class/ID identity conflicts. The official <code class="language-plaintext highlighter-rouge">.guide</code> paths/anchors are stored as <code class="language-plaintext highlighter-rouge">assessmentGuide</code>; no assessment results were created.</li>
+  <li>Index applicability summaries changed only for <code class="language-plaintext highlighter-rouge">ISA-C-01</code>, <code class="language-plaintext highlighter-rouge">ISA-C-02</code>, <code class="language-plaintext highlighter-rouge">LCM-L-02</code>, by the existing generator from canonical applicability. Keywords are unchanged; no test-target synonyms or ID boosts were added.</li>
+  <li>Official terms define <code class="language-plaintext highlighter-rouge">Control Statement</code> as the core requirements and <code class="language-plaintext highlighter-rouge">Control Owner</code> as the responsible department/role. These two explanatory definitions were copied into Framework overview and both packages. They are separate from the 220 Control-field changes.</li>
+  <li>No SKILL.md behavior rules, output-format rules or Runtime adapter were altered. No new Control/Evidence/legal duty/period/deadline/department/approval criterion or assessment result was invented.</li>
+</ul>
+
+<h2 id="source--generated-data-traceability">Source → generated data traceability</h2>
+
+<pre><code class="language-mermaid">flowchart TD
+  A["Official main Guideline · 25b323a"] --&gt; B["skill/references/controls · 28 files"]
+  B --&gt; C["Generated control-index · 121 entries"]
+  B --&gt; D["Codex / Claude references · exact parity"]
+  C --&gt; D
+  D --&gt; E["Showcase controls.json · all original fields"]
+  B --&gt; F["3 Demo scenarios / 14 source records"]
+  A --&gt; G["Official assessment guide paths · no evaluation"]
+  G --&gt; E
+</code></pre>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">guideline-provenance.json</code>: pinned canonical revision, raw source SHA-256, cleaned mirror SHA-256, generated Index SHA, Assessment source/hash. The same manifest is included in both packages.</li>
+  <li><code class="language-plaintext highlighter-rouge">controls.json</code>: each Control has canonical <code class="language-plaintext highlighter-rouge">guidelineSource</code>/<code class="language-plaintext highlighter-rouge">guidelineRevision</code>, copied original fields/raw block, Skill path/source hash, keywords and the existing official <code class="language-plaintext highlighter-rouge">assessmentGuide</code>.</li>
+  <li>Canonical mirror processing removes only Jekyll front matter and file-edge whitespace. Complete Control bodies are otherwise preserved. ID, fields and source anchors are validated exhaustively.</li>
+  <li>Generic data builder / validator use the recorded pinned Git revision rather than older local <code class="language-plaintext highlighter-rouge">_pages/</code> when provenance is present. The branch/site/workflow remains untouched.</li>
+  <li>Explorer source links point to the actual canonical main revision. Newly generated local reports/metric evidence use local links. Package artifact GitHub links still identify the old committed baseline until an authorized future commit/push.</li>
+</ul>
+
+<h2 id="demo-revalidation">Demo revalidation</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Demo</th>
+      <th style="text-align: right">Control records</th>
+      <th style="text-align: right">Changed field values in these records</th>
+      <th>Latest source copied</th>
+      <th>Browser behavior</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>guide</td>
+      <td style="text-align: right">4</td>
+      <td style="text-align: right">11</td>
+      <td>PASS</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>plan</td>
+      <td style="text-align: right">1</td>
+      <td style="text-align: right">1</td>
+      <td>PASS</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>document</td>
+      <td style="text-align: right">9</td>
+      <td style="text-align: right">11</td>
+      <td>PASS</td>
+      <td>PASS</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Questions, modes and Control selection are unchanged. Updated Stakeholders, Objective/Statement/Implementation/Evidence/mapping wording are copied from the canonical source. Browser PASS checks static Demo behavior; they are not live LLM answers.</p>
+
+<h2 id="search-re-execution">Search re-execution</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Metric</th>
+      <th style="text-align: right">Before</th>
+      <th style="text-align: right">After</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>top3</td>
+      <td style="text-align: right">7/8 (87.5%)</td>
+      <td style="text-align: right">7/8 (87.5%)</td>
+    </tr>
+    <tr>
+      <td>top5</td>
+      <td style="text-align: right">8/8 (100.0%)</td>
+      <td style="text-align: right">8/8 (100.0%)</td>
+    </tr>
+    <tr>
+      <td>hit3</td>
+      <td style="text-align: right">10/11 (90.9%)</td>
+      <td style="text-align: right">10/11 (90.9%)</td>
+    </tr>
+    <tr>
+      <td>hit5</td>
+      <td style="text-align: right">11/11 (100.0%)</td>
+      <td style="text-align: right">11/11 (100.0%)</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>After command: <code class="language-plaintext highlighter-rouge">node skill/scripts/test-control-search.mjs</code>; actual exit code 0.</li>
+  <li>Before: identical unchanged script executed in a temporary directory against the captured pre-sync Index; actual exit code 0. It is not a value assumed from a historical report.</li>
+  <li>Existing uncommitted search algorithm changes predate this task and are byte-for-byte preserved. No ID-specific logic, new search algorithm or test expectations were added.</li>
+  <li>HRS-C-01 after: rank 4, score 29.6031; still not Top-3, found Top-5. All eight case ranks/scores remain unchanged.</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>Query</th>
+      <th>Before Top-5</th>
+      <th>After Top-5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>퇴사자 접근권한 권한 회수</td>
+      <td>IAM-C-03(64.1603), IAM-C-01(44.7709), PHY-C-02(36.8903), HRS-C-01(29.6031), GOV-C-10(6.3298)</td>
+      <td>IAM-C-03(64.1603), IAM-C-01(44.7709), PHY-C-02(36.8903), HRS-C-01(29.6031), GOV-C-10(6.3298)</td>
+    </tr>
+    <tr>
+      <td>개인정보 국외이전 해외 SaaS</td>
+      <td>LCM-L-09(22.7087), INF-L-01(2.658), INF-L-03(2.658), LCM-L-01(2.658), LCM-L-03(2.658)</td>
+      <td>LCM-L-09(22.7087), INF-L-01(2.658), INF-L-03(2.658), LCM-L-01(2.658), LCM-L-03(2.658)</td>
+    </tr>
+    <tr>
+      <td>비인가 소프트웨어 설치 실행</td>
+      <td>SCF-C-02(92.7309), PHY-C-01(18.9167), IEM-C-06(13.0777), AST-C-02(9.0255), PHY-L-01(8.1557)</td>
+      <td>SCF-C-02(92.7309), PHY-C-01(18.9167), IEM-C-06(13.0777), AST-C-02(9.0255), PHY-L-01(8.1557)</td>
+    </tr>
+    <tr>
+      <td>취약점 위험 우선순위 조치</td>
+      <td>TVM-C-04(48.8125), TVM-C-05(19.652), ISA-C-01(11.4092), TVM-C-01(11.3072), TVM-C-03(11.3072)</td>
+      <td>TVM-C-04(48.8125), TVM-C-05(19.652), ISA-C-01(11.4092), TVM-C-01(11.3072), TVM-C-03(11.3072)</td>
+    </tr>
+    <tr>
+      <td>공급자 계약 보안 요구사항</td>
+      <td>LCM-E-01(51.2034), SUP-C-05(41.0957), AST-C-03(25.1316), SUP-E-03(15.9395), SUP-C-08(14.4721)</td>
+      <td>LCM-E-01(51.2034), SUP-C-05(41.0957), AST-C-03(25.1316), SUP-E-03(15.9395), SUP-C-08(14.4721)</td>
+    </tr>
+    <tr>
+      <td>공급자 관계 체결 전 실사</td>
+      <td>SUP-C-06(93.1506), SUP-E-03(14.1298), SUP-C-08(13.3109), GOV-E-03(8.0241), SUP-E-02(6.7035)</td>
+      <td>SUP-C-06(93.1506), SUP-E-03(14.1298), SUP-C-08(13.3109), GOV-E-03(8.0241), SUP-E-02(6.7035)</td>
+    </tr>
+    <tr>
+      <td>공급자 관계 종료 보안조치</td>
+      <td>SUP-C-08(83.3521), SUP-E-03(23.0413), SUP-C-06(12.4359), CON-E-03(8.5178), GOV-E-03(8.0241)</td>
+      <td>SUP-C-08(83.3521), SUP-E-03(23.0413), SUP-C-06(12.4359), CON-E-03(8.5178), GOV-E-03(8.0241)</td>
+    </tr>
+    <tr>
+      <td>백업 복구시험 복원</td>
+      <td>CON-E-02(35.5772), CON-C-01(33.5631), CON-C-02(33.4298), CON-C-07(25.1406), CON-E-03(21.7653)</td>
+      <td>CON-E-02(35.5772), CON-C-01(33.5631), CON-C-02(33.4298), CON-C-07(25.1406), CON-E-03(21.7653)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Actual command output / exit codes / metric evidence: <a href="/ai-skill-ui/data/guideline-sync.json">guideline-sync.json</a>. Dashboard search cards now source this new measured result, not an old hardcoded percentage.</p>
+
+<h2 id="executed-validation-results">Executed validation results</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Check</th>
+      <th style="text-align: right">PASS / target</th>
+      <th style="text-align: right">FAIL</th>
+      <th>Execution type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Control data validator</td>
+      <td style="text-align: right">PASS</td>
+      <td style="text-align: right">0</td>
+      <td>Static / pinned canonical source</td>
+    </tr>
+    <tr>
+      <td>Codex package sync validator</td>
+      <td style="text-align: right">34 files synchronized</td>
+      <td style="text-align: right">0</td>
+      <td>Static, not Codex Runtime</td>
+    </tr>
+    <tr>
+      <td>Claude package validator</td>
+      <td style="text-align: right">33 reference files verified</td>
+      <td style="text-align: right">0</td>
+      <td>Static, not Claude Runtime</td>
+    </tr>
+    <tr>
+      <td>Exhaustive Sync validator</td>
+      <td style="text-align: right">18/18</td>
+      <td style="text-align: right">0</td>
+      <td>Static data/package/traceability</td>
+    </tr>
+    <tr>
+      <td>ui</td>
+      <td style="text-align: right">10/10</td>
+      <td style="text-align: right">0</td>
+      <td>Local Chromium</td>
+    </tr>
+    <tr>
+      <td>ux</td>
+      <td style="text-align: right">12/12</td>
+      <td style="text-align: right">0</td>
+      <td>Local Chromium</td>
+    </tr>
+    <tr>
+      <td>readability</td>
+      <td style="text-align: right">13/13</td>
+      <td style="text-align: right">0</td>
+      <td>Local Chromium</td>
+    </tr>
+    <tr>
+      <td>showcase</td>
+      <td style="text-align: right">30/30</td>
+      <td style="text-align: right">0</td>
+      <td>Local Chromium</td>
+    </tr>
+    <tr>
+      <td>quantitative</td>
+      <td style="text-align: right">32/32</td>
+      <td style="text-align: right">0</td>
+      <td>Local Chromium</td>
+    </tr>
+    <tr>
+      <td>guideline-sync</td>
+      <td style="text-align: right">6/6</td>
+      <td style="text-align: right">0</td>
+      <td>Local Chromium</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Commands executed from repository root:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>node skill/scripts/validate-control-data.mjs
+node skill/scripts/validate-codex-skill.mjs
+python claude-skill/tests/validate_port.py
+<span class="nv">PYTHONDONTWRITEBYTECODE</span><span class="o">=</span>1 python skill/scripts/validate-guideline-sync.py
+node skill/scripts/test-control-search.mjs
+python <span class="nt">-m</span> http.server 8946 <span class="nt">--bind</span> 127.0.0.1
+<span class="nb">export </span><span class="nv">UI_URL</span><span class="o">=</span>http://127.0.0.1:8946/ai-skill-ui/
+<span class="nb">export </span><span class="nv">UX_BASELINE</span><span class="o">=</span>/tmp/guideline-sync-ui-baseline.json
+node ai-skill-ui/tests/ui-tests.cjs
+node ai-skill-ui/tests/ux-tests.cjs
+node ai-skill-ui/tests/readability-tests.cjs
+node ai-skill-ui/tests/showcase-tests.cjs
+python ai-skill-ui/build-quantitative.py
+node ai-skill-ui/tests/quantitative-tests.cjs
+node ai-skill-ui/tests/guideline-sync-tests.cjs
+</code></pre></div></div>
+
+<h3 id="intermediate-failures-and-correction">Intermediate failures and correction</h3>
+
+<p>The first SHOW run produced 28/30: SHOW26 still asserted “synchronization not performed”, and SHOW30 used a UI-phase baseline captured before the final allowed validator update. SHOW26 was changed only to assert the actual synchronized snapshot status; other functional assertions and the 30-test count are unchanged. UI baseline was recaptured after authorized data/package/script synchronization. The complete SHOW suite then passed 30/30. No Control data, expected search set or Runtime result was changed to force a PASS.</p>
+
+<p>The old UI-only guard now measures the browser test phase after synchronization. It must not be interpreted as zero Skill changes for the entire task. SYNC17 separately compares the true task-start snapshot and enforces all four allowed directories, original Guideline protection, and unchanged pre-existing search code.</p>
+
+<h3 id="not-executed--not-claimed">Not executed / not claimed</h3>
+
+<ul>
+  <li>Actual external Codex and Claude Web Runtime re-execution: NOT RUN. Existing 13/13 and 3/3 remain historical records, explicitly labeled on the UI. Static package PASS is not Runtime PASS.</li>
+  <li>T05/T06 live behavioral re-execution: NOT RUN. Static validators check the fake ID is absent and behavior rules are preserved; historical 0/1 observations are not expanded to a global safety claim.</li>
+  <li>ISMS-P certification/legal compliance determination, real assessment storage/evaluation, production S3/API/UI, current public deployment: NOT VERIFIED in this task.</li>
+</ul>
+
+<h2 id="files--protection--repository-state">Files / protection / repository state</h2>
+
+<ul>
+  <li>Original Guideline <code class="language-plaintext highlighter-rouge">_pages/</code>, existing site/assets, navigation, <code class="language-plaintext highlighter-rouge">_config.yml</code>, workflows, tests outside the four allowed trees: no task changes.</li>
+  <li>Allowed trees: <code class="language-plaintext highlighter-rouge">skill/</code>, <code class="language-plaintext highlighter-rouge">.codex/skills/gapzero-guide/</code>, <code class="language-plaintext highlighter-rouge">claude-skill/</code>, <code class="language-plaintext highlighter-rouge">ai-skill-ui/</code> only.</li>
+  <li>Main/site branch, current HEAD and existing search script: preserved. No commit/push/deploy.</li>
+  <li><a href="/ai-skill-ui/tests/guideline-sync-desktop.png">Desktop sync status</a>, <a href="/ai-skill-ui/tests/guideline-sync-mobile.png">Mobile sync status</a>.</li>
+</ul>
+
+<h3 id="changed-file-manifest">Changed-file manifest</h3>
+
+<p>Full paths below compare against the task-start SHA snapshot. Generated browser screenshots are included; the already-dirty search script is excluded because it did not change during this task.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Allowed tree</th>
+      <th style="text-align: right">Changed files</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">skill/</code></td>
+      <td style="text-align: right">36</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">.codex/skills/gapzero-guide/</code></td>
+      <td style="text-align: right">31</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">claude-skill/</code></td>
+      <td style="text-align: right">33</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ai-skill-ui/</code></td>
+      <td style="text-align: right">45</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">.codex/skills/gapzero-guide/references/control-index.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">.codex/skills/gapzero-guide/references/controls/01-governance/common.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">.codex/skills/gapzero-guide/references/controls/01-governance/enhancement.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">.codex/skills/gapzero-guide/references/controls/02-asset-management/common.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">.codex/skills/gapzero-guide/references/controls/02-asset-management/enhancement.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">.codex/skills/gapzero-guide/references/controls/03-continuity/common.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">.codex/skills/gapzero-guide/references/controls/03-continuity/enhancement.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">.codex/skills/gapzero-guide/references/controls/04-human-resource-security/common.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">.codex/skills/gapzero-guide/references/controls/05-identity-access-management/common.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">.codex/skills/gapzero-guide/references/controls/05-identity-access-management/enhancement.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">.codex/skills/gapzero-guide/references/controls/05-identity-access-management/local.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">.codex/skills/gapzero-guide/references/controls/06-information-protection/common.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">.codex/skills/gapzero-guide/references/controls/06-information-protection/enhancement.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">.codex/skills/gapzero-guide/references/controls/06-information-protection/local.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">.codex/skills/gapzero-guide/references/controls/07-information-security-assurance/common.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">.codex/skills/gapzero-guide/references/controls/08-information-security-event-management/common.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">.codex/skills/gapzero-guide/references/controls/08-information-security-event-management/enhancement.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">.codex/skills/gapzero-guide/references/controls/09-legal-compliance/enhancement.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">.codex/skills/gapzero-guide/references/controls/09-legal-compliance/local.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">.codex/skills/gapzero-guide/references/controls/10-physical-security/common.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">.codex/skills/gapzero-guide/references/controls/10-physical-security/local.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">.codex/skills/gapzero-guide/references/controls/11-application-security/enhancement.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">.codex/skills/gapzero-guide/references/controls/12-secure-configuration/common.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">.codex/skills/gapzero-guide/references/controls/13-supplier-relationships-security/common.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">.codex/skills/gapzero-guide/references/controls/13-supplier-relationships-security/enhancement.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">.codex/skills/gapzero-guide/references/controls/13-supplier-relationships-security/local.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">.codex/skills/gapzero-guide/references/controls/14-system-network-security/common.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">.codex/skills/gapzero-guide/references/controls/15-threat-vulnerability-management/common.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">.codex/skills/gapzero-guide/references/controls/15-threat-vulnerability-management/enhancement.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">.codex/skills/gapzero-guide/references/framework-overview.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">.codex/skills/gapzero-guide/references/guideline-provenance.json</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ai-skill-ui/README.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ai-skill-ui/build-quantitative.py</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ai-skill-ui/build-showcase.py</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ai-skill-ui/build-sync-data.py</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ai-skill-ui/data/controls.json</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ai-skill-ui/data/guideline-sync.json</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ai-skill-ui/data/quantitative.json</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ai-skill-ui/data/showcase.json</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ai-skill-ui/demo-data.json</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ai-skill-ui/index.html</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ai-skill-ui/quantitative.js</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ai-skill-ui/showcase.js</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ai-skill-ui/sources/con-c-01.html</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ai-skill-ui/sources/hrs-c-01.html</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ai-skill-ui/sources/iam-c-01.html</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ai-skill-ui/sources/iam-c-03.html</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ai-skill-ui/sources/phy-c-02.html</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ai-skill-ui/sources/sup-c-02.html</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ai-skill-ui/sources/sup-c-03.html</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ai-skill-ui/sources/sup-c-04.html</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ai-skill-ui/sources/sup-c-05.html</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ai-skill-ui/sources/sup-c-06.html</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ai-skill-ui/sources/sup-c-07.html</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ai-skill-ui/sources/sup-c-08.html</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ai-skill-ui/sources/sup-e-02.html</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ai-skill-ui/sources/sup-e-05.html</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ai-skill-ui/tests/GUIDELINE_SKILL_STRUCTURAL_DIFF.json</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ai-skill-ui/tests/GUIDELINE_SKILL_SYNC_REPORT.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ai-skill-ui/tests/guideline-sync-desktop.png</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ai-skill-ui/tests/guideline-sync-mobile.png</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ai-skill-ui/tests/guideline-sync-test-results.json</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ai-skill-ui/tests/guideline-sync-tests.cjs</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ai-skill-ui/tests/main-screen.png</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ai-skill-ui/tests/quantitative-charts-mobile.png</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ai-skill-ui/tests/quantitative-dashboard-desktop.png</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ai-skill-ui/tests/quantitative-explorer-desktop.png</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ai-skill-ui/tests/quantitative-main-desktop.png</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ai-skill-ui/tests/quantitative-mobile.png</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ai-skill-ui/tests/readability-mobile.png</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ai-skill-ui/tests/showcase-explorer-desktop.png</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ai-skill-ui/tests/showcase-explorer-mobile.png</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ai-skill-ui/tests/showcase-tests.cjs</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ai-skill-ui/tests/showcase-validation-desktop.png</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ai-skill-ui/tests/ux-main-mobile.png</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ai-skill-ui/tests/ux-result-desktop.png</code></li>
+  <li><code class="language-plaintext highlighter-rouge">claude-skill/references/control-index.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">claude-skill/references/controls/01-governance/common.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">claude-skill/references/controls/01-governance/enhancement.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">claude-skill/references/controls/02-asset-management/common.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">claude-skill/references/controls/02-asset-management/enhancement.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">claude-skill/references/controls/03-continuity/common.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">claude-skill/references/controls/03-continuity/enhancement.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">claude-skill/references/controls/04-human-resource-security/common.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">claude-skill/references/controls/05-identity-access-management/common.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">claude-skill/references/controls/05-identity-access-management/enhancement.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">claude-skill/references/controls/05-identity-access-management/local.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">claude-skill/references/controls/06-information-protection/common.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">claude-skill/references/controls/06-information-protection/enhancement.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">claude-skill/references/controls/06-information-protection/local.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">claude-skill/references/controls/07-information-security-assurance/common.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">claude-skill/references/controls/08-information-security-event-management/common.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">claude-skill/references/controls/08-information-security-event-management/enhancement.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">claude-skill/references/controls/09-legal-compliance/enhancement.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">claude-skill/references/controls/09-legal-compliance/local.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">claude-skill/references/controls/10-physical-security/common.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">claude-skill/references/controls/10-physical-security/local.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">claude-skill/references/controls/11-application-security/enhancement.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">claude-skill/references/controls/12-secure-configuration/common.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">claude-skill/references/controls/13-supplier-relationships-security/common.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">claude-skill/references/controls/13-supplier-relationships-security/enhancement.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">claude-skill/references/controls/13-supplier-relationships-security/local.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">claude-skill/references/controls/14-system-network-security/common.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">claude-skill/references/controls/15-threat-vulnerability-management/common.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">claude-skill/references/controls/15-threat-vulnerability-management/enhancement.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">claude-skill/references/framework-overview.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">claude-skill/references/guideline-provenance.json</code></li>
+  <li><code class="language-plaintext highlighter-rouge">claude-skill/tests/source-manifest.json</code></li>
+  <li><code class="language-plaintext highlighter-rouge">claude-skill/tests/static-validation-results.json</code></li>
+  <li><code class="language-plaintext highlighter-rouge">skill/references/control-index.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">skill/references/controls/01-governance/common.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">skill/references/controls/01-governance/enhancement.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">skill/references/controls/02-asset-management/common.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">skill/references/controls/02-asset-management/enhancement.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">skill/references/controls/03-continuity/common.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">skill/references/controls/03-continuity/enhancement.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">skill/references/controls/04-human-resource-security/common.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">skill/references/controls/05-identity-access-management/common.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">skill/references/controls/05-identity-access-management/enhancement.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">skill/references/controls/05-identity-access-management/local.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">skill/references/controls/06-information-protection/common.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">skill/references/controls/06-information-protection/enhancement.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">skill/references/controls/06-information-protection/local.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">skill/references/controls/07-information-security-assurance/common.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">skill/references/controls/08-information-security-event-management/common.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">skill/references/controls/08-information-security-event-management/enhancement.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">skill/references/controls/09-legal-compliance/enhancement.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">skill/references/controls/09-legal-compliance/local.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">skill/references/controls/10-physical-security/common.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">skill/references/controls/10-physical-security/local.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">skill/references/controls/11-application-security/enhancement.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">skill/references/controls/12-secure-configuration/common.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">skill/references/controls/13-supplier-relationships-security/common.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">skill/references/controls/13-supplier-relationships-security/enhancement.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">skill/references/controls/13-supplier-relationships-security/local.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">skill/references/controls/14-system-network-security/common.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">skill/references/controls/15-threat-vulnerability-management/common.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">skill/references/controls/15-threat-vulnerability-management/enhancement.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">skill/references/framework-overview.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">skill/references/guideline-provenance.json</code></li>
+  <li><code class="language-plaintext highlighter-rouge">skill/scripts/build-control-data.mjs</code></li>
+  <li><code class="language-plaintext highlighter-rouge">skill/scripts/sync-guideline.py</code></li>
+  <li><code class="language-plaintext highlighter-rouge">skill/scripts/validate-control-data.mjs</code></li>
+  <li><code class="language-plaintext highlighter-rouge">skill/scripts/validate-guideline-sync.py</code></li>
+  <li><code class="language-plaintext highlighter-rouge">skill/tests/guideline-sync-validation.json</code></li>
+</ul>
+
+<p>Files outside allowed scope: <strong>0</strong>. Guideline originals modified: <strong>0</strong>.</p>

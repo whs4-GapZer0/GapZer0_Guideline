@@ -1,0 +1,79 @@
+#assessment-app { margin: 2rem 0; }
+#assessment-app * { box-sizing: border-box; }
+#assessment-app label { display: block; margin: .8rem 0; font-weight: 600; }
+#assessment-app input:not([type=checkbox]), #assessment-app select, #assessment-app textarea { display: block; width: 100%; padding: .65rem; margin-top: .35rem; border: 1px solid #94a3b8; border-radius: 4px; background: #fff; color: #172033; font: inherit; }
+#assessment-app textarea { resize: vertical; min-height: 90px; }
+#assessment-app input[type=checkbox] { margin-right: .5rem; }
+#assessment-app fieldset { border: 1px solid #cbd5e1; padding: 1rem; margin: 1rem 0; min-width: 0; }
+#assessment-app legend { font-weight: 700; padding: 0 .4rem; }
+#assessment-app button { background: #156b71; color: white; border: 0; border-radius: 4px; padding: .7rem 1rem; cursor: pointer; font: inherit; }
+#assessment-app :focus-visible { outline: 3px solid #ea9800; outline-offset: 3px; }
+#assessment-app .sa-toolbar, #assessment-app .sa-filters { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+#assessment-app .sa-toolbar { margin-bottom: 1rem; }
+#assessment-app .sa-import button { margin: .4rem .6rem .4rem 0; }
+#assessment-app .sa-import [role=status] { overflow-wrap: anywhere; }
+#assessment-app .sa-import [role=status]:empty { display: none; }
+#assessment-app .sa-filters label { flex: 1 1 230px; min-width: 0; }
+#assessment-app .sa-overview { margin: 28px 0 32px; }
+#assessment-app .sa-overview > p { margin: 0 0 14px; }
+#assessment-app .sa-result-counts { display:flex; flex-wrap:wrap; gap:10px; list-style:none; padding:0; margin:0; }
+#assessment-app .sa-result-count { margin:0; padding:6px 14px; border-radius:6px; font-size:15px; font-weight:600; line-height:1.6; }
+#assessment-app .sa-result-count-0 { background:#e8f5ec; color:#166534; }
+#assessment-app .sa-result-count-1 { background:#fff0dd; color:#9a420b; }
+#assessment-app .sa-result-count-2 { background:#fdebec; color:#a92332; }
+#assessment-app .sa-result-count-3 { background:#eef0f3; color:#4b5563; }
+.book.color-theme-2 #assessment-app .sa-result-count-0 { background:#19392c; color:#9be2b0; }
+.book.color-theme-2 #assessment-app .sa-result-count-1 { background:#432e1b; color:#ffc78b; }
+.book.color-theme-2 #assessment-app .sa-result-count-2 { background:#44242b; color:#ffadb5; }
+.book.color-theme-2 #assessment-app .sa-result-count-3 { background:#30333b; color:#d1d5db; }
+#assessment-app .sa-control-form { border: 1px solid #cbd5e1; border-top: 4px solid #156b71; border-radius: 5px; padding: 1rem; margin: 1.5rem 0; }
+#assessment-app .sa-preserve, #assessment-app pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+#assessment-app details { margin: 1rem 0; }
+#assessment-app summary { cursor: pointer; font-weight: 600; }
+#assessment-app [role=alert] { color: #b91c1c; }
+#assessment-app .sa-validation-ok { color: #047857; }
+#assessment-app [role=status] { padding: .7rem; background: #f1f5f9; color: #172033; }
+#assessment-app [hidden] { display: none !important; }
+.book.color-theme-2 #assessment-app input:not([type=checkbox]), .book.color-theme-2 #assessment-app select, .book.color-theme-2 #assessment-app textarea { background: #252b3b; color: #f1f5f9; color-scheme: dark; }
+.book.color-theme-2 #assessment-app [role=alert] { color: #fca5a5; }
+.book.color-theme-2 #assessment-app .sa-validation-ok { color: #6ee7b7; }
+.book.color-theme-2 #assessment-app [role=status] { background: #252b3b; color: #f1f5f9; }
+@media(max-width: 600px) { #assessment-app .sa-toolbar { align-items: stretch; flex-direction: column; } }
+/* The theme splitter can retain a desktop inline offset after resizing. */
+@media(max-width: 600px) { .book:has(#assessment-app) .book-body { left: 0 !important; } }
+
+#assessment-app .sa-reset-area { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #cbd5e1; }
+#assessment-app button.sa-reset { background: #b91c1c; color: #fff; }
+#assessment-app button.sa-reset:hover { background: #991b1b; }
+
+#assessment-app .sa-control-form { border-top-color: #ad450e; }
+#assessment-app details > .sa-preserve { padding: 1rem 0; line-height: 1.9; }
+#assessment-app button:not(.sa-reset) { background: #ad450e; }
+
+/* Separate tasks and fields with consistent vertical space. */
+.book #assessment-app { margin-top:32px; line-height:1.8; }
+.book #assessment-app > fieldset { margin:32px 0; padding:28px; }
+.book #assessment-app label { margin:0 0 24px; line-height:1.65; }
+.book #assessment-app label:last-child { margin-bottom:0; }
+.book #assessment-app input:not([type=checkbox]), .book #assessment-app select, .book #assessment-app textarea { margin-top:10px; }
+.book #assessment-app textarea { min-height:120px; padding:12px 14px; line-height:1.8; }
+.book #assessment-app .sa-toolbar { gap:14px; margin:32px 0 20px; }
+.book #assessment-app > p { margin:20px 0 28px; line-height:1.9; }
+.book #assessment-app > details { margin:28px 0; padding:20px 24px; }
+.book #assessment-app .sa-import > p { margin:12px 0 24px; }
+.book #assessment-app .sa-filters { margin:32px 0 40px; gap:20px; align-items:flex-start; }
+.book #assessment-app .sa-filters label { margin:0; }
+.book #assessment-app .sa-control-content > h3 { margin:0 0 20px; line-height:1.6; }
+.book #assessment-app .sa-control-content > a { display:inline-block; margin-bottom:12px; }
+.book #assessment-app .sa-control-content > details { margin:20px 0 32px; }
+.book #assessment-app .sa-control-form { padding:28px; margin:32px 0; border-radius:0; }
+.book #assessment-app .sa-control-form > label { margin-bottom:28px; }
+.book #assessment-app .sa-control-form > p { margin:8px 0 32px; line-height:1.9; }
+.book #assessment-app .sa-control-form fieldset { margin:32px 0; padding:24px; }
+.book #assessment-app .sa-control-form [role=alert]:empty { display:none; }
+.book #assessment-app .sa-reset-area { margin-top:40px; padding-top:28px; }
+@media(max-width:600px) {
+ .book #assessment-app > fieldset, .book #assessment-app .sa-control-form { padding:20px 16px; }
+ .book #assessment-app .sa-control-form fieldset { padding:20px 14px; }
+ .book #assessment-app .sa-toolbar { gap:12px; }
+}

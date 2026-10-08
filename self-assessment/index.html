@@ -1,0 +1,523 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head><meta charset="UTF-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"><title>05. 자가 진단 · GapZer0 Guideline</title><meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="description" content="NIST CSF 2.0과 ISMS-P를 기반으로 한 GapZer0 통합 정보보호 가이드라인
+"><meta name="generator" content="Jekyll (using style of GitBook)"><meta name="author" content="GapZer0"><link rel="stylesheet" href="/assets/gitbook/style.css">
+<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-expandable-chapters-small2/expandable-chapters-small.css">
+<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-fontsettings/website.css">
+<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-search-pro/search.css">
+<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-splitter/splitter.css">
+
+<link rel="stylesheet" href="/assets/gitbook/rouge/colorful.css">
+
+<link rel="stylesheet" href="/assets/gitbook/custom.css">
+<link rel="stylesheet" href="/assets/gitbook/custom-local.css?v=1791475446">
+
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/assets/gitbook/images/apple-touch-icon-precomposed-152.png">
+<link rel="shortcut icon" href="/" type="image/x-icon">
+
+
+
+
+            <link rel="prev" href="/controls/" />
+        
+
+        
+            <link rel="next" href="/controls/governance/common/" />
+        
+    </head>
+    <body>
+        <div class="book"><div class="book-summary">
+
+    <script type="text/javascript">
+        // 페이지 이동 시 본문을 맨 위로 이동
+        function pageScrollToTop(element) {
+            $('div.body-inner').animate({ scrollTop: 0 });
+            return true;
+        }
+
+        // 모바일 환경에서 본문 내 앵커 이동 처리
+        function mobilePageScrollToAnchor(element) {
+            $(element).closest('li.chapter').find('ul>li').removeClass('active');
+            $(element).parent().addClass('active');
+
+            if ($(document).width() <= 1240) {
+                let target = $($(element).attr('href'));
+
+                if (target.length) {
+                    $('div.body-inner').animate({
+                        scrollTop: target.get(0).offsetTop
+                    });
+                }
+            }
+
+            return true;
+        }
+    </script>
+
+    <nav role="navigation">
+
+        <!-- 검색창 -->
+        <div id="book-search-input" role="search">
+            <input type="text" placeholder="Type to search" />
+        </div>
+
+        <div id="book-search-input-link" role="search">
+            <a href="/assets/search.html">
+                Click to Search
+            </a>
+        </div>
+
+        <ul class="summary">
+
+            <!-- 홈페이지 -->
+            <li class="chapter">
+                <a href="/"
+                   onclick="pageScrollToTop(this)">
+                    GapZer0 Guideline
+                </a>
+            </li>
+
+            <li class="divider"></li>
+
+            <!-- 가이드라인 목차와 AI Skill 바로가기 -->
+            
+
+                
+
+                <!-- 현재 페이지와 메뉴 URL이 같은 경우 -->
+                
+
+                <!-- Control 하위 페이지에서는 04를 active로 표시 -->
+                
+
+                <!-- 자가진단 작성 화면도 05 메뉴에 포함 -->
+                
+
+                <li class="chapter"
+                    data-path="/introduction/">
+
+                    
+                    <a href="/introduction/"
+                       onclick="pageScrollToTop(this)">
+                        01. GapZer0 가이드라인 소개
+                    </a>
+                    
+
+                </li>
+
+            
+
+                
+
+                <!-- 현재 페이지와 메뉴 URL이 같은 경우 -->
+                
+
+                <!-- Control 하위 페이지에서는 04를 active로 표시 -->
+                
+
+                <!-- 자가진단 작성 화면도 05 메뉴에 포함 -->
+                
+
+                <li class="chapter"
+                    data-path="/how-to-use/">
+
+                    
+                    <a href="/how-to-use/"
+                       onclick="pageScrollToTop(this)">
+                        02. 가이드라인 활용 방법
+                    </a>
+                    
+
+                </li>
+
+            
+
+                
+
+                <!-- 현재 페이지와 메뉴 URL이 같은 경우 -->
+                
+
+                <!-- Control 하위 페이지에서는 04를 active로 표시 -->
+                
+
+                <!-- 자가진단 작성 화면도 05 메뉴에 포함 -->
+                
+
+                <li class="chapter"
+                    data-path="/terms/">
+
+                    
+                    <a href="/terms/"
+                       onclick="pageScrollToTop(this)">
+                        03. 주요 용어
+                    </a>
+                    
+
+                </li>
+
+            
+
+                
+
+                <!-- 현재 페이지와 메뉴 URL이 같은 경우 -->
+                
+
+                <!-- Control 하위 페이지에서는 04를 active로 표시 -->
+                
+
+                <!-- 자가진단 작성 화면도 05 메뉴에 포함 -->
+                
+
+                <li class="chapter"
+                    data-path="/controls/">
+
+                    
+                    <a href="/controls/"
+                       onclick="pageScrollToTop(this)">
+                        04. Control 이행 안내
+                    </a>
+                    
+
+                </li>
+
+            
+
+                
+
+                <!-- 현재 페이지와 메뉴 URL이 같은 경우 -->
+                
+
+                <!-- Control 하위 페이지에서는 04를 active로 표시 -->
+                
+
+                <!-- 자가진단 작성 화면도 05 메뉴에 포함 -->
+                
+
+                <li class="chapter active"
+                    data-path="/self-assessment/">
+
+                    
+                    <a href="/self-assessment/"
+                       onclick="pageScrollToTop(this)">
+                        05. 자가 진단
+                    </a>
+                    
+
+                </li>
+
+            
+
+                
+
+                <!-- 현재 페이지와 메뉴 URL이 같은 경우 -->
+                
+
+                <!-- Control 하위 페이지에서는 04를 active로 표시 -->
+                
+
+                <!-- 자가진단 작성 화면도 05 메뉴에 포함 -->
+                
+
+                <li class="chapter"
+                    data-path="https://docs.whs4-gapzer0.kro.kr/ai-skill-ui/">
+
+                    
+                    <a class="gz-ai-skill-link" href="https://docs.whs4-gapzer0.kro.kr/ai-skill-ui/" target="_blank" rel="noopener noreferrer"
+                       aria-label="GapZer0 AI Skill (새 탭에서 열기)">
+                        GapZer0 AI Skill <span class="gz-external-icon" aria-hidden="true">↗</span>
+                    </a>
+                    
+
+                </li>
+
+            
+
+            
+
+        </ul>
+
+    </nav>
+
+</div>
+<div class="book-body">
+                <div class="book-header" role="navigation">
+                    <!-- Title -->
+                    <h1>
+                        <i class="fa fa-circle-o-notch fa-spin"></i>
+                        
+                            <a href="." >05. 자가 진단</a>
+                        
+                    </h1>
+                </div>
+
+                <div class="body-inner"><div class="page-wrapper" tabindex="-1" role="main">
+    
+
+    <div class="page-inner">
+        <div id="book-search-results">
+            <div class="search-noresults">
+                <section class="normal markdown-section">
+                    
+                        <h1 id="/05-self-assessment">05. 자가 진단</h1>
+                    
+
+                    <link rel="stylesheet" href="/assets/assessment/guide.css?v=guide3" />
+
+<div class="sa-guide gz-intro-page">
+
+<div class="sa-guide-opening">
+<p class="gz-intro-lead">Control의 이행 상태를 확인하고<br />개선계획을 기록합니다.</p>
+<p>121개 Control의 Implementation Guide를 기준으로 조직의 현재 상태를 점검합니다. 이행 가이드를 확인한 뒤, Control마다 평가 결과와 근거를 작성하세요.</p>
+<div class="sa-guide-start"><a class="sa-start-button" href="/self-assessment/form/">자가진단 시작하기</a><p>작성 내용은 이 브라우저에 저장됩니다.<br />Excel로 다운로드하고 다시 불러올 수 있습니다.</p></div>
+</div>
+<nav class="sa-guide-jump" aria-label="이 페이지 안내"><a href="#sa-process">작성 흐름</a><a href="#sa-criteria">평가 기준</a><a href="#sa-records">기록 방법</a><a href="#sa-excel">Excel 템플릿</a></nav>
+<section class="gz-intro-section" aria-labelledby="sa-process"><h2 id="sa-process">자가진단 작성 흐름</h2>
+<ol class="sa-guide-steps"><li><strong>평가 범위 정하기</strong><p>조직·업무·시스템의 범위와 평가기간, 담당자, 평가일을 기록합니다.</p></li><li><strong>이행 상태 확인하기</strong><p>04. Control 이행 안내에서 Control의 목적·적용 조건·Implementation Guide·Evidence를 확인합니다.</p></li><li><strong>결과와 근거 작성하기</strong><p>네 가지 평가 결과 중 하나를 선택하고, 평가 근거와 실제로 확인한 증적을 기록합니다.</p></li><li><strong>개선계획 세우고 보관하기</strong><p>미흡한 사항의 개선조치·담당자·기한을 정하고 작성 내용을 Excel로 보관합니다.</p></li></ol></section>
+<section class="gz-intro-section" aria-labelledby="sa-criteria"><h2 id="sa-criteria">평가 기준</h2><p>Control 전체의 이행 상태를 기준으로 평가합니다.</p>
+<div class="sa-guide-table-wrap" role="region" aria-label="네 가지 평가 기준과 개선계획 작성 조건" tabindex="0"><table class="sa-guide-table"><thead><tr><th scope="col">평가 결과</th><th scope="col">판단 기준</th><th scope="col">개선계획</th></tr></thead><tbody>
+<tr><th scope="row">충족</th><td>조직에 적용되는 Implementation Guide의 활동을 모두 이행하고 있으며, 관련 Evidence가 현재 운영 상태를 반영하고 이행 사실을 확인할 수 있는 상태</td><td>선택</td></tr>
+<tr><th scope="row">부분 충족</th><td>핵심 활동은 이행하고 있으나, 일부 활동이 미흡하거나 Evidence의 누락·최신성·확인 가능성에 보완이 필요한 상태</td><td><strong>필수</strong></td></tr>
+<tr><th scope="row">미충족</th><td>Control 목적을 달성하기 위한 핵심 활동이 이행되지 않거나, 대부분의 활동이 이행되지 않은 상태</td><td><strong>필수</strong></td></tr>
+<tr><th scope="row">적용 제외</th><td>조직의 업무·시스템·정보처리 범위와 적용 조건을 검토한 결과 해당 Control이 적용되지 않으며, 그 사유를 기록한 상태</td><td>원칙적으로 불필요</td></tr></tbody></table></div>
+<p class="gz-intro-note"><strong>아직 판단하기 어렵다면</strong><br />평가 결과를 선택하지 않은 미평가 상태로 저장하고, 평가 근거에 추가 확인할 내용을 적습니다. 자료가 부족하다는 이유만으로 미충족이나 적용 제외를 선택하지 않습니다.</p></section>
+<section class="gz-intro-section" aria-labelledby="sa-records"><h2 id="sa-records">무엇을 기록하나요?</h2>
+<dl class="sa-guide-records"><div><dt>평가 근거</dt><dd>확인한 현황과 해당 평가 결과를 선택한 이유를 적습니다. 부분 충족은 미흡한 부분을, 적용 제외는 제외 사유를 설명합니다.</dd></div><div><dt>확인한 증적</dt><dd>실제 확인한 자료의 이름·보관 위치 또는 링크·버전·기간을 기록합니다. 가이드라인의 Evidence를 참고하되, 이 항목에는 실제로 확인한 자료를 적습니다.</dd></div><div><dt>개선계획</dt><dd>개선조치·조치 담당자·완료 예정일·진행 상태를 함께 작성합니다. 진행 상태는 예정·진행 중·완료 중 선택합니다. 개선계획을 선택적으로 작성할 때도 같은 항목을 채웁니다.</dd></div></dl>
+<p class="sa-guide-small">미충족이고 확인한 자료가 없다면 평가 근거에 사유를 적고 확인한 증적은 비워둘 수 있습니다. 충족·부분 충족·적용 제외는 판단에 사용한 자료를 기록합니다. 증적 파일 자체를 업로드하는 기능은 없습니다.</p>
+<h3>개선 후에는 다시 평가합니다</h3><p>개선조치에 수행 결과를 덧붙이고 평가 근거·확인한 증적·평가일을 갱신합니다. 조치를 완료해도 평가 결과는 자동으로 충족으로 바뀌지 않습니다. 재평가 전후의 Excel 파일은 각각 보관하세요.</p></section>
+<section class="gz-intro-section" aria-labelledby="sa-excel"><div class="sa-excel-heading"><div><h2 id="sa-excel">Excel 템플릿 구조</h2><p>실제 다운로드되는 엑셀 템플릿 양식입니다.</p></div><a class="sa-excel-download" href="/assets/assessment/control-template.xlsx" download="GapZer0-Control-Template.xlsx" target="_blank" rel="noopener">Excel 다운로드</a></div>
+<figure class="sa-excel-figure"><div class="sa-excel-scroll" role="region" aria-label="Excel 템플릿 미리보기, 가로로 스크롤할 수 있습니다" tabindex="0"><table class="sa-excel-preview"><caption class="sa-visually-hidden">실제 Excel 평가 기록 시트의 상단과 첫 3개 Control</caption><colgroup><col style="width:8%" /><col style="width:16%" /><col style="width:8%" /><col style="width:15%" /><col style="width:15%" /><col style="width:15%" /><col style="width:8%" /><col style="width:8%" /><col style="width:7%" /></colgroup><tbody><tr><th colspan="9" class="sa-excel-title">GapZer0 Control 자가진단</th></tr><tr><th scope="row" class="sa-excel-meta">평가 범위</th><td colspan="8" class="sa-excel-input"></td></tr><tr><th scope="row" class="sa-excel-meta">평가기간 시작일</th><td colspan="8" class="sa-excel-input"></td></tr><tr><th scope="row" class="sa-excel-meta">평가기간 종료일</th><td colspan="8" class="sa-excel-input"></td></tr><tr><th scope="row" class="sa-excel-meta">평가 담당자</th><td colspan="8" class="sa-excel-input"></td></tr><tr><th scope="row" class="sa-excel-meta">평가일</th><td colspan="8" class="sa-excel-input"></td></tr><tr aria-hidden="true"><td colspan="9" style="height:12px;padding:0"></td></tr><tr><th scope="col" class="sa-excel-head-0">Control ID</th><th scope="col" class="sa-excel-head-0">Control Name</th><th scope="col" class="sa-excel-head-1">평가 결과</th><th scope="col" class="sa-excel-head-1">평가 근거</th><th scope="col" class="sa-excel-head-1">확인한 증적</th><th scope="col" class="sa-excel-head-2">개선조치</th><th scope="col" class="sa-excel-head-2">조치 담당자</th><th scope="col" class="sa-excel-head-2">완료 예정일</th><th scope="col" class="sa-excel-head-2">진행 상태</th></tr><tr><td class="sa-excel-fixed">GOV-C-01</td><td class="sa-excel-fixed">전략 결과 검토·방향 조정</td><td class="sa-excel-input"></td><td class="sa-excel-input"></td><td class="sa-excel-input"></td><td class="sa-excel-input"></td><td class="sa-excel-input"></td><td class="sa-excel-input"></td><td class="sa-excel-input"></td></tr><tr><td class="sa-excel-fixed">GOV-C-02</td><td class="sa-excel-fixed">조직 맥락 기반 사이버보안 정책 수립·시행</td><td class="sa-excel-input"></td><td class="sa-excel-input"></td><td class="sa-excel-input"></td><td class="sa-excel-input"></td><td class="sa-excel-input"></td><td class="sa-excel-input"></td><td class="sa-excel-input"></td></tr><tr><td class="sa-excel-fixed">GOV-C-03</td><td class="sa-excel-fixed">변화 반영 정책 검토·갱신·시행</td><td class="sa-excel-input"></td><td class="sa-excel-input"></td><td class="sa-excel-input"></td><td class="sa-excel-input"></td><td class="sa-excel-input"></td><td class="sa-excel-input"></td><td class="sa-excel-input"></td></tr></tbody></table></div></figure>
+<dl class="sa-guide-records"><div><dt>상단 기본정보</dt><dd>평가 범위·평가기간 시작일과 종료일·평가 담당자·평가일을 한 번만 입력합니다.</dd></div><div><dt>Control별 기록</dt><dd>한 행에 하나의 Control을 평가합니다. Control ID와 이름을 제외한 7개 열에 평가 결과와 개선계획을 작성합니다.</dd></div></dl>
+
+<div class="sa-guide-import"><h3>Excel을 수정하고 다시 불러올 때</h3><ul><li><strong>이 가이드라인에서 제공하는 Excel 템플릿으로 작성한 .xlsx 파일만 사용하세요.</strong> 임의 양식이나 이전 질문별 평가 파일은 불러올 수 없습니다.</li><li>평가 기록의 시트 이름, 상단 기본정보의 항목·위치, 8행의 열 이름·순서와 Control ID를 변경하지 마세요.</li><li>평가 결과·진행 상태는 선택 목록의 값을 사용하고, 날짜는 YYYY-MM-DD 형식 또는 Excel 날짜 셀로 입력하세요. 수식 대신 값을 입력하세요.</li><li>25MB 이하의 .xlsx 파일로 저장한 뒤, 작성 페이지의 ‘PC의 Excel 파일 불러오기’에서 선택하세요.</li><li><strong>불러오기 전에는 현재 작성 내용을 Excel로 백업하세요.</strong> 미리보기를 확인하고 교체를 확정하면 파일에 없는 기록을 포함해 현재 평가 전체가 파일 내용으로 바뀝니다.</li></ul></div></section>
+<section class="gz-intro-section" aria-labelledby="sa-save"><h2 id="sa-save">저장과 이어서 작성하기</h2>
+<div class="sa-guide-table-wrap" role="region" aria-label="저장 및 이어서 작성하는 방법" tabindex="0"><table class="sa-guide-table"><thead><tr><th scope="col">기능</th><th scope="col">사용 방법 및 유의사항</th></tr></thead><tbody><tr><th scope="row">브라우저에 저장</th><td>입력 내용은 자동 저장됩니다. 같은 기기·브라우저·사이트 주소에서 이어서 작성할 수 있습니다. 서버에 저장되지 않으므로 브라우저 데이터를 지우기 전에 Excel로 보관하세요.</td></tr><tr><th scope="row">작성 내용 Excel로 다운로드</th><td>지금까지 작성한 모든 Control이 포함됩니다. 평가 결과를 선택하지 않은 작성 중인 내용도 포함되며, 열람만 한 Control은 제외됩니다.</td></tr><tr><th scope="row">빈 템플릿 Excel로 다운로드</th><td>121개 Control의 ID와 이름이 포함된 빈 평가 양식을 받습니다.</td></tr><tr><th scope="row">작성 내용 점검</th><td>현재 Control의 필수 입력 누락을 확인합니다. 평가 결과의 적절성은 담당자가 확인합니다.</td></tr><tr><th scope="row">작성 내용 초기화</th><td><strong>기본정보와 모든 Control의 작성 내용을 삭제합니다.</strong> 현재 화면에 보이는 항목과 관계없이 전체 평가가 초기화되므로, 먼저 Excel로 백업하세요.</td></tr></tbody></table></div>
+</section>
+</div>
+</section>
+            </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div></div>
+    </div>
+</div>
+
+<!-- introduce mathjax support -->
+<!-- GitBook re-runs inline includes during AJAX navigation. Load MathJax once. -->
+<script>
+(function () {
+  if (!window.gapzer0MathJaxReady) {
+    window.MathJax = {
+      tex: { inlineMath: [ ['$', '$'], ['\\(', '\\)'] ] },
+      svg: { fontCache: 'global' }
+    };
+    window.gapzer0MathJaxReady = new Promise(function (resolve, reject) {
+      var script = document.createElement('script');
+      script.id = 'MathJax-script';
+      script.async = true;
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js';
+      script.onload = resolve;
+      script.onerror = reject;
+      document.head.appendChild(script);
+    });
+  }
+  window.gapzer0MathJaxReady
+    .then(function () { return window.MathJax.startup.promise; })
+    .then(function () {
+      window.MathJax.typesetClear();
+      return window.MathJax.typesetPromise();
+    })
+    .catch(function (error) { console.warn('MathJax rendering unavailable', error); });
+}());
+</script>
+
+
+<!-- introduce per-page mermaid support -->
+
+
+<!-- introduce mathjax support -->
+<script>
+    function fixes_chrome_anchors() {
+        let chrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+        if (window.location.hash && chrome) {
+            setTimeout(function () {
+                var hash = window.location.hash;
+                window.location.hash = "";
+                window.location.hash = hash;
+            }, 300);
+        }
+    }
+
+    if (document.readyState === "loading") {
+        // Loading hasn't finished yet
+        document.addEventListener("DOMContentLoaded", fixes_chrome_anchors);
+    } else {
+        // `DOMContentLoaded` has already fired
+        fixes_chrome_anchors();
+    }
+</script>
+
+
+                        <a href="/controls/" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 04. Control 이행 안내">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+                    
+
+                    
+                        <a href="/controls/governance/common/" class="navigation navigation-next navigation-unique" aria-label="Next page: Governance - Common Controls">
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    
+                </div>
+            </div>
+
+            <script>
+            var gitbook = gitbook || [];
+            gitbook.push(function() {
+                gitbook.page.hasChanged({
+    "page": {
+        "title": "Introduction",
+        "level": "1.1",
+        "depth": 1,
+        
+        "next": {
+            "title": "Governance - Common Controls",
+            "level": "1.2",
+            "depth": 1,
+            "path": "_pages/control-guide/01-governance/common.md",
+            "ref": "_pages/control-guide/01-governance/common.md",
+            "articles": []
+        },
+        
+        "dir": "ltr"
+    },    "config": {
+        "plugins": ["fontsettings", "highlight", "livereload", "lunr", "search", "sharing", "theme-default", "livereload"],
+        "styles": {
+            "ebook": "styles/ebook.css",
+            "epub": "styles/epub.css",
+            "mobi": "styles/mobi.css",
+            "pdf": "styles/pdf.css",
+            "print": "styles/print.css",
+            "website": "styles/website.css"
+        },
+        "pluginsConfig": {
+            "expandable-chapter-small2": {
+                "articlesExpand": true,
+            },
+            "fontsettings": {
+                "family": "sans",
+                "size": 2,
+                "theme": "white"
+            },
+            "highlight": {},
+            "livereload": {},
+            "lunr": {
+                "ignoreSpecialCharacters": false,
+                "maxIndexSize": 1000000
+            },
+            "search": {},            "sharing": {
+                "facebook": true,
+
+                "google": false,
+
+                "github": true,
+              
+                "github_link": "https://github.com",
+              
+
+                "telegram": false,
+                "telegram_link": "https://t.me",
+
+                "instapaper": false,
+
+                "twitter": true,
+              
+
+                "vk": false,
+
+                "weibo": false,
+
+                "all": ["facebook", "google", "twitter", "weibo", "instapaper", "github", "telegram"]
+            },
+"theme-default": {
+                "showLevel": false,
+                "styles": {
+                    "ebook": "styles/ebook.css",
+                    "epub": "styles/epub.css",
+                    "mobi": "styles/mobi.css",
+                    "pdf": "styles/pdf.css",
+                    "print": "styles/print.css",
+                    "website": "styles/website.css"
+                }
+            },
+        },
+        "theme": "default",
+        "author": "Tao He",
+        "pdf": {
+            "pageNumbers": true,
+            "fontSize": 12,
+            "fontFamily": "Arial",
+            "paperSize": "a4",
+            "chapterMark": "pagebreak",
+            "pageBreaksBefore": "/",
+            "margin": {
+                "right": 62,
+                "left": 62,
+                "top": 56,
+                "bottom": 56
+            }
+        },
+        "structure": {
+            "langs": "LANGS.md",
+            "readme": "README.md",
+        },
+        "variables": {},
+        "title": "GapZer0 Guideline",
+        "language": "en",
+        "gitbook": "*"
+    },
+    "file": {
+        "path": "_pages/05-self-assessment.md",
+        "mtime": "2026-10-08 16:04:06 +0000",
+        "type": "markdown"
+    },
+    "gitbook": {
+        "version": "",
+        "time": "2026-10-08 16:04:06 +0000"
+    },
+    "basePath": "",
+    "book": {
+        "language": ""
+    }
+});
+            });
+            </script>
+        </div><script src="/assets/vendor/jquery-3.7.1.min.js"></script>
+<script src="/assets/gitbook/gitbook.js?v=security1"></script>
+<script src="/assets/gitbook/theme.js?v=security1"></script>
+
+<script src="/assets/gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-expandable-chapters-small2/expandable-chapters-small.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-fontsettings/fontsettings.js?v=night-icon2"></script>
+<script src="/assets/gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-search-pro/search.js?v=security1"></script>
+<script src="/assets/gitbook/gitbook-plugin-sharing/buttons.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-splitter/splitter.js"></script>
+
+<script src="/assets/gitbook/custom.js"></script>
+<script src="/assets/gitbook/custom-local.js?v=domain-codes1"></script>
+
+</body>
+</html>

@@ -1,0 +1,582 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head><meta charset="UTF-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"><title>Information Protection - Common Controls · GapZer0 Guideline</title><meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="description" content="NIST CSF 2.0과 ISMS-P를 기반으로 한 GapZer0 통합 정보보호 가이드라인
+"><meta name="generator" content="Jekyll (using style of GitBook)"><meta name="author" content="GapZer0"><link rel="stylesheet" href="/assets/gitbook/style.css">
+<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-expandable-chapters-small2/expandable-chapters-small.css">
+<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-fontsettings/website.css">
+<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-search-pro/search.css">
+<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-splitter/splitter.css">
+
+<link rel="stylesheet" href="/assets/gitbook/rouge/colorful.css">
+
+<link rel="stylesheet" href="/assets/gitbook/custom.css">
+<link rel="stylesheet" href="/assets/gitbook/custom-local.css?v=1791475446">
+
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/assets/gitbook/images/apple-touch-icon-precomposed-152.png">
+<link rel="shortcut icon" href="/" type="image/x-icon">
+
+
+
+
+            <link rel="prev" href="/controls/identity-access-management/local/" />
+        
+
+        
+            <link rel="next" href="/controls/information-protection/enhancement/" />
+        
+    </head>
+    <body>
+        <div class="book"><div class="book-summary">
+
+    <script type="text/javascript">
+        // 페이지 이동 시 본문을 맨 위로 이동
+        function pageScrollToTop(element) {
+            $('div.body-inner').animate({ scrollTop: 0 });
+            return true;
+        }
+
+        // 모바일 환경에서 본문 내 앵커 이동 처리
+        function mobilePageScrollToAnchor(element) {
+            $(element).closest('li.chapter').find('ul>li').removeClass('active');
+            $(element).parent().addClass('active');
+
+            if ($(document).width() <= 1240) {
+                let target = $($(element).attr('href'));
+
+                if (target.length) {
+                    $('div.body-inner').animate({
+                        scrollTop: target.get(0).offsetTop
+                    });
+                }
+            }
+
+            return true;
+        }
+    </script>
+
+    <nav role="navigation">
+
+        <!-- 검색창 -->
+        <div id="book-search-input" role="search">
+            <input type="text" placeholder="Type to search" />
+        </div>
+
+        <div id="book-search-input-link" role="search">
+            <a href="/assets/search.html">
+                Click to Search
+            </a>
+        </div>
+
+        <ul class="summary">
+
+            <!-- 홈페이지 -->
+            <li class="chapter">
+                <a href="/"
+                   onclick="pageScrollToTop(this)">
+                    GapZer0 Guideline
+                </a>
+            </li>
+
+            <li class="divider"></li>
+
+            <!-- 가이드라인 목차와 AI Skill 바로가기 -->
+            
+
+                
+
+                <!-- 현재 페이지와 메뉴 URL이 같은 경우 -->
+                
+
+                <!-- Control 하위 페이지에서는 04를 active로 표시 -->
+                
+
+                <!-- 자가진단 작성 화면도 05 메뉴에 포함 -->
+                
+
+                <li class="chapter"
+                    data-path="/introduction/">
+
+                    
+                    <a href="/introduction/"
+                       onclick="pageScrollToTop(this)">
+                        01. GapZer0 가이드라인 소개
+                    </a>
+                    
+
+                </li>
+
+            
+
+                
+
+                <!-- 현재 페이지와 메뉴 URL이 같은 경우 -->
+                
+
+                <!-- Control 하위 페이지에서는 04를 active로 표시 -->
+                
+
+                <!-- 자가진단 작성 화면도 05 메뉴에 포함 -->
+                
+
+                <li class="chapter"
+                    data-path="/how-to-use/">
+
+                    
+                    <a href="/how-to-use/"
+                       onclick="pageScrollToTop(this)">
+                        02. 가이드라인 활용 방법
+                    </a>
+                    
+
+                </li>
+
+            
+
+                
+
+                <!-- 현재 페이지와 메뉴 URL이 같은 경우 -->
+                
+
+                <!-- Control 하위 페이지에서는 04를 active로 표시 -->
+                
+
+                <!-- 자가진단 작성 화면도 05 메뉴에 포함 -->
+                
+
+                <li class="chapter"
+                    data-path="/terms/">
+
+                    
+                    <a href="/terms/"
+                       onclick="pageScrollToTop(this)">
+                        03. 주요 용어
+                    </a>
+                    
+
+                </li>
+
+            
+
+                
+
+                <!-- 현재 페이지와 메뉴 URL이 같은 경우 -->
+                
+
+                <!-- Control 하위 페이지에서는 04를 active로 표시 -->
+                
+
+                <!-- 자가진단 작성 화면도 05 메뉴에 포함 -->
+                
+
+                <li class="chapter active"
+                    data-path="/controls/">
+
+                    
+                    <a href="/controls/"
+                       onclick="pageScrollToTop(this)">
+                        04. Control 이행 안내
+                    </a>
+                    
+
+                </li>
+
+            
+
+                
+
+                <!-- 현재 페이지와 메뉴 URL이 같은 경우 -->
+                
+
+                <!-- Control 하위 페이지에서는 04를 active로 표시 -->
+                
+
+                <!-- 자가진단 작성 화면도 05 메뉴에 포함 -->
+                
+
+                <li class="chapter"
+                    data-path="/self-assessment/">
+
+                    
+                    <a href="/self-assessment/"
+                       onclick="pageScrollToTop(this)">
+                        05. 자가 진단
+                    </a>
+                    
+
+                </li>
+
+            
+
+                
+
+                <!-- 현재 페이지와 메뉴 URL이 같은 경우 -->
+                
+
+                <!-- Control 하위 페이지에서는 04를 active로 표시 -->
+                
+
+                <!-- 자가진단 작성 화면도 05 메뉴에 포함 -->
+                
+
+                <li class="chapter"
+                    data-path="https://docs.whs4-gapzer0.kro.kr/ai-skill-ui/">
+
+                    
+                    <a class="gz-ai-skill-link" href="https://docs.whs4-gapzer0.kro.kr/ai-skill-ui/" target="_blank" rel="noopener noreferrer"
+                       aria-label="GapZer0 AI Skill (새 탭에서 열기)">
+                        GapZer0 AI Skill <span class="gz-external-icon" aria-hidden="true">↗</span>
+                    </a>
+                    
+
+                </li>
+
+            
+
+            
+
+        </ul>
+
+    </nav>
+
+</div>
+<div class="book-body">
+                <div class="book-header" role="navigation">
+                    <!-- Title -->
+                    <h1>
+                        <i class="fa fa-circle-o-notch fa-spin"></i>
+                        
+                            <a href="." >Information Protection - Common Controls</a>
+                        
+                    </h1>
+                </div>
+
+                <div class="body-inner"><div class="page-wrapper" tabindex="-1" role="main">
+    
+
+    <div class="page-inner">
+        <div id="book-search-results">
+            <div class="search-noresults">
+                <section class="normal markdown-section">
+                    
+                        <h1 id="/controls/information-protection/common">Information Protection - Common Controls</h1>
+                    
+
+                    <h2 id="inf-c-01">INF-C-01</h2>
+
+<h3 id="control-name">Control Name</h3>
+
+<p>저장 데이터의 기밀성·무결성·가용성 보장</p>
+
+<h3 id="security-domain">Security Domain</h3>
+
+<p>Information Protection</p>
+
+<h3 id="control-class">Control Class</h3>
+
+<p>Common</p>
+
+<h3 id="control-objective">Control Objective</h3>
+
+<p>저장된 개인정보·중요정보와 업무데이터가 무단으로 열람·변경·삭제되거나 사용할 수 없게 되는 것을 방지하여 기밀성·무결성·가용성을 유지합니다.</p>
+
+<h3 id="control-statement">Control Statement</h3>
+
+<p>저장 데이터 보호를 암호화에만 의존하면 권한 오남용, 무단 변경, 매체 분실과 장애에 충분히 대응하기 어렵습니다. 조직은 데이터 중요도와 저장 위치를 파악하고 접근통제·암호화·무결성 확인·백업·매체보호를 함께 적용해야 합니다.</p>
+
+<h3 id="적용-조건">적용 조건</h3>
+
+<h4 id="적용-시점">적용 시점</h4>
+
+<p>데이터를 생성·수집·저장·이전하거나 저장소·권한·암호화 방식이 변경될 때 적용합니다. 정기 권한검토, 무결성 확인, 백업·복구와 저장매체 반출·폐기 시에도 적용합니다.</p>
+
+<h4 id="적용-대상">적용 대상</h4>
+
+<p>데이터베이스, 파일서버, 업무용 단말·서버, 클라우드 저장소, 백업매체, 보조저장매체와 로그 등 저장된 개인정보·중요정보·업무데이터에 적용합니다.</p>
+
+<h4 id="관련-법령">관련 법령</h4>
+
+<ul>
+  <li><a href="https://www.law.go.kr/법령/개인정보보호법/제29조">「개인정보 보호법」 제29조</a> — 개인정보 유출 등을 방지하기 위한 기술적·관리적·물리적 안전조치 의무를 규정합니다.</li>
+  <li><a href="https://www.law.go.kr/행정규칙/개인정보의안전성확보조치기준/제7조">「개인정보의 안전성 확보조치 기준」 제7조</a> — 저장·전송되는 개인정보에 대한 암호화 조치를 규정합니다.</li>
+  <li><a href="https://www.law.go.kr/행정규칙/개인정보의안전성확보조치기준/제11조">「개인정보의 안전성 확보조치 기준」 제11조</a> — 적용 대상 개인정보처리자의 재해·재난 대응절차와 백업·복구 계획 수립 등을 규정합니다.</li>
+</ul>
+
+<h3 id="control-owner">Control Owner</h3>
+
+<p>데이터 보호책임자 / 시스템 운영책임자</p>
+
+<h3 id="stakeholders">Stakeholders</h3>
+
+<p>데이터·업무 소유자, 정보보호 담당자, 개인정보보호 담당자, DB·클라우드 운영 담당자, 백업복구 담당자, 개발 담당자, 내부감사 담당자</p>
+
+<h3 id="매핑된-isms-p-항목">매핑된 ISMS-P 항목</h3>
+
+<ul>
+  <li>2.7.1 암호정책 적용</li>
+  <li>2.7.2 암호키 관리</li>
+  <li>2.4.7 업무환경 보안</li>
+  <li>2.10.7 보조저장매체 관리</li>
+</ul>
+
+<h3 id="매핑된-csf-항목">매핑된 CSF 항목</h3>
+
+<ul>
+  <li>PR.DS-01 — The confidentiality, integrity, and availability of data-at-rest are protected.</li>
+</ul>
+
+<p>저장된 데이터가 노출·변조·손실되지 않도록 기밀성·무결성·가용성을 보호하는 Outcome입니다.</p>
+
+<h3 id="implementation-guide">Implementation Guide</h3>
+
+<h4 id="1-보호-대상과-저장-위치를-파악하기">1. 보호 대상과 저장 위치를 파악하기</h4>
+
+<p>데이터 유형, 민감도, 소유자, 저장소·복제본·백업, 보유기간과 처리 목적을 목록화하고 보호 수준을 정합니다.</p>
+
+<h4 id="2-기밀성을-보호하기">2. 기밀성을 보호하기</h4>
+
+<p>업무상 필요한 최소 권한, 강한 인증, 저장 암호화, 키 분리관리와 출력·다운로드 제한을 적용합니다.</p>
+
+<h4 id="3-무결성과-가용성을-보호하기">3. 무결성과 가용성을 보호하기</h4>
+
+<p>변경권한과 승인절차를 제한하고 해시·서명·감사기록 등으로 무단 변경을 확인하며 백업·이중화·복구방안을 운영합니다.</p>
+
+<h4 id="4-보호상태를-점검하고-개선하기">4. 보호상태를 점검하고 개선하기</h4>
+
+<p>권한, 암호화, 키, 저장매체, 무결성 경보와 백업상태를 정기 점검하고 기준 미충족 사항을 조치합니다.</p>
+
+<h3 id="evidence">Evidence</h3>
+
+<ul>
+  <li><strong>데이터 분류·저장 위치·소유자 목록:</strong> 보호 대상 데이터의 유형·민감도, 저장 위치와 소유자를 확인합니다.</li>
+  <li><strong>접근권한·암호화·암호키 관리 설정:</strong> 저장 데이터의 접근 제한, 암호화와 암호키 분리관리의 적용 상태를 확인합니다.</li>
+  <li><strong>무결성 점검·변경·감사기록:</strong> 데이터 무결성 점검 결과와 변경 승인·감사기록을 통해 무단 변경 여부를 확인합니다.</li>
+  <li><strong>백업·복구·저장매체 보호 및 점검기록:</strong> 백업·복구 및 저장매체 보호조치의 운영 상태와 점검 결과를 확인합니다.</li>
+</ul>
+</section>
+            </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div></div>
+    </div>
+</div>
+
+<!-- introduce mathjax support -->
+<!-- GitBook re-runs inline includes during AJAX navigation. Load MathJax once. -->
+<script>
+(function () {
+  if (!window.gapzer0MathJaxReady) {
+    window.MathJax = {
+      tex: { inlineMath: [ ['$', '$'], ['\\(', '\\)'] ] },
+      svg: { fontCache: 'global' }
+    };
+    window.gapzer0MathJaxReady = new Promise(function (resolve, reject) {
+      var script = document.createElement('script');
+      script.id = 'MathJax-script';
+      script.async = true;
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js';
+      script.onload = resolve;
+      script.onerror = reject;
+      document.head.appendChild(script);
+    });
+  }
+  window.gapzer0MathJaxReady
+    .then(function () { return window.MathJax.startup.promise; })
+    .then(function () {
+      window.MathJax.typesetClear();
+      return window.MathJax.typesetPromise();
+    })
+    .catch(function (error) { console.warn('MathJax rendering unavailable', error); });
+}());
+</script>
+
+
+<!-- introduce per-page mermaid support -->
+
+
+<!-- introduce mathjax support -->
+<script>
+    function fixes_chrome_anchors() {
+        let chrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+        if (window.location.hash && chrome) {
+            setTimeout(function () {
+                var hash = window.location.hash;
+                window.location.hash = "";
+                window.location.hash = hash;
+            }, 300);
+        }
+    }
+
+    if (document.readyState === "loading") {
+        // Loading hasn't finished yet
+        document.addEventListener("DOMContentLoaded", fixes_chrome_anchors);
+    } else {
+        // `DOMContentLoaded` has already fired
+        fixes_chrome_anchors();
+    }
+</script>
+
+
+                        <a href="/controls/identity-access-management/local/" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Identity and Access Management - Local Controls">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+                    
+
+                    
+                        <a href="/controls/information-protection/enhancement/" class="navigation navigation-next navigation-unique" aria-label="Next page: Information Protection - Enhancement Controls">
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    
+                </div>
+            </div>
+
+            <script>
+            var gitbook = gitbook || [];
+            gitbook.push(function() {
+                gitbook.page.hasChanged({
+    "page": {
+        "title": "Introduction",
+        "level": "1.1",
+        "depth": 1,
+        
+        "next": {
+            "title": "Information Protection - Enhancement Controls",
+            "level": "1.2",
+            "depth": 1,
+            "path": "_pages/control-guide/06-information-protection/enhancement.md",
+            "ref": "_pages/control-guide/06-information-protection/enhancement.md",
+            "articles": []
+        },
+        
+        "dir": "ltr"
+    },    "config": {
+        "plugins": ["fontsettings", "highlight", "livereload", "lunr", "search", "sharing", "theme-default", "livereload"],
+        "styles": {
+            "ebook": "styles/ebook.css",
+            "epub": "styles/epub.css",
+            "mobi": "styles/mobi.css",
+            "pdf": "styles/pdf.css",
+            "print": "styles/print.css",
+            "website": "styles/website.css"
+        },
+        "pluginsConfig": {
+            "expandable-chapter-small2": {
+                "articlesExpand": true,
+            },
+            "fontsettings": {
+                "family": "sans",
+                "size": 2,
+                "theme": "white"
+            },
+            "highlight": {},
+            "livereload": {},
+            "lunr": {
+                "ignoreSpecialCharacters": false,
+                "maxIndexSize": 1000000
+            },
+            "search": {},            "sharing": {
+                "facebook": true,
+
+                "google": false,
+
+                "github": true,
+              
+                "github_link": "https://github.com",
+              
+
+                "telegram": false,
+                "telegram_link": "https://t.me",
+
+                "instapaper": false,
+
+                "twitter": true,
+              
+
+                "vk": false,
+
+                "weibo": false,
+
+                "all": ["facebook", "google", "twitter", "weibo", "instapaper", "github", "telegram"]
+            },
+"theme-default": {
+                "showLevel": false,
+                "styles": {
+                    "ebook": "styles/ebook.css",
+                    "epub": "styles/epub.css",
+                    "mobi": "styles/mobi.css",
+                    "pdf": "styles/pdf.css",
+                    "print": "styles/print.css",
+                    "website": "styles/website.css"
+                }
+            },
+        },
+        "theme": "default",
+        "author": "Tao He",
+        "pdf": {
+            "pageNumbers": true,
+            "fontSize": 12,
+            "fontFamily": "Arial",
+            "paperSize": "a4",
+            "chapterMark": "pagebreak",
+            "pageBreaksBefore": "/",
+            "margin": {
+                "right": 62,
+                "left": 62,
+                "top": 56,
+                "bottom": 56
+            }
+        },
+        "structure": {
+            "langs": "LANGS.md",
+            "readme": "README.md",
+        },
+        "variables": {},
+        "title": "GapZer0 Guideline",
+        "language": "en",
+        "gitbook": "*"
+    },
+    "file": {
+        "path": "_pages/control-guide/06-information-protection/common.md",
+        "mtime": "2026-10-08 16:04:06 +0000",
+        "type": "markdown"
+    },
+    "gitbook": {
+        "version": "",
+        "time": "2026-10-08 16:04:06 +0000"
+    },
+    "basePath": "",
+    "book": {
+        "language": ""
+    }
+});
+            });
+            </script>
+        </div><script src="/assets/vendor/jquery-3.7.1.min.js"></script>
+<script src="/assets/gitbook/gitbook.js?v=security1"></script>
+<script src="/assets/gitbook/theme.js?v=security1"></script>
+
+<script src="/assets/gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-expandable-chapters-small2/expandable-chapters-small.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-fontsettings/fontsettings.js?v=night-icon2"></script>
+<script src="/assets/gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-search-pro/search.js?v=security1"></script>
+<script src="/assets/gitbook/gitbook-plugin-sharing/buttons.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-splitter/splitter.js"></script>
+
+<script src="/assets/gitbook/custom.js"></script>
+<script src="/assets/gitbook/custom-local.js?v=domain-codes1"></script>
+
+</body>
+</html>

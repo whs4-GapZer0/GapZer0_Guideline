@@ -1,0 +1,223 @@
+{
+  "changedSentences": 22,
+  "changedShortLabels": 4,
+  "reviewedSpans": 26,
+  "meaningChanges": 0,
+  "meaningReview": "Manual sentence-by-sentence scope, negation, certainty and fact review; not a formal semantic proof",
+  "numericAndControlIdAnchorsPreserved": true,
+  "protectedRepositoryFiles": 223,
+  "protectedFileHashesUnchanged": true,
+  "renderLogicUnchangedAfterMaskingReviewedText": true,
+  "externalCodeExecuted": false,
+  "externalReferenceRevision": "2f3d943d08056b612a92e12bfb72ea94dd2acd18",
+  "edits": [
+    {
+      "id": "COPY01",
+      "file": "ai-skill-ui/index.html",
+      "before": "GapZer0 AI Skill은 조직 상황에서 관련 Control을 찾고 실제 원문을 확인한 뒤 실무 적용을 지원합니다.",
+      "after": "GapZer0 AI Skill은 조직 상황에 맞는 Control을 찾고, 실제 원문을 확인해 실무에 적용하도록 돕습니다.",
+      "reason": "추상적인 지원 표현을 구체적인 동사로 수정",
+      "meaningChanged": false
+    },
+    {
+      "id": "COPY02",
+      "file": "ai-skill-ui/index.html",
+      "before": "명시된 최신 원격 main Guideline 커밋과 동기화한 AI Skill source snapshot 기준입니다.",
+      "after": "AI Skill 자료는 명시된 최신 원격 main Guideline 커밋과 동기화한 시점의 사본입니다.",
+      "reason": "혼합된 영어 설명을 한국어로 정리",
+      "meaningChanged": false
+    },
+    {
+      "id": "COPY03",
+      "file": "ai-skill-ui/index.html",
+      "before": "이 탐색은 ID·이름·키워드의 문자열 필터이며 Skill의 검색 랭킹 평가와는 별도입니다.",
+      "after": "이 탐색은 ID·이름·키워드로 문자열을 걸러내는 기능이며, Skill의 검색 랭킹 평가와는 별도입니다.",
+      "reason": "기능 설명의 번역투 정리",
+      "meaningChanged": false
+    },
+    {
+      "id": "COPY04",
+      "file": "ai-skill-ui/index.html",
+      "before": "관련 후보를 찾는 것에서 끝나지 않고 실제 Control 원문과 조직 상황을 대조합니다.",
+      "after": "관련 후보를 찾은 뒤 실제 Control 원문과 조직 상황을 대조합니다.",
+      "reason": "불필요한 대비 표현 제거",
+      "meaningChanged": false
+    },
+    {
+      "id": "COPY05",
+      "file": "ai-skill-ui/index.html",
+      "before": "업무 대상·행위·위험에서 후보를 찾습니다.",
+      "after": "업무 대상·행위·위험을 기준으로 후보를 찾습니다.",
+      "reason": "조사 수정",
+      "meaningChanged": false
+    },
+    {
+      "id": "COPY06",
+      "file": "ai-skill-ui/index.html",
+      "before": "미확정 정보는 ‘확인 필요’, 조직에서 정할 값은 ‘조직 결정 필요’로 구분합니다.",
+      "after": "아직 확인하지 못한 정보는 ‘확인 필요’, 조직에서 정할 값은 ‘조직 결정 필요’로 구분합니다.",
+      "reason": "추상어를 풀어 설명",
+      "meaningChanged": false
+    },
+    {
+      "id": "COPY07",
+      "file": "ai-skill-ui/index.html",
+      "before": "이는 실제 Skill 규칙의 요약이며 모든 향후 응답의 오류 방지를 보장하지 않습니다.",
+      "after": "실제 Skill 규칙을 요약한 내용이며, 앞으로 나올 모든 응답에 오류가 없다고 보장하지는 않습니다.",
+      "reason": "명사형 표현과 부자연스러운 면책 문구 정리",
+      "meaningChanged": false
+    },
+    {
+      "id": "COPY08",
+      "file": "ai-skill-ui/index.html",
+      "before": "검증된 대표 Scenario를 체험하는 Demo Interface · 실시간 LLM 없음",
+      "after": "검증된 대표 시나리오를 체험하는 Demo 화면 · 실시간 LLM 없음",
+      "reason": "일반 안내의 불필요한 영어 정리",
+      "meaningChanged": false
+    },
+    {
+      "id": "COPY09",
+      "file": "ai-skill-ui/index.html",
+      "before": "Control을 찾고 적용하는 일을 돕는 단계이며, 실제 이행과 증적 평가는 별도 과정입니다.",
+      "after": "AI Skill은 Control을 찾고 적용하는 일을 돕습니다. 실제 이행과 증적 평가는 별도로 진행합니다.",
+      "reason": "주어를 밝히고 긴 문장 분리",
+      "meaningChanged": false
+    },
+    {
+      "id": "COPY10",
+      "file": "ai-skill-ui/index.html",
+      "before": "Evidence를 기반으로 평가·관리",
+      "after": "Evidence로 평가·관리",
+      "reason": "불필요한 형식 표현 정리",
+      "meaningChanged": false
+    },
+    {
+      "id": "COPY11",
+      "file": "ai-skill-ui/index.html",
+      "before": "이 연결은 프로젝트 역할 설명입니다.",
+      "after": "이 연결은 프로젝트에서 각 요소가 맡는 역할을 설명합니다.",
+      "reason": "명사 연결을 동사 문장으로 수정",
+      "meaningChanged": false
+    },
+    {
+      "id": "COPY12",
+      "file": "ai-skill-ui/index.html",
+      "before": "직접 사용하기는 검증 완료된 대표 Scenario 3개만 지원합니다.",
+      "after": "직접 사용하기에서는 검증 완료된 대표 시나리오 3개만 사용할 수 있습니다.",
+      "reason": "기능 제한 설명을 자연스럽게 수정",
+      "meaningChanged": false
+    },
+    {
+      "id": "COPY13",
+      "file": "ai-skill-ui/index.html",
+      "before": "이 변경에서 최종 디자인 리뉴얼·운영 배포·workflow 변경은 하지 않습니다.",
+      "after": "이번 변경에는 최종 디자인 개편·운영 배포·workflow 변경이 포함되지 않습니다.",
+      "reason": "어색한 조사와 불필요한 외래어 수정",
+      "meaningChanged": false
+    },
+    {
+      "id": "COPY14",
+      "file": "ai-skill-ui/index.html",
+      "before": "이 화면은 원문과 검증 기록을 바탕으로 재구성한 Demo입니다.",
+      "after": "이 화면은 원문과 검증 기록으로 구성한 Demo입니다.",
+      "reason": "불필요한 수식 표현 정리",
+      "meaningChanged": false
+    },
+    {
+      "id": "COPY15",
+      "file": "ai-skill-ui/quantitative.js",
+      "before": "정량 평가 대상 범위에서 Top-5까지 후보를 확장하면 평가 대상 expected control이 모두 검색 범위에 포함됩니다.",
+      "after": "정량 평가 대상 범위에서는 Top-5까지 확인하면 기대 Control이 모두 검색 범위에 포함됩니다.",
+      "reason": "중복과 혼합 영어 설명 정리",
+      "meaningChanged": false
+    },
+    {
+      "id": "COPY16",
+      "file": "ai-skill-ui/quantitative.js",
+      "before": "위 수치는 해당 검증 Scenario에서 관찰된 결과이며 전체 질의에 대한 발생률을 의미하지 않습니다.",
+      "after": "위 수치는 해당 검증 시나리오에서 관찰한 결과이며, 전체 질의에 대한 발생률을 의미하지 않습니다.",
+      "reason": "불필요한 영어와 피동 표현 정리",
+      "meaningChanged": false
+    },
+    {
+      "id": "COPY17",
+      "file": "ai-skill-ui/quantitative.js",
+      "before": "0/1은 해당 부정 시나리오에서 관찰된 건수입니다.",
+      "after": "0/1은 해당 부정 시나리오에서 관찰한 건수입니다.",
+      "reason": "피동 표현 정리",
+      "meaningChanged": false
+    },
+    {
+      "id": "COPY18",
+      "file": "ai-skill-ui/quantitative.js",
+      "before": "보고서에 기록된 선정 테스트셋만 사용했습니다.",
+      "after": "보고서에 기록된 선정 테스트셋만 평가했습니다.",
+      "reason": "평가 대상을 명확히 설명",
+      "meaningChanged": false
+    },
+    {
+      "id": "COPY19",
+      "file": "ai-skill-ui/quantitative.js",
+      "before": "Control Dataset은 명시된 원격 main 커밋의 Guideline과 동기화한 snapshot입니다.",
+      "after": "Control Dataset은 명시된 원격 main 커밋의 Guideline과 동기화한 시점의 사본입니다.",
+      "reason": "일반 설명의 혼합 영어 정리",
+      "meaningChanged": false
+    },
+    {
+      "id": "COPY20",
+      "file": "ai-skill-ui/quantitative.js",
+      "before": "상시 자동 동기화나 이후 변경까지 보장하지 않습니다.",
+      "after": "계속 자동으로 동기화하거나 이후 변경을 반영한다고 보장하지 않습니다.",
+      "reason": "명사형 안내를 동사형으로 수정",
+      "meaningChanged": false
+    },
+    {
+      "id": "COPY21",
+      "file": "ai-skill-ui/quantitative.js",
+      "before": "정량 평가는 선정된 Test Set 기준입니다.",
+      "after": "정량 평가는 선정된 테스트셋을 기준으로 합니다.",
+      "reason": "불필요한 영어와 조사 정리",
+      "meaningChanged": false
+    },
+    {
+      "id": "COPY22",
+      "file": "ai-skill-ui/quantitative.js",
+      "before": "Claude 검증은 대표 3개 Scenario 기준입니다.",
+      "after": "Claude 검증은 대표 시나리오 3개를 기준으로 합니다.",
+      "reason": "번역투 정리",
+      "meaningChanged": false
+    },
+    {
+      "id": "COPY23",
+      "file": "ai-skill-ui/quantitative.js",
+      "before": "분포 백분율의 분모는 전체 snapshot Control 수입니다.",
+      "after": "분포 백분율의 분모는 동기화 시점의 사본에 포함된 전체 Control 수입니다.",
+      "reason": "분모 설명을 자연스러운 한국어로 수정",
+      "meaningChanged": false
+    },
+    {
+      "id": "COPY24",
+      "file": "ai-skill-ui/showcase.js",
+      "before": "변경은 복사본에만 반영했습니다.",
+      "after": "변경사항은 복사본에만 반영했습니다.",
+      "reason": "자연스러운 목적어로 수정",
+      "meaningChanged": false
+    },
+    {
+      "id": "COPY25",
+      "file": "ai-skill-ui/quantitative.js",
+      "before": "Executive Dashboard",
+      "after": "주요 검증 결과",
+      "reason": "전문 용어는 유지하고 일반 제목의 불필요한 영어를 정리",
+      "meaningChanged": false
+    },
+    {
+      "id": "COPY26",
+      "file": "ai-skill-ui/quantitative.js",
+      "before": "Control Dataset — 현재 snapshot",
+      "after": "Control Dataset — 동기화 시점의 사본",
+      "reason": "전문 용어는 유지하고 일반 제목의 불필요한 영어를 정리",
+      "meaningChanged": false
+    }
+  ]
+}
