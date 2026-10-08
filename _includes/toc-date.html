@@ -75,9 +75,9 @@
                     data-path="{{ item.url | relative_url }}">
 
                     {% if item.external %}
-                    <a href="{{ item.url | escape }}" target="_blank" rel="noopener noreferrer"
+                    <a class="gz-ai-skill-link" href="{{ item.url | escape }}" target="_blank" rel="noopener noreferrer"
                        aria-label="{{ item.title | escape }} (새 탭에서 열기)">
-                        {{ item.title | escape }} <span aria-hidden="true">↗</span>
+                        {{ item.title | escape }} <span class="gz-external-icon" aria-hidden="true">↗</span>
                     </a>
                     {% else %}
                     <a href="{{ item.url | relative_url }}"
