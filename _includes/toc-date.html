@@ -51,7 +51,7 @@
 
             <li class="divider"></li>
 
-            <!-- navigation.yml에 작성된 01~05만 출력 -->
+            <!-- 가이드라인 목차와 AI Skill 바로가기 -->
             {% for item in site.data.navigation %}
 
                 {% assign is_active = false %}
@@ -74,10 +74,17 @@
                 <li class="chapter{% if is_active %} active{% endif %}"
                     data-path="{{ item.url | relative_url }}">
 
+                    {% if item.external %}
+                    <a href="{{ item.url | escape }}" target="_blank" rel="noopener noreferrer"
+                       aria-label="{{ item.title | escape }} (새 탭에서 열기)">
+                        {{ item.title | escape }} <span aria-hidden="true">↗</span>
+                    </a>
+                    {% else %}
                     <a href="{{ item.url | relative_url }}"
                        onclick="pageScrollToTop(this)">
                         {{ item.title | escape }}
                     </a>
+                    {% endif %}
 
                 </li>
 

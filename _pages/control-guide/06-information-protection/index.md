@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Information Protection"
+title: "Information Protection(INF)"
 permalink: /controls/information-protection/
 ---
 

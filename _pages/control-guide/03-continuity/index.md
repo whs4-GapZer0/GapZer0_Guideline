@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Continuity"
+title: "Continuity(CON)"
 permalink: /controls/continuity/
 ---
 

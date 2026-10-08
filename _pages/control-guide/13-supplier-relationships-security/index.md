@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Supplier Relationships Security"
+title: "Supplier Relationships Security(SUP)"
 permalink: /controls/supplier-relationships-security/
 ---
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Governance"
+title: "Governance(GOV)"
 permalink: /controls/governance/
 ---
 

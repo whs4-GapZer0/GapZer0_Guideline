@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Information Security Assurance"
+title: "Information Security Assurance(ISA)"
 permalink: /controls/information-security-assurance/
 ---
 

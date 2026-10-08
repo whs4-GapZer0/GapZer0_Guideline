@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Human Resource Security"
+title: "Human Resource Security(HRS)"
 permalink: /controls/human-resource-security/
 ---
 

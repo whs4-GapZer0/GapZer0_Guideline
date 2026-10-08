@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Asset Management"
+title: "Asset Management(AST)"
 permalink: /controls/asset-management/
 ---
 
