@@ -1,7 +1,3 @@
-Supplier Relationships Security의 Local Control은 CSF에 직접 매핑되지 않은 국내 개인정보보호 요구사항을 반영합니다.
-
----
-
 ## SUP-L-01
 
 ### Control Name
@@ -44,7 +40,7 @@ Local
 
 ### Stakeholders
 
-경영기획, 법무, M&A 담당, 고객지원, 정보보호
+경영기획 담당자, 법무 담당자, M&A 담당자, 고객지원 담당자, 정보보호 담당자
 
 ### 매핑된 ISMS-P 항목
 

@@ -3,8 +3,8 @@ import {initializeQuantitative} from './quantitative.js';
 const $=s=>document.querySelector(s);
 const node=(tag,text,cls)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n;};
 let snapshot;
-function repositoryHref(path){const kind=/\.[a-z]+(?:#.*)?$/i.test(path)?'blob':'tree';return 'https://github.com/whs4-GapZer0/GapZer0_Guideline/'+kind+'/'+snapshot+'/'+path;}
-function repositoryLink(path,label){const a=node('a',label||path);a.href=repositoryHref(path);a.target='_blank';a.rel='noopener';return a;}
+function repositoryHref(path){if(path.startsWith('ai-skill-ui/'))return '../'+path;const kind=/\.[a-z]+(?:#.*)?$/i.test(path)?'blob':'tree';return 'https://github.com/whs4-GapZer0/GapZer0_Guideline/'+kind+'/'+snapshot+'/'+path;}
+function repositoryLink(path,label,revision){const a=node('a',label||path);a.href=revision?'https://github.com/whs4-GapZer0/GapZer0_Guideline/blob/'+revision+'/'+path:repositoryHref(path);a.target='_blank';a.rel='noopener';return a;}
 function connectRepositoryLinks(){document.querySelectorAll('[data-repo-path]').forEach(a=>{a.href=repositoryHref(a.dataset.repoPath);a.target='_blank';a.rel='noopener';});}
 $('#overview-toggle').addEventListener('click',()=>{
   const open=$('#overview-toggle').getAttribute('aria-expanded')!=='true';
@@ -42,7 +42,7 @@ function selectControl(c){
     if(key==='Evidence'){s.append(node('p','Evidence는 통제를 실제 수행했음을 확인할 수 있는 자료입니다. 필요한 자료 예시이며 확보된 증적이 아닙니다.','section-note'));const chips=node('div',undefined,'evidence-chips');for(const t of evidenceTitles(c.fields[key]))chips.append(node('span',t));s.append(chips);}
     s.append(renderMarkdown(c.fields[key]));target.append(s);
   }
-  const source=node('section',undefined,'explorer-source');source.append(node('h4','이 답변의 근거 — Source'),node('p',c.source),node('p',c.repositorySource),repositoryLink(c.repositorySource,'저장소 Control 원문 확인'));target.append(source);
+  const source=node('section',undefined,'explorer-source');source.append(node('h4','이 답변의 근거 — Source'),node('p',c.source),node('p',c.repositorySource),repositoryLink(c.guidelineSource||c.repositorySource,'저장소 Control 원문 확인',c.guidelineRevision));if(c.assessmentGuide)source.append(node('p','Assessment 연결: '+c.assessmentGuide+' · 공식 연결 정보만 보존, 평가 결과 생성 없음'));target.append(source);
   const details=node('details',undefined,'explorer-original');details.append(node('summary','Control 원문 보기'),renderMarkdown(c.original));target.append(details);
   target.hidden=false;target.scrollIntoView({block:'start'});
 }
@@ -67,6 +67,7 @@ async function load(){
   document.addEventListener('click',event=>{const a=event.target.closest('[data-explore-control]');if(!a)return;event.preventDefault();openControl(a.dataset.exploreControl);});
   function openControl(id){const c=catalog.controls.find(c=>c.id===id);if(!c)return;$('#explorer-search').value=id;$('#explorer-domain').value='';$('#explorer-class').value='';applyFilters();selectControl(c);}
   applyFilters();
+  const syncResponse=await fetch('./data/guideline-sync.json');if(!syncResponse.ok)throw new Error('Guideline Sync 근거 로딩 실패');const sync=await syncResponse.json();const syncPanel=$('#guideline-sync-status');syncPanel.append(node('h3','Guideline Source Sync'),node('p',`최신 원격 main 조회 시점의 고정 원문과 비교 · ${sync.guidelineRevision}`),node('p',`Controls compared: ${sync.compared} · Changed: ${sync.changed} · Unresolved: ${sync.unresolved}`),node('p','Guideline → Skill Control Source → Control Index → Codex / Claude → Showcase Dataset'),node('p','변경사항은 복사본에만 반영했습니다. 기존 작업 브랜치 원문은 유지하며 실제 외부 Runtime은 재실행하지 않았습니다. 패키지 GitHub 링크는 기존 작업 기준 커밋이고, 새 동기화 복사본은 아직 commit/push하지 않았습니다. 최신 Control 링크는 공식 main 원문을 사용합니다.'),repositoryLink('ai-skill-ui/tests/GUIDELINE_SKILL_SYNC_REPORT.md','Sync Report'));
   await initializeQuantitative(catalog,{filter(field,value){$('#explorer-search').value='';$('#explorer-domain').value=field==='domain'?value:'';$('#explorer-class').value=field==='classification'?value:'';applyFilters();$('#control-explorer').scrollIntoView();}});
   $('#showcase-status').textContent='Showcase 자료 준비 완료 · 현재 저장소 검증 보고서와 AI Skill snapshot 기준';
 }

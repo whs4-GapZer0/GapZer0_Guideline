@@ -1,0 +1,99 @@
+{
+  "total": 18,
+  "passCount": 18,
+  "failCount": 0,
+  "scope": "Static exact-source/package/traceability checks; not actual Codex/Claude Runtime",
+  "guidelineRevision": "25b323acee87af4cb9a4d4dbca9708834069127e",
+  "results": [
+    {
+      "id": "SYNC01",
+      "name": "Pinned canonical Git file hashes",
+      "status": "PASS"
+    },
+    {
+      "id": "SYNC02",
+      "name": "All 28 source mirror files byte-preserved after front matter removal",
+      "status": "PASS"
+    },
+    {
+      "id": "SYNC03",
+      "name": "Source Index Dataset unique ID sets equal",
+      "status": "PASS"
+    },
+    {
+      "id": "SYNC04",
+      "name": "All Index ID Name Domain Class identities",
+      "status": "PASS"
+    },
+    {
+      "id": "SYNC05",
+      "name": "Index snapshot hash and pinned revision",
+      "status": "PASS"
+    },
+    {
+      "id": "SYNC06",
+      "name": "All source paths and Control anchors resolve",
+      "status": "PASS"
+    },
+    {
+      "id": "SYNC07",
+      "name": "Codex full reference parity",
+      "status": "PASS"
+    },
+    {
+      "id": "SYNC08",
+      "name": "Claude full reference parity",
+      "status": "PASS"
+    },
+    {
+      "id": "SYNC09",
+      "name": "Claude manifest actual source and portable hashes",
+      "status": "PASS"
+    },
+    {
+      "id": "SYNC10",
+      "name": "All 121 Controls every field exact to canonical original",
+      "status": "PASS"
+    },
+    {
+      "id": "SYNC11",
+      "name": "Dataset traceability and source hashes",
+      "status": "PASS"
+    },
+    {
+      "id": "SYNC12",
+      "name": "Official Assessment IDs names class case-only domain labels and anchors",
+      "status": "PASS"
+    },
+    {
+      "id": "SYNC13",
+      "name": "3 Demo scenarios / 14 records copied from exact latest Control fields",
+      "status": "PASS"
+    },
+    {
+      "id": "SYNC14",
+      "name": "Fake ID absent from source Index packages and Dataset",
+      "status": "PASS"
+    },
+    {
+      "id": "SYNC15",
+      "name": "Skill behavior rules output formats and Runtime adapter unchanged",
+      "status": "PASS"
+    },
+    {
+      "id": "SYNC16",
+      "name": "Mapping wording from canonical source only; existing ISMS-P numbers unchanged",
+      "status": "PASS"
+    },
+    {
+      "id": "SYNC17",
+      "name": "Canonical worktree and all outside allowed files protected; search algorithm untouched",
+      "status": "PASS"
+    },
+    {
+      "id": "SYNC18",
+      "name": "Counts domains classes actual and provenance-consistent",
+      "status": "PASS"
+    }
+  ]
+}

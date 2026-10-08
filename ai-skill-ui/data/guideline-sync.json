@@ -1,0 +1,496 @@
+{
+  "guidelineRevision": "25b323acee87af4cb9a4d4dbca9708834069127e",
+  "worktreeRevision": "f80d34e2de79486ed31cf67a507b8c1664a788cf",
+  "guidelineSource": "_pages/control-guide/",
+  "compared": 121,
+  "changed": 121,
+  "exactBefore": 0,
+  "unresolved": 0,
+  "domains": 15,
+  "report": "ai-skill-ui/tests/GUIDELINE_SKILL_SYNC_REPORT.md",
+  "structuralDiff": "ai-skill-ui/tests/GUIDELINE_SKILL_STRUCTURAL_DIFF.json",
+  "indexSha256": "9c054feff828f78d17e845388a27fd7afeeded99891009f870a3a7385ae3949c",
+  "searchScriptSha256": "85318d1ad932aa2489c542d1120927208a0978b74aa489d21c18665772525ae1",
+  "searchBefore": {
+    "command": "node skill/scripts/test-control-search.mjs",
+    "execution": "PASS: 퇴사자 접근권한 권한 회수\n  Top 5: IAM-C-03(64.1603), IAM-C-01(44.7709), PHY-C-02(36.8903), HRS-C-01(29.6031), GOV-C-10(6.3298)\nPASS: 개인정보 국외이전 해외 SaaS\n  Top 5: LCM-L-09(22.7087), INF-L-01(2.658), INF-L-03(2.658), LCM-L-01(2.658), LCM-L-03(2.658)\nPASS: 비인가 소프트웨어 설치 실행\n  Top 5: SCF-C-02(92.7309), PHY-C-01(18.9167), IEM-C-06(13.0777), AST-C-02(9.0255), PHY-L-01(8.1557)\nPASS: 취약점 위험 우선순위 조치\n  Top 5: TVM-C-04(48.8125), TVM-C-05(19.652), ISA-C-01(11.4092), TVM-C-01(11.3072), TVM-C-03(11.3072)\nPASS: 공급자 계약 보안 요구사항\n  Top 5: LCM-E-01(51.2034), SUP-C-05(41.0957), AST-C-03(25.1316), SUP-E-03(15.9395), SUP-C-08(14.4721)\nPASS: 공급자 관계 체결 전 실사\n  Top 5: SUP-C-06(93.1506), SUP-E-03(14.1298), SUP-C-08(13.3109), GOV-E-03(8.0241), SUP-E-02(6.7035)\nPASS: 공급자 관계 종료 보안조치\n  Top 5: SUP-C-08(83.3521), SUP-E-03(23.0413), SUP-C-06(12.4359), CON-E-03(8.5178), GOV-E-03(8.0241)\nPASS: 백업 복구시험 복원\n  Top 5: CON-E-02(35.5772), CON-C-01(33.5631), CON-C-02(33.4298), CON-C-07(25.1406), CON-E-03(21.7653)\nTop-3 case pass rate: 7/8 (87.5%)\nTop-5 case pass rate: 8/8 (100.0%)\nTop-3 expected-control hit rate: 10/11 (90.9%)\nTop-5 expected-control hit rate: 11/11 (100.0%)\nStopwords enabled: 37\n",
+    "exitCode": 0,
+    "metrics": {
+      "top3": {
+        "numerator": 7,
+        "denominator": 8
+      },
+      "top5": {
+        "numerator": 8,
+        "denominator": 8
+      },
+      "hit3": {
+        "numerator": 10,
+        "denominator": 11
+      },
+      "hit5": {
+        "numerator": 11,
+        "denominator": 11
+      }
+    },
+    "metricEvidence": {
+      "top3": "Top-3 case pass rate: 7/8 (87.5%)",
+      "top5": "Top-5 case pass rate: 8/8 (100.0%)",
+      "hit3": "Top-3 expected-control hit rate: 10/11 (90.9%)",
+      "hit5": "Top-5 expected-control hit rate: 11/11 (100.0%)"
+    },
+    "cases": [
+      {
+        "query": "퇴사자 접근권한 권한 회수",
+        "result": "PASS",
+        "top5": [
+          {
+            "id": "IAM-C-03",
+            "score": 64.1603
+          },
+          {
+            "id": "IAM-C-01",
+            "score": 44.7709
+          },
+          {
+            "id": "PHY-C-02",
+            "score": 36.8903
+          },
+          {
+            "id": "HRS-C-01",
+            "score": 29.6031
+          },
+          {
+            "id": "GOV-C-10",
+            "score": 6.3298
+          }
+        ]
+      },
+      {
+        "query": "개인정보 국외이전 해외 SaaS",
+        "result": "PASS",
+        "top5": [
+          {
+            "id": "LCM-L-09",
+            "score": 22.7087
+          },
+          {
+            "id": "INF-L-01",
+            "score": 2.658
+          },
+          {
+            "id": "INF-L-03",
+            "score": 2.658
+          },
+          {
+            "id": "LCM-L-01",
+            "score": 2.658
+          },
+          {
+            "id": "LCM-L-03",
+            "score": 2.658
+          }
+        ]
+      },
+      {
+        "query": "비인가 소프트웨어 설치 실행",
+        "result": "PASS",
+        "top5": [
+          {
+            "id": "SCF-C-02",
+            "score": 92.7309
+          },
+          {
+            "id": "PHY-C-01",
+            "score": 18.9167
+          },
+          {
+            "id": "IEM-C-06",
+            "score": 13.0777
+          },
+          {
+            "id": "AST-C-02",
+            "score": 9.0255
+          },
+          {
+            "id": "PHY-L-01",
+            "score": 8.1557
+          }
+        ]
+      },
+      {
+        "query": "취약점 위험 우선순위 조치",
+        "result": "PASS",
+        "top5": [
+          {
+            "id": "TVM-C-04",
+            "score": 48.8125
+          },
+          {
+            "id": "TVM-C-05",
+            "score": 19.652
+          },
+          {
+            "id": "ISA-C-01",
+            "score": 11.4092
+          },
+          {
+            "id": "TVM-C-01",
+            "score": 11.3072
+          },
+          {
+            "id": "TVM-C-03",
+            "score": 11.3072
+          }
+        ]
+      },
+      {
+        "query": "공급자 계약 보안 요구사항",
+        "result": "PASS",
+        "top5": [
+          {
+            "id": "LCM-E-01",
+            "score": 51.2034
+          },
+          {
+            "id": "SUP-C-05",
+            "score": 41.0957
+          },
+          {
+            "id": "AST-C-03",
+            "score": 25.1316
+          },
+          {
+            "id": "SUP-E-03",
+            "score": 15.9395
+          },
+          {
+            "id": "SUP-C-08",
+            "score": 14.4721
+          }
+        ]
+      },
+      {
+        "query": "공급자 관계 체결 전 실사",
+        "result": "PASS",
+        "top5": [
+          {
+            "id": "SUP-C-06",
+            "score": 93.1506
+          },
+          {
+            "id": "SUP-E-03",
+            "score": 14.1298
+          },
+          {
+            "id": "SUP-C-08",
+            "score": 13.3109
+          },
+          {
+            "id": "GOV-E-03",
+            "score": 8.0241
+          },
+          {
+            "id": "SUP-E-02",
+            "score": 6.7035
+          }
+        ]
+      },
+      {
+        "query": "공급자 관계 종료 보안조치",
+        "result": "PASS",
+        "top5": [
+          {
+            "id": "SUP-C-08",
+            "score": 83.3521
+          },
+          {
+            "id": "SUP-E-03",
+            "score": 23.0413
+          },
+          {
+            "id": "SUP-C-06",
+            "score": 12.4359
+          },
+          {
+            "id": "CON-E-03",
+            "score": 8.5178
+          },
+          {
+            "id": "GOV-E-03",
+            "score": 8.0241
+          }
+        ]
+      },
+      {
+        "query": "백업 복구시험 복원",
+        "result": "PASS",
+        "top5": [
+          {
+            "id": "CON-E-02",
+            "score": 35.5772
+          },
+          {
+            "id": "CON-C-01",
+            "score": 33.5631
+          },
+          {
+            "id": "CON-C-02",
+            "score": 33.4298
+          },
+          {
+            "id": "CON-C-07",
+            "score": 25.1406
+          },
+          {
+            "id": "CON-E-03",
+            "score": 21.7653
+          }
+        ]
+      }
+    ],
+    "executionContext": "Identical unchanged algorithm; temporary pre-sync index snapshot"
+  },
+  "searchAfter": {
+    "command": "node skill/scripts/test-control-search.mjs",
+    "execution": "PASS: 퇴사자 접근권한 권한 회수\n  Top 5: IAM-C-03(64.1603), IAM-C-01(44.7709), PHY-C-02(36.8903), HRS-C-01(29.6031), GOV-C-10(6.3298)\nPASS: 개인정보 국외이전 해외 SaaS\n  Top 5: LCM-L-09(22.7087), INF-L-01(2.658), INF-L-03(2.658), LCM-L-01(2.658), LCM-L-03(2.658)\nPASS: 비인가 소프트웨어 설치 실행\n  Top 5: SCF-C-02(92.7309), PHY-C-01(18.9167), IEM-C-06(13.0777), AST-C-02(9.0255), PHY-L-01(8.1557)\nPASS: 취약점 위험 우선순위 조치\n  Top 5: TVM-C-04(48.8125), TVM-C-05(19.652), ISA-C-01(11.4092), TVM-C-01(11.3072), TVM-C-03(11.3072)\nPASS: 공급자 계약 보안 요구사항\n  Top 5: LCM-E-01(51.2034), SUP-C-05(41.0957), AST-C-03(25.1316), SUP-E-03(15.9395), SUP-C-08(14.4721)\nPASS: 공급자 관계 체결 전 실사\n  Top 5: SUP-C-06(93.1506), SUP-E-03(14.1298), SUP-C-08(13.3109), GOV-E-03(8.0241), SUP-E-02(6.7035)\nPASS: 공급자 관계 종료 보안조치\n  Top 5: SUP-C-08(83.3521), SUP-E-03(23.0413), SUP-C-06(12.4359), CON-E-03(8.5178), GOV-E-03(8.0241)\nPASS: 백업 복구시험 복원\n  Top 5: CON-E-02(35.5772), CON-C-01(33.5631), CON-C-02(33.4298), CON-C-07(25.1406), CON-E-03(21.7653)\nTop-3 case pass rate: 7/8 (87.5%)\nTop-5 case pass rate: 8/8 (100.0%)\nTop-3 expected-control hit rate: 10/11 (90.9%)\nTop-5 expected-control hit rate: 11/11 (100.0%)\nStopwords enabled: 37\n",
+    "exitCode": 0,
+    "metrics": {
+      "top3": {
+        "numerator": 7,
+        "denominator": 8
+      },
+      "top5": {
+        "numerator": 8,
+        "denominator": 8
+      },
+      "hit3": {
+        "numerator": 10,
+        "denominator": 11
+      },
+      "hit5": {
+        "numerator": 11,
+        "denominator": 11
+      }
+    },
+    "metricEvidence": {
+      "top3": "Top-3 case pass rate: 7/8 (87.5%)",
+      "top5": "Top-5 case pass rate: 8/8 (100.0%)",
+      "hit3": "Top-3 expected-control hit rate: 10/11 (90.9%)",
+      "hit5": "Top-5 expected-control hit rate: 11/11 (100.0%)"
+    },
+    "cases": [
+      {
+        "query": "퇴사자 접근권한 권한 회수",
+        "result": "PASS",
+        "top5": [
+          {
+            "id": "IAM-C-03",
+            "score": 64.1603
+          },
+          {
+            "id": "IAM-C-01",
+            "score": 44.7709
+          },
+          {
+            "id": "PHY-C-02",
+            "score": 36.8903
+          },
+          {
+            "id": "HRS-C-01",
+            "score": 29.6031
+          },
+          {
+            "id": "GOV-C-10",
+            "score": 6.3298
+          }
+        ]
+      },
+      {
+        "query": "개인정보 국외이전 해외 SaaS",
+        "result": "PASS",
+        "top5": [
+          {
+            "id": "LCM-L-09",
+            "score": 22.7087
+          },
+          {
+            "id": "INF-L-01",
+            "score": 2.658
+          },
+          {
+            "id": "INF-L-03",
+            "score": 2.658
+          },
+          {
+            "id": "LCM-L-01",
+            "score": 2.658
+          },
+          {
+            "id": "LCM-L-03",
+            "score": 2.658
+          }
+        ]
+      },
+      {
+        "query": "비인가 소프트웨어 설치 실행",
+        "result": "PASS",
+        "top5": [
+          {
+            "id": "SCF-C-02",
+            "score": 92.7309
+          },
+          {
+            "id": "PHY-C-01",
+            "score": 18.9167
+          },
+          {
+            "id": "IEM-C-06",
+            "score": 13.0777
+          },
+          {
+            "id": "AST-C-02",
+            "score": 9.0255
+          },
+          {
+            "id": "PHY-L-01",
+            "score": 8.1557
+          }
+        ]
+      },
+      {
+        "query": "취약점 위험 우선순위 조치",
+        "result": "PASS",
+        "top5": [
+          {
+            "id": "TVM-C-04",
+            "score": 48.8125
+          },
+          {
+            "id": "TVM-C-05",
+            "score": 19.652
+          },
+          {
+            "id": "ISA-C-01",
+            "score": 11.4092
+          },
+          {
+            "id": "TVM-C-01",
+            "score": 11.3072
+          },
+          {
+            "id": "TVM-C-03",
+            "score": 11.3072
+          }
+        ]
+      },
+      {
+        "query": "공급자 계약 보안 요구사항",
+        "result": "PASS",
+        "top5": [
+          {
+            "id": "LCM-E-01",
+            "score": 51.2034
+          },
+          {
+            "id": "SUP-C-05",
+            "score": 41.0957
+          },
+          {
+            "id": "AST-C-03",
+            "score": 25.1316
+          },
+          {
+            "id": "SUP-E-03",
+            "score": 15.9395
+          },
+          {
+            "id": "SUP-C-08",
+            "score": 14.4721
+          }
+        ]
+      },
+      {
+        "query": "공급자 관계 체결 전 실사",
+        "result": "PASS",
+        "top5": [
+          {
+            "id": "SUP-C-06",
+            "score": 93.1506
+          },
+          {
+            "id": "SUP-E-03",
+            "score": 14.1298
+          },
+          {
+            "id": "SUP-C-08",
+            "score": 13.3109
+          },
+          {
+            "id": "GOV-E-03",
+            "score": 8.0241
+          },
+          {
+            "id": "SUP-E-02",
+            "score": 6.7035
+          }
+        ]
+      },
+      {
+        "query": "공급자 관계 종료 보안조치",
+        "result": "PASS",
+        "top5": [
+          {
+            "id": "SUP-C-08",
+            "score": 83.3521
+          },
+          {
+            "id": "SUP-E-03",
+            "score": 23.0413
+          },
+          {
+            "id": "SUP-C-06",
+            "score": 12.4359
+          },
+          {
+            "id": "CON-E-03",
+            "score": 8.5178
+          },
+          {
+            "id": "GOV-E-03",
+            "score": 8.0241
+          }
+        ]
+      },
+      {
+        "query": "백업 복구시험 복원",
+        "result": "PASS",
+        "top5": [
+          {
+            "id": "CON-E-02",
+            "score": 35.5772
+          },
+          {
+            "id": "CON-C-01",
+            "score": 33.5631
+          },
+          {
+            "id": "CON-C-02",
+            "score": 33.4298
+          },
+          {
+            "id": "CON-C-07",
+            "score": 25.1406
+          },
+          {
+            "id": "CON-E-03",
+            "score": 21.7653
+          }
+        ]
+      }
+    ],
+    "executionContext": "Current synchronized Skill Index"
+  },
+  "runtimeRegression": "Actual Codex/Claude Runtime not rerun; historical evidence only",
+  "sourceStatus": "Pinned origin/main compared; worktree canonical files kept unchanged"
+}

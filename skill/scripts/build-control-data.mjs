@@ -1,11 +1,13 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const skillRoot = path.resolve(scriptDir, '..');
 const repoRoot = path.resolve(skillRoot, '..');
-const sourceRoot = path.join(repoRoot, '_pages', 'control-guide');
+// A pinned Git revision is extracted read-only by sync-guideline.py.
+const sourceRoot = process.env.GAPZERO_GUIDELINE_ROOT || path.join(repoRoot, '_pages', 'control-guide');
 const referencesRoot = path.join(skillRoot, 'references');
 const targetControlsRoot = path.join(referencesRoot, 'controls');
 
@@ -14,6 +16,10 @@ const classFiles = new Map([
   ['enhancement.md', 'Enhancement'],
   ['local.md', 'Local'],
 ]);
+
+const provenanceFile = path.join(referencesRoot, 'guideline-provenance.json');
+const pinned = !process.env.GAPZERO_GUIDELINE_ROOT && fs.existsSync(provenanceFile) ? JSON.parse(fs.readFileSync(provenanceFile, 'utf8')) : null;
+const sourceRevision = process.env.GAPZERO_GUIDELINE_REVISION || pinned?.guidelineRevision;
 
 const keywordRules = [
   [/퇴사|퇴직|계약종료|고용 종료/, ['퇴사자', '퇴직자', '계약 종료', '계정 회수', '권한 회수', '자산 반납']],
@@ -177,21 +183,23 @@ function parseControls(markdown, relativeSource, className) {
   });
 }
 
-if (!fs.existsSync(sourceRoot)) throw new Error(`Control source directory not found: ${sourceRoot}`);
+if (!pinned && !fs.existsSync(sourceRoot)) throw new Error(`Control source directory not found: ${sourceRoot}`);
 fs.mkdirSync(targetControlsRoot, { recursive: true });
 const controls = [];
-const domainDirs = fs.readdirSync(sourceRoot, { withFileTypes: true })
-  .filter((entry) => entry.isDirectory())
-  .map((entry) => entry.name)
-  .sort();
+const domainDirs = pinned
+  ? [...new Set(pinned.files.map((file) => path.basename(path.dirname(file.source))))].sort()
+  : fs.readdirSync(sourceRoot, { withFileTypes: true }).filter((entry) => entry.isDirectory()).map((entry) => entry.name).sort();
 
 for (const domainDir of domainDirs) {
   const sourceDomain = path.join(sourceRoot, domainDir);
   for (const [fileName, className] of classFiles) {
     const sourceFile = path.join(sourceDomain, fileName);
-    if (!fs.existsSync(sourceFile)) continue;
+    const canonicalPath = `_pages/control-guide/${domainDir}/${fileName}`;
+    if (pinned ? !pinned.files.some((file) => file.source === canonicalPath) : !fs.existsSync(sourceFile)) continue;
 
-    const raw = fs.readFileSync(sourceFile, 'utf8');
+    const raw = pinned
+      ? execFileSync('git', ['show', `${sourceRevision}:${canonicalPath}`], { cwd: repoRoot, encoding: 'utf8' })
+      : fs.readFileSync(sourceFile, 'utf8');
     const cleaned = stripFrontMatter(raw).trimStart();
     const targetDir = path.join(targetControlsRoot, domainDir);
     fs.mkdirSync(targetDir, { recursive: true });
@@ -205,7 +213,7 @@ for (const domainDir of domainDirs) {
 controls.sort((a, b) => a.id.localeCompare(b.id, 'en'));
 const duplicateIds = controls.map((control) => control.id).filter((id, index, ids) => ids.indexOf(id) !== index);
 if (duplicateIds.length) throw new Error(`Duplicate Control IDs: ${[...new Set(duplicateIds)].join(', ')}`);
-if (controls.length !== 121) throw new Error(`Expected 121 controls, found ${controls.length}`);
+if (!controls.length) throw new Error('No source controls found; refusing to generate an empty index.');
 
 const domainSummary = new Map();
 for (const control of controls) {
@@ -221,6 +229,7 @@ const lines = [
   '이 인덱스는 사용자의 실무 표현을 관련 GapZer0 Control 후보와 연결하기 위한 검색 자료입니다. 인덱스의 요약만으로 최종 답변을 작성하지 말고, 반드시 `원문 위치`의 Control 본문과 적용 조건을 확인합니다.',
   '',
   '- **기준 원본:** `_pages/control-guide/`',
+  ...(sourceRevision ? [`- **기준 원문 커밋:** ${sourceRevision} (canonical main snapshot)`] : []),
   `- **Control 수:** ${controls.length}`,
   `- **Security Domain 수:** ${domainSummary.size}`,
   '- **Control Class:** Common, Enhancement, Local',

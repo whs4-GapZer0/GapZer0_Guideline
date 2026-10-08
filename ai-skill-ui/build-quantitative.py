@@ -19,10 +19,19 @@ for mid,title,p in [('ux','UX Tests','ai-skill-ui/tests/ux-test-results.json'),(
 order=['codex','core','regression','top3','top5','hit3','hit5','claude','agreement','ui','ux','readability','showcase']
 metrics=sorted(metrics,key=lambda m:order.index(m['id']))
 environments={'codex':'Codex','core':'Codex','regression':'Codex','top3':'Local Eval','top5':'Local Eval','hit3':'Local Eval','hit5':'Local Eval','claude':'Claude Web','agreement':'Codex / Claude'}
+sync_path=ROOT/'data/guideline-sync.json'
+if sync_path.exists():
+ sync=json.loads(sync_path.read_text())
+ for m in metrics:
+  if m['id'] in ['top3','top5','hit3','hit5']:
+   actual=sync['searchAfter']['metrics'][m['id']]
+   m.update(numerator=actual['numerator'],denominator=actual['denominator'],source='ai-skill-ui/data/guideline-sync.json',sourceSha256=sha('ai-skill-ui/data/guideline-sync.json'),reportEvidence=sync['searchAfter']['metricEvidence'][m['id']],scope='최신 pinned Guideline Index 검색 질의 8개 / 기대 Control 11개',limitations='동기화 이후 실제 재실행한 선정 검색 평가이며 일반 정확도가 아님.')
 for m in metrics:
  assert 0<=m['numerator']<=m['denominator'] and m['denominator']>0
  assert m['reportEvidence'] in read(m['source'])
  assert sha(m['source'])==m['sourceSha256']
+ if m['id'] in ['codex','core','regression','claude','agreement']:
+  m['limitations']+=' 이번 Guideline 동기화 후 실제 외부 Runtime은 재실행하지 않은 과거 검증 기록입니다.'
  m['environment']=environments.get(m['id'],'Local Chromium')
  m['measure']='대표 기능 충족 비교' if m['id']=='agreement' else ('기대 Control hit / 전체 expected' if m['id'].startswith('hit') else 'PASS / 평가 대상')
  m['complementMeaning']='불일치 기능' if m['id']=='agreement' else ('미포함 expected' if m['id'].startswith('hit') else 'FAIL')

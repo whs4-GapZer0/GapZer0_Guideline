@@ -1,0 +1,181 @@
+{
+  "guidelineRevision": "25b323acee87af4cb9a4d4dbca9708834069127e",
+  "worktreeRevision": "f80d34e2de79486ed31cf67a507b8c1664a788cf",
+  "canonicalBranch": "origin/main",
+  "sourceRoot": "_pages/control-guide/",
+  "controlCount": 121,
+  "domainCount": 15,
+  "assessmentSource": "assets/assessment/controls.json",
+  "assessmentSha256": "639d6160c15fb8af6964f06491d83c6c96f63f306d06bddb1219a9598afcf27f",
+  "files": [
+    {
+      "source": "_pages/control-guide/01-governance/common.md",
+      "sourceSha256": "aad38ee4458c349b534e8aa968e705f0d4229832981a3f934da8cd6768930ab0",
+      "mirror": "skill/references/controls/01-governance/common.md",
+      "mirrorSha256": "a89a1ec712393bf8da97fcac81b3dd10d843d78f5846cbfae0d5620804dada76"
+    },
+    {
+      "source": "_pages/control-guide/01-governance/enhancement.md",
+      "sourceSha256": "0f73a779657d071ba1d1b1ccc00328b6e0b3054676855338f8762d4ae94e8f09",
+      "mirror": "skill/references/controls/01-governance/enhancement.md",
+      "mirrorSha256": "2e4c218b8cc3cc715000344b36d9fc326c625de531618f8481e6eaf4717eac5b"
+    },
+    {
+      "source": "_pages/control-guide/02-asset-management/common.md",
+      "sourceSha256": "e3c6474aee2b1c7c5cb175163dba0c86f58af4fe0291b89e9375c4f21b0ea2b4",
+      "mirror": "skill/references/controls/02-asset-management/common.md",
+      "mirrorSha256": "2e94684f88057d3fcffb139c8b7b2ac1f66ac50bd3af4484c9152ce2e834e710"
+    },
+    {
+      "source": "_pages/control-guide/02-asset-management/enhancement.md",
+      "sourceSha256": "0d633827a5699afe7f702c3c1822f7c882317f423c708806b82540e6f9223a45",
+      "mirror": "skill/references/controls/02-asset-management/enhancement.md",
+      "mirrorSha256": "bf4f5ec42b84b28c1e57452fa73cac15a320d13cabe2c6e823ab9b9ff1fae6c3"
+    },
+    {
+      "source": "_pages/control-guide/03-continuity/common.md",
+      "sourceSha256": "78ad68778b5496542daeb54f019c52dca1fce8e621df3b6cc41685a77eb66012",
+      "mirror": "skill/references/controls/03-continuity/common.md",
+      "mirrorSha256": "9d7370ad23428aa1a698ece44b960f5be78457215caa5826db586dbd17634926"
+    },
+    {
+      "source": "_pages/control-guide/03-continuity/enhancement.md",
+      "sourceSha256": "4585b666ce91a760c3c09359669089a74d84cf6ce8d0c9a00fb1db199b6da5a1",
+      "mirror": "skill/references/controls/03-continuity/enhancement.md",
+      "mirrorSha256": "29092a01b5e362c79f284b4512a0a405f62193b8e14b40a36b3ad076e2754958"
+    },
+    {
+      "source": "_pages/control-guide/04-human-resource-security/common.md",
+      "sourceSha256": "96b51e10fee2780326b4ee1e7ced295be2ed35a6c8ba638c6bc38beb763d6947",
+      "mirror": "skill/references/controls/04-human-resource-security/common.md",
+      "mirrorSha256": "7aa4ed6f174eebfac8b0870ff9c99986cca3f94ab02863aff41fc557c75bf54c"
+    },
+    {
+      "source": "_pages/control-guide/05-identity-access-management/common.md",
+      "sourceSha256": "98c57248ca40ea152be8fe17e604c3850abf1063cbf468e43bb43f8febc91f84",
+      "mirror": "skill/references/controls/05-identity-access-management/common.md",
+      "mirrorSha256": "dbdf2fa7dff909abe885ad4bfee315e27dba5a15184ea177e7db3d43edf6acd2"
+    },
+    {
+      "source": "_pages/control-guide/05-identity-access-management/enhancement.md",
+      "sourceSha256": "7fb4d22c3b2b03a0f64b7bc421e029a73b17174a649234bae46bf5718764c2a2",
+      "mirror": "skill/references/controls/05-identity-access-management/enhancement.md",
+      "mirrorSha256": "607d5530a2f9bcbd757d95c0cdad5697edf004fa36299e6f448158788ad106e9"
+    },
+    {
+      "source": "_pages/control-guide/05-identity-access-management/local.md",
+      "sourceSha256": "595b78ea74396c9d7b336a79b3f73ae58b7e3808aadf937f64497713541eae84",
+      "mirror": "skill/references/controls/05-identity-access-management/local.md",
+      "mirrorSha256": "e2e0a028c86806b4adf7218990317975a508254600f0a3a66e2c36bf2a8e822e"
+    },
+    {
+      "source": "_pages/control-guide/06-information-protection/common.md",
+      "sourceSha256": "8ce650f7b270c5d731e30def506fb7cf3860c7368ec2f70cf1436c7d867bc278",
+      "mirror": "skill/references/controls/06-information-protection/common.md",
+      "mirrorSha256": "c4004a39146d9d9b74b20206ce10c6eb7655ca93253a38d63757bc0f8281ed29"
+    },
+    {
+      "source": "_pages/control-guide/06-information-protection/enhancement.md",
+      "sourceSha256": "8d8fd91eea5d9025cd8475c2664187545c703f76b8b138a5fbdb1c376c60b8c2",
+      "mirror": "skill/references/controls/06-information-protection/enhancement.md",
+      "mirrorSha256": "b3b70c1172505741f7ac6ddaffb487665ca5c10d113d589f7e61c5f51525d78a"
+    },
+    {
+      "source": "_pages/control-guide/06-information-protection/local.md",
+      "sourceSha256": "d016afce9c442a8f73929fbd20a11b2b18dac3125022215dae940def2ba1e883",
+      "mirror": "skill/references/controls/06-information-protection/local.md",
+      "mirrorSha256": "b374a19461008de001edc33098e85040653e3c55bdfe6cc6df75a5eb4d98c7ba"
+    },
+    {
+      "source": "_pages/control-guide/07-information-security-assurance/common.md",
+      "sourceSha256": "06bd75217ec48d9e68eedd601fddac9dfb235ce417a77426a7baf4334e9e8244",
+      "mirror": "skill/references/controls/07-information-security-assurance/common.md",
+      "mirrorSha256": "7208e67823f90f12cc3865560cbd31d602ba885557541ea6bd43fad02f765690"
+    },
+    {
+      "source": "_pages/control-guide/08-information-security-event-management/common.md",
+      "sourceSha256": "e8bcea82a66ddd25e38c9c79a1e4e3b65a165123e78cbdcf0658a4a3073d9a30",
+      "mirror": "skill/references/controls/08-information-security-event-management/common.md",
+      "mirrorSha256": "4fecb8981ecea8498cfe873b8f192f6ce1c3bd713afdc30f73b0b68e09f9a43c"
+    },
+    {
+      "source": "_pages/control-guide/08-information-security-event-management/enhancement.md",
+      "sourceSha256": "100f7a81fe71b50a709b809493a6afa52256e495b1b860dccaf412d1d20af5ef",
+      "mirror": "skill/references/controls/08-information-security-event-management/enhancement.md",
+      "mirrorSha256": "5c33f94272df066b342f368282a8059c74e99d8f380dcb43ea7b4056b012dd0e"
+    },
+    {
+      "source": "_pages/control-guide/09-legal-compliance/enhancement.md",
+      "sourceSha256": "e1898125393a589d2ba7fb77e27fd97de1d9106737678e848e6cb2020287da9c",
+      "mirror": "skill/references/controls/09-legal-compliance/enhancement.md",
+      "mirrorSha256": "675c6ed14d030cb359bb7dacad2b9d7b8223b87ba9af282d8a731351da6b77c3"
+    },
+    {
+      "source": "_pages/control-guide/09-legal-compliance/local.md",
+      "sourceSha256": "5c675e280ddfadf5e3bf1415a79ac31e67e971d1488e860602f6a4fb70c7f361",
+      "mirror": "skill/references/controls/09-legal-compliance/local.md",
+      "mirrorSha256": "bf8c4f9d8acad8ee43ca14627f17b8308be8e041f9c4270af3b911a5c6d31328"
+    },
+    {
+      "source": "_pages/control-guide/10-physical-security/common.md",
+      "sourceSha256": "68f379664dd90a97ea7b91d5d86f9b433b9f6f8830cce1fbe9854214ddfd5e39",
+      "mirror": "skill/references/controls/10-physical-security/common.md",
+      "mirrorSha256": "42c940e80d928a825357f2742ce21eab29b62104938c9d2ff9654de1615a5bc6"
+    },
+    {
+      "source": "_pages/control-guide/10-physical-security/local.md",
+      "sourceSha256": "1c20960922e6ad377a502da699d3f49f8dd7e9ebe0a7c4ed540688dc70cd5e05",
+      "mirror": "skill/references/controls/10-physical-security/local.md",
+      "mirrorSha256": "f3e1e44c1b040cb8b005ed644401d6cf6ce3dcb28835036a51cae52f65c7f6ff"
+    },
+    {
+      "source": "_pages/control-guide/11-application-security/enhancement.md",
+      "sourceSha256": "f2b00d9c35acd927162f0461fa05c2394bf67ab63734ff1defcd6655726ebddc",
+      "mirror": "skill/references/controls/11-application-security/enhancement.md",
+      "mirrorSha256": "eee8cb00bfcc394a55929edfac865c5408b3f35a551eacaf108ac31ec82c8ae0"
+    },
+    {
+      "source": "_pages/control-guide/12-secure-configuration/common.md",
+      "sourceSha256": "b14de9a7df40b4b763c971a8204e44bdedeaad1e202c14c2875c5168152a3d11",
+      "mirror": "skill/references/controls/12-secure-configuration/common.md",
+      "mirrorSha256": "d1828d25d87906ba29b43f0d8603d7082b12f8249bff363d319d9a85beae3ecf"
+    },
+    {
+      "source": "_pages/control-guide/13-supplier-relationships-security/common.md",
+      "sourceSha256": "43b0d8d8c9a80abfe4cc52806f71f707e4bf6b3bed4014a01ade4653286fa2dd",
+      "mirror": "skill/references/controls/13-supplier-relationships-security/common.md",
+      "mirrorSha256": "42e4066acb0559e6a99628aa5a5c706b1d68516660c488746c7153d7ba7e7e69"
+    },
+    {
+      "source": "_pages/control-guide/13-supplier-relationships-security/enhancement.md",
+      "sourceSha256": "9203887cd7cc23592fad80c30493dabc51187334c286e76fe86f800b93e3389b",
+      "mirror": "skill/references/controls/13-supplier-relationships-security/enhancement.md",
+      "mirrorSha256": "e59f6f8a4afa729fb17f474e01fe1cdc4dbc771cc09e7811fe451aa4be04cf19"
+    },
+    {
+      "source": "_pages/control-guide/13-supplier-relationships-security/local.md",
+      "sourceSha256": "83853c36a71cde48af384a427cb67fa59ae46eb9732d75b9de512b1a1092d962",
+      "mirror": "skill/references/controls/13-supplier-relationships-security/local.md",
+      "mirrorSha256": "88a087460c6780739e04f57d6a3f1fe60025062d48122e964549befdb761bc49"
+    },
+    {
+      "source": "_pages/control-guide/14-system-network-security/common.md",
+      "sourceSha256": "82db3d24a5d2ebf96a1603179aaf2706383c2b7696041b04382e944ae8d075ed",
+      "mirror": "skill/references/controls/14-system-network-security/common.md",
+      "mirrorSha256": "a1e0cec42984ed85eed7f3fbaf9d03850e57021718c4f56f1842143d11d83932"
+    },
+    {
+      "source": "_pages/control-guide/15-threat-vulnerability-management/common.md",
+      "sourceSha256": "c8c653dfdeb057a8292cd7fa879b2a26f0418fe41b9d84db743abb562055f3c9",
+      "mirror": "skill/references/controls/15-threat-vulnerability-management/common.md",
+      "mirrorSha256": "4af1b8f0c6c762c20b3faa338b06e13c47e95dca0f1f1433d4bd6e769c9ece69"
+    },
+    {
+      "source": "_pages/control-guide/15-threat-vulnerability-management/enhancement.md",
+      "sourceSha256": "8928c98bab65e1f0b86e23b47e37ec44f12ed92fd4fdd46cd94fec0f0294ee06",
+      "mirror": "skill/references/controls/15-threat-vulnerability-management/enhancement.md",
+      "mirrorSha256": "1db9ba46e6e1a2e3599ae3e5f0589e132735b7ce2676733cfd298601d3f3dbd0"
+    }
+  ],
+  "indexSha256": "9c054feff828f78d17e845388a27fd7afeeded99891009f870a3a7385ae3949c"
+}

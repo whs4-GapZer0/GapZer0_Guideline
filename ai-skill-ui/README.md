@@ -122,3 +122,32 @@ node ai-skill-ui/tests/quantitative-tests.cjs
 ```
 
 `/tmp/quantitative-before.json`은 이번 작업공간의 시작 snapshot이다. 다른 환경에서는 해당 작업 시작 시 snapshot을 새로 생성해야 한다. 기존 미커밋 검색 알고리즘 변경은 읽기 전용으로 대조·보존했으며 UI 변경에 포함하지 않는다. 최신 Guideline 동기화·실시간 자유질의·Production Chibbo/GRC 연결은 별도 검증이 필요하다.
+
+## Guideline → Skill synchronization
+
+이번 동기화는 **조회 시점 원격 `main`의 `25b323acee87af4cb9a4d4dbca9708834069127e`**를 고정하여 수행했다. 작업 브랜치 HEAD는 `f80d34e…`로 유지했고 `_pages/`, main/site/workflow는 수정하지 않았다. 따라서 오래된 로컬 `_pages/` 대신 고정 Git 객체의 공식 원문을 읽는다. 개별 Control의 별도 승인서가 확보됐다는 의미는 아니며, 공식 main 원문·이력을 기준으로 삼았다.
+
+전수 비교: 121 Controls / 15 Domains, 변경 Control 121개 / 변경 필드 220개, Evidence 변경 11개. ID·이름·Domain·Class·추가·삭제·Source 경로 변경은 없다. ISMS-P 표시명 변경 6개는 최신 원문을 그대로 반영했고 번호는 변경되지 않았다. 공식 용어 페이지의 Statement·Owner 정의 2개도 반영했다.
+
+[Sync report](tests/GUIDELINE_SKILL_SYNC_REPORT.md), [전수 old/new structural diff](tests/GUIDELINE_SKILL_STRUCTURAL_DIFF.json), [실제 검색 재실행 결과](data/guideline-sync.json), [정적 검증](../skill/tests/guideline-sync-validation.json).
+
+```bash
+# 이미 fetch된 공식 main 커밋을 사용. 원문/branch/workflow 변경 없이 분석.
+python skill/scripts/sync-guideline.py --revision 25b323acee87af4cb9a4d4dbca9708834069127e
+# 분석의 unresolved가 0이고 source identity가 명확할 때만 copy 적용
+python skill/scripts/sync-guideline.py --revision 25b323acee87af4cb9a4d4dbca9708834069127e --apply
+python ai-skill-ui/build-sync-data.py
+python ai-skill-ui/build-showcase.py
+python ai-skill-ui/build-demo.py
+python ai-skill-ui/build-quantitative.py
+node skill/scripts/validate-control-data.mjs
+node skill/scripts/validate-codex-skill.mjs
+python claude-skill/tests/validate_port.py
+PYTHONDONTWRITEBYTECODE=1 python skill/scripts/validate-guideline-sync.py
+```
+
+`guideline-provenance.json`에 공식 원문 commit·28개 source/mirror SHA·Index SHA·assessment source를 기록한다. 일반 `build-control-data.mjs`와 validator도 이 provenance가 있으면 같은 고정 원문을 읽어 오래된 작업 트리로 되돌아가는 것을 막는다. 새 main commit은 읽기 전용으로 fetch한 뒤 다시 비교해야 하며 자동으로 최신이라고 주장하지 않는다.
+
+검색 Before는 작업 시작 전 snapshot을 임시 디렉터리에서 같은 알고리즘으로 실제 실행했다. `/tmp` snapshot이 없는 환경에서는 이미 기록된 Before 측정만 유지하고 After만 다시 실행한다. 전수 validator의 작업 시작 SHA snapshot(`/tmp/guideline-sync-before.json`)과 브라우저 회귀의 동기화 후 SHA snapshot(`/tmp/guideline-sync-ui-baseline.json`)은 이번 작업공간 기준이며 다른 작업에서는 새 snapshot이 필요하다. 이전 UI-only guard는 **동기화 후 브라우저 검증 단계**에 적용하고, 전체 작업의 허용 범위는 별도 SYNC17에서 검사한다.
+
+Codex/Claude 실제 외부 Runtime은 이번에 실행하지 않았다. Dashboard의 기존 Runtime·T05/T06 값은 과거 기록임을 표시했다. 검색 수치는 새 실제 실행 결과를 사용한다. 상시 자동 동기화·외부 Runtime 재검증·Production Chibbo/GRC·운영 배포는 이번 범위가 아니다. 기존 “전체 동기화 미수행” 안내는 이 섹션의 고정 commit 기준 동기화 상태로 대체된다. commit/push/deploy 미실행.

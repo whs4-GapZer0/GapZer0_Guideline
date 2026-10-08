@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
@@ -22,9 +23,18 @@ for (const domain of fs.readdirSync(sourceRoot, { withFileTypes: true }).filter(
   }
 }
 
+const provenancePath = path.join(referencesRoot, 'guideline-provenance.json');
+const provenance = fs.existsSync(provenancePath) ? JSON.parse(fs.readFileSync(provenancePath, 'utf8')) : null;
+// Validate the recorded canonical revision, not a potentially older worktree.
+if (provenance) {
+  sourceFiles.length = 0;
+  for (const file of provenance.files) sourceFiles.push({ domain: path.basename(path.dirname(file.source)), fileName: path.basename(file.source), source: path.join(repoRoot, file.source), relativeSource: file.source });
+}
 const sourceIds = [];
 for (const file of sourceFiles) {
-  const raw = fs.readFileSync(file.source, 'utf8');
+  const raw = provenance
+    ? execFileSync('git', ['show', `${provenance.guidelineRevision}:${file.relativeSource}`], { cwd: repoRoot, encoding: 'utf8' })
+    : fs.readFileSync(file.source, 'utf8');
   const ids = [...raw.matchAll(controlIdPattern)].map((match) => match[1]);
   sourceIds.push(...ids);
   const target = path.join(targetRoot, file.domain, file.fileName);
@@ -42,8 +52,9 @@ const indexText = fs.existsSync(indexFile) ? fs.readFileSync(indexFile, 'utf8') 
 const indexIds = [...indexText.matchAll(controlIdPattern)].map((match) => match[1]);
 const duplicates = (ids) => [...new Set(ids.filter((id, index) => ids.indexOf(id) !== index))];
 
-if (sourceIds.length !== 121) errors.push(`Expected 121 source controls, found ${sourceIds.length}`);
-if (indexIds.length !== 121) errors.push(`Expected 121 index entries, found ${indexIds.length}`);
+if (!sourceIds.length) errors.push('No source controls found.');
+if (provenance && sourceIds.length !== provenance.controlCount) errors.push('Source count differs from pinned provenance.');
+if (indexIds.length !== sourceIds.length) errors.push(`Expected ${sourceIds.length} index entries, found ${indexIds.length}`);
 if (duplicates(sourceIds).length) errors.push(`Duplicate source IDs: ${duplicates(sourceIds).join(', ')}`);
 if (duplicates(indexIds).length) errors.push(`Duplicate index IDs: ${duplicates(indexIds).join(', ')}`);
 
@@ -64,7 +75,7 @@ for (const entry of indexEntryMatches) {
   const applicability = /- \*\*적용 조건 요약:\*\* ([^\r\n]+)/.exec(body)?.[1] || '';
   if (applicability.length < 10) errors.push(`${id}: applicability summary is empty or too short`);
 }
-if (indexEntryMatches.length !== 121) errors.push(`Expected 121 complete index blocks, found ${indexEntryMatches.length}`);
+if (indexEntryMatches.length !== sourceIds.length) errors.push(`Expected ${sourceIds.length} complete index blocks, found ${indexEntryMatches.length}`);
 
 for (const match of indexText.matchAll(/- \*\*원문 위치:\*\* `([^`#]+)(?:#[^`]+)?`/g)) {
   const resolved = path.join(skillRoot, ...match[1].split('/'));
@@ -78,6 +89,7 @@ if (errors.length) {
 }
 
 console.log('Control data validation passed.');
+console.log(`- Source revision: ${provenance?.guidelineRevision || 'working tree'}`);
 console.log(`- Source controls: ${sourceIds.length}`);
 console.log(`- Index entries: ${indexIds.length}`);
 console.log(`- Mirrored control files: ${sourceFiles.length}`);

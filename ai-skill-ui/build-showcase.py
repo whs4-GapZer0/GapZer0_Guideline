@@ -7,6 +7,12 @@ DATA=ROOT/'data'; DATA.mkdir(exist_ok=True)
 def read(rel):return (REPO/rel).read_text()
 def sha(rel):return hashlib.sha256((REPO/rel).read_bytes()).hexdigest()
 index=read('skill/references/control-index.md')
+provenance_path=REPO/'skill/references/guideline-provenance.json'
+provenance=json.loads(provenance_path.read_text()) if provenance_path.exists() else None
+assessment_by_id={}
+if provenance:
+ assessment=json.loads(subprocess.check_output(['git','show',provenance['guidelineRevision']+':'+provenance['assessmentSource']],cwd=REPO,text=True))
+ assessment_by_id={c['id']:c for c in assessment['controls']}
 controls=[]
 for match in re.finditer(r'^## ([A-Z]{3}-[CEL]-\d{2}) — (.+)\n([\s\S]*?)(?=^## |\Z)',index,re.M):
     cid,name,body=match.groups()
@@ -20,9 +26,9 @@ for match in re.finditer(r'^## ([A-Z]{3}-[CEL]-\d{2}) — (.+)\n([\s\S]*?)(?=^##
     assert fields['Security Domain']==indexfield('Domain')
     assert fields['Control Class']==indexfield('Class')
     assert anchor==cid.lower()
-    controls.append(dict(id=cid,name=name,domain=fields['Security Domain'],classification=fields['Control Class'],keywords=[v.strip() for v in indexfield('검색 키워드').split(',')],source=source,repositorySource=path+'#'+anchor,sourceSha256=sha(path),fields=fields,original='## '+cid+'\n\n'+section))
+    controls.append(dict(assessmentGuide=assessment_by_id[cid]['guide'] if provenance else None,assessmentSource=provenance['assessmentSource'] if provenance else None,guidelineSource=(rel.replace('references/controls/','_pages/control-guide/')+'#'+anchor),guidelineRevision=provenance['guidelineRevision'] if provenance else None,id=cid,name=name,domain=fields['Security Domain'],classification=fields['Control Class'],keywords=[v.strip() for v in indexfield('검색 키워드').split(',')],source=source,repositorySource=path+'#'+anchor,sourceSha256=sha(path),fields=fields,original='## '+cid+'\n\n'+section))
 assert len({c['id'] for c in controls})==len(controls)
-(DATA/'controls.json').write_text(json.dumps(dict(source='skill/references/control-index.md → skill/references/controls/',sourceCommit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=REPO,text=True).strip(),indexSha256=sha('skill/references/control-index.md'),count=len(controls),synchronization='current AI Skill snapshot; latest Guideline synchronization not performed',controls=controls),ensure_ascii=False,indent=2)+'\n')
+(DATA/'controls.json').write_text(json.dumps(dict(source='skill/references/control-index.md → skill/references/controls/',sourceCommit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=REPO,text=True).strip(),indexSha256=sha('skill/references/control-index.md'),count=len(controls),guidelineRevision=provenance['guidelineRevision'] if provenance else None,synchronization='pinned canonical main Guideline → Skill → generated dataset' if provenance else 'current AI Skill snapshot; latest Guideline synchronization not performed',controls=controls),ensure_ascii=False,indent=2)+'\n')
 metrics=[]
 def metric(mid,title,n,d,source,evidence,scope,details,limitations):
     text=read(source)
@@ -38,6 +44,13 @@ metric('claude','Claude Runtime',3,3,claude,'| Claude Runtime Validation | 3/3 P
 metric('agreement','Cross-runtime Representative Agreement',3,3,claude,'| Cross-Runtime Functional Agreement | 3/3 = 100% |','대표 기능 유형 3개','기존 Codex V01–V03와 Claude C01–C03 모두 핵심 기능 기대 동작을 충족했습니다.','동일 입력 paired 재실행이나 문장 동일성을 측정한 수치가 아닙니다.')
 ui='ai-skill-ui/tests/ui-test-results.json';obj=json.loads(read(ui));assert obj['total']==10 and obj['pass']==10 and obj['fail']==0
 metric('ui','UI Tests',obj['pass'],obj['total'],ui,'"pass": 10','UI U01–U10','실제 로컬 Chromium에서 화면, 기능 선택, 예시, 세 결과, Source, 태그, 오류, Demo 표시를 검사했습니다.','실시간 LLM·운영 배포 검증이 아닙니다.')
+sync_result=DATA/'guideline-sync.json'
+if sync_result.exists():
+    sync=json.loads(sync_result.read_text())
+    for m in metrics:
+        if m['id'] in ['top5','hit5']:
+            actual=sync['searchAfter']['metrics'][m['id']]
+            m.update(numerator=actual['numerator'],denominator=actual['denominator'],source='ai-skill-ui/data/guideline-sync.json',sourceSha256=sha('ai-skill-ui/data/guideline-sync.json'),reportEvidence=sync['searchAfter']['metricEvidence'][m['id']],limitations='최신 pinned Guideline Index로 다시 실행한 선정 검색 평가; 일반 정확도가 아님.')
 paths=['skill/SKILL.md','.codex/skills/gapzero-guide/SKILL.md','claude-skill/SKILL.md','skill/references/control-index.md','skill/references/controls','skill/references/output-formats.md','skill/tests','ai-skill-ui']
 assert all((REPO/p).exists() for p in paths)
 e03=read('skill/tests/VIRTUAL_CHIBBO_GRC_E2E_E03.md');assert 'D — local verification' in e03 and 'Production E2E: NOT VERIFIED' in e03

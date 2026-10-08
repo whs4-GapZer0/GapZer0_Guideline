@@ -1,0 +1,38 @@
+# 디자인 기준 및 적용 근거
+
+## 확인한 자료
+
+- 운영 URL: https://docs.whs4-gapzer0.kro.kr/ — 환경의 HTTP 터널이 403으로 차단. 운영 HTML/CSS, 모바일 화면은 **확인 필요**. 운영 화면과 일치한다고 단정하지 않는다.
+- 저장소 `_config.yml`: jekyll-gitbook remote theme, page_width 800px, custom domain, baseurl 빈 값. 읽기만 수행했다.
+- `assets/assessment/guide.css`: 공식 평가 진입 버튼 #156b71, hover #0f5257, focus #ea9800, radius 6px. 이번 UI 토큰의 직접 근거다.
+- https://github.com/anthropics/skills/tree/main/skills/frontend-design — 실제 SKILL.md 확인. 문서 중심의 절제된 정보 계층, 일관된 타이포그래피, 스크린샷 비평 적용.
+- https://github.com/vercel-labs/agent-skills/blob/main/skills/web-design-guidelines/SKILL.md 및 최신 web-interface-guidelines command.md 확인. native semantic controls, skip link, focus-visible, tabular numbers, reduced motion, 긴 문장 줄바꿈 적용.
+
+## 디자인 계획과 선택
+
+```text
+6개 메뉴 / 현재 위치
+제품 목적 + 사용 흐름
+기능 선택 → 질문 → 결과 요약 → 통제 카드 → 상세 원문
+Control 탐색 / 검색·필터 / 상세 필드
+검증 요약 → 차트·비교 → 사례·안전성 → 방법론·제한
+프로젝트 연결 / 근거 산출물
+```
+
+공식 문서의 밝은 바탕과 평가 도구의 청록색 버튼을 사용한다. 기존 Showcase의 데이터 구조는 유지한다. 본문 원문은 800px 범위로 읽고, 여러 지표를 비교해야 하는 대시보드 전체는 1240px을 유지한다. 이 폭은 운영 사이트의 실측치가 아니라 대시보드 용도에 따른 설계 선택이다.
+
+| 요소 | 적용 | 근거/제한 |
+|---|---|---|
+| 주요색 | #156b71 / #0f5257 | 저장소 guide.css |
+| 배경/본문 | #f5f7f8 / #ffffff / #25343d | UI 설계 선택; 운영 실측 아님 |
+| 보조 글자 | #52616b | 밝은 배경 가독성 |
+| 테두리/반경 | #dce3e7 / 6px | 문서 구획, 공식 버튼 반경 |
+| 폰트 | Segoe UI, Noto Sans KR, Arial, sans-serif | 시스템 폰트; 새 외부 의존성 없음 |
+| 제목 | 36px desktop, 29px mobile | 기존 UX 첫 화면 조건 유지 |
+| 탐색 | hash anchor, 현재 위치, 모바일 메뉴 | 기존 URL 유지 |
+| 표/코드 | 표 영역만 가로 스크롤, 숫자 tabular | 데이터 삭제 없음 |
+| Control | 독립 카드/기본 접힌 상세/Source | 원문·필드 데이터 불변 |
+
+## 확인하지 못한 운영 요소
+
+운영 사이트의 실제 sidebar 너비, 폰트 다운로드, 전체 CSS cascade, 제목 간격, 테이블/코드 블록의 최종 렌더링, 모바일 navigation은 확인 필요. 운영 사이트 나란히 비교 캡처는 접근 차단으로 생성하지 않았다.

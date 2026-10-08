@@ -22,9 +22,9 @@ ISMS-P만으로는 NIST CSF 2.0의 결과를 충분히 설명하기 어려운 Ga
 - **Security Domain:** 관련 보안 주제를 기준으로 Control을 묶은 상위 영역
 - **Control Class:** Common / Enhancement / Local 구분
 - **Control Objective:** 해당 Control을 통해 달성하려는 보안·프라이버시 목적
-- **Control Statement:** 통제의 배경, 중요성, 목적을 설명하는 항목
+- **Control Statement:** Control의 목적을 달성하기 위해 수행해야 하는 핵심 요구사항입니다.
 - **적용 조건:** 통제가 언제, 어떤 대상에 적용되는지 판단하기 위한 정보. 가이드라인에서는 필요한 경우 관련 법령도 함께 제시한다.
-- **Control Owner:** 통제의 이행·유지·개선에 최종 책임을 갖는 역할
+- **Control Owner:** Control의 이행과 유지에 책임을 지는 부서 또는 역할입니다.
 - **Stakeholders:** 통제 수행에 참여하거나 정보 제공·검토·협업하는 관계자
 - **ISMS-P / CSF Mapping:** Control과 연계된 기준 항목
 - **Implementation Guide:** 실무자가 Control을 실제로 이행하기 위한 활동과 설명
@@ -43,3 +43,6 @@ Control의 ID, Name, Owner, Stakeholders, Mapping 등은 원문을 우선하며 
 
 ## 버전 원칙
 Skill은 GapZer0 가이드라인의 최신 승인본을 기준으로 동작한다. 인덱스와 Control 원문이 불일치할 경우 Control 원문을 우선하고 인덱스 수정 필요 사항을 표시한다.
+
+## 용어 동기화 근거
+위 Control Statement와 Control Owner 정의는 canonical main `25b323acee87af4cb9a4d4dbca9708834069127e`의 `_pages/03-term-explanation.md` 원문 정의를 사용합니다. 개별 Control 요구사항과 실제 조직 책임 지정은 해당 Control 원문과 조직 정보를 우선합니다.

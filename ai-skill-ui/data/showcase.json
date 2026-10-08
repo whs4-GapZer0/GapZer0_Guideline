@@ -41,24 +41,24 @@
       "title": "Search Top-5 Case",
       "numerator": 8,
       "denominator": 8,
-      "source": "skill/tests/AI_SKILL_QUANTITATIVE_EVALUATION.md",
-      "sourceSha256": "a7f36baea09dc0d15a6fbf4f7652e52a643b57dfd7c413fdcdf4879e1fa79ec3",
-      "reportEvidence": "| Top-5 Case Pass Rate | 8 / 8 |",
+      "source": "ai-skill-ui/data/guideline-sync.json",
+      "sourceSha256": "2b902c40eb88ce26733ad5941a4b6c2f657b8e7ea6d1a494b255defa779e9687",
+      "reportEvidence": "Top-5 case pass rate: 8/8 (100.0%)",
       "scope": "검색 질의 8개",
       "details": "각 질의의 모든 기대 Control이 Top-5 안에 포함돼야 해당 Case가 PASS입니다.",
-      "limitations": "보고서의 2차 개선 결과입니다. Explorer 문자열 검색과 다른 평가이며 Top-3 Case는 7/8입니다."
+      "limitations": "최신 pinned Guideline Index로 다시 실행한 선정 검색 평가; 일반 정확도가 아님."
     },
     {
       "id": "hit5",
       "title": "Expected-Control Top-5 Hit",
       "numerator": 11,
       "denominator": 11,
-      "source": "skill/tests/AI_SKILL_QUANTITATIVE_EVALUATION.md",
-      "sourceSha256": "a7f36baea09dc0d15a6fbf4f7652e52a643b57dfd7c413fdcdf4879e1fa79ec3",
-      "reportEvidence": "| Top-5 Expected-Control Hit Rate | 11 / 11 |",
+      "source": "ai-skill-ui/data/guideline-sync.json",
+      "sourceSha256": "2b902c40eb88ce26733ad5941a4b6c2f657b8e7ea6d1a494b255defa779e9687",
+      "reportEvidence": "Top-5 expected-control hit rate: 11/11 (100.0%)",
       "scope": "기대 Control 11개",
       "details": "검색 상위 5개에서 개별 기대 Control을 찾았는지 집계했습니다.",
-      "limitations": "일반 정확도 100%가 아닙니다. 기대값 11개 범위입니다."
+      "limitations": "최신 pinned Guideline Index로 다시 실행한 선정 검색 평가; 일반 정확도가 아님."
     },
     {
       "id": "claude",
