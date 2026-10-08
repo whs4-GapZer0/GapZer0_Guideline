@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Information Security Event Management"
+title: "Information Security Event Management(IEM)"
 permalink: /controls/information-security-event-management/
 ---
 

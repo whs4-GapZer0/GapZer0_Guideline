@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Application Security"
+title: "Application Security(APP)"
 permalink: /controls/application-security/
 ---
 

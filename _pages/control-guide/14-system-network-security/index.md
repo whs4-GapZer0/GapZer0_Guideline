@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "System and Network Security"
+title: "System and Network Security(SNS)"
 permalink: /controls/system-network-security/
 ---
 

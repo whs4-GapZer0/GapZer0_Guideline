@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Identity and Access Management"
+title: "Identity and Access Management(IAM)"
 permalink: /controls/identity-access-management/
 ---
 

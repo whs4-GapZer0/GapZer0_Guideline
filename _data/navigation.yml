@@ -12,3 +12,7 @@
 
 - title: "05. 자가 진단"
   url: /self-assessment/
+
+- title: "AI Skill"
+  url: https://docs.whs4-gapzer0.kro.kr/ai-skill-ui/
+  external: true

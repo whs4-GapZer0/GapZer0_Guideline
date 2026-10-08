@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Secure Configuration"
+title: "Secure Configuration(SCF)"
 permalink: /controls/secure-configuration/
 ---
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Physical Security"
+title: "Physical Security(PHY)"
 permalink: /controls/physical-security/
 ---
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Legal and Compliance"
+title: "Legal and Compliance(LCM)"
 permalink: /controls/legal-compliance/
 ---
 
